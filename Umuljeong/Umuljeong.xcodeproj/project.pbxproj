@@ -8,17 +8,58 @@
 
 /* Begin PBXBuildFile section */
 		CE19D9A62990CE15003F4399 /* UmuljeongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9A52990CE15003F4399 /* UmuljeongApp.swift */; };
-		CE19D9A82990CE15003F4399 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9A72990CE15003F4399 /* ContentView.swift */; };
 		CE19D9AA2990CE16003F4399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9A92990CE16003F4399 /* Assets.xcassets */; };
 		CE19D9AD2990CE16003F4399 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9AC2990CE16003F4399 /* Preview Assets.xcassets */; };
+		CE19D9B42990EB18003F4399 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9B32990EB18003F4399 /* SignInView.swift */; };
+		CE19D9B62990EB22003F4399 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9B52990EB22003F4399 /* SignUpView.swift */; };
+		CE19D9B82990EB37003F4399 /* RoleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9B72990EB37003F4399 /* RoleSelectView.swift */; };
+		CE19D9BA2990EB42003F4399 /* CompanyCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9B92990EB42003F4399 /* CompanyCreateView.swift */; };
+		CE19D9C72990F016003F4399 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9BE2990F015003F4399 /* Pretendard-Thin.otf */; };
+		CE19D9C82990F016003F4399 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9BF2990F015003F4399 /* Pretendard-Bold.otf */; };
+		CE19D9C92990F016003F4399 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C02990F015003F4399 /* Pretendard-Light.otf */; };
+		CE19D9CA2990F016003F4399 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C12990F015003F4399 /* Pretendard-Regular.otf */; };
+		CE19D9CB2990F016003F4399 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C22990F016003F4399 /* Pretendard-Medium.otf */; };
+		CE19D9CC2990F016003F4399 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C32990F016003F4399 /* Pretendard-ExtraBold.otf */; };
+		CE19D9CD2990F016003F4399 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C42990F016003F4399 /* Pretendard-Black.otf */; };
+		CE19D9CE2990F016003F4399 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C52990F016003F4399 /* Pretendard-SemiBold.otf */; };
+		CE19D9CF2990F016003F4399 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C62990F016003F4399 /* Pretendard-ExtraLight.otf */; };
+		CE9E57AF299201E700DCDB63 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57AE299201E700DCDB63 /* SignUpViewModel.swift */; };
+		CE9E57B1299215D100DCDB63 /* SignUpBasicTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57B0299215D100DCDB63 /* SignUpBasicTextFiled.swift */; };
+		CE9E57B729954CD700DCDB63 /* BasicTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */; };
+		CE9E57BB2995E44300DCDB63 /* ButtonTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57BA2995E44300DCDB63 /* ButtonTextFiled.swift */; };
+		CE9E57BD2995E80100DCDB63 /* TextFiledStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */; };
+		CE9E57BF2995E85400DCDB63 /* TapCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57BE2995E85400DCDB63 /* TapCase.swift */; };
+		CE9E57C22996063100DCDB63 /* CompanyCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */; };
+		CE9E57C52996370200DCDB63 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57C42996370200DCDB63 /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE19D9A22990CE15003F4399 /* Umuljeong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Umuljeong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE19D9A52990CE15003F4399 /* UmuljeongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmuljeongApp.swift; sourceTree = "<group>"; };
-		CE19D9A72990CE15003F4399 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CE19D9A92990CE16003F4399 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE19D9AC2990CE16003F4399 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CE19D9B32990EB18003F4399 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		CE19D9B52990EB22003F4399 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		CE19D9B72990EB37003F4399 /* RoleSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectView.swift; sourceTree = "<group>"; };
+		CE19D9B92990EB42003F4399 /* CompanyCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCreateView.swift; sourceTree = "<group>"; };
+		CE19D9BE2990F015003F4399 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		CE19D9BF2990F015003F4399 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		CE19D9C02990F015003F4399 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		CE19D9C12990F015003F4399 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		CE19D9C22990F016003F4399 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		CE19D9C32990F016003F4399 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		CE19D9C42990F016003F4399 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		CE19D9C52990F016003F4399 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		CE19D9C62990F016003F4399 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		CE19D9D02990F064003F4399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CE9E57AE299201E700DCDB63 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		CE9E57B0299215D100DCDB63 /* SignUpBasicTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBasicTextFiled.swift; sourceTree = "<group>"; };
+		CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFiled.swift; sourceTree = "<group>"; };
+		CE9E57BA2995E44300DCDB63 /* ButtonTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextFiled.swift; sourceTree = "<group>"; };
+		CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFiledStyle.swift; sourceTree = "<group>"; };
+		CE9E57BE2995E85400DCDB63 /* TapCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCase.swift; sourceTree = "<group>"; };
+		CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCreateViewModel.swift; sourceTree = "<group>"; };
+		CE9E57C42996370200DCDB63 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +92,11 @@
 		CE19D9A42990CE15003F4399 /* Umuljeong */ = {
 			isa = PBXGroup;
 			children = (
+				CE19D9D02990F064003F4399 /* Info.plist */,
 				CE19D9A52990CE15003F4399 /* UmuljeongApp.swift */,
-				CE19D9A72990CE15003F4399 /* ContentView.swift */,
-				CE19D9A92990CE16003F4399 /* Assets.xcassets */,
+				CE9E57C3299636E900DCDB63 /* 홈화면 */,
+				CE9E57B2299501A900DCDB63 /* 회원가입 */,
+				CE9E57B3299501EC00DCDB63 /* Resource */,
 				CE19D9AB2990CE16003F4399 /* Preview Content */,
 			);
 			path = Umuljeong;
@@ -65,6 +108,83 @@
 				CE19D9AC2990CE16003F4399 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CE19D9BB2990EE8D003F4399 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				CE19D9C42990F016003F4399 /* Pretendard-Black.otf */,
+				CE19D9BF2990F015003F4399 /* Pretendard-Bold.otf */,
+				CE19D9C32990F016003F4399 /* Pretendard-ExtraBold.otf */,
+				CE19D9C62990F016003F4399 /* Pretendard-ExtraLight.otf */,
+				CE19D9C02990F015003F4399 /* Pretendard-Light.otf */,
+				CE19D9C22990F016003F4399 /* Pretendard-Medium.otf */,
+				CE19D9C12990F015003F4399 /* Pretendard-Regular.otf */,
+				CE19D9C52990F016003F4399 /* Pretendard-SemiBold.otf */,
+				CE19D9BE2990F015003F4399 /* Pretendard-Thin.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		CE9E57B2299501A900DCDB63 /* 회원가입 */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E57B42995023100DCDB63 /* View */,
+				CE9E57B52995024900DCDB63 /* SubView */,
+				CE9E57AE299201E700DCDB63 /* SignUpViewModel.swift */,
+				CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */,
+				CE9E57C02995E89400DCDB63 /* enum */,
+			);
+			name = "회원가입";
+			path = "회원가입";
+			sourceTree = "<group>";
+		};
+		CE9E57B3299501EC00DCDB63 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CE19D9A92990CE16003F4399 /* Assets.xcassets */,
+				CE19D9BB2990EE8D003F4399 /* Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CE9E57B42995023100DCDB63 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE19D9B32990EB18003F4399 /* SignInView.swift */,
+				CE19D9B52990EB22003F4399 /* SignUpView.swift */,
+				CE19D9B72990EB37003F4399 /* RoleSelectView.swift */,
+				CE19D9B92990EB42003F4399 /* CompanyCreateView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE9E57B52995024900DCDB63 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E57B0299215D100DCDB63 /* SignUpBasicTextFiled.swift */,
+				CE9E57BA2995E44300DCDB63 /* ButtonTextFiled.swift */,
+				CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		CE9E57C02995E89400DCDB63 /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */,
+				CE9E57BE2995E85400DCDB63 /* TapCase.swift */,
+			);
+			path = enum;
+			sourceTree = "<group>";
+		};
+		CE9E57C3299636E900DCDB63 /* 홈화면 */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E57C42996370200DCDB63 /* MainTabView.swift */,
+			);
+			name = "홈화면";
+			path = "홈화면";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +245,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE19D9CB2990F016003F4399 /* Pretendard-Medium.otf in Resources */,
+				CE19D9C72990F016003F4399 /* Pretendard-Thin.otf in Resources */,
+				CE19D9CC2990F016003F4399 /* Pretendard-ExtraBold.otf in Resources */,
+				CE19D9CA2990F016003F4399 /* Pretendard-Regular.otf in Resources */,
+				CE19D9CD2990F016003F4399 /* Pretendard-Black.otf in Resources */,
+				CE19D9C82990F016003F4399 /* Pretendard-Bold.otf in Resources */,
 				CE19D9AD2990CE16003F4399 /* Preview Assets.xcassets in Resources */,
+				CE19D9CE2990F016003F4399 /* Pretendard-SemiBold.otf in Resources */,
+				CE19D9C92990F016003F4399 /* Pretendard-Light.otf in Resources */,
 				CE19D9AA2990CE16003F4399 /* Assets.xcassets in Resources */,
+				CE19D9CF2990F016003F4399 /* Pretendard-ExtraLight.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +266,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE19D9A82990CE15003F4399 /* ContentView.swift in Sources */,
+				CE9E57BB2995E44300DCDB63 /* ButtonTextFiled.swift in Sources */,
+				CE9E57BD2995E80100DCDB63 /* TextFiledStyle.swift in Sources */,
+				CE19D9BA2990EB42003F4399 /* CompanyCreateView.swift in Sources */,
+				CE19D9B62990EB22003F4399 /* SignUpView.swift in Sources */,
+				CE9E57B729954CD700DCDB63 /* BasicTextFiled.swift in Sources */,
+				CE19D9B42990EB18003F4399 /* SignInView.swift in Sources */,
+				CE9E57C22996063100DCDB63 /* CompanyCreateViewModel.swift in Sources */,
+				CE9E57C52996370200DCDB63 /* MainTabView.swift in Sources */,
+				CE9E57B1299215D100DCDB63 /* SignUpBasicTextFiled.swift in Sources */,
 				CE19D9A62990CE15003F4399 /* UmuljeongApp.swift in Sources */,
+				CE19D9B82990EB37003F4399 /* RoleSelectView.swift in Sources */,
+				CE9E57BF2995E85400DCDB63 /* TapCase.swift in Sources */,
+				CE9E57AF299201E700DCDB63 /* SignUpViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +410,8 @@
 				DEVELOPMENT_TEAM = QVX6L7QGV2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Umuljeong/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +441,8 @@
 				DEVELOPMENT_TEAM = QVX6L7QGV2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Umuljeong/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

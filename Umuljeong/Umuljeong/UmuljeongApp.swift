@@ -11,7 +11,7 @@ import SwiftUI
 struct UmuljeongApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SignInView()
         }
     }
 }
