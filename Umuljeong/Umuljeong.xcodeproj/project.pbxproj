@@ -23,10 +23,41 @@
 		CE19D9CD2990F016003F4399 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C42990F016003F4399 /* Pretendard-Black.otf */; };
 		CE19D9CE2990F016003F4399 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C52990F016003F4399 /* Pretendard-SemiBold.otf */; };
 		CE19D9CF2990F016003F4399 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C62990F016003F4399 /* Pretendard-ExtraLight.otf */; };
+		CE217ACB299A3293005C9CF2 /* CalendarFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217ACA299A3293005C9CF2 /* CalendarFomatter.swift */; };
+		CE217AD9299B3C42005C9CF2 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217AD8299B3C42005C9CF2 /* Entity.swift */; };
+		CE217ADB299B3C60005C9CF2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217ADA299B3C60005C9CF2 /* Repository.swift */; };
+		CE217ADD299B3C76005C9CF2 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217ADC299B3C76005C9CF2 /* CalendarModel.swift */; };
+		CE217AE0299B3E7B005C9CF2 /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217ADF299B3E7B005C9CF2 /* CalendarService.swift */; };
+		CE217AE2299B5A03005C9CF2 /* SelectedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217AE1299B5A03005C9CF2 /* SelectedData.swift */; };
+		CE217AF8299DC41D005C9CF2 /* WorkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217AF7299DC41D005C9CF2 /* WorkListView.swift */; };
+		CE217B21299E2AE7005C9CF2 /* WorkListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217B20299E2AE7005C9CF2 /* WorkListCell.swift */; };
+		CE217B23299E2BBC005C9CF2 /* WorkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217B22299E2BBC005C9CF2 /* WorkLabel.swift */; };
+		CE2904A9299F2CDF00C9484E /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904A8299F2CDF00C9484E /* AddTaskView.swift */; };
+		CE2904C3299F3ED900C9484E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904C2299F3ED900C9484E /* Font.swift */; };
+		CE2904C5299F3EFC00C9484E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904C4299F3EFC00C9484E /* Color.swift */; };
+		CE2904C7299F3F3D00C9484E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904C6299F3F3D00C9484E /* Image.swift */; };
+		CE2904C9299F3F6E00C9484E /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904C8299F3F6E00C9484E /* Text.swift */; };
+		CE2904CB299F3F8B00C9484E /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904CA299F3F8B00C9484E /* URLs.swift */; };
+		CE2904CD299F3FE200C9484E /* TypoStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904CC299F3FE200C9484E /* TypoStyle.swift */; };
+		CE2904D9299F465A00C9484E /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904D8299F465A00C9484E /* LogoutView.swift */; };
+		CE2904DC299F472100C9484E /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904DA299F472100C9484E /* ChangePasswordView.swift */; };
+		CE2904DD299F472100C9484E /* ChangeWorkCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904DB299F472100C9484E /* ChangeWorkCategoryView.swift */; };
+		CE2904E1299F474800C9484E /* ResignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904E0299F474800C9484E /* ResignView.swift */; };
+		CE2904E3299F476400C9484E /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904E2299F476400C9484E /* AppInfoView.swift */; };
+		CE647762299F47E40051CE1A /* SignUpBasicTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647761299F47E40051CE1A /* SignUpBasicTextFiled.swift */; };
+		CE647764299F47FC0051CE1A /* ButtonTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647763299F47FC0051CE1A /* ButtonTextFiled.swift */; };
+		CE647766299F48180051CE1A /* WeekCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647765299F48180051CE1A /* WeekCalendarView.swift */; };
+		CE647768299F482A0051CE1A /* MonthCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647767299F482A0051CE1A /* MonthCalendarView.swift */; };
+		CE85159A2997AA4A008E5677 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515992997AA4A008E5677 /* HomeView.swift */; };
+		CE85159C2997AA8F008E5677 /* BusinessManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159B2997AA8F008E5677 /* BusinessManageView.swift */; };
+		CE85159E2997AAAF008E5677 /* CompanyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159D2997AAAF008E5677 /* CompanyListView.swift */; };
+		CE8515A02997AAF8008E5677 /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159F2997AAF8008E5677 /* MemberView.swift */; };
+		CE8515A22997D752008E5677 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515A12997D752008E5677 /* SettingView.swift */; };
+		CE8515A62998BB45008E5677 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515A52998BB45008E5677 /* SettingModel.swift */; };
+		CE8515A92999E9DD008E5677 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = CE8515A82999E9DD008E5677 /* FSCalendar */; };
+		CE8515B2299A071E008E5677 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515B1299A071E008E5677 /* CalendarViewModel.swift */; };
 		CE9E57AF299201E700DCDB63 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57AE299201E700DCDB63 /* SignUpViewModel.swift */; };
-		CE9E57B1299215D100DCDB63 /* SignUpBasicTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57B0299215D100DCDB63 /* SignUpBasicTextFiled.swift */; };
 		CE9E57B729954CD700DCDB63 /* BasicTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */; };
-		CE9E57BB2995E44300DCDB63 /* ButtonTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57BA2995E44300DCDB63 /* ButtonTextFiled.swift */; };
 		CE9E57BD2995E80100DCDB63 /* TextFiledStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */; };
 		CE9E57BF2995E85400DCDB63 /* TapCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57BE2995E85400DCDB63 /* TapCase.swift */; };
 		CE9E57C22996063100DCDB63 /* CompanyCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */; };
@@ -52,10 +83,40 @@
 		CE19D9C52990F016003F4399 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		CE19D9C62990F016003F4399 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		CE19D9D02990F064003F4399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CE217ACA299A3293005C9CF2 /* CalendarFomatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFomatter.swift; sourceTree = "<group>"; };
+		CE217AD8299B3C42005C9CF2 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		CE217ADA299B3C60005C9CF2 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		CE217ADC299B3C76005C9CF2 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		CE217ADF299B3E7B005C9CF2 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		CE217AE1299B5A03005C9CF2 /* SelectedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedData.swift; sourceTree = "<group>"; };
+		CE217AF7299DC41D005C9CF2 /* WorkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListView.swift; sourceTree = "<group>"; };
+		CE217B20299E2AE7005C9CF2 /* WorkListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListCell.swift; sourceTree = "<group>"; };
+		CE217B22299E2BBC005C9CF2 /* WorkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkLabel.swift; sourceTree = "<group>"; };
+		CE2904A8299F2CDF00C9484E /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		CE2904C2299F3ED900C9484E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		CE2904C4299F3EFC00C9484E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CE2904C6299F3F3D00C9484E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		CE2904C8299F3F6E00C9484E /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		CE2904CA299F3F8B00C9484E /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		CE2904CC299F3FE200C9484E /* TypoStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypoStyle.swift; sourceTree = "<group>"; };
+		CE2904D8299F465A00C9484E /* LogoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogoutView.swift; path = "Umuljeong/New Group/Shared/SettingView/LogoutView.swift"; sourceTree = SOURCE_ROOT; };
+		CE2904DA299F472100C9484E /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordView.swift; path = "Umuljeong/New Group/Shared/SettingView/ChangePasswordView.swift"; sourceTree = SOURCE_ROOT; };
+		CE2904DB299F472100C9484E /* ChangeWorkCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangeWorkCategoryView.swift; path = "Umuljeong/New Group/Shared/SettingView/ChangeWorkCategoryView.swift"; sourceTree = SOURCE_ROOT; };
+		CE2904E0299F474800C9484E /* ResignView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResignView.swift; path = "Umuljeong/New Group/Shared/SettingView/ResignView.swift"; sourceTree = SOURCE_ROOT; };
+		CE2904E2299F476400C9484E /* AppInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppInfoView.swift; path = "Umuljeong/New Group/Shared/SettingView/AppInfoView.swift"; sourceTree = SOURCE_ROOT; };
+		CE647761299F47E40051CE1A /* SignUpBasicTextFiled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpBasicTextFiled.swift; path = "Umuljeong/New Group/Shared/SignUp/SignUpBasicTextFiled.swift"; sourceTree = SOURCE_ROOT; };
+		CE647763299F47FC0051CE1A /* ButtonTextFiled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonTextFiled.swift; path = "Umuljeong/New Group/Shared/SignUp/ButtonTextFiled.swift"; sourceTree = SOURCE_ROOT; };
+		CE647765299F48180051CE1A /* WeekCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekCalendarView.swift; sourceTree = "<group>"; };
+		CE647767299F482A0051CE1A /* MonthCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthCalendarView.swift; sourceTree = "<group>"; };
+		CE8515992997AA4A008E5677 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CE85159B2997AA8F008E5677 /* BusinessManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessManageView.swift; sourceTree = "<group>"; };
+		CE85159D2997AAAF008E5677 /* CompanyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListView.swift; sourceTree = "<group>"; };
+		CE85159F2997AAF8008E5677 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
+		CE8515A12997D752008E5677 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		CE8515A52998BB45008E5677 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		CE8515B1299A071E008E5677 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		CE9E57AE299201E700DCDB63 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		CE9E57B0299215D100DCDB63 /* SignUpBasicTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBasicTextFiled.swift; sourceTree = "<group>"; };
 		CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFiled.swift; sourceTree = "<group>"; };
-		CE9E57BA2995E44300DCDB63 /* ButtonTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextFiled.swift; sourceTree = "<group>"; };
 		CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFiledStyle.swift; sourceTree = "<group>"; };
 		CE9E57BE2995E85400DCDB63 /* TapCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCase.swift; sourceTree = "<group>"; };
 		CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCreateViewModel.swift; sourceTree = "<group>"; };
@@ -67,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8515A92999E9DD008E5677 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +156,10 @@
 			children = (
 				CE19D9D02990F064003F4399 /* Info.plist */,
 				CE19D9A52990CE15003F4399 /* UmuljeongApp.swift */,
-				CE9E57C3299636E900DCDB63 /* 홈화면 */,
-				CE9E57B2299501A900DCDB63 /* 회원가입 */,
+				CE2904BF299F3E1400C9484E /* Common */,
+				CE2904CE299F408300C9484E /* Data */,
+				CE2904D2299F410700C9484E /* Presentation */,
+				CE217AC9299A327F005C9CF2 /* Service */,
 				CE9E57B3299501EC00DCDB63 /* Resource */,
 				CE19D9AB2990CE16003F4399 /* Preview Content */,
 			);
@@ -126,65 +190,284 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		CE9E57B2299501A900DCDB63 /* 회원가입 */ = {
+		CE217AC9299A327F005C9CF2 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				CE9E57B42995023100DCDB63 /* View */,
-				CE9E57B52995024900DCDB63 /* SubView */,
+				CE2904BD299F3AD000C9484E /* Repository */,
+				CE217ADF299B3E7B005C9CF2 /* CalendarService.swift */,
+				CE217AE1299B5A03005C9CF2 /* SelectedData.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CE2904AE299F34F700C9484E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CE64776C299F4D1B0051CE1A /* TextFiled */,
+				CE64776D299F4D260051CE1A /* CustomCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CE2904B3299F352E00C9484E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904B5299F376600C9484E /* SignIn */,
+				CE2904B6299F378900C9484E /* SignUp */,
+				CE2904B7299F37AC00C9484E /* Tab + Home */,
+				CE2904B8299F37F400C9484E /* Company */,
+				CE2904B9299F381D00C9484E /* Business */,
+				CE2904BA299F382D00C9484E /* Member */,
+				CE2904BB299F383D00C9484E /* Setting */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE2904B5299F376600C9484E /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CE19D9B32990EB18003F4399 /* SignInView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		CE2904B6299F378900C9484E /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904D7299F45F100C9484E /* ViewModel */,
+				CE9E57BE2995E85400DCDB63 /* TapCase.swift */,
+				CE19D9B52990EB22003F4399 /* SignUpView.swift */,
+				CE19D9B72990EB37003F4399 /* RoleSelectView.swift */,
+				CE19D9B92990EB42003F4399 /* CompanyCreateView.swift */,
+				CE647761299F47E40051CE1A /* SignUpBasicTextFiled.swift */,
+				CE647763299F47FC0051CE1A /* ButtonTextFiled.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CE2904B7299F37AC00C9484E /* Tab + Home */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E57C42996370200DCDB63 /* MainTabView.swift */,
+				CE8515992997AA4A008E5677 /* HomeView.swift */,
+				CE64776E299F4D760051CE1A /* SubViews */,
+				CE2904D6299F45CB00C9484E /* ViewModel */,
+			);
+			path = "Tab + Home";
+			sourceTree = "<group>";
+		};
+		CE2904B8299F37F400C9484E /* Company */ = {
+			isa = PBXGroup;
+			children = (
+				CE85159D2997AAAF008E5677 /* CompanyListView.swift */,
+			);
+			path = Company;
+			sourceTree = "<group>";
+		};
+		CE2904B9299F381D00C9484E /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				CE85159B2997AA8F008E5677 /* BusinessManageView.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		CE2904BA299F382D00C9484E /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				CE85159F2997AAF8008E5677 /* MemberView.swift */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		CE2904BB299F383D00C9484E /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904DB299F472100C9484E /* ChangeWorkCategoryView.swift */,
+				CE2904DA299F472100C9484E /* ChangePasswordView.swift */,
+				CE2904D8299F465A00C9484E /* LogoutView.swift */,
+				CE2904E0299F474800C9484E /* ResignView.swift */,
+				CE2904E2299F476400C9484E /* AppInfoView.swift */,
+				CE8515A12997D752008E5677 /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		CE2904BD299F3AD000C9484E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				CE217ADA299B3C60005C9CF2 /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE2904BF299F3E1400C9484E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE64776B299F4C290051CE1A /* Protocol */,
+				CE64776A299F4C230051CE1A /* Extension */,
+				CE9E57C02995E89400DCDB63 /* Helper */,
+				CE2904C0299F3E8700C9484E /* DesignGuide */,
+				CE2904C1299F3E9F00C9484E /* NameSpace */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CE2904C0299F3E8700C9484E /* DesignGuide */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904CC299F3FE200C9484E /* TypoStyle.swift */,
+			);
+			path = DesignGuide;
+			sourceTree = "<group>";
+		};
+		CE2904C1299F3E9F00C9484E /* NameSpace */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904C2299F3ED900C9484E /* Font.swift */,
+				CE2904C4299F3EFC00C9484E /* Color.swift */,
+				CE2904C6299F3F3D00C9484E /* Image.swift */,
+				CE2904C8299F3F6E00C9484E /* Text.swift */,
+				CE2904CA299F3F8B00C9484E /* URLs.swift */,
+			);
+			path = NameSpace;
+			sourceTree = "<group>";
+		};
+		CE2904CE299F408300C9484E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904D0299F40A100C9484E /* Entity */,
+				CE2904CF299F409D00C9484E /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CE2904CF299F409D00C9484E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE217ADC299B3C76005C9CF2 /* CalendarModel.swift */,
+				CE8515A52998BB45008E5677 /* SettingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE2904D0299F40A100C9484E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904D1299F40E700C9484E /* 용도 분류 */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CE2904D1299F40E700C9484E /* 용도 분류 */ = {
+			isa = PBXGroup;
+			children = (
+				CE217AD8299B3C42005C9CF2 /* Entity.swift */,
+			);
+			name = "용도 분류";
+			path = "용도 분류";
+			sourceTree = "<group>";
+		};
+		CE2904D2299F410700C9484E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904D3299F415F00C9484E /* Common */,
+				CE2904B3299F352E00C9484E /* View */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CE2904D3299F415F00C9484E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904AE299F34F700C9484E /* Components */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CE2904D6299F45CB00C9484E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE8515B1299A071E008E5677 /* CalendarViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE2904D7299F45F100C9484E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 				CE9E57AE299201E700DCDB63 /* SignUpViewModel.swift */,
 				CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */,
-				CE9E57C02995E89400DCDB63 /* enum */,
 			);
-			name = "회원가입";
-			path = "회원가입";
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE647760299F47AE0051CE1A /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CE647767299F482A0051CE1A /* MonthCalendarView.swift */,
+				CE647765299F48180051CE1A /* WeekCalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		CE64776A299F4C230051CE1A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CE64776B299F4C290051CE1A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CE64776C299F4D1B0051CE1A /* TextFiled */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */,
+			);
+			path = TextFiled;
+			sourceTree = "<group>";
+		};
+		CE64776D299F4D260051CE1A /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE217B20299E2AE7005C9CF2 /* WorkListCell.swift */,
+				CE217B22299E2BBC005C9CF2 /* WorkLabel.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		CE64776E299F4D760051CE1A /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904A8299F2CDF00C9484E /* AddTaskView.swift */,
+				CE217AF7299DC41D005C9CF2 /* WorkListView.swift */,
+				CE647760299F47AE0051CE1A /* Calendar */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		CE9E57B3299501EC00DCDB63 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				CE19D9A92990CE16003F4399 /* Assets.xcassets */,
 				CE19D9BB2990EE8D003F4399 /* Font */,
+				CE19D9A92990CE16003F4399 /* Assets.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		CE9E57B42995023100DCDB63 /* View */ = {
+		CE9E57C02995E89400DCDB63 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				CE19D9B32990EB18003F4399 /* SignInView.swift */,
-				CE19D9B52990EB22003F4399 /* SignUpView.swift */,
-				CE19D9B72990EB37003F4399 /* RoleSelectView.swift */,
-				CE19D9B92990EB42003F4399 /* CompanyCreateView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CE9E57B52995024900DCDB63 /* SubView */ = {
-			isa = PBXGroup;
-			children = (
-				CE9E57B0299215D100DCDB63 /* SignUpBasicTextFiled.swift */,
-				CE9E57BA2995E44300DCDB63 /* ButtonTextFiled.swift */,
-				CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */,
-			);
-			path = SubView;
-			sourceTree = "<group>";
-		};
-		CE9E57C02995E89400DCDB63 /* enum */ = {
-			isa = PBXGroup;
-			children = (
+				CE217ACA299A3293005C9CF2 /* CalendarFomatter.swift */,
 				CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */,
-				CE9E57BE2995E85400DCDB63 /* TapCase.swift */,
 			);
-			path = enum;
-			sourceTree = "<group>";
-		};
-		CE9E57C3299636E900DCDB63 /* 홈화면 */ = {
-			isa = PBXGroup;
-			children = (
-				CE9E57C42996370200DCDB63 /* MainTabView.swift */,
-			);
-			name = "홈화면";
-			path = "홈화면";
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +486,9 @@
 			dependencies = (
 			);
 			name = Umuljeong;
+			packageProductDependencies = (
+				CE8515A82999E9DD008E5677 /* FSCalendar */,
+			);
 			productName = Umuljeong;
 			productReference = CE19D9A22990CE15003F4399 /* Umuljeong.app */;
 			productType = "com.apple.product-type.application";
@@ -231,6 +517,9 @@
 				Base,
 			);
 			mainGroup = CE19D9992990CE15003F4399;
+			packageReferences = (
+				CE8515A72999E9DD008E5677 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+			);
 			productRefGroup = CE19D9A32990CE15003F4399 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -266,18 +555,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9E57BB2995E44300DCDB63 /* ButtonTextFiled.swift in Sources */,
+				CE2904DD299F472100C9484E /* ChangeWorkCategoryView.swift in Sources */,
+				CE217ADD299B3C76005C9CF2 /* CalendarModel.swift in Sources */,
+				CE8515B2299A071E008E5677 /* CalendarViewModel.swift in Sources */,
+				CE85159A2997AA4A008E5677 /* HomeView.swift in Sources */,
+				CE647764299F47FC0051CE1A /* ButtonTextFiled.swift in Sources */,
+				CE2904C3299F3ED900C9484E /* Font.swift in Sources */,
+				CE647766299F48180051CE1A /* WeekCalendarView.swift in Sources */,
+				CE217ACB299A3293005C9CF2 /* CalendarFomatter.swift in Sources */,
+				CE2904E1299F474800C9484E /* ResignView.swift in Sources */,
 				CE9E57BD2995E80100DCDB63 /* TextFiledStyle.swift in Sources */,
+				CE8515A22997D752008E5677 /* SettingView.swift in Sources */,
+				CE2904C7299F3F3D00C9484E /* Image.swift in Sources */,
 				CE19D9BA2990EB42003F4399 /* CompanyCreateView.swift in Sources */,
+				CE217B21299E2AE7005C9CF2 /* WorkListCell.swift in Sources */,
+				CE647762299F47E40051CE1A /* SignUpBasicTextFiled.swift in Sources */,
+				CE85159E2997AAAF008E5677 /* CompanyListView.swift in Sources */,
+				CE217ADB299B3C60005C9CF2 /* Repository.swift in Sources */,
+				CE217AF8299DC41D005C9CF2 /* WorkListView.swift in Sources */,
 				CE19D9B62990EB22003F4399 /* SignUpView.swift in Sources */,
+				CE2904C9299F3F6E00C9484E /* Text.swift in Sources */,
 				CE9E57B729954CD700DCDB63 /* BasicTextFiled.swift in Sources */,
+				CE8515A62998BB45008E5677 /* SettingModel.swift in Sources */,
+				CE2904C5299F3EFC00C9484E /* Color.swift in Sources */,
+				CE2904D9299F465A00C9484E /* LogoutView.swift in Sources */,
+				CE217B23299E2BBC005C9CF2 /* WorkLabel.swift in Sources */,
+				CE2904DC299F472100C9484E /* ChangePasswordView.swift in Sources */,
+				CE2904E3299F476400C9484E /* AppInfoView.swift in Sources */,
+				CE647768299F482A0051CE1A /* MonthCalendarView.swift in Sources */,
 				CE19D9B42990EB18003F4399 /* SignInView.swift in Sources */,
+				CE2904A9299F2CDF00C9484E /* AddTaskView.swift in Sources */,
 				CE9E57C22996063100DCDB63 /* CompanyCreateViewModel.swift in Sources */,
 				CE9E57C52996370200DCDB63 /* MainTabView.swift in Sources */,
-				CE9E57B1299215D100DCDB63 /* SignUpBasicTextFiled.swift in Sources */,
+				CE217AD9299B3C42005C9CF2 /* Entity.swift in Sources */,
+				CE217AE0299B3E7B005C9CF2 /* CalendarService.swift in Sources */,
+				CE2904CB299F3F8B00C9484E /* URLs.swift in Sources */,
+				CE217AE2299B5A03005C9CF2 /* SelectedData.swift in Sources */,
 				CE19D9A62990CE15003F4399 /* UmuljeongApp.swift in Sources */,
+				CE85159C2997AA8F008E5677 /* BusinessManageView.swift in Sources */,
 				CE19D9B82990EB37003F4399 /* RoleSelectView.swift in Sources */,
+				CE2904CD299F3FE200C9484E /* TypoStyle.swift in Sources */,
 				CE9E57BF2995E85400DCDB63 /* TapCase.swift in Sources */,
+				CE8515A02997AAF8008E5677 /* MemberView.swift in Sources */,
 				CE9E57AF299201E700DCDB63 /* SignUpViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +802,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE8515A72999E9DD008E5677 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE8515A82999E9DD008E5677 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE8515A72999E9DD008E5677 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE19D99A2990CE15003F4399 /* Project object */;
 }
