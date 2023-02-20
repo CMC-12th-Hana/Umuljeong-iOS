@@ -5,7 +5,30 @@
 //  Created by 박혜운 on 2023/02/17.
 //
 
-import Foundation
+import SwiftUI
+import UIKit
+
+extension Font {
+    static let title1 = Font.custom("Pretendard-Bold", fixedSize: 24)
+    static let customTitle2 = Font.custom("Pretendard-Bold", fixedSize: 18)
+    static let body1 = Font.custom("Pretendard-Bold", fixedSize: 16)
+    static let body2 = Font.custom("Pretendard-Medium", fixedSize: 16)
+    static let body3 = Font.custom("Pretendard-Medium", fixedSize: 14)
+    static let body4 = Font.custom("Pretendard-Regular", fixedSize: 14)
+    static let body5 = Font.custom("Pretendard-Regular", fixedSize: 13)
+    static let body6 = Font.custom("Pretendard-Medium", fixedSize: 12)
+}
+
+extension UIFont {
+//    static let title1 = Font.custom("Pretendard-Bold", fixedSize: 24)
+    static let body5 = UIFont(name: "Pretendard-Regular", size: 13)
+//    static let body1 = Font.custom("Pretendard-Bold", fixedSize: 16)
+//    static let body2 = Font.custom("Pretendard-Medium", fixedSize: 16)
+//    static let body3 = Font.custom("Pretendard-Medium", fixedSize: 14)
+//    static let body4 = Font.custom("Pretendard-Regular", fixedSize: 14)
+//    static let body5 = Font.custom("Pretendard-Regular", fixedSize: 13)
+//    static let body6 = Font.custom("Pretendard-Medium", fixedSize: 12)
+}
 
 // 원래라면 폰트, 크기 외에 텍스트 스타일(TextStyle)까지 있어야겠지만 여기서는 제외시킴
 //struct FontDescription {

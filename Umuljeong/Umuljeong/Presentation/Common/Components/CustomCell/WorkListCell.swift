@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WorkListCell: View {
     let work:String
-    let custumer:String
+    let customer:String
     let category:String
     let categoryColor:Color
     
@@ -19,7 +19,7 @@ struct WorkListCell: View {
                 VStack(alignment:.leading, spacing: 3){
                     Text(work).font(.custom("Pretendard Bold", size: 16)).foregroundColor(Color("font4")).tracking(0.46)
                     
-                    Text(custumer).font(.custom("Pretendard Medium", size: 14)).foregroundColor(Color("font2")).tracking(0.46)
+                    Text(customer).font(.custom("Pretendard Medium", size: 14)).foregroundColor(Color("font2")).tracking(0.46)
                     
                 }
                 Spacer()
@@ -40,6 +40,6 @@ struct WorkListCell: View {
 
 struct WorkListCell_Previews: PreviewProvider {
     static var previews: some View {
-        WorkListCell(work: "디지툴리얼코리아 전용 회선", custumer: "디지털 리얼 코리아", category: "문의", categoryColor: Color("main"))
+        WorkListCell(work: "디지툴리얼코리아 전용 회선", customer: "디지털 리얼 코리아", category: "문의", categoryColor: Color("main"))
     }
 }

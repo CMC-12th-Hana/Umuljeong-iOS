@@ -67,15 +67,15 @@ struct ButtonTextFiled: View {
     }
     
     func roundRectangleColorChange() -> Color {
-        guard let onTap = onTapGesture else {return Color("line1")}
+        guard let onTap = onTapGesture else {return Color("line2")}
         
         if onTap {
-            return Color("font1")
+            return Color("line1")
         } else {
             if inputText != "" && errorMessage != nil {
                 return Color("error")
             }
-            return Color("line1")
+            return Color("line2")
         }
     }
 }

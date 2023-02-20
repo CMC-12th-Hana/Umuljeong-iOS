@@ -32,7 +32,7 @@
 		CE217AF8299DC41D005C9CF2 /* WorkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217AF7299DC41D005C9CF2 /* WorkListView.swift */; };
 		CE217B21299E2AE7005C9CF2 /* WorkListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217B20299E2AE7005C9CF2 /* WorkListCell.swift */; };
 		CE217B23299E2BBC005C9CF2 /* WorkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217B22299E2BBC005C9CF2 /* WorkLabel.swift */; };
-		CE2904A9299F2CDF00C9484E /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904A8299F2CDF00C9484E /* AddTaskView.swift */; };
+		CE2904A9299F2CDF00C9484E /* AddWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904A8299F2CDF00C9484E /* AddWorkView.swift */; };
 		CE2904C3299F3ED900C9484E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904C2299F3ED900C9484E /* Font.swift */; };
 		CE2904C5299F3EFC00C9484E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904C4299F3EFC00C9484E /* Color.swift */; };
 		CE2904C7299F3F3D00C9484E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904C6299F3F3D00C9484E /* Image.swift */; };
@@ -44,13 +44,34 @@
 		CE2904DD299F472100C9484E /* ChangeWorkCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904DB299F472100C9484E /* ChangeWorkCategoryView.swift */; };
 		CE2904E1299F474800C9484E /* ResignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904E0299F474800C9484E /* ResignView.swift */; };
 		CE2904E3299F476400C9484E /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904E2299F476400C9484E /* AppInfoView.swift */; };
+		CE4A29FA29A39DE2007138AF /* StartDatePickCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A29F929A39DE2007138AF /* StartDatePickCalendar.swift */; };
+		CE4A29FD29A3B0E2007138AF /* FinishDatePickCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A29FC29A3B0E2007138AF /* FinishDatePickCalendar.swift */; };
 		CE647762299F47E40051CE1A /* SignUpBasicTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647761299F47E40051CE1A /* SignUpBasicTextFiled.swift */; };
 		CE647764299F47FC0051CE1A /* ButtonTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647763299F47FC0051CE1A /* ButtonTextFiled.swift */; };
-		CE647766299F48180051CE1A /* WeekCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647765299F48180051CE1A /* WeekCalendarView.swift */; };
-		CE647768299F482A0051CE1A /* MonthCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647767299F482A0051CE1A /* MonthCalendarView.swift */; };
+		CE647766299F48180051CE1A /* WeekCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647765299F48180051CE1A /* WeekCalendar.swift */; };
+		CE647768299F482A0051CE1A /* MonthCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647767299F482A0051CE1A /* MonthCalendar.swift */; };
+		CE647770299F50B90051CE1A /* TeskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64776F299F50B90051CE1A /* TeskModel.swift */; };
+		CE647773299F59D30051CE1A /* DetailTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647772299F59D30051CE1A /* DetailTaskView.swift */; };
+		CE64777529A0EEF00051CE1A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777429A0EEF00051CE1A /* SearchBar.swift */; };
+		CE64777729A125220051CE1A /* CustomerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777629A125220051CE1A /* CustomerCell.swift */; };
+		CE64777C29A134AD0051CE1A /* CustomerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777B29A134AD0051CE1A /* CustomerListModel.swift */; };
+		CE64777E29A139ED0051CE1A /* AddCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777D29A139ED0051CE1A /* AddCustomerView.swift */; };
+		CE64778029A147CD0051CE1A /* DetailCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777F29A147CD0051CE1A /* DetailCustomerView.swift */; };
+		CE64778229A1D0DC0051CE1A /* View + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64778129A1D0DC0051CE1A /* View + Extension.swift */; };
+		CE64778429A1EE210051CE1A /* DetailCustomerCallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64778329A1EE210051CE1A /* DetailCustomerCallCell.swift */; };
+		CE64778629A1F14B0051CE1A /* DeviceSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64778529A1F14B0051CE1A /* DeviceSize.swift */; };
+		CE64778829A1FBAC0051CE1A /* CustomerDetailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64778729A1FBAC0051CE1A /* CustomerDetailImage.swift */; };
+		CE64778A29A20E8D0051CE1A /* BasicButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64778929A20E8D0051CE1A /* BasicButtonLabel.swift */; };
+		CE64778C29A20EA10051CE1A /* BasicLineButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64778B29A20EA10051CE1A /* BasicLineButtonLabel.swift */; };
+		CE64778E29A2104F0051CE1A /* PlusButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64778D29A2104F0051CE1A /* PlusButtonLabel.swift */; };
+		CE64779329A3216F0051CE1A /* DetailCustomerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64779229A3216F0051CE1A /* DetailCustomerViewModel.swift */; };
+		CE64779629A34F0D0051CE1A /* BusinessCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64779529A34F0D0051CE1A /* BusinessCalendar.swift */; };
+		CE64779829A356A80051CE1A /* BusinessWeekCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64779729A356A80051CE1A /* BusinessWeekCalendar.swift */; };
+		CE64779A29A3593B0051CE1A /* TESTVIEW.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64779929A3593B0051CE1A /* TESTVIEW.swift */; };
+		CE64779C29A36B080051CE1A /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64779B29A36B080051CE1A /* CalendarVM.swift */; };
 		CE85159A2997AA4A008E5677 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515992997AA4A008E5677 /* HomeView.swift */; };
 		CE85159C2997AA8F008E5677 /* BusinessManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159B2997AA8F008E5677 /* BusinessManageView.swift */; };
-		CE85159E2997AAAF008E5677 /* CompanyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159D2997AAAF008E5677 /* CompanyListView.swift */; };
+		CE85159E2997AAAF008E5677 /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159D2997AAAF008E5677 /* CustomerView.swift */; };
 		CE8515A02997AAF8008E5677 /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159F2997AAF8008E5677 /* MemberView.swift */; };
 		CE8515A22997D752008E5677 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515A12997D752008E5677 /* SettingView.swift */; };
 		CE8515A62998BB45008E5677 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515A52998BB45008E5677 /* SettingModel.swift */; };
@@ -62,6 +83,14 @@
 		CE9E57BF2995E85400DCDB63 /* TapCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57BE2995E85400DCDB63 /* TapCase.swift */; };
 		CE9E57C22996063100DCDB63 /* CompanyCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */; };
 		CE9E57C52996370200DCDB63 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57C42996370200DCDB63 /* MainTabView.swift */; };
+		CECAC35029A3D35500FF8511 /* StartFinishDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC34F29A3D35500FF8511 /* StartFinishDateView.swift */; };
+		CECAC35529A3DCAD00FF8511 /* OtherTaskLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC35429A3DCAD00FF8511 /* OtherTaskLabel.swift */; };
+		CECAC35729A3E36700FF8511 /* TaskWithDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC35629A3E36700FF8511 /* TaskWithDateCell.swift */; };
+		CECAC35929A3EABE00FF8511 /* VisitGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC35829A3EABE00FF8511 /* VisitGraphView.swift */; };
+		CECAC35D29A3EE7200FF8511 /* AddBusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC35C29A3EE7200FF8511 /* AddBusinessView.swift */; };
+		CECAC36129A3F4F800FF8511 /* AddBusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC36029A3F4F800FF8511 /* AddBusinessViewModel.swift */; };
+		CECAC36329A3F68F00FF8511 /* ImportEmployeeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC36229A3F68F00FF8511 /* ImportEmployeeLabel.swift */; };
+		CECAC36529A3F97300FF8511 /* EmployeeProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC36429A3F97300FF8511 /* EmployeeProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,7 +121,7 @@
 		CE217AF7299DC41D005C9CF2 /* WorkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListView.swift; sourceTree = "<group>"; };
 		CE217B20299E2AE7005C9CF2 /* WorkListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListCell.swift; sourceTree = "<group>"; };
 		CE217B22299E2BBC005C9CF2 /* WorkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkLabel.swift; sourceTree = "<group>"; };
-		CE2904A8299F2CDF00C9484E /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		CE2904A8299F2CDF00C9484E /* AddWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkView.swift; sourceTree = "<group>"; };
 		CE2904C2299F3ED900C9484E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		CE2904C4299F3EFC00C9484E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CE2904C6299F3F3D00C9484E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -104,13 +133,34 @@
 		CE2904DB299F472100C9484E /* ChangeWorkCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangeWorkCategoryView.swift; path = "Umuljeong/New Group/Shared/SettingView/ChangeWorkCategoryView.swift"; sourceTree = SOURCE_ROOT; };
 		CE2904E0299F474800C9484E /* ResignView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResignView.swift; path = "Umuljeong/New Group/Shared/SettingView/ResignView.swift"; sourceTree = SOURCE_ROOT; };
 		CE2904E2299F476400C9484E /* AppInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppInfoView.swift; path = "Umuljeong/New Group/Shared/SettingView/AppInfoView.swift"; sourceTree = SOURCE_ROOT; };
+		CE4A29F929A39DE2007138AF /* StartDatePickCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDatePickCalendar.swift; sourceTree = "<group>"; };
+		CE4A29FC29A3B0E2007138AF /* FinishDatePickCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishDatePickCalendar.swift; sourceTree = "<group>"; };
 		CE647761299F47E40051CE1A /* SignUpBasicTextFiled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpBasicTextFiled.swift; path = "Umuljeong/New Group/Shared/SignUp/SignUpBasicTextFiled.swift"; sourceTree = SOURCE_ROOT; };
 		CE647763299F47FC0051CE1A /* ButtonTextFiled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonTextFiled.swift; path = "Umuljeong/New Group/Shared/SignUp/ButtonTextFiled.swift"; sourceTree = SOURCE_ROOT; };
-		CE647765299F48180051CE1A /* WeekCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekCalendarView.swift; sourceTree = "<group>"; };
-		CE647767299F482A0051CE1A /* MonthCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthCalendarView.swift; sourceTree = "<group>"; };
+		CE647765299F48180051CE1A /* WeekCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekCalendar.swift; sourceTree = "<group>"; };
+		CE647767299F482A0051CE1A /* MonthCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthCalendar.swift; sourceTree = "<group>"; };
+		CE64776F299F50B90051CE1A /* TeskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeskModel.swift; sourceTree = "<group>"; };
+		CE647772299F59D30051CE1A /* DetailTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTaskView.swift; sourceTree = "<group>"; };
+		CE64777429A0EEF00051CE1A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		CE64777629A125220051CE1A /* CustomerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCell.swift; sourceTree = "<group>"; };
+		CE64777B29A134AD0051CE1A /* CustomerListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListModel.swift; sourceTree = "<group>"; };
+		CE64777D29A139ED0051CE1A /* AddCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerView.swift; sourceTree = "<group>"; };
+		CE64777F29A147CD0051CE1A /* DetailCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCustomerView.swift; sourceTree = "<group>"; };
+		CE64778129A1D0DC0051CE1A /* View + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Extension.swift"; sourceTree = "<group>"; };
+		CE64778329A1EE210051CE1A /* DetailCustomerCallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCustomerCallCell.swift; sourceTree = "<group>"; };
+		CE64778529A1F14B0051CE1A /* DeviceSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSize.swift; sourceTree = "<group>"; };
+		CE64778729A1FBAC0051CE1A /* CustomerDetailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailImage.swift; sourceTree = "<group>"; };
+		CE64778929A20E8D0051CE1A /* BasicButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButtonLabel.swift; sourceTree = "<group>"; };
+		CE64778B29A20EA10051CE1A /* BasicLineButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLineButtonLabel.swift; sourceTree = "<group>"; };
+		CE64778D29A2104F0051CE1A /* PlusButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonLabel.swift; sourceTree = "<group>"; };
+		CE64779229A3216F0051CE1A /* DetailCustomerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCustomerViewModel.swift; sourceTree = "<group>"; };
+		CE64779529A34F0D0051CE1A /* BusinessCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCalendar.swift; sourceTree = "<group>"; };
+		CE64779729A356A80051CE1A /* BusinessWeekCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessWeekCalendar.swift; sourceTree = "<group>"; };
+		CE64779929A3593B0051CE1A /* TESTVIEW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTVIEW.swift; sourceTree = "<group>"; };
+		CE64779B29A36B080051CE1A /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
 		CE8515992997AA4A008E5677 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CE85159B2997AA8F008E5677 /* BusinessManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessManageView.swift; sourceTree = "<group>"; };
-		CE85159D2997AAAF008E5677 /* CompanyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListView.swift; sourceTree = "<group>"; };
+		CE85159D2997AAAF008E5677 /* CustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerView.swift; sourceTree = "<group>"; };
 		CE85159F2997AAF8008E5677 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		CE8515A12997D752008E5677 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		CE8515A52998BB45008E5677 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
@@ -121,6 +171,14 @@
 		CE9E57BE2995E85400DCDB63 /* TapCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCase.swift; sourceTree = "<group>"; };
 		CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCreateViewModel.swift; sourceTree = "<group>"; };
 		CE9E57C42996370200DCDB63 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		CECAC34F29A3D35500FF8511 /* StartFinishDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFinishDateView.swift; sourceTree = "<group>"; };
+		CECAC35429A3DCAD00FF8511 /* OtherTaskLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTaskLabel.swift; sourceTree = "<group>"; };
+		CECAC35629A3E36700FF8511 /* TaskWithDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskWithDateCell.swift; sourceTree = "<group>"; };
+		CECAC35829A3EABE00FF8511 /* VisitGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitGraphView.swift; sourceTree = "<group>"; };
+		CECAC35C29A3EE7200FF8511 /* AddBusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBusinessView.swift; sourceTree = "<group>"; };
+		CECAC36029A3F4F800FF8511 /* AddBusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBusinessViewModel.swift; sourceTree = "<group>"; };
+		CECAC36229A3F68F00FF8511 /* ImportEmployeeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportEmployeeLabel.swift; sourceTree = "<group>"; };
+		CECAC36429A3F97300FF8511 /* EmployeeProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +263,10 @@
 			children = (
 				CE64776C299F4D1B0051CE1A /* TextFiled */,
 				CE64776D299F4D260051CE1A /* CustomCell */,
+				CE64777429A0EEF00051CE1A /* SearchBar.swift */,
+				CE64778929A20E8D0051CE1A /* BasicButtonLabel.swift */,
+				CE64778B29A20EA10051CE1A /* BasicLineButtonLabel.swift */,
+				CE64778D29A2104F0051CE1A /* PlusButtonLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -215,7 +277,7 @@
 				CE2904B5299F376600C9484E /* SignIn */,
 				CE2904B6299F378900C9484E /* SignUp */,
 				CE2904B7299F37AC00C9484E /* Tab + Home */,
-				CE2904B8299F37F400C9484E /* Company */,
+				CE2904B8299F37F400C9484E /* Customer */,
 				CE2904B9299F381D00C9484E /* Business */,
 				CE2904BA299F382D00C9484E /* Member */,
 				CE2904BB299F383D00C9484E /* Setting */,
@@ -256,12 +318,19 @@
 			path = "Tab + Home";
 			sourceTree = "<group>";
 		};
-		CE2904B8299F37F400C9484E /* Company */ = {
+		CE2904B8299F37F400C9484E /* Customer */ = {
 			isa = PBXGroup;
 			children = (
-				CE85159D2997AAAF008E5677 /* CompanyListView.swift */,
+				CE64779429A321950051CE1A /* ViewModel */,
+				CE85159D2997AAAF008E5677 /* CustomerView.swift */,
+				CE64777D29A139ED0051CE1A /* AddCustomerView.swift */,
+				CE64777F29A147CD0051CE1A /* DetailCustomerView.swift */,
+				CECAC35C29A3EE7200FF8511 /* AddBusinessView.swift */,
+				CECAC36429A3F97300FF8511 /* EmployeeProfileView.swift */,
+				CECAC35829A3EABE00FF8511 /* VisitGraphView.swift */,
+				CE64777A29A127950051CE1A /* Components */,
 			);
-			path = Company;
+			path = Customer;
 			sourceTree = "<group>";
 		};
 		CE2904B9299F381D00C9484E /* Business */ = {
@@ -283,12 +352,13 @@
 		CE2904BB299F383D00C9484E /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				CE8515A12997D752008E5677 /* SettingView.swift */,
+				CE647771299F53C70051CE1A /* SubViews */,
 				CE2904DB299F472100C9484E /* ChangeWorkCategoryView.swift */,
 				CE2904DA299F472100C9484E /* ChangePasswordView.swift */,
 				CE2904D8299F465A00C9484E /* LogoutView.swift */,
 				CE2904E0299F474800C9484E /* ResignView.swift */,
 				CE2904E2299F476400C9484E /* AppInfoView.swift */,
-				CE8515A12997D752008E5677 /* SettingView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -347,6 +417,8 @@
 			children = (
 				CE217ADC299B3C76005C9CF2 /* CalendarModel.swift */,
 				CE8515A52998BB45008E5677 /* SettingModel.swift */,
+				CE64776F299F50B90051CE1A /* TeskModel.swift */,
+				CE64777B29A134AD0051CE1A /* CustomerListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -402,11 +474,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		CE4A29FB29A39F5F007138AF /* 임시저장 */ = {
+			isa = PBXGroup;
+			children = (
+				CE64779929A3593B0051CE1A /* TESTVIEW.swift */,
+				CE64779529A34F0D0051CE1A /* BusinessCalendar.swift */,
+				CE64779729A356A80051CE1A /* BusinessWeekCalendar.swift */,
+			);
+			name = "임시저장";
+			path = "임시저장";
+			sourceTree = "<group>";
+		};
 		CE647760299F47AE0051CE1A /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				CE647767299F482A0051CE1A /* MonthCalendarView.swift */,
-				CE647765299F48180051CE1A /* WeekCalendarView.swift */,
+				CE647767299F482A0051CE1A /* MonthCalendar.swift */,
+				CE647765299F48180051CE1A /* WeekCalendar.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -414,6 +497,7 @@
 		CE64776A299F4C230051CE1A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CE64778129A1D0DC0051CE1A /* View + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -421,6 +505,7 @@
 		CE64776B299F4C290051CE1A /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				CE64779B29A36B080051CE1A /* CalendarVM.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -445,11 +530,39 @@
 		CE64776E299F4D760051CE1A /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				CE2904A8299F2CDF00C9484E /* AddTaskView.swift */,
 				CE217AF7299DC41D005C9CF2 /* WorkListView.swift */,
+				CE2904A8299F2CDF00C9484E /* AddWorkView.swift */,
+				CE647772299F59D30051CE1A /* DetailTaskView.swift */,
 				CE647760299F47AE0051CE1A /* Calendar */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		CE647771299F53C70051CE1A /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		CE64777A29A127950051CE1A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CECAC35329A3DC8D00FF8511 /* Calendar */,
+				CECAC35229A3DC6800FF8511 /* Cell */,
+				CECAC35129A3DC5500FF8511 /* Label */,
+				CE4A29FB29A39F5F007138AF /* 임시저장 */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CE64779429A321950051CE1A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE64779229A3216F0051CE1A /* DetailCustomerViewModel.swift */,
+				CECAC36029A3F4F800FF8511 /* AddBusinessViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CE9E57B3299501EC00DCDB63 /* Resource */ = {
@@ -466,8 +579,39 @@
 			children = (
 				CE217ACA299A3293005C9CF2 /* CalendarFomatter.swift */,
 				CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */,
+				CE64778529A1F14B0051CE1A /* DeviceSize.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		CECAC35129A3DC5500FF8511 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				CE64778729A1FBAC0051CE1A /* CustomerDetailImage.swift */,
+				CECAC35429A3DCAD00FF8511 /* OtherTaskLabel.swift */,
+				CECAC34F29A3D35500FF8511 /* StartFinishDateView.swift */,
+				CECAC36229A3F68F00FF8511 /* ImportEmployeeLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		CECAC35229A3DC6800FF8511 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE64778329A1EE210051CE1A /* DetailCustomerCallCell.swift */,
+				CE64777629A125220051CE1A /* CustomerCell.swift */,
+				CECAC35629A3E36700FF8511 /* TaskWithDateCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CECAC35329A3DC8D00FF8511 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CE4A29F929A39DE2007138AF /* StartDatePickCalendar.swift */,
+				CE4A29FC29A3B0E2007138AF /* FinishDatePickCalendar.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,41 +705,70 @@
 				CE85159A2997AA4A008E5677 /* HomeView.swift in Sources */,
 				CE647764299F47FC0051CE1A /* ButtonTextFiled.swift in Sources */,
 				CE2904C3299F3ED900C9484E /* Font.swift in Sources */,
-				CE647766299F48180051CE1A /* WeekCalendarView.swift in Sources */,
+				CE647770299F50B90051CE1A /* TeskModel.swift in Sources */,
+				CE64779C29A36B080051CE1A /* CalendarVM.swift in Sources */,
+				CE647766299F48180051CE1A /* WeekCalendar.swift in Sources */,
 				CE217ACB299A3293005C9CF2 /* CalendarFomatter.swift in Sources */,
+				CE64779829A356A80051CE1A /* BusinessWeekCalendar.swift in Sources */,
+				CECAC35929A3EABE00FF8511 /* VisitGraphView.swift in Sources */,
 				CE2904E1299F474800C9484E /* ResignView.swift in Sources */,
 				CE9E57BD2995E80100DCDB63 /* TextFiledStyle.swift in Sources */,
 				CE8515A22997D752008E5677 /* SettingView.swift in Sources */,
 				CE2904C7299F3F3D00C9484E /* Image.swift in Sources */,
+				CE64778E29A2104F0051CE1A /* PlusButtonLabel.swift in Sources */,
 				CE19D9BA2990EB42003F4399 /* CompanyCreateView.swift in Sources */,
+				CE64779629A34F0D0051CE1A /* BusinessCalendar.swift in Sources */,
+				CE64777E29A139ED0051CE1A /* AddCustomerView.swift in Sources */,
+				CE647773299F59D30051CE1A /* DetailTaskView.swift in Sources */,
 				CE217B21299E2AE7005C9CF2 /* WorkListCell.swift in Sources */,
 				CE647762299F47E40051CE1A /* SignUpBasicTextFiled.swift in Sources */,
-				CE85159E2997AAAF008E5677 /* CompanyListView.swift in Sources */,
+				CE85159E2997AAAF008E5677 /* CustomerView.swift in Sources */,
+				CECAC35729A3E36700FF8511 /* TaskWithDateCell.swift in Sources */,
 				CE217ADB299B3C60005C9CF2 /* Repository.swift in Sources */,
 				CE217AF8299DC41D005C9CF2 /* WorkListView.swift in Sources */,
+				CE64778029A147CD0051CE1A /* DetailCustomerView.swift in Sources */,
 				CE19D9B62990EB22003F4399 /* SignUpView.swift in Sources */,
+				CE64777C29A134AD0051CE1A /* CustomerListModel.swift in Sources */,
+				CECAC36129A3F4F800FF8511 /* AddBusinessViewModel.swift in Sources */,
 				CE2904C9299F3F6E00C9484E /* Text.swift in Sources */,
+				CECAC36529A3F97300FF8511 /* EmployeeProfileView.swift in Sources */,
 				CE9E57B729954CD700DCDB63 /* BasicTextFiled.swift in Sources */,
 				CE8515A62998BB45008E5677 /* SettingModel.swift in Sources */,
 				CE2904C5299F3EFC00C9484E /* Color.swift in Sources */,
 				CE2904D9299F465A00C9484E /* LogoutView.swift in Sources */,
 				CE217B23299E2BBC005C9CF2 /* WorkLabel.swift in Sources */,
+				CECAC35529A3DCAD00FF8511 /* OtherTaskLabel.swift in Sources */,
 				CE2904DC299F472100C9484E /* ChangePasswordView.swift in Sources */,
 				CE2904E3299F476400C9484E /* AppInfoView.swift in Sources */,
-				CE647768299F482A0051CE1A /* MonthCalendarView.swift in Sources */,
+				CE647768299F482A0051CE1A /* MonthCalendar.swift in Sources */,
+				CE64779A29A3593B0051CE1A /* TESTVIEW.swift in Sources */,
 				CE19D9B42990EB18003F4399 /* SignInView.swift in Sources */,
-				CE2904A9299F2CDF00C9484E /* AddTaskView.swift in Sources */,
+				CE2904A9299F2CDF00C9484E /* AddWorkView.swift in Sources */,
+				CE4A29FD29A3B0E2007138AF /* FinishDatePickCalendar.swift in Sources */,
 				CE9E57C22996063100DCDB63 /* CompanyCreateViewModel.swift in Sources */,
+				CE64778429A1EE210051CE1A /* DetailCustomerCallCell.swift in Sources */,
 				CE9E57C52996370200DCDB63 /* MainTabView.swift in Sources */,
+				CECAC36329A3F68F00FF8511 /* ImportEmployeeLabel.swift in Sources */,
+				CE64778829A1FBAC0051CE1A /* CustomerDetailImage.swift in Sources */,
+				CECAC35029A3D35500FF8511 /* StartFinishDateView.swift in Sources */,
 				CE217AD9299B3C42005C9CF2 /* Entity.swift in Sources */,
 				CE217AE0299B3E7B005C9CF2 /* CalendarService.swift in Sources */,
+				CECAC35D29A3EE7200FF8511 /* AddBusinessView.swift in Sources */,
 				CE2904CB299F3F8B00C9484E /* URLs.swift in Sources */,
 				CE217AE2299B5A03005C9CF2 /* SelectedData.swift in Sources */,
+				CE64779329A3216F0051CE1A /* DetailCustomerViewModel.swift in Sources */,
 				CE19D9A62990CE15003F4399 /* UmuljeongApp.swift in Sources */,
+				CE64778229A1D0DC0051CE1A /* View + Extension.swift in Sources */,
 				CE85159C2997AA8F008E5677 /* BusinessManageView.swift in Sources */,
+				CE64777729A125220051CE1A /* CustomerCell.swift in Sources */,
+				CE64777529A0EEF00051CE1A /* SearchBar.swift in Sources */,
 				CE19D9B82990EB37003F4399 /* RoleSelectView.swift in Sources */,
+				CE64778629A1F14B0051CE1A /* DeviceSize.swift in Sources */,
 				CE2904CD299F3FE200C9484E /* TypoStyle.swift in Sources */,
+				CE64778C29A20EA10051CE1A /* BasicLineButtonLabel.swift in Sources */,
+				CE64778A29A20E8D0051CE1A /* BasicButtonLabel.swift in Sources */,
 				CE9E57BF2995E85400DCDB63 /* TapCase.swift in Sources */,
+				CE4A29FA29A39DE2007138AF /* StartDatePickCalendar.swift in Sources */,
 				CE8515A02997AAF8008E5677 /* MemberView.swift in Sources */,
 				CE9E57AF299201E700DCDB63 /* SignUpViewModel.swift in Sources */,
 			);

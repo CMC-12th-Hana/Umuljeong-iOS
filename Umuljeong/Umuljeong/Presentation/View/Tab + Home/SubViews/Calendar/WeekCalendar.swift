@@ -1,5 +1,5 @@
 //
-//  CalendarView.swift
+//  WeekCalendar.swift
 //  Umuljeong
 //
 //  Created by 박혜운 on 2023/02/13.
@@ -8,45 +8,98 @@
 import SwiftUI
 import FSCalendar
 
-struct WeekCalendarView: UIViewRepresentable {
-    @State var calendar:FSCalendar
-    @State var isCalendarExpanded: Bool
-
+struct WeekCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
+    @ObservedObject var viewModel: viewModelType
+    
+    init(viewModel: viewModelType) {
+        self.viewModel = viewModel
+    }
+    var calendar = FSCalendar()
+    
     func makeUIView(context: Context) -> FSCalendar {
-        calendar.calendarHeaderView.isHidden = true
+        calendar.delegate = context.coordinator
+        calendar.dataSource = context.coordinator
         calendar.headerHeight = 0
         calendar.locale = Locale(identifier: "ko_KR")
-
-//            // 선택된 날짜 모서리 설정
-        calendar.appearance.borderRadius = 0
-
-//        // 달에 유효하지않은 날짜 지우기
-        calendar.placeholderType = .none
-//
-//            // 평일 & 주말 색상 설정
-        calendar.appearance.titleDefaultColor = .black  // 평일
-        calendar.appearance.titleWeekendColor = .red    // 주말
-//        
+        calendar.scope = .week
         return calendar
-  }
-    func updateUIView(_ uiView: FSCalendar, context: Context) {
-        let scope: FSCalendarScope = isCalendarExpanded ? .month : .week
-        uiView.setScope(scope, animated: false)
-
-  }
-}
-
-
-struct WeekCalendarView_Previews: PreviewProvider {
-//    @State static var isCalendarExpanded = false
-//    @State static var clickDate = Date()
-//    @State static var monthViewModel = CalendarViewModel()
+    }
     
-    static var previews: some View {
-        WeekCalendarView(calendar: FSCalendar(), isCalendarExpanded: false)
-        WeekCalendarView(calendar: FSCalendar(), isCalendarExpanded: true)
+    func updateUIView(_ uiView: FSCalendar, context: Context) {
+        uiView.setCurrentPage(viewModel.selectedDate, animated: true)
+        uiView.select(viewModel.selectedDate)
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(viewModel: viewModel)
+    }
+    
+    class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource {
+        
+        var viewModel: viewModelType
+        
+        init(viewModel: viewModelType) {
+            self.viewModel = viewModel
+        }
+        
+        func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            viewModel.selectDate(date)
+        }
+        
+        func calendar(_ calendar: FSCalendar,
+                      boundingRectWillChange bounds: CGRect,
+                      animated: Bool) {
+            viewModel.weekCalendarHeight = bounds.height
+        }
     }
 }
+
+struct WeekCalendar_Previews: PreviewProvider {
+    @StateObject static var viewModel = CalendarViewModel()
+    static var previews: some View {
+        WeekCalendar(viewModel: viewModel)
+    }
+}
+//
+//struct WeekCalendarView: UIViewRepresentable {
+//    @State var calendar:FSCalendar
+//    @State var isCalendarExpanded: Bool
+//
+//    func makeUIView(context: Context) -> FSCalendar {
+//        calendar.calendarHeaderView.isHidden = true
+//        calendar.headerHeight = 0
+//        calendar.locale = Locale(identifier: "ko_KR")
+//
+////            // 선택된 날짜 모서리 설정
+//        calendar.appearance.borderRadius = 0
+//
+////        // 달에 유효하지않은 날짜 지우기
+//        calendar.placeholderType = .none
+////
+////            // 평일 & 주말 색상 설정
+//        calendar.appearance.titleDefaultColor = .black  // 평일
+//        calendar.appearance.titleWeekendColor = .red    // 주말
+////
+//        return calendar
+//  }
+//    func updateUIView(_ uiView: FSCalendar, context: Context) {
+//        let scope: FSCalendarScope = isCalendarExpanded ? .month : .week
+//        uiView.setScope(scope, animated: false)
+//
+//  }
+//}
+//
+//
+//struct WeekCalendarView_Previews: PreviewProvider {
+////    @State static var isCalendarExpanded = false
+////    @State static var clickDate = Date()
+////    @State static var monthViewModel = CalendarViewModel()
+//
+//    static var previews: some View {
+//        WeekCalendarView(calendar: FSCalendar(), isCalendarExpanded: false)
+//        WeekCalendarView(calendar: FSCalendar(), isCalendarExpanded: true)
+//    }
+//}
 
 
 //

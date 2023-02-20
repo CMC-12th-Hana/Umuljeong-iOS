@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TeskListView: View {
     var isListEmpty:Bool = false //기본 값 true
+    var teskList:[TeskModel] = [TeskModel(work: "디지털코리아 전용 회선", customer: "디지털 코리아", category: "문의"), TeskModel(work: "복실이 랜드", customer: "복실공주", category: "간식이 좋아")]
     
     var body: some View {
         if isListEmpty {
@@ -18,9 +19,11 @@ struct TeskListView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
         } else {
-            VStack{
+            
+            
+            VStack(spacing: 15){
                 NavigationLink {
-                    AddTaskView()
+//                    AddTaskView()
                 } label: {
                     HStack{
                         Image(systemName: "plus")
@@ -33,18 +36,23 @@ struct TeskListView: View {
                         RoundedRectangle(cornerRadius: 6)
                             .stroke(Color("font1"), lineWidth: 1.5)
                     )
-                } //: NavigationLink - AddTaskView
+                }
+                .padding(.top, 15)
+                //: NavigationLink - AddTaskView
                 
-                ScrollView {
-                    WorkListCell(work: "디지툴리얼코리아 전용 회선", custumer: "디지털 리얼 코리아", category: "문의", categoryColor: Color("main"))
-                        .frame(width: 335)
-                        .frame(minHeight: 85)
-                        .fixedSize(horizontal: true, vertical: false)
-                        
-                    
+                ScrollView{
+                    ForEach(teskList) { tesk in
+                        NavigationLink {
+//                            AddTaskView()
+                        } label: {
+                            WorkListCell(work: tesk.work, customer: tesk.customer, category: tesk.category, categoryColor: Color("main"))
+                        }
+                    } // : ForEach
+                    .frame(width: 335)
+                    .frame(minHeight: 85)
+                    .fixedSize(horizontal: true, vertical: false)
                 } // : ScrollView
             }
-            
         }
     }
 }

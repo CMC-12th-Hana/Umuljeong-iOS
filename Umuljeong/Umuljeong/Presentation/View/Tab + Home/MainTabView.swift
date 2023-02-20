@@ -11,7 +11,7 @@ struct MainTabView: View {
     //화면 이동
     @State var initPageNumber: Int = 0
     @State var showSetting:Bool = false
-    @ObservedObject var calendarViewModel = CalendarViewModel()
+    @ObservedObject var viewModel = CalendarViewModel()
     
     var xOffset: CGFloat {
         showSetting ? 0 : -UIScreen.main.bounds.width
@@ -33,17 +33,19 @@ struct MainTabView: View {
     
                 TabView(selection: $initPageNumber) {
                     
-                    HomeView(selectedTab: $initPageNumber, showSetting: $showSetting, calendarViewModel: calendarViewModel)
+//                    HomeView(selectedTab: $initPageNumber, showSetting: $showSetting)
+//
+                    HomeView(selectedTab: $initPageNumber, showSetting: $showSetting, calendarViewModel: viewModel)
                         .tabItem {
                             Image(systemName: "house.fill")
                             Text("홈")
                         }
                         .tag(0)
                     
-                    CompanyListView(selectedTab: $initPageNumber)
+                    CustomerView(selectedTab: $initPageNumber)
                         .tabItem {
                             Image(systemName: "globe")
-                            Text("고객관리")
+                            Text("고객사")
                         }
                         .tag(1)
                     
