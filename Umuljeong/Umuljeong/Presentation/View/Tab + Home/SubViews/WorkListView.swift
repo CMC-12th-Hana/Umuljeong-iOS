@@ -23,7 +23,7 @@ struct TeskListView: View {
             
             VStack(spacing: 15){
                 NavigationLink {
-//                    AddTaskView()
+                    AddTaskView()
                 } label: {
                     PlusButtonLabel(label: "업무 추가하기")
                 }
