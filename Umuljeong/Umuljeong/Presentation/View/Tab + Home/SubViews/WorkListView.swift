@@ -25,17 +25,7 @@ struct TeskListView: View {
                 NavigationLink {
 //                    AddTaskView()
                 } label: {
-                    HStack{
-                        Image(systemName: "plus")
-                        Text("업무 추가하기")
-                            .font(.custom("Pretendard-Bold", size: 16))
-                    }
-                    .foregroundColor(Color("font1"))
-                    .frame(width: 335, height: 50)
-                    .background(
-                        RoundedRectangle(cornerRadius: 6)
-                            .stroke(Color("font1"), lineWidth: 1.5)
-                    )
+                    PlusButtonLabel(label: "업무 추가하기")
                 }
                 .padding(.top, 15)
                 //: NavigationLink - AddTaskView
@@ -48,7 +38,6 @@ struct TeskListView: View {
                             WorkListCell(work: tesk.work, customer: tesk.customer, category: tesk.category, categoryColor: .first)
                         }
                     } // : ForEach
-                    .frame(width: 335)
                     .frame(minHeight: 85)
                     .fixedSize(horizontal: true, vertical: false)
                 } // : ScrollView
