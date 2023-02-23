@@ -7,4 +7,19 @@
 
 import Foundation
 
+class AddTaskViewModel:ObservableObject {
+    @Published var inputCustomerText:String = ""
+    @Published var inputBusinessText:String = ""
+    @Published var selecteTask:String = ""
+    var selectDate:String = ""
+    
+    
+    
+    
+    
+    
+    
+}
+
+
 
