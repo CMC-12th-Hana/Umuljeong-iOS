@@ -18,11 +18,9 @@ struct ButtonTextFiled: View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 1) {
                 Text(self.textFiledStyle.type)
-                    .font(.custom("Pretendard-Regular", size: 16))
                 Text("*")
                     .foregroundColor(Color("error"))
-                    .font(.custom("Pretendard-Regular", size: 16))
-            }
+            }.font(.body3)
             
             HStack(alignment: .firstTextBaseline, spacing: 7.75) {
                 ZStack {
@@ -32,9 +30,9 @@ struct ButtonTextFiled: View {
                         .frame(height: 46)
                     
                     TextField(textFiledStyle.placeHolder, text: $inputText)
-                        .font(.custom("Pretendard-Regular", size: 16))
                         .padding(13)
                         .frame(height: 46)
+                        .font(.body3)
                 }
                 
                 Button {

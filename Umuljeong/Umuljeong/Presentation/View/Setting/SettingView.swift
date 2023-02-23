@@ -15,37 +15,20 @@ struct SettingView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Color(.white)
-                List {
-                    ForEach(menu) { menu in
-                        NavigationLink(destination: menu.view )
-                        {
-                            HStack (spacing: 20) {
-                                Image(menu.imageName)
-                                    .frame(width: 32, height: 32)
-                                
-                                VStack (alignment: .leading, spacing: 5) {
-                                    Text(menu.name)
-                                        .font(.headline)
-                                }
-                                Spacer()
-                                //
-                                //                            VStack {
-                                //                                Image("rightErrow")
-                                //                            }
-                            }
-                            .frame(width: 335, height: 60)
-                        }
+            VStack{
+                ForEach(menu) { menu in
+                    NavigationLink(destination: menu.view
+                        .navigationDesignDefault(title: menu.name)
+                    ){
+                        SettingCategoryCell(imageName: menu.imageName, name: menu.name)
+                            .padding(.horizontal, 14)
                     }
-                    .listRowSeparator(.hidden)
-                }//: LIST
-            }//:ZStack
-            .onAppear{ UINavigationBar
-                .appearance().titleTextAttributes = [.font : UIFont(name: "Pretendard-Regular", size: 16)!]}
-            .navigationBarTitle(Text("환경설정"), displayMode: .inline)
-            .toolbarBackground(.visible, for: .navigationBar)
-            .toolbarBackground(Color.white, for: .navigationBar)
+                }
+                Spacer()
+            }
+            .padding(.top, 20)
+            .navigationTitleFontDefault(title: "환경설정")
+            .navigationAddDividerLine()
             .navigationBarItems(
                 trailing: Button(action: {
                     withAnimation { showSetting.toggle() }

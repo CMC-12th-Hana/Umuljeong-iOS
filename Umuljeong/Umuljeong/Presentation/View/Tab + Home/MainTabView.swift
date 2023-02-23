@@ -35,7 +35,7 @@ struct MainTabView: View {
                     
 //                    HomeView(selectedTab: $initPageNumber, showSetting: $showSetting)
 //
-                    HomeView(selectedTab: $initPageNumber, showSetting: $showSetting, calendarViewModel: viewModel)
+                    MainHomeView(selectedTab: $initPageNumber, showSetting: $showSetting, calendarViewModel: viewModel)
                         .tabItem {
                             Image(systemName: "house.fill")
                             Text("홈")
@@ -56,7 +56,7 @@ struct MainTabView: View {
                         }
                         .tag(2)
                     
-                    MemberView(selectedTab: $initPageNumber)
+                    MainEmployeeView(selectedTab: $initPageNumber)
                         .tabItem {
                             Image(systemName: "person.fill")
                             Text("구성원")

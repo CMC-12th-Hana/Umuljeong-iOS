@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MemberView: View {
+struct MainEmployeeView: View {
     @Binding var selectedTab: Int
     
     var body: some View {
@@ -18,6 +18,6 @@ struct MemberView: View {
 struct MemberView_Previews: PreviewProvider {
     @State static var selectedTab = 3
     static var previews: some View {
-        MemberView(selectedTab: $selectedTab)
+        MainEmployeeView(selectedTab: $selectedTab)
     }
 }

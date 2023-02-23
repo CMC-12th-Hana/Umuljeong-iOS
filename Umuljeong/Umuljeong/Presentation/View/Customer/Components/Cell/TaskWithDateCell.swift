@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskWithDateCell: View {
+struct BusinessCell: View {
     var body: some View {
         ZStack {
             HStack(spacing:0){
@@ -39,8 +39,8 @@ struct TaskWithDateCell: View {
     }
 }
 
-struct TaskWithDateCell_Previews: PreviewProvider {
+struct BusinessCell_Previews: PreviewProvider {
     static var previews: some View {
-        TaskWithDateCell()
+        BusinessCell()
     }
 }

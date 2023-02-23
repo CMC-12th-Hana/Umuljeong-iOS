@@ -3,7 +3,7 @@
 //  Umuljeong
 //
 //  Created by 박혜운 on 2023/02/11.
-//
+// 1View(Presentation) -> 2ViewModel -> 3Model 
 
 import SwiftUI
 
@@ -51,10 +51,7 @@ struct CustomerView: View {
                     )
                 }
                 
-//                VStack(spacing:10){
-//                    CustomerCell()
-//                    CustomerCell()
-//                }
+
                 .frame(width: 335)
                 ScrollView() {
                     ForEach(array.filter{$0.customer.hasPrefix(searchText) || searchText == ""}) {

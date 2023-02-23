@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  MainHomeView.swift
 //  Umuljeong
 //
 //  Created by 박혜운 on 2023/02/11.
@@ -8,7 +8,7 @@
 import SwiftUI
 import FSCalendar
 
-struct HomeView: View {
+struct MainHomeView: View {
     @Binding var selectedTab: Int //탭바 페이지 이동 (혹시 몰라)
     @Binding var showSetting:Bool
     @ObservedObject var viewModel = CalendarViewModel()
@@ -21,19 +21,15 @@ struct HomeView: View {
                 VStack(alignment: .center, spacing: 0) {
                     WeekCalendar(viewModel: calendarViewModel)
                         .frame(height: calendarViewModel.weekCalendarHeight)
-                        //week는 할당 필요
-                            .frame(width: 310)
-                            .background(Color.orange)
+                        .padding(.vertical, 30)
+                        .padding(.horizontal, 15)
                     
                     Rectangle()
-                        .fill(Color("bg1"))
+                        .fill(Color("bg2"))
                         .frame(height: 8)
                     
                         TeskListView()
-                        .background(Color.green)
-                }
-                .background(Color.blue)
-            
+                }//: VStack
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(Color.white, for: .navigationBar)
             .navigationBarItems(
@@ -58,7 +54,7 @@ struct HomeView: View {
                 trailing: Button(action: {
                     withAnimation { showSetting.toggle() }
                 }, label: {
-                    Image(systemName: "gear")
+                    Image("bellDefault")
                 }))
 
         }
@@ -98,14 +94,14 @@ struct HomeView: View {
     
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct MainHomeView_Previews: PreviewProvider {
     @State static var selectedTab = 0
     @State static var showSetting = false
     @StateObject static var calendarViewModel = CalendarViewModel()
     
     static var previews: some View {
 //        HomeView(selectedTab: $selectedTab, showSetting: $showSetting)
-        HomeView(selectedTab: $selectedTab, showSetting: $showSetting, calendarViewModel: calendarViewModel)
+        MainHomeView(selectedTab: $selectedTab, showSetting: $showSetting, calendarViewModel: calendarViewModel)
     }
 }
 

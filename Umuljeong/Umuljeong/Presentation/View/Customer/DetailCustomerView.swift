@@ -58,7 +58,7 @@ struct DetailCustomerView: View {
                         OtherTaskLabel()
                     }
                     
-                    TaskWithDateCell()
+                    BusinessCell()
                 }
                 
             }

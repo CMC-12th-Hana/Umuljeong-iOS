@@ -45,7 +45,7 @@ struct TeskListView: View {
                         NavigationLink {
 //                            AddTaskView()
                         } label: {
-                            WorkListCell(work: tesk.work, customer: tesk.customer, category: tesk.category, categoryColor: Color("main"))
+                            WorkListCell(work: tesk.work, customer: tesk.customer, category: tesk.category, categoryColor: .first)
                         }
                     } // : ForEach
                     .frame(width: 335)

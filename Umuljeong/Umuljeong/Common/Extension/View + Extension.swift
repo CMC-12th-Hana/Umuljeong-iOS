@@ -8,6 +8,41 @@
 import SwiftUI
 
 extension View {
+    func popupNavigationView<Content: View>(horizontalPadding: CGFloat = 40, show: Binding<Bool>, @ViewBuilder content: @escaping ()->Content) -> some View {
+        return self
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .overlay {
+                if show .wrappedValue {
+                    // MARK: Reading container frame
+                    GeometryReader { proxy in
+                        
+                        Color.primary
+                            .opacity(0.15)
+                            .ignoresSafeArea()
+                        
+                        let size = proxy.size
+                        
+                        NavigationView {
+                            content()
+                        }
+                        .frame(width: size.width - horizontalPadding, height: size.height / 1.7, alignment: .center)
+                        .cornerRadius(15)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    }
+                }
+            }
+    }
+}
+
+extension View {
+    
+    func navigationDesignDefault(title:String) -> some View {
+        self.modifier(NavigationDesign(title:title))
+    }
+    
+    func navigationAddDividerLine() -> some View {
+        self.modifier(NavigationAddDividerLine())
+    }
     
     func navigationTitleFontDefault(title:String) -> some View {
         self.modifier(NavigationTitleFontModifier(title:title))
@@ -17,6 +52,35 @@ extension View {
         self.modifier(NavigationBarBackButtonImageModifier())
     }
 }
+
+struct NavigationDesign: ViewModifier {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    let title:String
+    
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(Color.white, for: .navigationBar)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(
+                leading:
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack {
+                            Image("backButton")
+                        }
+                    })
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(title)
+                        .font(.body2)
+                }
+            }
+    }
+}
+
 
 struct NavigationBarBackButtonImageModifier: ViewModifier {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -47,6 +111,16 @@ struct NavigationTitleFontModifier: ViewModifier {
                     .font(.body2)
             }
         }
+    }
+}
+
+struct NavigationAddDividerLine: ViewModifier {
+
+    func body(content: Content) -> some View {
+        content
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarBackground(Color.white, for: .navigationBar)
     }
 }
 

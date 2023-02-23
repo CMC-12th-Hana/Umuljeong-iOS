@@ -10,7 +10,6 @@ import FSCalendar
 
 class CalendarViewModel: ObservableObject, CalendarVM {
     @Published var weekCalendarHeight: CGFloat = 300.0
-    
     // FsCalendar 인스턴스
     private var calendar = FSCalendar()
     

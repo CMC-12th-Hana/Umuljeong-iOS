@@ -33,7 +33,7 @@ struct CompanyCreateView: View {
                     .frame(width: 335, height: 50)
                     .foregroundColor(.white)
             }
-            .background(viewModel.isValid ? Color("main") : Color("line1"))
+            .background(viewModel.isValid ? Color("main") : Color("bg1"))
             .cornerRadius(6)
             .disabled(!viewModel.isValid)
             .fullScreenCover(isPresented: $signUpButtonState) {

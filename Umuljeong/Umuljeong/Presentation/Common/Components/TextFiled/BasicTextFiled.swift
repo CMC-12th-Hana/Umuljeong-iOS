@@ -17,34 +17,37 @@ struct BasicTextFiled: View {
     @State var placeHolderColor:Color = Color("line2")
         
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(spacing:8){
             HStack(spacing: 1) {
                 if isLabel {
                     Text(label)
-                        .font(.custom("Pretendard-Regular", size: 16))
+                        .font(.body3)
                     if checkRed {
                         Text("*")
                             .foregroundColor(Color("error"))
-                            .font(.custom("Pretendard-Regular", size: 16))
+                            .font(.body3)
                     }
                 }
+                Spacer()
             }
-            ZStack {
+            
+            TextField(placeHolder, text: $inputText, onEditingChanged: { onEditingChanged in
+                if !onEditingChanged {
+                    placeHolderColor = Color("line2")
+                } else {
+                    placeHolderColor = Color("line1")
+                }
+            })
+            .padding(.leading, 15)
+            .font(.body3)
+            .frame(height: 54)
+            .foregroundColor(Color("font1"))
+            .background(
                 RoundedRectangle(cornerRadius: 6)
                     .stroke(lineWidth: 1.0)
                     .fill(placeHolderColor)
-                    .frame(width: 335, height: 46)
-
-                TextField(placeHolder, text: $inputText, onEditingChanged: { onEditingChanged in
-                    if !onEditingChanged {
-                        placeHolderColor = Color("line2")
-                    } else {
-                        placeHolderColor = Color("line1")
-                    }
-                })
-                    .font(.custom("Pretendard-Regular", size: 16))
-                    .frame(width: 305, height: 46)
-            }
+                    .frame(height: 46))
+            
         }
     }
 }

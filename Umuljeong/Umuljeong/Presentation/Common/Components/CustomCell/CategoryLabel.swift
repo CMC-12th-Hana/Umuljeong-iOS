@@ -7,27 +7,27 @@
 
 import SwiftUI
 
-struct WorkLabel: View {
+struct CategoryLabel: View {
     let label:String
-    let color:Color
+    let color:CategoryColor
     
     var body: some View {
         ZStack {
             Text(label)
-                .font(.custom("Pretendard-Regular", size: 16))
-                .foregroundColor(color)
+                .font(.body3)
+                .foregroundColor(setCategoryColor(color))
                 .padding(.vertical, 9)
                 .padding(.horizontal, 12)
                 .background(
                     RoundedRectangle(cornerRadius: 6)
-                        .stroke(color.opacity(0.7), lineWidth: 1)
+                        .stroke(setCategoryColor(color).opacity(0.4), lineWidth: 1)
                 )
         }
     }
 }
 
-struct WorkLabel_Previews: PreviewProvider {
+struct CategoryLabel_Previews: PreviewProvider {
     static var previews: some View {
-        WorkLabel(label: "영업", color: Color("main"))
+        CategoryLabel(label: "영업", color: .first)
     }
 }
