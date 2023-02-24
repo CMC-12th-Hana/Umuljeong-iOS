@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddTaskView: View {
     @State var inputReportText:String = ""
+    @State var selected: [UIImage] = []
     
     let selecteDate:Date
 
@@ -40,7 +41,13 @@ struct AddTaskView: View {
             }
             reportTextField
             addPhotoButton
-            Spacer()
+            
+            if !self.selected.isEmpty {
+                selectedImageStack
+            } else {
+                Spacer()
+            }
+        
             saveTaskButton
         }
         .defaultAppStyleHorizentalPadding()
@@ -91,7 +98,7 @@ struct AddTaskView: View {
                 .fill(Color("bg1"))
                 .frame(height: 260)
             
-            MultilineTextField(text: $inputReportText, placeholder: "dd")
+            MultilineTextField(text: $inputReportText, placeholder: "보고 내용을 작성해주세요")
                 .autocorrectionDisabled(true)
                 .font(.body2)
                 .padding(.horizontal, 13)
@@ -101,8 +108,8 @@ struct AddTaskView: View {
     }
     
     var addPhotoButton:some View {
-        Button {
-            
+        NavigationLink {
+            CustomGalleryView(selected: $selected)
         } label: {
             HStack{
                 Spacer()
@@ -117,6 +124,21 @@ struct AddTaskView: View {
                 RoundedRectangle(cornerRadius: 6)
                     .fill(Color("bg2"))
             )
+        }
+    }
+    
+    var selectedImageStack:some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 20){
+                ForEach(self.selected, id: \.self){ i in
+                    Image(uiImage: i)
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .cornerRadius(6)
+                    
+                }
+            }
+            .defaultAppStyleHorizentalPadding()
         }
     }
     
