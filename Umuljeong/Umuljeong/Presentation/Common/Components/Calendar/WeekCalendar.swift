@@ -26,8 +26,8 @@ struct WeekCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: FSCalendar, context: Context) {
-        uiView.setCurrentPage(viewModel.selectedDate, animated: true)
-        uiView.select(viewModel.selectedDate)
+        uiView.setCurrentPage(viewModel.selecteDate, animated: true)
+        uiView.select(viewModel.selecteDate)
     }
     
     func makeCoordinator() -> Coordinator {

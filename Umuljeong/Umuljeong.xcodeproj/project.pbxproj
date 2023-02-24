@@ -29,10 +29,10 @@
 		CE217ADD299B3C76005C9CF2 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217ADC299B3C76005C9CF2 /* CalendarModel.swift */; };
 		CE217AE0299B3E7B005C9CF2 /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217ADF299B3E7B005C9CF2 /* CalendarService.swift */; };
 		CE217AE2299B5A03005C9CF2 /* SelectedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217AE1299B5A03005C9CF2 /* SelectedData.swift */; };
-		CE217AF8299DC41D005C9CF2 /* WorkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217AF7299DC41D005C9CF2 /* WorkListView.swift */; };
+		CE217AF8299DC41D005C9CF2 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217AF7299DC41D005C9CF2 /* TaskListView.swift */; };
 		CE217B21299E2AE7005C9CF2 /* WorkListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217B20299E2AE7005C9CF2 /* WorkListCell.swift */; };
 		CE217B23299E2BBC005C9CF2 /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217B22299E2BBC005C9CF2 /* CategoryLabel.swift */; };
-		CE2904A9299F2CDF00C9484E /* AddWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904A8299F2CDF00C9484E /* AddWorkView.swift */; };
+		CE2904A9299F2CDF00C9484E /* DropdownBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904A8299F2CDF00C9484E /* DropdownBar.swift */; };
 		CE2904C3299F3ED900C9484E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904C2299F3ED900C9484E /* Font.swift */; };
 		CE2904C5299F3EFC00C9484E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904C4299F3EFC00C9484E /* Color.swift */; };
 		CE2904C7299F3F3D00C9484E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2904C6299F3F3D00C9484E /* Image.swift */; };
@@ -100,6 +100,15 @@
 		CECAC38B29A60F2900FF8511 /* CatogoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC38A29A60F2900FF8511 /* CatogoryModel.swift */; };
 		CECAC38E29A6121B00FF8511 /* ChangeWorkCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC38D29A6121B00FF8511 /* ChangeWorkCategoryViewModel.swift */; };
 		CECAC39029A62ED700FF8511 /* CategoryDeleteOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC38F29A62ED700FF8511 /* CategoryDeleteOptionCell.swift */; };
+		CECAC39329A735BD00FF8511 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC39229A735BD00FF8511 /* AddTaskView.swift */; };
+		CECAC39529A7364200FF8511 /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC39429A7364200FF8511 /* AddTaskViewModel.swift */; };
+		CECAC39829A738D300FF8511 /* AddButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC39729A738D300FF8511 /* AddButtonLabel.swift */; };
+		CECAC39D29A73DD600FF8511 /* ImageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC39C29A73DD600FF8511 /* ImageBox.swift */; };
+		CECAC39F29A740A100FF8511 /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC39E29A740A100FF8511 /* Padding.swift */; };
+		CECAC3A129A7437800FF8511 /* SearhView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC3A029A7437800FF8511 /* SearhView.swift */; };
+		CECAC3A329A78A6300FF8511 /* ChnageButtonBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC3A229A78A6300FF8511 /* ChnageButtonBackgroundColor.swift */; };
+		CECAC3A829A869F900FF8511 /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC3A729A869F900FF8511 /* UIApplication + Extension.swift */; };
+		CECAC3AA29A86F6500FF8511 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC3A929A86F6500FF8511 /* MultilineTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,10 +136,10 @@
 		CE217ADC299B3C76005C9CF2 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		CE217ADF299B3E7B005C9CF2 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		CE217AE1299B5A03005C9CF2 /* SelectedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedData.swift; sourceTree = "<group>"; };
-		CE217AF7299DC41D005C9CF2 /* WorkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListView.swift; sourceTree = "<group>"; };
+		CE217AF7299DC41D005C9CF2 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		CE217B20299E2AE7005C9CF2 /* WorkListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListCell.swift; sourceTree = "<group>"; };
 		CE217B22299E2BBC005C9CF2 /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
-		CE2904A8299F2CDF00C9484E /* AddWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkView.swift; sourceTree = "<group>"; };
+		CE2904A8299F2CDF00C9484E /* DropdownBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownBar.swift; sourceTree = "<group>"; };
 		CE2904C2299F3ED900C9484E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		CE2904C4299F3EFC00C9484E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CE2904C6299F3F3D00C9484E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -197,6 +206,15 @@
 		CECAC38A29A60F2900FF8511 /* CatogoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatogoryModel.swift; sourceTree = "<group>"; };
 		CECAC38D29A6121B00FF8511 /* ChangeWorkCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeWorkCategoryViewModel.swift; sourceTree = "<group>"; };
 		CECAC38F29A62ED700FF8511 /* CategoryDeleteOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDeleteOptionCell.swift; sourceTree = "<group>"; };
+		CECAC39229A735BD00FF8511 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		CECAC39429A7364200FF8511 /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
+		CECAC39729A738D300FF8511 /* AddButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonLabel.swift; sourceTree = "<group>"; };
+		CECAC39C29A73DD600FF8511 /* ImageBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBox.swift; sourceTree = "<group>"; };
+		CECAC39E29A740A100FF8511 /* Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
+		CECAC3A029A7437800FF8511 /* SearhView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearhView.swift; sourceTree = "<group>"; };
+		CECAC3A229A78A6300FF8511 /* ChnageButtonBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChnageButtonBackgroundColor.swift; sourceTree = "<group>"; };
+		CECAC3A729A869F900FF8511 /* UIApplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extension.swift"; sourceTree = "<group>"; };
+		CECAC3A929A86F6500FF8511 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,12 +297,14 @@
 		CE2904AE299F34F700C9484E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CE64777429A0EEF00051CE1A /* SearchBar.swift */,
+				CECAC3A929A86F6500FF8511 /* MultilineTextField.swift */,
+				CECAC39C29A73DD600FF8511 /* ImageBox.swift */,
+				CECAC39A29A7397400FF8511 /* DropDown */,
+				CE647760299F47AE0051CE1A /* Calendar */,
+				CECAC39929A7390000FF8511 /* Label */,
 				CE64776C299F4D1B0051CE1A /* TextFiled */,
 				CE64776D299F4D260051CE1A /* CustomCell */,
-				CE64777429A0EEF00051CE1A /* SearchBar.swift */,
-				CE64778929A20E8D0051CE1A /* BasicButtonLabel.swift */,
-				CE64778B29A20EA10051CE1A /* BasicLineButtonLabel.swift */,
-				CE64778D29A2104F0051CE1A /* PlusButtonLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -330,7 +350,9 @@
 			children = (
 				CE9E57C42996370200DCDB63 /* MainTabView.swift */,
 				CE8515992997AA4A008E5677 /* MainHomeView.swift */,
+				CECAC39229A735BD00FF8511 /* AddTaskView.swift */,
 				CE64776E299F4D760051CE1A /* SubViews */,
+				CECAC39629A738AF00FF8511 /* Components */,
 				CE2904D6299F45CB00C9484E /* ViewModel */,
 			);
 			path = "Tab + Home";
@@ -404,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2904CC299F3FE200C9484E /* TypoStyle.swift */,
+				CECAC39E29A740A100FF8511 /* Padding.swift */,
 			);
 			path = DesignGuide;
 			sourceTree = "<group>";
@@ -479,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8515B1299A071E008E5677 /* CalendarViewModel.swift */,
+				CECAC39429A7364200FF8511 /* AddTaskViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -516,6 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				CE64778129A1D0DC0051CE1A /* View + Extension.swift */,
+				CECAC3A729A869F900FF8511 /* UIApplication + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -550,10 +575,9 @@
 		CE64776E299F4D760051CE1A /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				CE217AF7299DC41D005C9CF2 /* WorkListView.swift */,
-				CE2904A8299F2CDF00C9484E /* AddWorkView.swift */,
+				CE217AF7299DC41D005C9CF2 /* TaskListView.swift */,
+				CECAC3A029A7437800FF8511 /* SearhView.swift */,
 				CE647772299F59D30051CE1A /* DetailTaskView.swift */,
-				CE647760299F47AE0051CE1A /* Calendar */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -606,6 +630,7 @@
 				CE217ACA299A3293005C9CF2 /* CalendarFomatter.swift */,
 				CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */,
 				CE64778529A1F14B0051CE1A /* DeviceSize.swift */,
+				CECAC3A229A78A6300FF8511 /* ChnageButtonBackgroundColor.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -687,6 +712,40 @@
 				CECAC38D29A6121B00FF8511 /* ChangeWorkCategoryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CECAC39629A738AF00FF8511 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CECAC39929A7390000FF8511 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				CECAC39B29A739DB00FF8511 /* Button */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		CECAC39A29A7397400FF8511 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				CE2904A8299F2CDF00C9484E /* DropdownBar.swift */,
+			);
+			path = DropDown;
+			sourceTree = "<group>";
+		};
+		CECAC39B29A739DB00FF8511 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				CE64778929A20E8D0051CE1A /* BasicButtonLabel.swift */,
+				CE64778B29A20EA10051CE1A /* BasicLineButtonLabel.swift */,
+				CE64778D29A2104F0051CE1A /* PlusButtonLabel.swift */,
+				CECAC39729A738D300FF8511 /* AddButtonLabel.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -789,24 +848,31 @@
 				CE2904E1299F474800C9484E /* ResignView.swift in Sources */,
 				CE9E57BD2995E80100DCDB63 /* TextFiledStyle.swift in Sources */,
 				CE8515A22997D752008E5677 /* SettingView.swift in Sources */,
+				CECAC3AA29A86F6500FF8511 /* MultilineTextField.swift in Sources */,
+				CECAC39D29A73DD600FF8511 /* ImageBox.swift in Sources */,
 				CE2904C7299F3F3D00C9484E /* Image.swift in Sources */,
+				CECAC39829A738D300FF8511 /* AddButtonLabel.swift in Sources */,
 				CE64778E29A2104F0051CE1A /* PlusButtonLabel.swift in Sources */,
 				CECAC39029A62ED700FF8511 /* CategoryDeleteOptionCell.swift in Sources */,
 				CE19D9BA2990EB42003F4399 /* CompanyCreateView.swift in Sources */,
 				CE64779629A34F0D0051CE1A /* BusinessCalendar.swift in Sources */,
+				CECAC3A129A7437800FF8511 /* SearhView.swift in Sources */,
 				CE64777E29A139ED0051CE1A /* AddCustomerView.swift in Sources */,
 				CECAC37929A4C71E00FF8511 /* CategoryOptionCell.swift in Sources */,
 				CE647773299F59D30051CE1A /* DetailTaskView.swift in Sources */,
+				CECAC39529A7364200FF8511 /* AddTaskViewModel.swift in Sources */,
 				CE217B21299E2AE7005C9CF2 /* WorkListCell.swift in Sources */,
 				CE647762299F47E40051CE1A /* SignUpBasicTextFiled.swift in Sources */,
 				CE85159E2997AAAF008E5677 /* CustomerView.swift in Sources */,
 				CECAC35729A3E36700FF8511 /* TaskWithDateCell.swift in Sources */,
+				CECAC3A329A78A6300FF8511 /* ChnageButtonBackgroundColor.swift in Sources */,
 				CE217ADB299B3C60005C9CF2 /* Repository.swift in Sources */,
 				CECAC38929A5FBBB00FF8511 /* CategoryCircleColor.swift in Sources */,
 				CECAC38B29A60F2900FF8511 /* CatogoryModel.swift in Sources */,
-				CE217AF8299DC41D005C9CF2 /* WorkListView.swift in Sources */,
+				CE217AF8299DC41D005C9CF2 /* TaskListView.swift in Sources */,
 				CE64778029A147CD0051CE1A /* DetailCustomerView.swift in Sources */,
 				CE19D9B62990EB22003F4399 /* SignUpView.swift in Sources */,
+				CECAC39329A735BD00FF8511 /* AddTaskView.swift in Sources */,
 				CE64777C29A134AD0051CE1A /* CustomerListModel.swift in Sources */,
 				CECAC36129A3F4F800FF8511 /* AddBusinessViewModel.swift in Sources */,
 				CE2904C9299F3F6E00C9484E /* Text.swift in Sources */,
@@ -824,7 +890,7 @@
 				CE64779A29A3593B0051CE1A /* TESTVIEW.swift in Sources */,
 				CECAC37D29A5154000FF8511 /* CancelButtonLabel.swift in Sources */,
 				CE19D9B42990EB18003F4399 /* SignInView.swift in Sources */,
-				CE2904A9299F2CDF00C9484E /* AddWorkView.swift in Sources */,
+				CE2904A9299F2CDF00C9484E /* DropdownBar.swift in Sources */,
 				CE4A29FD29A3B0E2007138AF /* FinishDatePickCalendar.swift in Sources */,
 				CE9E57C22996063100DCDB63 /* CompanyCreateViewModel.swift in Sources */,
 				CE64778429A1EE210051CE1A /* DetailCustomerCallCell.swift in Sources */,
@@ -850,7 +916,9 @@
 				CE2904CD299F3FE200C9484E /* TypoStyle.swift in Sources */,
 				CE64778C29A20EA10051CE1A /* BasicLineButtonLabel.swift in Sources */,
 				CE64778A29A20E8D0051CE1A /* BasicButtonLabel.swift in Sources */,
+				CECAC3A829A869F900FF8511 /* UIApplication + Extension.swift in Sources */,
 				CE9E57BF2995E85400DCDB63 /* TapCase.swift in Sources */,
+				CECAC39F29A740A100FF8511 /* Padding.swift in Sources */,
 				CE4A29FA29A39DE2007138AF /* StartDatePickCalendar.swift in Sources */,
 				CE8515A02997AAF8008E5677 /* MemberView.swift in Sources */,
 				CECAC37629A472EF00FF8511 /* SettingCategoryCell.swift in Sources */,

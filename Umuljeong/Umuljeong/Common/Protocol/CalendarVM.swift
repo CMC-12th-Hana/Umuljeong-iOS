@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CalendarVM: ObservableObject {
-    var selectedDate: Date {get set}
+    var selecteDate: Date {get set}
     var monthCalendarCurrentDate: Date {get set}
 //    var monthCalendarYearMonth: String {get set}
     var weekCalendarHeight: CGFloat {get set}

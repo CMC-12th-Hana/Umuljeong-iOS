@@ -17,9 +17,9 @@ struct WorkListCell: View {
         ZStack {
             HStack{
                 VStack(alignment:.leading, spacing: 3){
-                    Text(work).font(.custom("Pretendard Bold", size: 16)).foregroundColor(Color("font4")).tracking(0.46)
+                    Text(work).font(.custom("Pretendard Bold", size: 16)).foregroundColor(Color("font4"))
                     
-                    Text(customer).font(.custom("Pretendard Medium", size: 14)).foregroundColor(Color("font2")).tracking(0.46)
+                    Text(customer).font(.custom("Pretendard Medium", size: 14)).foregroundColor(Color("font2"))
                     
                 }
                 Spacer()
