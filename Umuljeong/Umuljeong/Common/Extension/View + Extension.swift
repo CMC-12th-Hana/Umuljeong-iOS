@@ -7,35 +7,43 @@
 
 import SwiftUI
 
+// MARK: - popupNavigationView
+
 extension View {
-    func popupNavigationView<Content: View>(horizontalPadding: CGFloat = 40, show: Binding<Bool>, @ViewBuilder content: @escaping ()->Content) -> some View {
+    func popupNavigationView<Content: View>(
+        horizontalPadding: CGFloat = 40
+        , show: Binding<Bool>,
+        @ViewBuilder content: @escaping ()->Content)
+    -> some View {
         return self
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .overlay {
-                if show .wrappedValue {
-                    // MARK: Reading container frame
-                    GeometryReader { proxy in
-                        
-                        Color.primary
-                            .opacity(0.15)
-                            .ignoresSafeArea()
-                        
-                        let size = proxy.size
-                        
-                        NavigationView {
-                            content()
-                        }
-                        .frame(width: size.width - horizontalPadding, height: size.height / 1.7, alignment: .center)
-                        .cornerRadius(15)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .overlay {
+            if show .wrappedValue {
+                GeometryReader { proxy in
+                    Color.primary
+                        .opacity(0.15)
+                        .ignoresSafeArea()
+                    
+                    let size = proxy.size
+                    
+                    NavigationView {
+                        content()
                     }
+                    .frame(width: size.width - horizontalPadding,
+                           height: size.height / 1.7,
+                           alignment: .center)
+                    .cornerRadius(15)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
             }
+        }
     }
 }
 
+
+// MARK: - SetNavigationStyle
+
 extension View {
-    
     func navigationDesignDefault(title:String) -> some View {
         self.modifier(NavigationDesign(title:title))
     }
@@ -121,6 +129,24 @@ struct NavigationAddDividerLine: ViewModifier {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(Color.white, for: .navigationBar)
+    }
+}
+
+
+// MARK: - SetHorizentalPadding
+
+extension View {
+    func defaultAppStyleHorizentalPadding(horizontal: CGFloat = 15) -> some View {
+        self.modifier(PaddingModifier(horizontal: horizontal))
+    }
+}
+
+struct PaddingModifier: ViewModifier {
+    let horizontal: CGFloat
+
+    func body(content: Content) -> some View {
+        content
+            .padding(.horizontal, horizontal)
     }
 }
 

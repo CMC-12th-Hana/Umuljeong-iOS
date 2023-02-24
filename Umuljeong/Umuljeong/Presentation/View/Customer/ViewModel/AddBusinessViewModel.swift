@@ -16,7 +16,7 @@ class AddBusinessViewModel: ObservableObject, CalendarVM {
     @Published var showStartCalendar: Bool = false
     @Published var showFinishCalendar: Bool = false
 
-    @Published var selectedDate: Date = Date()
+    @Published var selecteDate: Date = Date()
     @Published var monthCalendarCurrentDate: Date = Date()
     
     @Published var startDate: Date?
@@ -32,7 +32,7 @@ class AddBusinessViewModel: ObservableObject, CalendarVM {
     }
     
     func selectDate(_ date: Date) {
-        selectedDate = date
+        selecteDate = date
         monthCalendarYearMonth = CalendarDateFomatter.yearMonth.string(from: date)
         //        currentMonthPage = date
     }

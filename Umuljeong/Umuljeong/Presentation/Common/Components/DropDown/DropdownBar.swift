@@ -57,7 +57,7 @@ struct Dropdown: View {
                     .frame(height: 15)
             }
         }
-        .frame(minHeight: CGFloat(options.count) * 40 + 30, maxHeight: 230)
+        .frame(minHeight: options.count < 6 ? CGFloat(options.count) * 40 + 30 : 220)
         .cornerRadius(5)
         .overlay(
             RoundedRectangle(cornerRadius: 5)
@@ -81,19 +81,16 @@ struct DropdownBar: View {
                 HStack {
                     Text(selectedOption == nil ? placeholder : selectedOption!.value)
                         .font(.body2)
-                        .foregroundColor(selectedOption == nil ? Color("font2"): Color("font1"))
+                        .foregroundColor(Color("font1"))
                     
                     Spacer()
                     
-                    Image(systemName: self.shouldShowDropdown ? "arrowtriangle.up.fill" : "arrowtriangle.down.fill")
-                        .resizable()
-                        .frame(width: 9, height: 5)
-                        .foregroundColor(Color.black)
+                    ImageBox(rectangleSize: 24, image: Image(self.shouldShowDropdown ? "upArrow" : "downArrow"))
                 }
             }
-            .padding(.horizontal, 25)
+            .padding(.horizontal, 15)
             .cornerRadius(6)
-            .frame(width: .infinity, height: self.buttonHeight)
+            .frame(height: self.buttonHeight)
             .overlay(
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color("line2"), lineWidth: 1)
@@ -123,16 +120,21 @@ struct DropdownBar_Previews: PreviewProvider {
     }
 
     static let options: [DropdownOption] = [
-        DropdownOption(key: uniqueKey, value: "기타"),
-        DropdownOption(key: uniqueKey, value: "사업명이"),
-        DropdownOption(key: uniqueKey, value: "긴 게 들어가죠")
+        DropdownOption(key: UUID().uuidString, value: "단순문의"),
+        DropdownOption(key: UUID().uuidString, value: "고객민원"),
+        DropdownOption(key: UUID().uuidString, value: "A/S"),
+        DropdownOption(key: UUID().uuidString, value: "기술컨설팅"),
+        DropdownOption(key: UUID().uuidString, value: "사전점검"),
+        DropdownOption(key: UUID().uuidString, value: "사전점검"),
+        DropdownOption(key: UUID().uuidString, value: "사전점검"),
+        DropdownOption(key: UUID().uuidString, value: "사전점검")
     ]
 
 
     static var previews: some View {
         Group {
             DropdownBar(
-                placeholder: "사업명",
+                placeholder: "업무분류",
                 options: options,
                 onOptionSelected: { option in
                     print(option)

@@ -6,8 +6,3 @@
 //
 
 import SwiftUI
-import UIKit
-
-extension CGFloat {
-    static let horizentalPaddingDefault:CGFloat = 15
-}

@@ -32,9 +32,6 @@ struct MainTabView: View {
                 ZStack{
     
                 TabView(selection: $initPageNumber) {
-                    
-//                    HomeView(selectedTab: $initPageNumber, showSetting: $showSetting)
-//
                     MainHomeView(selectedTab: $initPageNumber, showSetting: $showSetting, calendarViewModel: viewModel)
                         .tabItem {
                             Image(systemName: "house.fill")
@@ -64,7 +61,6 @@ struct MainTabView: View {
                         .tag(3)
                     
                 }
-                
                 
                 .overlay(
                     VStack{

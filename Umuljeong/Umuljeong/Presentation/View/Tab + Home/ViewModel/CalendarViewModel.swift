@@ -13,7 +13,7 @@ class CalendarViewModel: ObservableObject, CalendarVM {
     // FsCalendar 인스턴스
     private var calendar = FSCalendar()
     
-    @Published var selectedDate: Date = Date()
+    @Published var selecteDate: Date = Date()
     
     @Published var monthCalendarCurrentDate: Date = Date()
     
@@ -23,8 +23,12 @@ class CalendarViewModel: ObservableObject, CalendarVM {
         monthCalendarYearMonth = CalendarDateFomatter.yearMonth.string(from: CalendarService.shared.model.focusedDate)
     }
     
+    func getDate() -> Date {
+        return selecteDate
+    }
+    
     func selectDate(_ date: Date) {
-        selectedDate = date
+        selecteDate = date
         monthCalendarYearMonth = CalendarDateFomatter.yearMonth.string(from: date)
         //        currentMonthPage = date
     }

@@ -18,7 +18,6 @@ struct MonthCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
 //        calendar.select(viewModel.selectedDate)
     }
     
-    
     func makeUIView(context: Context) -> FSCalendar {
         calendar.delegate = context.coordinator
         calendar.dataSource = context.coordinator

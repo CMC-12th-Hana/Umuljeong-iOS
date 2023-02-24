@@ -46,7 +46,8 @@ struct BasicTextFiled: View {
                 RoundedRectangle(cornerRadius: 6)
                     .stroke(lineWidth: 1.0)
                     .fill(placeHolderColor)
-                    .frame(height: 46))
+                    .frame(height: 46)
+            )
             
         }
     }

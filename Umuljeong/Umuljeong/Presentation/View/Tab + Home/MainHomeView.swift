@@ -9,89 +9,95 @@ import SwiftUI
 import FSCalendar
 
 struct MainHomeView: View {
-    @Binding var selectedTab: Int //탭바 페이지 이동 (혹시 몰라)
+    @Binding var selectedTab: Int //탭바 페이지 이동 
     @Binding var showSetting:Bool
     @ObservedObject var viewModel = CalendarViewModel()
     @State var calendarViewModel: CalendarViewModel
-    
     @State var showSheet: Bool = false
 
     var body: some View {
         NavigationView{
-                VStack(alignment: .center, spacing: 0) {
-                    WeekCalendar(viewModel: calendarViewModel)
-                        .frame(height: calendarViewModel.weekCalendarHeight)
-                        .padding(.vertical, 30)
-                        .padding(.horizontal, 15)
-                    
-                    Rectangle()
-                        .fill(Color("bg2"))
-                        .frame(height: 8)
-                    
-                        TeskListView()
-                }//: VStack
-            .toolbarBackground(.visible, for: .navigationBar)
+            VStack(spacing: 0) {
+                WeekCalendar(viewModel: calendarViewModel)
+                    .frame(height: calendarViewModel.weekCalendarHeight)
+                    .padding(.top, 25)
+                    .padding(.horizontal, 15)
+                
+                ScrollView {
+                    TaskListView(viewModel: $calendarViewModel)
+                        .padding(.top, 28)
+                        .defaultAppStyleHorizentalPadding()
+                }
+                .background(Color("bg2"))
+            }
+            .sheet(isPresented: $showSheet) {
+                showCalendarPopup
+            }
             .toolbarBackground(Color.white, for: .navigationBar)
             .navigationBarItems(
                 leading:
-                    HStack {
-                        Button(action: {
-                            showSetting.toggle()
-                        }, label: {
-                            Image(systemName: "line.3.horizontal")
-                        })
-                        HStack {
-                            Text("\(calendarViewModel.monthCalendarYearMonth)")
-                            Button(action: {
-                                showSheet.toggle()
-                            }, label: {
-                                Image("downArrow")
-                            })
-                        }
-                        
-                    }
-                ,
-                trailing: Button(action: {
-                    withAnimation { showSetting.toggle() }
-                }, label: {
-                    Image("bellDefault")
-                }))
+                    leadingNavigationItem
+                ,trailing:
+                    trailingNavigationItem
+            )
+        }
+    }
+}
 
-        }
-        
-        
-        .sheet(isPresented: $showSheet) {
-            VStack{
-                HStack{
-                    Button {
-                        calendarViewModel.tappedButtonPage(isPrev: true)
-                    } label: {
-                        Text("좌 버튼")
-                    }
-                    Text(calendarViewModel.monthCalendarYearMonth)
-                    Button {
-                        calendarViewModel.tappedButtonPage(isPrev: false)
-                    } label: {
-                        Text("우 버튼")
-                    }
-                    
-                }
+
+extension MainHomeView {
+    var leadingNavigationItem: some View {
+        HStack {
+            Button(action: {
+                showSetting.toggle()
+            }, label: {
+                Image(systemName: "line.3.horizontal")
+            })
+            
+            HStack {
+                Text(calendarViewModel.monthCalendarYearMonth)
                 
-                MonthCalendar(viewModel: calendarViewModel)
-                    .frame(height: 252)
+                Button(action: {
+                    showSheet.toggle()
+                }, label: {
+                    Image("downArrow")
+                })
             }
-//            WeekCalendarView(calendar: calendarViewModel.monthCalendar, isCalendarExpanded: true)
-//                .frame(height: calendarViewModel.calendarHeight)
-//                .frame(height: 400)
-                .background(Color.yellow)
-            // Custom Size
-                .presentationDetents([.calendarSize])
-                .presentationDragIndicator(.hidden)
         }
-//        .padding(.bottom,
-//            UIApplication.shared.windows.first?.safeAreaInsets.top)
+    }
+        
+    var trailingNavigationItem: some View {
+        Button(action: {
+        withAnimation { showSetting.toggle() }
+        }, label: {
+            Image("bellDefault")
+        })
     }
     
+    var showCalendarPopup: some View {
+        VStack{
+            HStack{
+                Button {
+                    calendarViewModel
+                    .tappedButtonPage(isPrev: true)
+                } label: {
+                    Text("좌 버튼")
+                }
+                
+                Text(calendarViewModel.monthCalendarYearMonth)
+                
+                Button {
+                    calendarViewModel.tappedButtonPage(isPrev: false)
+                } label: {
+                    Text("우 버튼")
+                }
+            }
+            MonthCalendar(viewModel: calendarViewModel)
+            .frame(height: 252)
+        }
+        .presentationDetents([.calendarSize])
+        .presentationDragIndicator(.hidden)
+    }
 }
 
 struct MainHomeView_Previews: PreviewProvider {
@@ -100,7 +106,6 @@ struct MainHomeView_Previews: PreviewProvider {
     @StateObject static var calendarViewModel = CalendarViewModel()
     
     static var previews: some View {
-//        HomeView(selectedTab: $selectedTab, showSetting: $showSetting)
         MainHomeView(selectedTab: $selectedTab, showSetting: $showSetting, calendarViewModel: calendarViewModel)
     }
 }
