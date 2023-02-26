@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddTaskView: View {
+    @StateObject var viewModel = AddTaskViewModel()
     @State var inputReportText:String = ""
     @State var selected: [UIImage] = []
     
@@ -42,7 +43,7 @@ struct AddTaskView: View {
             reportTextField
             addPhotoButton
             
-            if !self.selected.isEmpty {
+            if !viewModel.selectedImages.isEmpty {
                 selectedImageStack
             } else {
                 Spacer()
@@ -109,7 +110,8 @@ struct AddTaskView: View {
     
     var addPhotoButton:some View {
         NavigationLink {
-            CustomGalleryView(selected: $selected)
+            CustomGalleryView()
+                .environmentObject(viewModel)
         } label: {
             HStack{
                 Spacer()
@@ -130,12 +132,14 @@ struct AddTaskView: View {
     var selectedImageStack:some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20){
-                ForEach(self.selected, id: \.self){ i in
-                    Image(uiImage: i)
+                ForEach(viewModel.taskImages, id: \.self){ i in
+                    Image(uiImage: i.image)
                         .resizable()
                         .frame(width: 100, height: 100)
                         .cornerRadius(6)
-                    
+                        .onTapGesture {
+                            viewModel.removeTaskImage(galleryImage: i)
+                        }
                 }
             }
             .defaultAppStyleHorizentalPadding()
