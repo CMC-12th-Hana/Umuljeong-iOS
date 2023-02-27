@@ -19,9 +19,6 @@ class AddTaskViewModel:ObservableObject {
     @Published var selectedImages: [GalleryImage] = []
     
     
-    
-    
-    
 //    @Published var galleryImages: [Images] = [] //갤러리에 깔아줄 때 바로바로 확인하기 위해서 Images Data 확인
     @Published var selectedUserImages: [UIImage] = [] //가져갈 때는 UIImage 형태로 가져가기
     //데이터 세팅할 때, 선택되어 있던 이미지를 걸러내는 코드 추가
@@ -64,25 +61,9 @@ class AddTaskViewModel:ObservableObject {
         selectedImages = taskImages
     }
     
-//    func fetchImage() {
-//        galleryImages = []
-//        service.getGalleryImages { images in
-//            if images == [] {
-//                self.galleryDisabled = true
-//
-//            } else {
-//                DispatchQueue.main.async {
-//                    self.galleryImages = images
-//                }
-//                print("이미지 받아오기 완료")
-//            }
-//        }
-//    }
-    
-    //유저 이미지 선택 -> 개
-    
     //선택된 갤러리 이미지 유저 이미지에 추가 func
     func addSelected(galleryImage: GalleryImage){
+        guard selectedImages.count <= 10 else {return}
         selectedImages.append(galleryImage)
     }
     
