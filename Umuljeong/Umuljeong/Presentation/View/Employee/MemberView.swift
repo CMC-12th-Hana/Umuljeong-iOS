@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainEmployeeView: View {
-    @Binding var selectedTab: Int
+    @Binding var selectedTab: Tags
     
     var body: some View {
         Text("MemberView")
@@ -16,7 +16,7 @@ struct MainEmployeeView: View {
 }
 
 struct MemberView_Previews: PreviewProvider {
-    @State static var selectedTab = 3
+    @State static var selectedTab = Tags.tag4
     static var previews: some View {
         MainEmployeeView(selectedTab: $selectedTab)
     }

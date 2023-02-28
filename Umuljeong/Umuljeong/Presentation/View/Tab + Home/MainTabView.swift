@@ -9,18 +9,13 @@ import SwiftUI
 
 struct MainTabView: View {
     //화면 이동
-    @State var initPageNumber: Int = 0
+    @State var tabSelection: Tags = .tag1
     @State var showSetting:Bool = false
+    @State var showMonthCalendar:Bool = false
     @ObservedObject var viewModel = CalendarViewModel()
     
     var xOffset: CGFloat {
         showSetting ? 0 : -UIScreen.main.bounds.width
-    }
-    var width: CGFloat {
-        UIScreen.main.bounds.width
-    }
-    var height: CGFloat {
-        UIScreen.main.bounds.height
     }
     
     init() {
@@ -28,61 +23,61 @@ struct MainTabView: View {
     }
     
     var body: some View {
+        ZStack{
             NavigationView {
-                ZStack{
-    
-                TabView(selection: $initPageNumber) {
-                    MainHomeView(selectedTab: $initPageNumber, showSetting: $showSetting, calendarViewModel: viewModel)
+                TabView(selection: $tabSelection) {
+                    MainHomeView(calendarViewModel: viewModel, showMonthCalendar: $showMonthCalendar)
                         .tabItem {
                             Image(systemName: "house.fill")
                             Text("홈")
                         }
-                        .tag(0)
                     
-                    CustomerView(selectedTab: $initPageNumber)
+                        .tag(Tags.tag1)
+                    
+                    CustomerView(selectedTab: $tabSelection)
                         .tabItem {
                             Image(systemName: "globe")
                             Text("고객사")
                         }
-                        .tag(1)
+                        .tag(Tags.tag2)
                     
-                    BusinessManageView(selectedTab: $initPageNumber)
+                    BusinessManageView(selectedTab: $tabSelection)
                         .tabItem {
                             Image(systemName: "person.fill")
                             Text("사업관리")
                         }
-                        .tag(2)
+                        .tag(Tags.tag3)
                     
-                    MainEmployeeView(selectedTab: $initPageNumber)
+                    MainEmployeeView(selectedTab: $tabSelection)
                         .tabItem {
                             Image(systemName: "person.fill")
                             Text("구성원")
                         }
-                        .tag(3)
+                        .tag(Tags.tag4)
                     
                 }
-                
-                .overlay(
-                    VStack{
-                        Spacer()
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(lineWidth: 0.1)
-                            .foregroundColor(.gray)
-                            .frame(width: width, height: height/4)
-                            .shadow(color: Color.gray, radius: 1, x: 0, y: -0.2)
-                            .padding(.bottom, -(height/5.4))
-                    }
+                .navigationBarItems(
+                    leading:
+                        Group{
+                            if tabSelection == .tag1 {
+                                leadingNavigationItem
+                            }
+                        }
+                    ,trailing:
+                        Group{
+                            if tabSelection == .tag1 {
+                                trailingNavigationItem
+                            }
+                        }
                 )
-                    
-                
-                .accentColor(Color("main"))
-                .shadow(radius: 20)
-                
-                
-                SettingView(showSetting: $showSetting)
-                    .offset(x: showSetting ? 0 : xOffset)
-                    .animation(.linear(duration: 0.15), value: showSetting)
             }
+            .transaction { transaction in
+                transaction.animation = nil
+            }
+            
+            SettingView(showSetting: $showSetting)
+                .offset(x: showSetting ? 0 : xOffset)
+                .animation(.linear(duration: 0.15), value: showSetting)
         }
     }
 }
@@ -92,6 +87,39 @@ struct MainTabView_Previews: PreviewProvider {
         MainTabView()
     }
 }
+
+
+extension MainTabView {
+    
+    var leadingNavigationItem: some View {
+        HStack {
+            Button(action: {
+                showSetting.toggle()
+            }, label: {
+                Image(systemName: "line.3.horizontal")
+            })
+
+            HStack {
+                Text(viewModel.monthCalendarYearMonth)
+
+                Button(action: {
+                    showMonthCalendar.toggle()
+                }, label: {
+                    Image("downArrow")
+                })
+            }
+        }
+    }
+
+    var trailingNavigationItem: some View {
+        Button(action: {
+        withAnimation { showSetting.toggle() }
+        }, label: {
+            Image("bellDefault")
+        })
+    }
+}
+
 
 extension AnyTransition {
     static var moveAndFade: AnyTransition {

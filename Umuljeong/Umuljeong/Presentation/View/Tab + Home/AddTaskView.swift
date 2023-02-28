@@ -36,10 +36,10 @@ struct AddTaskView: View {
                     .zIndex(1)
                 taskDateLabel
             }
-            .contentShape(Rectangle())
-            .onTapGesture {
-                hideKeyboard()
-            }
+//            .contentShape(Rectangle())
+//            .onTapGesture {
+//                hideKeyboard()
+//            }
             reportTextField
             addPhotoButton
             
@@ -131,18 +131,22 @@ struct AddTaskView: View {
     
     var selectedImageStack:some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 20){
+            HStack(spacing: 10){
                 ForEach(viewModel.taskImages, id: \.self){ i in
                     Image(uiImage: i.image)
                         .resizable()
                         .frame(width: 100, height: 100)
                         .cornerRadius(6)
-                        .onTapGesture {
-                            viewModel.removeTaskImage(galleryImage: i)
-                        }
+                        .overlay(
+                            Button(action: {
+                                viewModel.removeTaskImage(galleryImage: i)
+                            }, label: {
+                                ImageBox(rectangleSize: 24, image: Image("deleteButton"))
+                            })
+                            , alignment: .topTrailing
+                        )
                 }
             }
-            .defaultAppStyleHorizentalPadding()
         }
     }
     

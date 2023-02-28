@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomerView: View {
-    @Binding var selectedTab: Int
+    @Binding var selectedTab: Tags
     @State private var searchText = ""
     
     let array:[CustomerListModel] = [
@@ -74,7 +74,7 @@ struct CustomerView: View {
 }
 
 struct CustomerView_Previews: PreviewProvider {
-    @State static var selectedTab = 1
+    @State static var selectedTab = Tags.tag1
     static var previews: some View {
         CustomerView(selectedTab: $selectedTab)
     }

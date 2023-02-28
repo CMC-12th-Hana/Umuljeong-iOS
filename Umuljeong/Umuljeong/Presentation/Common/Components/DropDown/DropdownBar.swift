@@ -59,6 +59,10 @@ struct Dropdown: View {
         }
         .frame(minHeight: options.count < 6 ? CGFloat(options.count) * 40 + 30 : 220)
         .cornerRadius(5)
+        .background(
+            RoundedRectangle(cornerRadius: 5)
+                .fill(Color.white)
+        )
         .overlay(
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color("line2"), lineWidth: 1)

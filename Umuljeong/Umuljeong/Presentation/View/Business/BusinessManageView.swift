@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BusinessManageView: View {
-    @Binding var selectedTab: Int
+    @Binding var selectedTab: Tags
     @ObservedObject var viewModel = BusinessManagerViewModel()
     @State var searchWord: String = ""
     
@@ -44,7 +44,7 @@ struct BusinessManageView: View {
 }
 
 struct BusinessManageView_Previews: PreviewProvider {
-    @State static var selectedTab = 2
+    @State static var selectedTab = Tags.tag1
     static var previews: some View {
         BusinessManageView(selectedTab: $selectedTab)
     }

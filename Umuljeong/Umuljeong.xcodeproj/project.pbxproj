@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1699F029A8D61E0063A57D /* CustomGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1699EF29A8D61E0063A57D /* CustomGalleryView.swift */; };
+		CE1699F229A9A8F80063A57D /* photoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1699F129A9A8F80063A57D /* photoCell.swift */; };
+		CE1699F429A9D2FC0063A57D /* GalleryImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1699F329A9D2FC0063A57D /* GalleryImagesService.swift */; };
+		CE1699F729ACA6450063A57D /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1699F629ACA6450063A57D /* Tags.swift */; };
+		CE1699FB29AD9F340063A57D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1699FA29AD9F340063A57D /* Constants.swift */; };
 		CE19D9A62990CE15003F4399 /* UmuljeongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9A52990CE15003F4399 /* UmuljeongApp.swift */; };
 		CE19D9AA2990CE16003F4399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9A92990CE16003F4399 /* Assets.xcassets */; };
 		CE19D9AD2990CE16003F4399 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9AC2990CE16003F4399 /* Preview Assets.xcassets */; };
@@ -112,6 +117,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE1699EF29A8D61E0063A57D /* CustomGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGalleryView.swift; sourceTree = "<group>"; };
+		CE1699F129A9A8F80063A57D /* photoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoCell.swift; sourceTree = "<group>"; };
+		CE1699F329A9D2FC0063A57D /* GalleryImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImagesService.swift; sourceTree = "<group>"; };
+		CE1699F629ACA6450063A57D /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		CE1699FA29AD9F340063A57D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE19D9A22990CE15003F4399 /* Umuljeong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Umuljeong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE19D9A52990CE15003F4399 /* UmuljeongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmuljeongApp.swift; sourceTree = "<group>"; };
 		CE19D9A92990CE16003F4399 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -229,6 +239,461 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE1699F929AD9F1C0063A57D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CE1699FA29AD9F340063A57D /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		CE1699FC29ADA6B10063A57D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CE169A0A29ADA9110063A57D /* 회원가입 */,
+				CE169A0929ADA90D0063A57D /* 로그인 */,
+				CE169A0829ADA9080063A57D /* 기업등록 */,
+				CE169A0729ADA8DF0063A57D /* 세팅 */,
+				CE169A0629ADA8D80063A57D /* 홈 */,
+				CE169A0529ADA8C80063A57D /* 고객관리 */,
+				CE169A0429ADA8AF0063A57D /* MY */,
+				CE169A0329ADA8340063A57D /* 상단바 */,
+				CE169A0229ADA8300063A57D /* 환경설정 */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CE169A0229ADA8300063A57D /* 환경설정 */ = {
+			isa = PBXGroup;
+			children = (
+				CE169A3929ADAAC10063A57D /* Model */,
+				CE169A3829ADAAC00063A57D /* Repository */,
+				CE169A3729ADAABF0063A57D /* Service */,
+				CE169A3629ADAABD0063A57D /* ViewModel */,
+				CE169A3529ADAABC0063A57D /* View */,
+			);
+			name = "환경설정";
+			path = "환경설정";
+			sourceTree = "<group>";
+		};
+		CE169A0329ADA8340063A57D /* 상단바 */ = {
+			isa = PBXGroup;
+			children = (
+				CE169A3429ADAAB80063A57D /* Model */,
+				CE169A3329ADAAB70063A57D /* Repository */,
+				CE169A3229ADAAB50063A57D /* Service */,
+				CE169A3129ADAAB20063A57D /* ViewModel */,
+				CE169A3029ADAAB00063A57D /* View */,
+			);
+			name = "상단바";
+			path = "상단바";
+			sourceTree = "<group>";
+		};
+		CE169A0429ADA8AF0063A57D /* MY */ = {
+			isa = PBXGroup;
+			children = (
+				CE169A2F29ADAAAB0063A57D /* Model */,
+				CE169A2E29ADAAAA0063A57D /* Repository */,
+				CE169A2D29ADAAA80063A57D /* Service */,
+				CE169A2C29ADAAA70063A57D /* ViewModel */,
+				CE169A2B29ADAAA50063A57D /* View */,
+			);
+			path = MY;
+			sourceTree = "<group>";
+		};
+		CE169A0529ADA8C80063A57D /* 고객관리 */ = {
+			isa = PBXGroup;
+			children = (
+				CE169A2A29ADAAA30063A57D /* Model */,
+				CE169A2929ADAAA00063A57D /* Repository */,
+				CE169A2829ADAA9F0063A57D /* Service */,
+				CE169A2729ADAA9D0063A57D /* ViewModel */,
+				CE169A2629ADAA9A0063A57D /* View */,
+			);
+			name = "고객관리";
+			path = "고객관리";
+			sourceTree = "<group>";
+		};
+		CE169A0629ADA8D80063A57D /* 홈 */ = {
+			isa = PBXGroup;
+			children = (
+				CE169A2329ADAA940063A57D /* Model */,
+				CE169A2229ADAA920063A57D /* Repository */,
+				CE169A2129ADAA8F0063A57D /* Service */,
+				CE169A2429ADAA960063A57D /* ViewModel */,
+				CE169A2529ADAA970063A57D /* View */,
+			);
+			name = "홈";
+			path = "홈";
+			sourceTree = "<group>";
+		};
+		CE169A0729ADA8DF0063A57D /* 세팅 */ = {
+			isa = PBXGroup;
+			children = (
+				CE169A2029ADAA5D0063A57D /* Model */,
+				CE169A1F29ADAA5B0063A57D /* Repository */,
+				CE169A1E29ADAA5A0063A57D /* Service */,
+				CE169A1D29ADAA580063A57D /* ViewModel */,
+				CE169A1C29ADAA4A0063A57D /* View */,
+			);
+			name = "세팅";
+			path = "세팅";
+			sourceTree = "<group>";
+		};
+		CE169A0829ADA9080063A57D /* 기업등록 */ = {
+			isa = PBXGroup;
+			children = (
+				CE169A1B29ADAA3D0063A57D /* Model */,
+				CE169A1A29ADAA370063A57D /* Repository */,
+				CE169A1929ADAA2F0063A57D /* Service */,
+				CE169A1829ADAA260063A57D /* ViewModel */,
+				CE169A1729ADAA1F0063A57D /* View */,
+			);
+			name = "기업등록";
+			path = "기업등록";
+			sourceTree = "<group>";
+		};
+		CE169A0929ADA90D0063A57D /* 로그인 */ = {
+			isa = PBXGroup;
+			children = (
+				CE169A1629ADA9FE0063A57D /* Model */,
+				CE169A1529ADA9F50063A57D /* Repository */,
+				CE169A1429ADA9F10063A57D /* Service */,
+				CE169A1329ADA9ED0063A57D /* ViewModel */,
+				CE169A1229ADA9E60063A57D /* View */,
+			);
+			name = "로그인";
+			path = "로그인";
+			sourceTree = "<group>";
+		};
+		CE169A0A29ADA9110063A57D /* 회원가입 */ = {
+			isa = PBXGroup;
+			children = (
+				CE169A1129ADA9CA0063A57D /* Model */,
+				CE169A0F29ADA9740063A57D /* Repository */,
+				CE169A1029ADA9840063A57D /* Service */,
+				CE169A0E29ADA96C0063A57D /* ViewModel */,
+				CE169A0D29ADA9690063A57D /* View */,
+			);
+			name = "회원가입";
+			path = "회원가입";
+			sourceTree = "<group>";
+		};
+		CE169A0D29ADA9690063A57D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE169A0E29ADA96C0063A57D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE169A0F29ADA9740063A57D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE169A1029ADA9840063A57D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CE169A1129ADA9CA0063A57D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE169A1229ADA9E60063A57D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE169A1329ADA9ED0063A57D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE169A1429ADA9F10063A57D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CE169A1529ADA9F50063A57D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE169A1629ADA9FE0063A57D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE169A1729ADAA1F0063A57D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE169A1829ADAA260063A57D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE169A1929ADAA2F0063A57D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CE169A1A29ADAA370063A57D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE169A1B29ADAA3D0063A57D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE169A1C29ADAA4A0063A57D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE169A1D29ADAA580063A57D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE169A1E29ADAA5A0063A57D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CE169A1F29ADAA5B0063A57D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE169A2029ADAA5D0063A57D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE169A2129ADAA8F0063A57D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CE169A2229ADAA920063A57D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE169A2329ADAA940063A57D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE169A2429ADAA960063A57D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE169A2529ADAA970063A57D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE169A2629ADAA9A0063A57D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE169A2729ADAA9D0063A57D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE169A2829ADAA9F0063A57D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CE169A2929ADAAA00063A57D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE169A2A29ADAAA30063A57D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE169A2B29ADAAA50063A57D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE169A2C29ADAAA70063A57D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE169A2D29ADAAA80063A57D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CE169A2E29ADAAAA0063A57D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE169A2F29ADAAAB0063A57D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE169A3029ADAAB00063A57D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE169A3129ADAAB20063A57D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE169A3229ADAAB50063A57D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CE169A3329ADAAB70063A57D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE169A3429ADAAB80063A57D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE169A3529ADAABC0063A57D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE169A3629ADAABD0063A57D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE169A3729ADAABF0063A57D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CE169A3829ADAAC00063A57D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE169A3929ADAAC10063A57D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CE19D9992990CE15003F4399 = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +715,7 @@
 			children = (
 				CE19D9D02990F064003F4399 /* Info.plist */,
 				CE19D9A52990CE15003F4399 /* UmuljeongApp.swift */,
+				CE1699FC29ADA6B10063A57D /* Domain */,
 				CE2904BF299F3E1400C9484E /* Common */,
 				CE2904CE299F408300C9484E /* Data */,
 				CE2904D2299F410700C9484E /* Presentation */,
@@ -287,6 +753,7 @@
 		CE217AC9299A327F005C9CF2 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				CE1699F329A9D2FC0063A57D /* GalleryImagesService.swift */,
 				CE2904BD299F3AD000C9484E /* Repository */,
 				CE217ADF299B3E7B005C9CF2 /* CalendarService.swift */,
 				CE217AE1299B5A03005C9CF2 /* SelectedData.swift */,
@@ -351,6 +818,7 @@
 				CE9E57C42996370200DCDB63 /* MainTabView.swift */,
 				CE8515992997AA4A008E5677 /* MainHomeView.swift */,
 				CECAC39229A735BD00FF8511 /* AddTaskView.swift */,
+				CE1699F129A9A8F80063A57D /* photoCell.swift */,
 				CE64776E299F4D760051CE1A /* SubViews */,
 				CECAC39629A738AF00FF8511 /* Components */,
 				CE2904D6299F45CB00C9484E /* ViewModel */,
@@ -413,6 +881,7 @@
 		CE2904BF299F3E1400C9484E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CE1699F929AD9F1C0063A57D /* Constants */,
 				CE64776B299F4C290051CE1A /* Protocol */,
 				CE64776A299F4C230051CE1A /* Extension */,
 				CE9E57C02995E89400DCDB63 /* Helper */,
@@ -575,6 +1044,7 @@
 		CE64776E299F4D760051CE1A /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				CE1699EF29A8D61E0063A57D /* CustomGalleryView.swift */,
 				CE217AF7299DC41D005C9CF2 /* TaskListView.swift */,
 				CECAC3A029A7437800FF8511 /* SearhView.swift */,
 				CE647772299F59D30051CE1A /* DetailTaskView.swift */,
@@ -631,6 +1101,7 @@
 				CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */,
 				CE64778529A1F14B0051CE1A /* DeviceSize.swift */,
 				CECAC3A229A78A6300FF8511 /* ChnageButtonBackgroundColor.swift */,
+				CE1699F629ACA6450063A57D /* Tags.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -853,6 +1324,7 @@
 				CE2904C7299F3F3D00C9484E /* Image.swift in Sources */,
 				CECAC39829A738D300FF8511 /* AddButtonLabel.swift in Sources */,
 				CE64778E29A2104F0051CE1A /* PlusButtonLabel.swift in Sources */,
+				CE1699FB29AD9F340063A57D /* Constants.swift in Sources */,
 				CECAC39029A62ED700FF8511 /* CategoryDeleteOptionCell.swift in Sources */,
 				CE19D9BA2990EB42003F4399 /* CompanyCreateView.swift in Sources */,
 				CE64779629A34F0D0051CE1A /* BusinessCalendar.swift in Sources */,
@@ -873,6 +1345,7 @@
 				CE64778029A147CD0051CE1A /* DetailCustomerView.swift in Sources */,
 				CE19D9B62990EB22003F4399 /* SignUpView.swift in Sources */,
 				CECAC39329A735BD00FF8511 /* AddTaskView.swift in Sources */,
+				CE1699F229A9A8F80063A57D /* photoCell.swift in Sources */,
 				CE64777C29A134AD0051CE1A /* CustomerListModel.swift in Sources */,
 				CECAC36129A3F4F800FF8511 /* AddBusinessViewModel.swift in Sources */,
 				CE2904C9299F3F6E00C9484E /* Text.swift in Sources */,
@@ -900,6 +1373,7 @@
 				CECAC35029A3D35500FF8511 /* StartFinishDateView.swift in Sources */,
 				CE217AD9299B3C42005C9CF2 /* Entity.swift in Sources */,
 				CE217AE0299B3E7B005C9CF2 /* CalendarService.swift in Sources */,
+				CE1699F429A9D2FC0063A57D /* GalleryImagesService.swift in Sources */,
 				CECAC35D29A3EE7200FF8511 /* AddBusinessView.swift in Sources */,
 				CE2904CB299F3F8B00C9484E /* URLs.swift in Sources */,
 				CECAC38E29A6121B00FF8511 /* ChangeWorkCategoryViewModel.swift in Sources */,
@@ -917,11 +1391,13 @@
 				CE64778C29A20EA10051CE1A /* BasicLineButtonLabel.swift in Sources */,
 				CE64778A29A20E8D0051CE1A /* BasicButtonLabel.swift in Sources */,
 				CECAC3A829A869F900FF8511 /* UIApplication + Extension.swift in Sources */,
+				CE1699F029A8D61E0063A57D /* CustomGalleryView.swift in Sources */,
 				CE9E57BF2995E85400DCDB63 /* TapCase.swift in Sources */,
 				CECAC39F29A740A100FF8511 /* Padding.swift in Sources */,
 				CE4A29FA29A39DE2007138AF /* StartDatePickCalendar.swift in Sources */,
 				CE8515A02997AAF8008E5677 /* MemberView.swift in Sources */,
 				CECAC37629A472EF00FF8511 /* SettingCategoryCell.swift in Sources */,
+				CE1699F729ACA6450063A57D /* Tags.swift in Sources */,
 				CE9E57AF299201E700DCDB63 /* SignUpViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1055,7 +1531,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Umuljeong/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1086,7 +1565,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Umuljeong/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

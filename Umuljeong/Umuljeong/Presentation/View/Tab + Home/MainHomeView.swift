@@ -9,14 +9,13 @@ import SwiftUI
 import FSCalendar
 
 struct MainHomeView: View {
-    @Binding var selectedTab: Int //탭바 페이지 이동 
-    @Binding var showSetting:Bool
+//    @Binding var selectedTab: Tags //탭바 페이지 이동
     @ObservedObject var viewModel = CalendarViewModel()
     @State var calendarViewModel: CalendarViewModel
-    @State var showSheet: Bool = false
+    @Binding var showMonthCalendar: Bool
 
     var body: some View {
-        NavigationView{
+//        NavigationView{
             VStack(spacing: 0) {
                 WeekCalendar(viewModel: calendarViewModel)
                     .frame(height: calendarViewModel.weekCalendarHeight)
@@ -26,53 +25,19 @@ struct MainHomeView: View {
                 ScrollView {
                     TaskListView(viewModel: $calendarViewModel)
                         .padding(.top, 28)
-                        .defaultAppStyleHorizentalPadding()
                 }
                 .background(Color("bg2"))
             }
-            .sheet(isPresented: $showSheet) {
+            .sheet(isPresented: $showMonthCalendar) {
                 showCalendarPopup
             }
             .toolbarBackground(Color.white, for: .navigationBar)
-            .navigationBarItems(
-                leading:
-                    leadingNavigationItem
-                ,trailing:
-                    trailingNavigationItem
-            )
-        }
     }
 }
 
 
+
 extension MainHomeView {
-    var leadingNavigationItem: some View {
-        HStack {
-            Button(action: {
-                showSetting.toggle()
-            }, label: {
-                Image(systemName: "line.3.horizontal")
-            })
-            
-            HStack {
-                Text(calendarViewModel.monthCalendarYearMonth)
-                
-                Button(action: {
-                    showSheet.toggle()
-                }, label: {
-                    Image("downArrow")
-                })
-            }
-        }
-    }
-        
-    var trailingNavigationItem: some View {
-        Button(action: {
-        withAnimation { showSetting.toggle() }
-        }, label: {
-            Image("bellDefault")
-        })
-    }
     
     var showCalendarPopup: some View {
         VStack{
@@ -101,12 +66,13 @@ extension MainHomeView {
 }
 
 struct MainHomeView_Previews: PreviewProvider {
-    @State static var selectedTab = 0
-    @State static var showSetting = false
+    @State static var showMonthCalendar:Bool = false
+//    @State static var selectedTab = Tags.tag1
+//    @State static var showSetting = false
     @StateObject static var calendarViewModel = CalendarViewModel()
     
     static var previews: some View {
-        MainHomeView(selectedTab: $selectedTab, showSetting: $showSetting, calendarViewModel: calendarViewModel)
+        MainHomeView(calendarViewModel: calendarViewModel, showMonthCalendar: $showMonthCalendar)
     }
 }
 

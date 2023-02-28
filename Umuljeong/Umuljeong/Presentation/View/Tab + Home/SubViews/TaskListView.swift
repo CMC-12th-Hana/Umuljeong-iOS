@@ -21,7 +21,7 @@ struct TaskListView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
         } else {
-            VStack(spacing: 15){
+            VStack(spacing: 20){
                 NavigationLink {
                     AddTaskView(selecteDate: viewModel.getDate())
                 } label: {
@@ -36,10 +36,9 @@ struct TaskListView: View {
                             WorkListCell(work: tesk.work, customer: tesk.customer, category: tesk.category, categoryColor: .first)
                         }
                     } // : ForEach
-                    .frame(minHeight: 85)
-                    .fixedSize(horizontal: true, vertical: false)
                 } // : ScrollView
             }
+            .defaultAppStyleHorizentalPadding()
         }
     }
 }

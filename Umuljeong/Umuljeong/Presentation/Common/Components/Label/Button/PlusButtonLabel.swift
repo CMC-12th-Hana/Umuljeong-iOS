@@ -24,6 +24,10 @@ struct PlusButtonLabel: View {
                 RoundedRectangle(cornerRadius: 6)
                     .stroke(Color("font1"), lineWidth: 1.5)
             )
+            .background(
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(Color.white)
+            )
         }
     }
 }
