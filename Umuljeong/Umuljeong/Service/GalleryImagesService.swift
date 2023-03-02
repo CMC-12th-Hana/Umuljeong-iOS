@@ -15,57 +15,8 @@ struct GalleryImage: Hashable {
 }
 
 
-class GalleryImagesService {
-
-    
-//    func fetchGalleryImages(selectedImages:[GalleryImage], page: Int, closure: @escaping (_ image: GalleryImage) -> (), completion: @escaping (_ state: PHAuthorizationStatus) -> ()) {
-//        let req = PHAsset.fetchAssets(with: .image, options: .none)
-//        let options = PHImageRequestOptions()
-//        options.isSynchronous = true
-//
-//        var images: [GalleryImage] = []
-//        var selectedIdentifiers: Set<String> = [] // 선택된 이미지의 localIdentifier 값을 저장할 배열
-//
-//        PHPhotoLibrary.requestAuthorization { status in
-//            if status == .authorized {
-//                let manager = PHImageManager.default()
-//                let requestOptions = PHImageRequestOptions()
-//                requestOptions.isSynchronous = true
-//
-//                let pageSize = 20
-//                let startIndex = (page - 1) * pageSize
-//                let endIndex = min(startIndex + pageSize, req.count)
-//
-//                for index in startIndex..<endIndex {
-//                    let asset = req.object(at: index)
-//
-//                    manager.requestImage(for: asset, targetSize: .init(), contentMode: .default, options: requestOptions) { (image, info) in
-//                        if let image = image {
-//                            let imageData = GalleryImage(image: image, localIdentifier: asset.localIdentifier, isSelected: selectedIdentifiers.contains(asset.localIdentifier))
-//
-//                            DispatchQueue.main.async {
-//                                closure(imageData)
-//                            }
-//
-//                        }
-//                    }
-//
-//                    if let selectedAsset = selectedImages.first(where: { $0.localIdentifier == asset.localIdentifier }) {
-//                        selectedIdentifiers.insert(selectedAsset.localIdentifier)
-//                    }
-//                }
-//
-//                if endIndex == req.count {
-//                    completion(.authorized)
-//                }
-//            } else {
-//                closure(GalleryImage(image: .init(), localIdentifier: "", isSelected: false))
-//                completion(.denied)
-//            }
-//        }
-//    }
-
-    
+class GalleryImagesService: GalleryService {
+ 
     func fetchGalleryImages(selectedImages:[GalleryImage], page: Int, closure: @escaping (_ image: GalleryImage) -> (), completion: @escaping (_ state: PHAuthorizationStatus) -> ()) {
         let req = PHAsset.fetchAssets(with: .image, options: .none)
         var images: [GalleryImage] = []
@@ -116,35 +67,35 @@ class GalleryImagesService {
     }
 
     
-    func getGalleryImages(closure: @escaping (_ images: [Images]) -> ()) {
-        let req = PHAsset.fetchAssets(with: .image, options: .none)
-        var returnImages:[Images] = []
-        
-        PHPhotoLibrary.requestAuthorization{ (status) in
-            if status == .authorized{
-                DispatchQueue.global(qos: .background).async {
-                    
-                    req.enumerateObjects { (asset, _, _) in
-                        
-                        let options = PHImageRequestOptions()
-                        options.isSynchronous = true
-                        
-                        PHCachingImageManager.default().requestImage(for: asset, targetSize: .init(), contentMode: .default, options: options) { (image, _) in
-                            
-                            let imageData = Images(image: image!, selected: false)
-                            
-                            returnImages.append(imageData)
-                        }
-                    } //grid 관련 삭제함 : 혹시 몰라 남겨둠 추후 이 주석 삭제
-                    closure(returnImages)
-                }
-            } else {
-                print("not authorized")
-                
-                // MARK: - 카메라 기능 비활성화 시 처리 로직 작성
-                //빈 배열이면 disabled true
-//                closure([])
-            }
-        }
-    }
+//    func getGalleryImages(closure: @escaping (_ images: [Images]) -> ()) {
+//        let req = PHAsset.fetchAssets(with: .image, options: .none)
+//        var returnImages:[Images] = []
+//
+//        PHPhotoLibrary.requestAuthorization{ (status) in
+//            if status == .authorized{
+//                DispatchQueue.global(qos: .background).async {
+//
+//                    req.enumerateObjects { (asset, _, _) in
+//
+//                        let options = PHImageRequestOptions()
+//                        options.isSynchronous = true
+//                        
+//                        PHCachingImageManager.default().requestImage(for: asset, targetSize: .init(), contentMode: .default, options: options) { (image, _) in
+//
+//                            let imageData = Images(image: image!, selected: false)
+//
+//                            returnImages.append(imageData)
+//                        }
+//                    } //grid 관련 삭제함 : 혹시 몰라 남겨둠 추후 이 주석 삭제
+//                    closure(returnImages)
+//                }
+//            } else {
+//                print("not authorized")
+//
+//                // MARK: - 카메라 기능 비활성화 시 처리 로직 작성
+//                //빈 배열이면 disabled true
+////                closure([])
+//            }
+//        }
+//    }
 }

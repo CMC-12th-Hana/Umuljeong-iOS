@@ -17,6 +17,9 @@ extension Font {
     static let body4 = Font.custom("Pretendard-Regular", fixedSize: 14)
     static let body5 = Font.custom("Pretendard-Regular", fixedSize: 13)
     static let body6 = Font.custom("Pretendard-Medium", fixedSize: 12)
+    static let special1 = Font.custom("Pretendard-Medium", fixedSize: 11)
+    static let special2 = Font.custom("Pretendard-Bold", fixedSize: 20)
+    static let special3 = Font.custom("Pretendard-SemiBold", fixedSize: 14)
 }
 
 extension UIFont {

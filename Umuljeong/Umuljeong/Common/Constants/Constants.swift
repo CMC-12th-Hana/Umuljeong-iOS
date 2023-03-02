@@ -11,12 +11,13 @@ struct Constants {
     // MARK: - 리더 관련 : leader
     
     // MARK: - 사용자 관련 : user
-    
-    
+
 }
 
 extension Constants {
     
+    // MARK: - 업무 관련 : task_
+
     // MARK: - 사업 관련 : business_
     
     // MARK: - 구성원 관련 : member_
