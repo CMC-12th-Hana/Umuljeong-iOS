@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LoginRepository {
-    func requestLogin(loginInfo:LoginInfo) -> 서버응답
+    func requestLogin(loginInfo:LoginInfo, completion: @escaping (NetworkResult<Any>) -> Void)
 }
 
 protocol FindPasswordRepository {
@@ -16,3 +16,5 @@ protocol FindPasswordRepository {
     func requestIsAvailalable(code:String, ofPhoneNumber:String) -> 서버응답
     func requestRegisterNew(password:String) -> 서버응답
 }
+
+

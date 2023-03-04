@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct UmuljeongApp: App {
+    var rep1 = SignupRepositoryImpl()
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+//            MainTabView()
+            SignupView()
+                .onAppear{
+                    
+                }
         }
     }
 }

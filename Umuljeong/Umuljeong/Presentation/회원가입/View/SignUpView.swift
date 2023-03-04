@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct SignUpView: View {
+struct SignupView: View {
     @State var inputText: String = ""
     @State var signUpButtonState = false
     @State var onTapGesture:TapCase?
-    @ObservedObject var viewModel = SignUpViewModel()
+    @ObservedObject var viewModel = SignupViewModelImpl()
     @State var passwordClickChanged = false
      
     var body: some View {
@@ -31,21 +31,7 @@ struct SignUpView: View {
                     .onTapGesture {
                         onTapGesture = .username
                     }
-                VStack(alignment: .leading) {
-                    ButtonTextFiled(inputText: $viewModel.email, errorMessage: $viewModel.emailError, textFiledStyle: .email, onTapGesture: onTapGesture?.emailState)
-                        .onTapGesture {
-                            onTapGesture = .email
-                        }
-                    Group {
-                        if let emailError = viewModel.emailError  {
-                            if viewModel.email != "" {
-                                textErrorLabel(label: emailError)
-                            }
-                        }
-                    }
-                    .font(.custom("Pretendard-Regular", size: 14))
-                }
-                
+
                 VStack(alignment: .leading) {
                 ButtonTextFiled(inputText: $viewModel.phoneNumber, errorMessage: $viewModel.phoneNumberError, textFiledStyle: .phoneNumber, onTapGesture: onTapGesture?.phoneNumberState)
                     .onTapGesture {
@@ -102,6 +88,7 @@ struct SignUpView: View {
                 
                 Button {
                     self.signUpButtonState.toggle()
+//                    viewModel.signup()
                 } label: {
                     Text("가입하기")
                         .font(.custom("Pretendard-Bold", size: 16))
@@ -118,15 +105,18 @@ struct SignUpView: View {
                 }
             }
         }
+        .onAppear{
+            viewModel.signup()
+        }
         .navigationBarTitle("회원가입", displayMode: .inline)
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(Color.white, for: .navigationBar)
     }
 }
 
-struct SignUpView_Previews: PreviewProvider {
+struct SignupView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        SignupView()
     }
 }
 

@@ -96,7 +96,7 @@ struct LoginView: View {
                 
                 NavigationLink {
                     // destination : 목적지 -> 어디로 페이지 이동할꺼냐
-                    SignUpView()
+                    SignupView()
                 } label: {
                     Text("회원가입")
                         .font(.custom("Pretendard-Bold", size: 16))

@@ -13,7 +13,6 @@ class CompanyCreateViewModel: ObservableObject {
     
     @Published var company:String = ""
     @Published var manager:String = ""
-    
     @Published var isValid:Bool = false
     private var publishers = Set<AnyCancellable>()
     

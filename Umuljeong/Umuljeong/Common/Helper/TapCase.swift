@@ -9,7 +9,6 @@ import Foundation
 
 enum TapCase {
     case username
-    case email
     case phoneNumber
     case password
     case confirmPassword
@@ -17,15 +16,6 @@ enum TapCase {
     var usernameState:Bool {
         switch self {
         case .username:
-            return true
-        default:
-            return false
-        }
-    }
-    
-    var emailState:Bool {
-        switch self {
-        case .email:
             return true
         default:
             return false

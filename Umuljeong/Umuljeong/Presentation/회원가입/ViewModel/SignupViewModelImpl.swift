@@ -1,5 +1,5 @@
 //
-//  SignUpViewModel.swift
+//  SignupViewModelImpl.swift
 //  Umuljeong
 //
 //  Created by 박혜운 on 2023/02/07.
@@ -9,10 +9,11 @@ import Foundation
 import SwiftUI
 import Combine
 
-class SignUpViewModel: ObservableObject {
+class SignupViewModelImpl: ObservableObject {
+    let service = SignupServiceImpl()
+    
     //받아온 값 (공유)
     @Published var username: String = ""
-    @Published var email: String = ""
     @Published var phoneNumber: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
@@ -26,7 +27,6 @@ class SignUpViewModel: ObservableObject {
     
     //각 상태에 따른 String 출력
     @Published var usernameError: String? = Optional("")
-    @Published var emailError: String? = Optional("")
     @Published var phoneNumberError: String? = Optional("")
     @Published var passwordError: String? = Optional("")
     @Published var confirmPasswordError: String? = Optional("")
@@ -35,42 +35,35 @@ class SignUpViewModel: ObservableObject {
 
     
     init() { //발행자 생성 //비번은 컨펌으로 확인
-        
-        Publishers.CombineLatest(self.validUserNamePublisher, self.validEmailPublisher)
-            .dropFirst()
-            .sink { _usernameError, _emailError in
-                self.basicValid = _usernameError == nil &&
-                    _emailError == nil
-            }
-            .store(in: &cancellableSet)
-        
-        
-        validUserNamePublisher
-            .dropFirst()
-            .sink { (_username) in
-                self.usernameError = _username
-            }
-            .store(in: &cancellableSet)
-        
-        validEmailPublisher
-            .dropFirst()
-            .sink { (_email) in
-                self.emailError = _email
-            }
-            .store(in: &cancellableSet)
+//
+//        Publishers.CombineLatest(self.validUserNamePublisher)
+//            .dropFirst()
+//            .sink { _usernameError in
+//                self.basicValid = _usernameError == nil
+//            }
+//            .store(in: &cancellableSet)
+//
+//
+//
+//
 
-        
-
-        Publishers.CombineLatest3(self.validPhoneNumberPublisher, self.passwordValidatorPublisher, self.confirmPasswordValidatorPublisher)
+        Publishers.CombineLatest4(self.validUserNamePublisher, self.validPhoneNumberPublisher, self.passwordValidatorPublisher, self.confirmPasswordValidatorPublisher)
             .dropFirst()
-            .sink { _phoneNumberError, _passwordValidator, _confirmPasswordValidator  in
+            .sink { _usernameError, _phoneNumberError, _passwordValidator, _confirmPasswordValidator  in
                 self.isValid = self.basicValid &&
+                        _usernameError == nil &&
                         _phoneNumberError == nil &&
                         _passwordValidator.errorMessage == nil &&
                         _confirmPasswordValidator.confirmPasswordErrorMessage == nil
         }
         .store(in: &cancellableSet)
 
+        validUserNamePublisher
+            .dropFirst()
+            .sink { (_username) in
+                self.usernameError = _username
+            }
+            .store(in: &cancellableSet)
         
         validPhoneNumberPublisher
             .dropFirst()
@@ -107,21 +100,6 @@ class SignUpViewModel: ObservableObject {
                     return "이름을 입력해주세요"
                 } else if !_username.isValidUsername {
                     return "양식에 맞는 이름을 입력해 주세요"
-                } else {
-                    return nil
-                }
-        }
-        .eraseToAnyPublisher()
-    }
-    
-    
-    private var validEmailPublisher: AnyPublisher<String?, Never> {
-        $email
-            .debounce(for: 0, scheduler: RunLoop.main)
-            .removeDuplicates()
-            .map { _email in
-                if !_email.isValidEmail {
-                    return "올바른 이메일 형식이 아닙니다"
                 } else {
                     return nil
                 }
@@ -181,6 +159,18 @@ class SignUpViewModel: ObservableObject {
             }
         .eraseToAnyPublisher()
     }
+    
+    // MARK: - 강제 입력 형태
+    /**SignupViewModel의 회원가입 요청 메서드*/
+    func signup() {
+        service.requestSignup(signupInfo: SignupInfo(name: "가나다", phoneNumber: "01011111111", password: "qweR!1234", passwordCheck: "qweR!1234")) { response in
+            switch response {
+            case .success:
+                print("SignupViewModel : 회원가입 성공")
+            default : print("SignupViewModel : 통신 실패")
+            }
+        }
+    }
 }
 
 
@@ -224,13 +214,6 @@ extension String {
         
         let phoneNumbePred = NSPredicate(format:"SELF MATCHES %@", phoneNumberRegEx)
         return phoneNumbePred.evaluate(with: self)
-    }
-    
-    var isValidEmail: Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: self)
     }
 }
 
