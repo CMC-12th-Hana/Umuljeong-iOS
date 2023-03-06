@@ -17,7 +17,6 @@ struct CustomerView: View {
     
     
     var body: some View {
-        NavigationView {
             VStack(spacing:20) {
                 HStack(spacing: 0){
                     SearchBar(text: $searchText, guideText: "찾으시는 고객사명을 입력해주세요")
@@ -68,7 +67,6 @@ struct CustomerView: View {
                 .onTapGesture {
                     hideKeyboard()
                 }
-            }
         }
     }
 }
@@ -81,11 +79,3 @@ struct CustomerView_Previews: PreviewProvider {
 }
 
 
-//화면 터치시 키보드 숨김
-#if canImport(UIKit)
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-#endif

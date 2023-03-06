@@ -15,7 +15,7 @@ struct GalleryImage: Hashable {
 }
 
 
-class GalleryImagesService: GalleryService {
+class GalleryImagesService {
  
     func fetchGalleryImages(selectedImages:[GalleryImage], page: Int, closure: @escaping (_ image: GalleryImage) -> (), completion: @escaping (_ state: PHAuthorizationStatus) -> ()) {
         let req = PHAsset.fetchAssets(with: .image, options: .none)

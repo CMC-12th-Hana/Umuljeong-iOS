@@ -15,12 +15,22 @@ struct MemberTaskCategoryDropDown: View {
     var body: some View {
         VStack(spacing: 0){
             dropDownBar
-            
             if shouldShowDropdown {
                 dropDown
                     .padding(.horizontal, 4)
             }
         }
+        .background(
+            Group {
+                if shouldShowDropdown {
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(Color.white)
+                        .shadow(radius: 1.2)
+                } else {
+                    Color.clear
+                }
+            }
+        )
     }
     
     var dropDownBar:some View {
@@ -52,9 +62,10 @@ struct MemberTaskCategoryDropDown: View {
     
     var dropDown:some View {
         VStack{
-            TaskWithCategoryCell(taskTitle: "디지툴리얼코리아 전용 회선", categoryName: "문의", categoryColor: .first)
-            TaskWithCategoryCell(taskTitle: "울랄라 일정 수행", categoryName: "A/S", categoryColor: .second)
-            TaskWithCategoryCell(taskTitle: "저도 절 잘 몰라용", categoryName: "문의", categoryColor: .seventh)
+            TaskWithCategoryCell(taskTitle: "디지툴리얼코리아 전용 회선", categoryName: "문의", categoryColor: .first, height: 61)
+            TaskWithCategoryCell(taskTitle: "울랄라 일정 수행", categoryName: "A/S", categoryColor: .second, height: 61)
+            TaskWithCategoryCell(taskTitle: "저도 절 잘 몰라용", categoryName: "문의", categoryColor: .seventh, height: 61)
+                .padding(.bottom, 15)
         }
         .frame(height: .infinity)
     }
@@ -93,6 +104,9 @@ struct MemberTaskCategoryDropDown: View {
     
     var ArrowImage: some View {
         ImageBox(rectangleSize: 24, image: Image(self.shouldShowDropdown ? "upArrow" : "downArrow"))
+            .transaction { transaction in
+                transaction.animation = nil
+            }
     }
     
 }

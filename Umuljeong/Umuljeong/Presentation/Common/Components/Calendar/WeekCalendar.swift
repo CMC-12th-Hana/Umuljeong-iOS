@@ -22,6 +22,16 @@ struct WeekCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
         calendar.headerHeight = 0
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.scope = .week
+        calendar.appearance.borderRadius = 0.15
+        calendar.appearance.selectionColor = UIColor(named: "main")
+        calendar.appearance.weekdayFont = UIFont.body2
+        calendar.appearance.weekdayTextColor = UIColor(named: "font1")
+        calendar.appearance.titleFont = UIFont.body1
+//        calendar.calendarWeekdayView.isHidden = true
+//        calendar.calendarWeekdayView.removeFromSuperview()
+        calendar.placeholderType = .none
+        
+        calendar.layer.frame = CGRect(x: 10, y: 10, width: 10, height: 10)
         return calendar
     }
     
@@ -34,7 +44,7 @@ struct WeekCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
         Coordinator(viewModel: viewModel)
     }
     
-    class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource {
+    class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
         
         var viewModel: viewModelType
         
@@ -49,7 +59,8 @@ struct WeekCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
         func calendar(_ calendar: FSCalendar,
                       boundingRectWillChange bounds: CGRect,
                       animated: Bool) {
-            viewModel.weekCalendarHeight = bounds.height
+//            viewModel.weekCalendarHeight = bounds.height
+            viewModel.weekCalendarHeight = 67
         }
     }
 }

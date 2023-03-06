@@ -48,10 +48,10 @@ struct URLConstants {
     static func Client_Add(companyId: String) -> String {
         return baseCompanyURL + "/\(companyId)" + "/client"
     }
-    static func Client_All(companyId: String) -> String {
+    static func Client_Detail(companyId: String) -> String {
         return baseCompanyURL + "/\(companyId)" + "/clients"
     }
-    static func Client_Find(clientId: String) -> String {
+    static func Client_All(clientId: String) -> String {
         return baseCompanyURL + "/\(clientId)"
     }
     static func Client_Fix(clientId: String) -> String {
@@ -63,7 +63,7 @@ struct URLConstants {
     static func Business_Add(clientId: String) -> String {
         return baseCompanyClientURL + "/\(clientId)" + "/business"
     }
-    static func Business_All(businessId: String) -> String {
+    static func Business_Detail(businessId: String) -> String {
         return baseCompanyClientBusinessURL + "/\(businessId)"
     }
     static func Business_Fix(businessId: String) -> String {
@@ -72,13 +72,13 @@ struct URLConstants {
     
     
     // MARK: - Member : 사원 조회 / 추가
-    static let Member_All = baseCompanyMemberURL + "/profile"
+    static let Member_Detail = baseCompanyMemberURL + "/profile"
     static let Member_Fix = baseCompanyMemberURL + "/profile"
     
     static func Member_Add(companyId: String) -> String {
         return baseCompanyURL + "/\(companyId)" + "/member"
     }
-    static func Member_Adds(companyId: String) -> String {
-        return baseCompanyURL + "/\(companyId)" + "/member"
+    static func Member_All(companyId: String) -> String {
+        return baseCompanyURL + "/\(companyId)" + "/members"
     }
 }

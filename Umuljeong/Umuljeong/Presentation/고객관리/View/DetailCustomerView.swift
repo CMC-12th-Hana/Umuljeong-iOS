@@ -120,9 +120,7 @@ struct DetailCustomerView: View {
                 .presentationDetents([.calendarSize])
                 .presentationDragIndicator(.hidden)
         }
-        .padding(.horizontal, 15)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .toolbarBackground(Color.white, for: .navigationBar)
+        .defaultAppStyleHorizentalPadding()
         .navigationBarBackButtonImageDefault()
         .navigationBarItems(
             trailing:

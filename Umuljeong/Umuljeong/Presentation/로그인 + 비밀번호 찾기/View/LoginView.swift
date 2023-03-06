@@ -8,152 +8,130 @@
 import SwiftUI
 
 struct LoginView: View {
-    // property
-    @State var inputText: String = ""
-    @State var userNameData: [String] = []
-    @State var autoLogin: Bool = true
-    @State var saveId: Bool = false
+    @ObservedObject var viewModel = LoginViewModel()
+    @State var tapCase: TapCase?
     
     var body: some View {
-    
         NavigationView {
-            VStack (spacing: 20) {
-                Image("Vector")
-                    .resizable()
-                    .frame(width: 60, height: 61.3)
-                    .padding(50)
+            VStack (spacing: 0) {
+                ImageBox(rectangleSize: 120, image: Image("Mainlogo"))
+                    .padding(.bottom, 10)
                 
-                // TextField 한줄 - 적은양의 text 입력시 사용
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 6)
-                        .stroke(lineWidth: 1.0)
-                        .fill(Color("line1"))
-                        .frame(width: 335, height: 49)
-                        
-                    
-                    TextField("이메일 또는 휴대폰 번호", text: $inputText)
-                        .font(.custom("Pretendard-Regular", size: 16))
-                        .frame(width: 305, height: 49)
+                VStack(spacing: 8){
+                    numberTextFiled
+                    passwordTextFiled
                 }
+                .padding(.bottom, 30)
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 6)
-                        .stroke(lineWidth: 1.0)
-                        .fill(Color("line1"))
-                        .frame(width: 335, height: 49)
-                        
-                    
-                    TextField("비밀번호 입력", text: $inputText)
-                        .font(.custom("Pretendard-Regular", size: 16))
-                        .frame(width: 305, height: 49)
-                }
-                
-                HStack(spacing: 15) {
-                    Group {
-                        HStack {
-                            noCheckBox
-                            Text("자동로그인")
-                                .font(.custom("Pretendard-Regular", size: 13))
-                                
-                        }
-                        HStack {
-                            yesCheckBox
-                            Text("아이디 저장")
-                                .font(.custom("Pretendard-Regular", size: 13))
-                        }
-                    }.frame(height: 24)
-                    .foregroundColor(Color("font2") )
-                    Spacer()
-                }.frame(width: 335)
-                    
-                    
                 VStack(spacing: 10) {
                     Button {
-                        //버튼 누르면 로그인 화면 이동
+                        viewModel.requestLogin()
                     } label: {
-                        Text("로그인")
-                            .font(.custom("Pretendard-Bold", size: 16))
-                            .frame(width: 335, height: 50)
-                            .foregroundColor(.white)
-                            .background(
-                                Color("main")
-                                    .cornerRadius(6)
-                            )
+                        BasicButtonLabel(text: "로그인")
                     }
                     
-                    Button {
-                        // action
-                        
+                    NavigationLink {
+                        PasswordView()
                     } label: {
                         // label
                         Text("비밀번호 찾기")
-                            .font(.custom("Pretendard-Regular", size: 14))
+                            .font(.body4)
                             .underline()
                     }
                     .accentColor(Color("font2"))
                 }
+                .padding(.bottom, 28)
                 
                 NavigationLink {
-                    // destination : 목적지 -> 어디로 페이지 이동할꺼냐
                     SignupView()
                 } label: {
-                    Text("회원가입")
-                        .font(.custom("Pretendard-Bold", size: 16))
-                        .foregroundColor(Color("main"))
-                        .frame(width: 335, height: 50)
-                        .background(
-                            RoundedRectangle(cornerRadius: 6)
-                                .stroke(Color("main"), lineWidth: 1.5)
-                        )
-                }.navigationTitle("")
+                    HStack{
+                        Spacer()
+                        Text("회원가입")
+                            .font(.body2)
+                            .foregroundColor(Color("main"))
+                        Spacer()
+                    }
+                    .frame(height: 50)
+                    .background(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color("main"), lineWidth: 1.5)
+                    )
+                }
                 
-
-            
             }// : VStack
-            .padding()
+            .defaultAppStyleHorizentalPadding()
             
         } // : Navigation
-        } // : Body
-
+        .fullScreenCover(isPresented: $viewModel.loginSuccess){
+            MainTabView()
+        }
+        .onAppear(perform : UIApplication.shared.hideKeyboard)
+        .popupNavigationAlertView(height: 175, show: $viewModel.alertPopup) {
+//            VStack {
+                LoginFailAlert(showPopup: $viewModel.alertPopup)
+//            }
+        }
+    } // : Body
     
-    
-    var noCheckBox: some View {
+    var numberTextFiled:some View {
         ZStack {
-            Rectangle()
-                .fill(Color("main"))
-                .frame(width: 24, height: 24)
-                .cornerRadius(2)
+            RoundedRectangle(cornerRadius: 6)
+                .stroke(lineWidth: 1.0)
+                .fill(tapCase == .phoneNumber ?
+                      Color("line1") : Color("line2"))
             
-            Image("check")
+            HStack{
+                TextField("휴대폰 번호를 입력해주세요"
+                          ,text: $viewModel.phoneNumber)
+                .font(.body3)
+                .keyboardType(.numberPad)
+                .onTapGesture {
+                    tapCase = .phoneNumber
+                }
+                
+                if !viewModel.phoneNumber.isEmpty {
+                    Button {
+                        viewModel.removeText(tapcase: .phoneNumber)
+                    } label: {
+                        Image("removeText")
+                    }
+                }
+            }
+            .padding(.horizontal, 15)
         }
+        .frame(height: 46)
     }
     
-    var yesCheckBox: some View {
+    var passwordTextFiled:some View {
         ZStack {
-            Rectangle()
-                .fill(Color("bg1"))
-                .frame(width: 24, height: 24)
-                .cornerRadius(2)
-            Image("check")
+            RoundedRectangle(cornerRadius: 6)
+                .stroke(lineWidth: 1.0)
+                .fill(tapCase == .password ?
+                      Color("line1") : Color("line2"))
+            
+            HStack{
+                SecureField("비밀번호를 입력해주세요"
+                          , text: $viewModel.password)
+                .font(.body3)
+                .textContentType(.username)
+                .onTapGesture {
+                    tapCase = .password
+                }
+                
+                if !viewModel.password.isEmpty {
+                    Button {
+                        viewModel.removeText(tapcase: .password)
+                    } label: {
+                        Image("removeText")
+                    }
+                }
+            }
+            .padding(.horizontal, 15)
         }
+        .frame(height: 46)
     }
-    
-    
-        // function
-        func isTextEnough() -> Bool {
-        // 2개 이상의 텍스트가 되면 ture, 아니면 false
-        if inputText.count >= 2 {
-            return true
-        } else {
-            return false
-        }
-        }
 
-        func saveText() {
-        userNameData.append(inputText)
-        inputText = ""
-        }
 
 }
 

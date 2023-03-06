@@ -40,3 +40,6 @@ func setCategoryColor(_ color: CategoryColor) -> Color {
         return Color("category7")
     }
 }
+
+
+

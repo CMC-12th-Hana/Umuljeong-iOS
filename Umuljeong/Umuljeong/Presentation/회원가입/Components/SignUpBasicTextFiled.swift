@@ -17,28 +17,26 @@ struct SignUpBasicTextFiled: View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 1) {
                 Text(self.textFiledStyle.type)
-                    .font(.custom("Pretendard-Regular", size: 16))
                 Text("*")
                     .foregroundColor(Color("error"))
-                    .font(.custom("Pretendard-Regular", size: 16))
             }
+            .font(.special4)
             ZStack {
                 RoundedRectangle(cornerRadius: 6)
                     .stroke(lineWidth: 1.0)
                     .fill(roundRectangleColorChange())
-                    .frame(width: 335, height: 46)
                 
                 if textFiledStyle.isPasswordField {
                     SecureField(textFiledStyle.placeHolder, text: $inputText)
-                        .font(.custom("Pretendard-Regular", size: 16))
-                        .frame(width: 305, height: 46)
                         .textContentType(.username)
+                        .padding(.horizontal, 15)
                 } else {
                     TextField(textFiledStyle.placeHolder, text: $inputText)
-                        .font(.custom("Pretendard-Regular", size: 16))
-                        .frame(width: 305, height: 46)
+                        .padding(.horizontal, 15)
                 }
             }
+            .font(.body3)
+            .frame(height: 46)
         }
     }
     

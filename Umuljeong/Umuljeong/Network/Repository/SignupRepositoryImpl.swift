@@ -8,13 +8,11 @@
 import Foundation
 import Alamofire
 
-
 class SignupRepositoryImpl {
-
     func requestSignup(signupInfo: SignupInfo, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let url = URLConstants.signupURL //통신할 API 주소
+        let url = URLConstants.Auth_Signup //통신할 API 주소
 
-        let header : HTTPHeaders = ["Content-Type":"application/json", "Accept":"application/json"]
+        let header : HTTPHeaders = ["Content-Type":"application/json"]
         
         //요청 바디
         let body : Parameters = [
@@ -24,12 +22,9 @@ class SignupRepositoryImpl {
             "passwordCheck" : signupInfo.passwordCheck
         ]
         
-        
-        
-        
         let dataRequest = AF.request(url,
                                     method: .post,
-                                    parameters: body,
+                                     parameters: body,
                                     encoding: JSONEncoding.default,
                                     headers: header)
         
@@ -66,7 +61,7 @@ class SignupRepositoryImpl {
     //통신이 성공하고 원하는 데이터가 올바르게 들어왔을때 처리하는 함수
     private func isVaildData(data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder() //서버에서 준 데이터를 Codable을 채택
-        guard let decodedData = try? decoder.decode(SignupResponse.self, from: data) else { return .pathError }
+        guard let decodedData = try? decoder.decode(LoginResponse.self, from: data) else { return .pathError }
         
         return .success(decodedData as Any)
     }

@@ -17,29 +17,29 @@ struct ButtonTextFiled: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 1) {
-                Text(self.textFiledStyle.type)
+                Text("휴대폰 번호")
                 Text("*")
                     .foregroundColor(Color("error"))
-            }.font(.body3)
+            }
+            .font(.body3)
             
             HStack(alignment: .firstTextBaseline, spacing: 7.75) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 6)
                         .stroke(lineWidth: 1.0)
                         .fill(roundRectangleColorChange())
-                        .frame(height: 46)
                     
-                    TextField(textFiledStyle.placeHolder, text: $inputText)
-                        .padding(13)
-                        .frame(height: 46)
+                    TextField("휴대폰 번호를 입력해주세요", text: $inputText)
+                        .padding(15)
                         .font(.body3)
                 }
+                .frame(height: 46)
                 
                 Button {
                     print("")
                 } label: {
-                    Text(buttonName)
-                        .font(.custom("Pretendard-Regular", size: 16))
+                    Text("인증번호 받기")
+                        .font(.special4)
                         .foregroundColor(Color("line2"))
                         .padding(13)
                         .frame(height: 46)
@@ -50,19 +50,8 @@ struct ButtonTextFiled: View {
                 }
             }
         }
-        .frame(width: 335)
     }
-    
-    var buttonName:String {
-        switch self.textFiledStyle {
-        case .email:
-            return "중복확인"
-        case .phoneNumber:
-            return "인증번호 받기"
-        default:
-            return "중복확인"
-        }
-    }
+
     
     func roundRectangleColorChange() -> Color {
         guard let onTap = onTapGesture else {return Color("line2")}

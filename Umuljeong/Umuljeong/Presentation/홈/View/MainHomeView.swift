@@ -17,16 +17,63 @@ struct MainHomeView: View {
     var body: some View {
 //        NavigationView{
             VStack(spacing: 0) {
-                WeekCalendar(viewModel: calendarViewModel)
-                    .frame(height: calendarViewModel.weekCalendarHeight)
-                    .padding(.top, 25)
-                    .padding(.horizontal, 15)
+                HStack(spacing: 10) {
+                    HStack {
+                        Text(viewModel.monthCalendarYearMonth)
+                            .font(.customTitle2)
+                        Button(action: {
+                            showMonthCalendar.toggle()
+                        }, label: {
+                            Image("downArrow")
+                        })
+                    }
+                    .padding(.leading, 45)
+                    
+                    Spacer()
+                    
+                    NavigationLink {
+                        AlertSettingView()
+                    } label: {
+                        ImageBox(rectangleSize: 24, image: Image("bell"))
+                    }
+                    
+                    NavigationLink {
+                        SettingView()
+                    } label: {
+                        ImageBox(rectangleSize: 24, image: Image("setting"))
+                    }
+                    .padding(.trailing, 20)
+                }
+                .frame(height: 61)
+                    
+                
+                ZStack(alignment: .top) {
+//                    HStack(alignment: .center, spacing: 0) {
+//                        Text("일")
+//                        Text("월")
+//                        Text("화")
+//                        Text("수")
+//                        Text("목")
+//                        Text("금")
+//                        Text("토")
+//                    }
+//                    .frame(maxWidth: .infinity)
+//                    .font(.body2)
+                    
+                    
+                    WeekCalendar(viewModel: calendarViewModel)
+                        .frame(height: calendarViewModel.weekCalendarHeight)
+//                        .frame(height: 70)
+                        .padding(.top, 20)
+                        .padding(.bottom, 20)
+                        .padding(.horizontal, 30)
+                }
+                
                 
                 ScrollView {
-                    TaskListView(viewModel: $calendarViewModel)
-                        .padding(.top, 28)
+                    TaskListView(isLeader: true, viewModel: $calendarViewModel)
                 }
-                .background(Color("bg2"))
+                .background(Color("bg3"))
             }
             .sheet(isPresented: $showMonthCalendar) {
                 showCalendarPopup
@@ -41,24 +88,26 @@ extension MainHomeView {
     
     var showCalendarPopup: some View {
         VStack{
-            HStack{
+            HStack(spacing: 20) {
                 Button {
                     calendarViewModel
                     .tappedButtonPage(isPrev: true)
                 } label: {
-                    Text("좌 버튼")
+                    Image("backButton")
                 }
                 
                 Text(calendarViewModel.monthCalendarYearMonth)
+                    .font(.customTitle1)
                 
                 Button {
                     calendarViewModel.tappedButtonPage(isPrev: false)
                 } label: {
-                    Text("우 버튼")
+                    Image("rightArrow")
                 }
             }
             MonthCalendar(viewModel: calendarViewModel)
             .frame(height: 252)
+            .padding(.horizontal, 30)
         }
         .presentationDetents([.calendarSize])
         .presentationDragIndicator(.hidden)

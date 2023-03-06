@@ -28,56 +28,77 @@ struct MainTabView: View {
                 TabView(selection: $tabSelection) {
                     MainHomeView(calendarViewModel: viewModel, showMonthCalendar: $showMonthCalendar)
                         .tabItem {
-                            Image(systemName: "house.fill")
-                            Text("홈")
+                            ImageBox(rectangleSize: 26, image: tabSelection == .tag1 ? Image("tab11") : Image("tab12"))
+                            
+                            Text("업무")
+                                .font(.body6)
+                                .foregroundColor(tabSelection == .tag1 ? Color("main") : Color("font2"))
                         }
-                    
                         .tag(Tags.tag1)
                     
                     CustomerView(selectedTab: $tabSelection)
                         .tabItem {
-                            Image(systemName: "globe")
+                            ImageBox(rectangleSize: 26, image: tabSelection == .tag2 ? Image("tab21") : Image("tab22"))
+                            
                             Text("고객사")
+                                .font(.body6)
+                                .foregroundColor(tabSelection == .tag2 ? Color("main") : Color("font2"))
                         }
                         .tag(Tags.tag2)
                     
                     BusinessManageView(selectedTab: $tabSelection)
                         .tabItem {
-                            Image(systemName: "person.fill")
-                            Text("사업관리")
+                            ImageBox(rectangleSize: 26, image: tabSelection == .tag3 ? Image("tab31") : Image("tab32"))
+                            
+                            Text("사업")
+                                .font(.body6)
+                                .foregroundColor(tabSelection == .tag3 ? Color("main") : Color("font2"))
                         }
                         .tag(Tags.tag3)
                     
                     MainMemberView(selectedTab: $tabSelection)
                         .tabItem {
-                            Image(systemName: "person.fill")
+                            ImageBox(rectangleSize: 26, image: tabSelection == .tag4 ? Image("tab41") : Image("tab42"))
+                            
                             Text("구성원")
+                                .font(.body6)
+                                .foregroundColor(tabSelection == .tag4 ? Color("main") : Color("font2"))
                         }
                         .tag(Tags.tag4)
                     
                 }
-                .navigationBarItems(
-                    leading:
-                        Group{
-                            if tabSelection == .tag1 {
-                                leadingNavigationItem
-                            }
-                        }
-                    ,trailing:
-                        Group{
-                            if tabSelection == .tag1 {
-                                trailingNavigationItem
-                            }
-                        }
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.white)
+                        .shadow(radius: 3)
                 )
+                    .clipShape(
+                        RoundedRectangle(cornerRadius: 20)
+                    )
+//                .navigationBarItems(
+//                    leading:
+//                        Group{
+//                            if tabSelection == .tag1 {
+//                                leadingNavigationItem
+//                                    .padding()
+//                            }
+//                        }
+//                    ,trailing:
+//                        Group{
+//                            if tabSelection == .tag1 {
+//                                trailingNavigationItem
+//                                    .padding(.trailing, 0)
+//                            }
+//                        }
+//                )
             }
-            .transaction { transaction in
-                transaction.animation = nil
-            }
+//            .transaction { transaction in
+//                transaction.animation = nil
+//            }
             
-            SettingView(showSetting: $showSetting)
-                .offset(x: showSetting ? 0 : xOffset)
-                .animation(.linear(duration: 0.15), value: showSetting)
+//            SettingView()
+//                .offset(x: showSetting ? 0 : xOffset)
+//                .animation(.linear(duration: 0.15), value: showSetting)
         }
     }
 }
@@ -88,37 +109,48 @@ struct MainTabView_Previews: PreviewProvider {
     }
 }
 
-
-extension MainTabView {
-    
-    var leadingNavigationItem: some View {
-        HStack {
-            Button(action: {
-                showSetting.toggle()
-            }, label: {
-                Image(systemName: "line.3.horizontal")
-            })
-
-            HStack {
-                Text(viewModel.monthCalendarYearMonth)
-
-                Button(action: {
-                    showMonthCalendar.toggle()
-                }, label: {
-                    Image("downArrow")
-                })
-            }
-        }
-    }
-
-    var trailingNavigationItem: some View {
-        Button(action: {
-        withAnimation { showSetting.toggle() }
-        }, label: {
-            Image("bellDefault")
-        })
-    }
-}
+//
+//extension MainTabView {
+//
+//    var leadingNavigationItem: some View {
+//        HStack {
+////            Button(action: {
+////                showSetting.toggle()
+////            }, label: {
+////                Image(systemName: "line.3.horizontal")
+////            })
+//            Spacer()
+//                .frame(width: 28)
+//
+//            HStack {
+//                Text(viewModel.monthCalendarYearMonth)
+//                    .font(.customTitle2)
+//
+//                Button(action: {
+//                    showMonthCalendar.toggle()
+//                }, label: {
+//                    Image("downArrow")
+//                })
+//            }
+//        }
+//    }
+//
+//    var trailingNavigationItem: some View {
+//        HStack(spacing: 10) {
+//            NavigationLink {
+//                AlertSettingView()
+//            } label: {
+//                ImageBox(rectangleSize: 24, image: Image("bell"))
+//            }
+//
+//            NavigationLink {
+//                SettingView()
+//            } label: {
+//                ImageBox(rectangleSize: 24, image: Image("setting"))
+//            }
+//        }
+//    }
+//}
 
 
 extension AnyTransition {
