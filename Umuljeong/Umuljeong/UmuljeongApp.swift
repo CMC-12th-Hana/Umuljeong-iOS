@@ -25,7 +25,7 @@ struct UmuljeongApp: App {
     
     var 고객사추가하기 = ClientAddRepository()
     var 고객사상세보기 = ClientDetailRepository()
-    var 고객사수정하기 = ClientFixRepository()
+//    var 고객사수정하기 = ClientFixRepository()
     var 고객사전체보기 = ClientAllRepository()
     
     var 카테고리추가하기 = CategoryAddRepository()

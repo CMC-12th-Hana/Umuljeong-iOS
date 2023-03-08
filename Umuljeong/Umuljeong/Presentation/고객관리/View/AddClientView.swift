@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-struct AddCustomerView: View {
+struct AddClientView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel = AddCustomerViewModel()
+    @ObservedObject var viewModel = AddClientViewModel()
     @State var alertNetworkError: Bool = false
-    var clientId: Int?
+    @State var to: PageType
     
+    enum PageType {
+        case add
+        case edit
+    }
+    
+    var clientId: Int?
     
     var body: some View {
         VStack{
@@ -42,11 +48,22 @@ struct AddCustomerView: View {
                 }
                 Spacer()
                 Button {
-                    viewModel.requestCreateNewCustomer { result in
-                        if result {
-                            presentationMode.wrappedValue.dismiss()
-                        } else {
-                            alertNetworkError = true
+                    switch to {
+                    case .add:
+                        viewModel.requestCreateNewClient { result in
+                            if result {
+                                presentationMode.wrappedValue.dismiss()
+                            } else {
+                                alertNetworkError = true
+                            }
+                        }
+                    case .edit:
+                        viewModel.requestEditClient { result in
+                            if result {
+                                presentationMode.wrappedValue.dismiss()
+                            } else {
+                                alertNetworkError = true
+                            }
                         }
                     }
                 } label: {
@@ -72,6 +89,6 @@ struct AddCustomerView: View {
 
 struct AddCustomerView_Previews: PreviewProvider {
     static var previews: some View {
-        AddCustomerView()
+        AddClientView(to: .add)
     }
 }

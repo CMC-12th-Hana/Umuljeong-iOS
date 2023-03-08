@@ -47,11 +47,8 @@ class CategoryRemoveRepository {
                 guard let value = response.value else {return}
                 
                 let networkResult = self.judgeStatus(by: statusCode, value)
-                if networkResult == .success(true) {
-                    completion(networkResult)
-                }
-                
-                if networkResult == .failure(.requestError) {
+
+                if statusCode == 401 {
                     print("토큰만료임!!!")
                     ApiManager.shared.refreshToken { isSuccess in
                         if isSuccess {
@@ -64,6 +61,8 @@ class CategoryRemoveRepository {
                     }
                 }
                 
+                completion(networkResult)
+                
             case .failure:
                 completion(.failure(.networkFail))
             }
@@ -73,7 +72,7 @@ class CategoryRemoveRepository {
     private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<Bool, NetworkError<Bool>> {
         switch statusCode {
         case ..<300 : return .success(true)
-        case 404 : return .failure(.requestError)
+//        case 404 : return .failure(.requestError)
         default : return .failure(.networkFail)
         }
     }

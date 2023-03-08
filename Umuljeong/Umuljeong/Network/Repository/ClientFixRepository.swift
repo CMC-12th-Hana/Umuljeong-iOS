@@ -10,9 +10,15 @@ import Alamofire
 import KeychainSwift
 
 class ClientFixRepository {
-
+    
+    let clientId:Int
+    
+    init(clientId: Int) {
+        self.clientId = clientId
+    }
+    
     func requestClientFix(clientInfo: ClientInfo, completion: @escaping (Result<Bool, NetworkError<Bool>>) -> Void) {
-        let url = URLConstants.Client_Fix(clientId: "1") //통신할 API 주소
+        let url = URLConstants.Client_Fix(clientId: String(clientId)) //통신할 API 주소
 
         guard let accessToken = KeychainSwift().get("accessToken") else {
             return completion(.failure(.networkFail))
@@ -53,11 +59,8 @@ class ClientFixRepository {
                 guard let value = response.value else {return}
                 
                 let networkResult = self.judgeStatus(by: statusCode, value)
-                if networkResult == .success(true) {
-                    completion(networkResult)
-                }
                 
-                if networkResult == .failure(.requestError) {
+                if statusCode == 401 {
                     print("토큰만료임!!!")
                     ApiManager.shared.refreshToken { isSuccess in
                         if isSuccess {
@@ -70,6 +73,8 @@ class ClientFixRepository {
                     }
                 }
                 
+                completion(networkResult)
+                
             case .failure:
                 completion(.failure(.networkFail))
             }
@@ -79,7 +84,7 @@ class ClientFixRepository {
     private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<Bool, NetworkError<Bool>> {
         switch statusCode {
         case ..<300 : return .success(true)
-        case 404 : return .failure(.requestError)
+//        case 404 : return .failure(.requestError)
         default : return .failure(.networkFail)
         }
     }

@@ -7,9 +7,16 @@
 
 import Foundation
 
+struct ClientInfoFeedResponse: Codable {
+    let clientCompanyDtoList:[ClientInfo]
+}
+
 struct ClientInfo: Codable {
+    let clientId: Int
     let name, tel: String
     let salesRepresentativeDto: SalesRepresentativeDto
+    let taskCount: Int
+    let businessCount: Int
 }
 
 struct SalesRepresentativeDto: Codable {

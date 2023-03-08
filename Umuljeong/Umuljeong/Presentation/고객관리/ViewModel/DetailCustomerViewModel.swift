@@ -9,6 +9,19 @@ import Foundation
 import FSCalendar
 
 class DetailCustomerViewModel: ObservableObject, CalendarVM {
+    let getDetailRepository = ClientDetailRepository()
+    
+    @Published var clientName:String = ""
+    @Published var department:String = ""
+    @Published var clientCall:String = ""
+    @Published var managerName:String = ""
+    
+    @Published var alertErrorMessage:String = ""
+    
+//    let fixRepository = ClientFixRepository(clientId: 0) //임의 값
+
+    
+    
     var weekCalendarHeight: CGFloat = 300.0 //필요없는거 추후 삭제 (현재 프로토콜에 걸림)
 
     private var calendar = FSCalendar()
@@ -29,6 +42,23 @@ class DetailCustomerViewModel: ObservableObject, CalendarVM {
     
     init() {
         monthCalendarYearMonth = CalendarDateFomatter.yearMonth.string(from: CalendarService.shared.model.focusedDate)
+    }
+    
+    
+    func requestDetail(clientId: Int) {
+        print("내가 건넨 clientId 가 일단 뭐야? : \(clientId)")
+        getDetailRepository.requestClientDetail(clientId: clientId) { result in
+            switch result {
+            case .success(let clientInfo):
+                self.clientName = clientInfo?.name ?? ""
+                self.clientCall = clientInfo?.tel ?? ""
+                self.managerName = clientInfo?.salesRepresentativeDto.name ?? ""
+                self.department = clientInfo?.salesRepresentativeDto.department ?? ""
+            case .failure(.requestError(let message)): self.alertErrorMessage = message;
+            case .failure(.token):
+                self.alertErrorMessage = "로그인 기간이 만료되었습니다. 다시 로그인 해주세요";
+            }
+        }
     }
     
     func selectDate(_ date: Date) {

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CustomerCell: View {
-    let customer:String
-    let visitCount:Int
-    let businessCount:Int
+    var customer:String
+    var visitCount:Int
+    var businessCount:Int
     
     var body: some View {
         ZStack {

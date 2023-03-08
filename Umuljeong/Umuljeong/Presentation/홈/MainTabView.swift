@@ -36,7 +36,7 @@ struct MainTabView: View {
                         }
                         .tag(Tags.tag1)
                     
-                    CustomerView(selectedTab: $tabSelection)
+                    ClientView(selectedTab: $tabSelection)
                         .tabItem {
                             ImageBox(rectangleSize: 26, image: tabSelection == .tag2 ? Image("tab21") : Image("tab22"))
                             

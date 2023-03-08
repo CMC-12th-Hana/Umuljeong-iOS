@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchBar: View {
     @Binding var text: String
     let guideText:String
+//    var onEditingChanged:(()->())?
     
     var body: some View {
         HStack {
@@ -17,7 +18,14 @@ struct SearchBar: View {
                 Image("glass")
                     .padding(.leading, 15)
  
-                TextField(guideText, text: $text)
+                TextField(guideText, text: $text, onEditingChanged: { changed in
+                    print("텍스트 필드 내 호출 시점 확인")
+//                    if changed {
+//                        print("텍스트 필드 내 호출 changed == true 호출 시점 확인")
+//                        guard let onEditingChange = onEditingChanged else {return}
+//                        onEditingChange()
+//                    }
+                })
                     .font(.body3)
                     .foregroundColor(Color("font1"))
                     .padding(EdgeInsets(top: 13, leading: 0, bottom: 13, trailing: 0))
@@ -39,6 +47,7 @@ struct SearchBar: View {
         }
     }
 }
+
 
 struct SearchBar_Previews: PreviewProvider {
     @State static var textt:String = ""

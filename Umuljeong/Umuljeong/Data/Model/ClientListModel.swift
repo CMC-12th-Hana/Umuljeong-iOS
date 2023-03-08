@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct CustomerListModel: Identifiable {
+struct ClientListModel: Identifiable {
     let id: String = UUID().uuidString
-    let customer:String
-    let visitCount:Int
+    let clientName:String
+    let taskCount:Int
     let businessCount:Int
 }
+

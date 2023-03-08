@@ -52,23 +52,21 @@ class BusinessAddRepository {
                 guard let statusCode = response.response?.statusCode else {return}
                 guard let value = response.value else {return}
                 
-                let networkResult = self.judgeStatus(by: statusCode, value)
-                if networkResult == .success(true) {
-                    completion(networkResult)
-                }
-                
-                if networkResult == .failure(.requestError) {
+                if statusCode == 401 {
                     print("토큰만료임!!!")
                     ApiManager.shared.refreshToken { isSuccess in
                         if isSuccess {
                             print("토큰 새로 받아오기 성공 ><")
-                            completion(.success(true))
                         } else {
                             print("토큰 새로 받아오기 실패ㅠㅠ")
                             completion(.failure(.networkFail))
                         }
                     }
                 }
+                
+                let networkResult = self.judgeStatus(by: statusCode, value)
+
+                completion(networkResult)
                 
             case .failure:
                 completion(.failure(.networkFail))
@@ -79,7 +77,7 @@ class BusinessAddRepository {
     private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<Bool, NetworkError<Bool>> {
         switch statusCode {
         case ..<300 : return .success(true)
-        case 404 : return .failure(.requestError)
+//        case 404 : return .failure(.requestError)
         default : return .failure(.networkFail)
         }
     }

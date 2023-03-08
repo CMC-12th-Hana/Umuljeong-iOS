@@ -106,9 +106,9 @@
 		CE647773299F59D30051CE1A /* DetailTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE647772299F59D30051CE1A /* DetailTaskView.swift */; };
 		CE64777529A0EEF00051CE1A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777429A0EEF00051CE1A /* SearchBar.swift */; };
 		CE64777729A125220051CE1A /* CustomerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777629A125220051CE1A /* CustomerCell.swift */; };
-		CE64777C29A134AD0051CE1A /* CustomerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777B29A134AD0051CE1A /* CustomerListModel.swift */; };
-		CE64777E29A139ED0051CE1A /* AddCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777D29A139ED0051CE1A /* AddCustomerView.swift */; };
-		CE64778029A147CD0051CE1A /* DetailCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777F29A147CD0051CE1A /* DetailCustomerView.swift */; };
+		CE64777C29A134AD0051CE1A /* ClientListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777B29A134AD0051CE1A /* ClientListModel.swift */; };
+		CE64777E29A139ED0051CE1A /* AddClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777D29A139ED0051CE1A /* AddClientView.swift */; };
+		CE64778029A147CD0051CE1A /* DetailClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64777F29A147CD0051CE1A /* DetailClientView.swift */; };
 		CE64778229A1D0DC0051CE1A /* View + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64778129A1D0DC0051CE1A /* View + Extension.swift */; };
 		CE64778429A1EE210051CE1A /* DetailCustomerCallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64778329A1EE210051CE1A /* DetailCustomerCallCell.swift */; };
 		CE64778629A1F14B0051CE1A /* DeviceSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64778529A1F14B0051CE1A /* DeviceSize.swift */; };
@@ -134,7 +134,7 @@
 		CE662D8129B5D152000330A2 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE662D8029B5D152000330A2 /* Password.swift */; };
 		CE85159A2997AA4A008E5677 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515992997AA4A008E5677 /* MainHomeView.swift */; };
 		CE85159C2997AA8F008E5677 /* BusinessManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159B2997AA8F008E5677 /* BusinessManageView.swift */; };
-		CE85159E2997AAAF008E5677 /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159D2997AAAF008E5677 /* CustomerView.swift */; };
+		CE85159E2997AAAF008E5677 /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159D2997AAAF008E5677 /* ClientView.swift */; };
 		CE8515A02997AAF8008E5677 /* MainMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159F2997AAF8008E5677 /* MainMemberView.swift */; };
 		CE8515A22997D752008E5677 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515A12997D752008E5677 /* SettingView.swift */; };
 		CE8515A62998BB45008E5677 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515A52998BB45008E5677 /* SettingModel.swift */; };
@@ -186,8 +186,10 @@
 		CED79E0229B775B100D9DCC8 /* TaskFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED79E0129B775B100D9DCC8 /* TaskFeedModel.swift */; };
 		CED79E0429B77C9400D9DCC8 /* TaskMemberFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED79E0329B77C9400D9DCC8 /* TaskMemberFeedModel.swift */; };
 		CEFA94B529B7A79C003B6B3B /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA94B429B7A79C003B6B3B /* ImageDetailView.swift */; };
-		CEFA94B829B886AF003B6B3B /* AddCustomerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA94B729B886AF003B6B3B /* AddCustomerViewModel.swift */; };
-		CEFA94BA29B88B58003B6B3B /* CustomerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA94B929B88B58003B6B3B /* CustomerViewModel.swift */; };
+		CEFA94B829B886AF003B6B3B /* AddClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA94B729B886AF003B6B3B /* AddClientViewModel.swift */; };
+		CEFA94BA29B88B58003B6B3B /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA94B929B88B58003B6B3B /* ClientViewModel.swift */; };
+		CEFA94BC29B8C06E003B6B3B /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA94BB29B8C06E003B6B3B /* ResponseError.swift */; };
+		CEFA94BE29B8C4C8003B6B3B /* ResponseErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA94BD29B8C4C8003B6B3B /* ResponseErrorMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -290,9 +292,9 @@
 		CE647772299F59D30051CE1A /* DetailTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTaskView.swift; sourceTree = "<group>"; };
 		CE64777429A0EEF00051CE1A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		CE64777629A125220051CE1A /* CustomerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCell.swift; sourceTree = "<group>"; };
-		CE64777B29A134AD0051CE1A /* CustomerListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListModel.swift; sourceTree = "<group>"; };
-		CE64777D29A139ED0051CE1A /* AddCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerView.swift; sourceTree = "<group>"; };
-		CE64777F29A147CD0051CE1A /* DetailCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCustomerView.swift; sourceTree = "<group>"; };
+		CE64777B29A134AD0051CE1A /* ClientListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientListModel.swift; sourceTree = "<group>"; };
+		CE64777D29A139ED0051CE1A /* AddClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientView.swift; sourceTree = "<group>"; };
+		CE64777F29A147CD0051CE1A /* DetailClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailClientView.swift; sourceTree = "<group>"; };
 		CE64778129A1D0DC0051CE1A /* View + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Extension.swift"; sourceTree = "<group>"; };
 		CE64778329A1EE210051CE1A /* DetailCustomerCallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCustomerCallCell.swift; sourceTree = "<group>"; };
 		CE64778529A1F14B0051CE1A /* DeviceSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSize.swift; sourceTree = "<group>"; };
@@ -318,7 +320,7 @@
 		CE662D8029B5D152000330A2 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		CE8515992997AA4A008E5677 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
 		CE85159B2997AA8F008E5677 /* BusinessManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessManageView.swift; sourceTree = "<group>"; };
-		CE85159D2997AAAF008E5677 /* CustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerView.swift; sourceTree = "<group>"; };
+		CE85159D2997AAAF008E5677 /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
 		CE85159F2997AAF8008E5677 /* MainMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMemberView.swift; sourceTree = "<group>"; };
 		CE8515A12997D752008E5677 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		CE8515A52998BB45008E5677 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
@@ -369,8 +371,10 @@
 		CED79E0129B775B100D9DCC8 /* TaskFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFeedModel.swift; sourceTree = "<group>"; };
 		CED79E0329B77C9400D9DCC8 /* TaskMemberFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMemberFeedModel.swift; sourceTree = "<group>"; };
 		CEFA94B429B7A79C003B6B3B /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
-		CEFA94B729B886AF003B6B3B /* AddCustomerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerViewModel.swift; sourceTree = "<group>"; };
-		CEFA94B929B88B58003B6B3B /* CustomerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewModel.swift; sourceTree = "<group>"; };
+		CEFA94B729B886AF003B6B3B /* AddClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientViewModel.swift; sourceTree = "<group>"; };
+		CEFA94B929B88B58003B6B3B /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
+		CEFA94BB29B8C06E003B6B3B /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		CEFA94BD29B8C4C8003B6B3B /* ResponseErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseErrorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -690,9 +694,9 @@
 		CE169AA529B0440E0063A57D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE85159D2997AAAF008E5677 /* CustomerView.swift */,
-				CE64777D29A139ED0051CE1A /* AddCustomerView.swift */,
-				CE64777F29A147CD0051CE1A /* DetailCustomerView.swift */,
+				CE85159D2997AAAF008E5677 /* ClientView.swift */,
+				CE64777D29A139ED0051CE1A /* AddClientView.swift */,
+				CE64777F29A147CD0051CE1A /* DetailClientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -857,6 +861,8 @@
 			isa = PBXGroup;
 			children = (
 				CE169AD229B0E3860063A57D /* URLConstants.swift */,
+				CEFA94BB29B8C06E003B6B3B /* ResponseError.swift */,
+				CEFA94BD29B8C4C8003B6B3B /* ResponseErrorMessage.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1095,7 +1101,7 @@
 				CE217ADC299B3C76005C9CF2 /* CalendarModel.swift */,
 				CE8515A52998BB45008E5677 /* SettingModel.swift */,
 				CE64776F299F50B90051CE1A /* TeskModel.swift */,
-				CE64777B29A134AD0051CE1A /* CustomerListModel.swift */,
+				CE64777B29A134AD0051CE1A /* ClientListModel.swift */,
 				CECAC38A29A60F2900FF8511 /* CatogoryModel.swift */,
 			);
 			path = Model;
@@ -1238,8 +1244,8 @@
 		CE64779429A321950051CE1A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CEFA94B929B88B58003B6B3B /* CustomerViewModel.swift */,
-				CEFA94B729B886AF003B6B3B /* AddCustomerViewModel.swift */,
+				CEFA94B929B88B58003B6B3B /* ClientViewModel.swift */,
+				CEFA94B729B886AF003B6B3B /* AddClientViewModel.swift */,
 				CE64779229A3216F0051CE1A /* DetailCustomerViewModel.swift */,
 			);
 			path = ViewModel;
@@ -1550,7 +1556,7 @@
 				CEFA94B529B7A79C003B6B3B /* ImageDetailView.swift in Sources */,
 				CE647766299F48180051CE1A /* WeekCalendar.swift in Sources */,
 				CE217ACB299A3293005C9CF2 /* CalendarFomatter.swift in Sources */,
-				CEFA94BA29B88B58003B6B3B /* CustomerViewModel.swift in Sources */,
+				CEFA94BA29B88B58003B6B3B /* ClientViewModel.swift in Sources */,
 				CE662D7B29B5C772000330A2 /* SignupView.swift in Sources */,
 				CE64779829A356A80051CE1A /* BusinessWeekCalendar.swift in Sources */,
 				CE169A5E29ADCBC30063A57D /* ButtonTextFiled.swift in Sources */,
@@ -1581,7 +1587,7 @@
 				CE169A7929AE37EF0063A57D /* ClientSummaryModel.swift in Sources */,
 				CECAC3A129A7437800FF8511 /* SearhView.swift in Sources */,
 				CE169AEA29B331FE0063A57D /* CompanyCreateRepositoryImpl.swift in Sources */,
-				CE64777E29A139ED0051CE1A /* AddCustomerView.swift in Sources */,
+				CE64777E29A139ED0051CE1A /* AddClientView.swift in Sources */,
 				CECAC37929A4C71E00FF8511 /* CategoryOptionCell.swift in Sources */,
 				CE169AD629B1A7A60063A57D /* SignupService.swift in Sources */,
 				CE647773299F59D30051CE1A /* DetailTaskView.swift in Sources */,
@@ -1590,10 +1596,11 @@
 				CE217B21299E2AE7005C9CF2 /* BusinessListCell.swift in Sources */,
 				CE169B0A29B473600063A57D /* TaskDetailRepository.swift in Sources */,
 				CE169A7B29AE38160063A57D /* BusinessSummaryModel.swift in Sources */,
-				CEFA94B829B886AF003B6B3B /* AddCustomerViewModel.swift in Sources */,
+				CEFA94B829B886AF003B6B3B /* AddClientViewModel.swift in Sources */,
+				CEFA94BE29B8C4C8003B6B3B /* ResponseErrorMessage.swift in Sources */,
 				CE169ADB29B3077D0063A57D /* ApiManager.swift in Sources */,
 				CE169ACC29B0E2B00063A57D /* SignupRepositoryImpl.swift in Sources */,
-				CE85159E2997AAAF008E5677 /* CustomerView.swift in Sources */,
+				CE85159E2997AAAF008E5677 /* ClientView.swift in Sources */,
 				CECAC35729A3E36700FF8511 /* TaskWithDateCell.swift in Sources */,
 				CE169B0C29B473720063A57D /* TaskFixRepository.swift in Sources */,
 				CE169A8929AE4DF20063A57D /* MemberLabel.swift in Sources */,
@@ -1607,13 +1614,13 @@
 				CE169A4929ADBCDF0063A57D /* LoginInfo.swift in Sources */,
 				CE217AF8299DC41D005C9CF2 /* TaskListView.swift in Sources */,
 				CED79E0229B775B100D9DCC8 /* TaskFeedModel.swift in Sources */,
-				CE64778029A147CD0051CE1A /* DetailCustomerView.swift in Sources */,
+				CE64778029A147CD0051CE1A /* DetailClientView.swift in Sources */,
 				CE19D9B62990EB22003F4399 /* XSignupView.swift in Sources */,
 				CEB4B8D329B72E3100498E90 /* ValidJoinAlert.swift in Sources */,
 				CECAC39329A735BD00FF8511 /* AddTaskView.swift in Sources */,
 				CE662D6C29B59D33000330A2 /* LoginViewModel.swift in Sources */,
 				CE169A6229ADCC6E0063A57D /* ChangeWorkCategoryView.swift in Sources */,
-				CE64777C29A134AD0051CE1A /* CustomerListModel.swift in Sources */,
+				CE64777C29A134AD0051CE1A /* ClientListModel.swift in Sources */,
 				CE169B1029B473A20063A57D /* CategoryAddRepository.swift in Sources */,
 				CECAC36129A3F4F800FF8511 /* AddBusinessViewModel.swift in Sources */,
 				CE169AA029AF65A90063A57D /* DetailMemberLabel.swift in Sources */,
@@ -1644,6 +1651,7 @@
 				CEB4B8D729B7351400498E90 /* RoleSelectViewModel.swift in Sources */,
 				CE169A6829ADCC920063A57D /* ResignView.swift in Sources */,
 				CECAC36329A3F68F00FF8511 /* ImportEmployeeLabel.swift in Sources */,
+				CEFA94BC29B8C06E003B6B3B /* ResponseError.swift in Sources */,
 				CE662D7229B5A81E000330A2 /* PasswordRepository.swift in Sources */,
 				CE662D6A29B59699000330A2 /* View + Keyboard.swift in Sources */,
 				CE64778829A1FBAC0051CE1A /* CustomerDetailImage.swift in Sources */,

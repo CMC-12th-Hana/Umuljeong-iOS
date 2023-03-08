@@ -48,11 +48,11 @@ struct URLConstants {
     static func Client_Add(companyId: String) -> String {
         return baseCompanyURL + "/\(companyId)" + "/client"
     }
-    static func Client_Detail(companyId: String) -> String {
+    static func Client_All(companyId: String) -> String {
         return baseCompanyURL + "/\(companyId)" + "/clients"
     }
-    static func Client_All(clientId: String) -> String {
-        return baseCompanyURL + "/\(clientId)"
+    static func Client_Detail(clientId: String) -> String {
+        return baseCompanyClientURL + "/\(clientId)"
     }
     static func Client_Fix(clientId: String) -> String {
         return baseCompanyClientURL + "/\(clientId)"
