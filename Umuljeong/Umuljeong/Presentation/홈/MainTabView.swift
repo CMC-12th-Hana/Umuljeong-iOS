@@ -12,7 +12,7 @@ struct MainTabView: View {
     @State var tabSelection: Tags = .tag1
     @State var showSetting:Bool = false
     @State var showMonthCalendar:Bool = false
-    @ObservedObject var viewModel = CalendarViewModel()
+    @ObservedObject var viewModel = MainTaskViewModel()
     
     var xOffset: CGFloat {
         showSetting ? 0 : -UIScreen.main.bounds.width

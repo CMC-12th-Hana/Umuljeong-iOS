@@ -139,7 +139,7 @@
 		CE8515A22997D752008E5677 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515A12997D752008E5677 /* SettingView.swift */; };
 		CE8515A62998BB45008E5677 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515A52998BB45008E5677 /* SettingModel.swift */; };
 		CE8515A92999E9DD008E5677 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = CE8515A82999E9DD008E5677 /* FSCalendar */; };
-		CE8515B2299A071E008E5677 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515B1299A071E008E5677 /* CalendarViewModel.swift */; };
+		CE8515B2299A071E008E5677 /* MainTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515B1299A071E008E5677 /* MainTaskViewModel.swift */; };
 		CE9E57AF299201E700DCDB63 /* SignupViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57AE299201E700DCDB63 /* SignupViewModelImpl.swift */; };
 		CE9E57B729954CD700DCDB63 /* BasicTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */; };
 		CE9E57BD2995E80100DCDB63 /* TextFiledStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */; };
@@ -147,6 +147,9 @@
 		CE9E57C22996063100DCDB63 /* CompanyCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */; };
 		CE9E57C52996370200DCDB63 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57C42996370200DCDB63 /* MainTabView.swift */; };
 		CEB4B8D029B6849900498E90 /* CompleteNewPasswordAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4B8CF29B6849900498E90 /* CompleteNewPasswordAlert.swift */; };
+		CEB4B8D329B72E3100498E90 /* ValidJoinAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4B8D229B72E3100498E90 /* ValidJoinAlert.swift */; };
+		CEB4B8D529B72E3A00498E90 /* InValidJoinAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4B8D429B72E3A00498E90 /* InValidJoinAlert.swift */; };
+		CEB4B8D729B7351400498E90 /* RoleSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4B8D629B7351400498E90 /* RoleSelectViewModel.swift */; };
 		CEBF988729B5FB8A00129D9B /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF988629B5FB8A00129D9B /* KeyboardHandler.swift */; };
 		CEBF988B29B6048B00129D9B /* TextErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF988A29B6048B00129D9B /* TextErrorLabel.swift */; };
 		CEBF988E29B60FD400129D9B /* MainUserInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF988D29B60FD400129D9B /* MainUserInfoData.swift */; };
@@ -180,6 +183,11 @@
 		CECAC3A329A78A6300FF8511 /* ChnageButtonBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC3A229A78A6300FF8511 /* ChnageButtonBackgroundColor.swift */; };
 		CECAC3A829A869F900FF8511 /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC3A729A869F900FF8511 /* UIApplication + Extension.swift */; };
 		CECAC3AA29A86F6500FF8511 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC3A929A86F6500FF8511 /* MultilineTextField.swift */; };
+		CED79E0229B775B100D9DCC8 /* TaskFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED79E0129B775B100D9DCC8 /* TaskFeedModel.swift */; };
+		CED79E0429B77C9400D9DCC8 /* TaskMemberFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED79E0329B77C9400D9DCC8 /* TaskMemberFeedModel.swift */; };
+		CEFA94B529B7A79C003B6B3B /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA94B429B7A79C003B6B3B /* ImageDetailView.swift */; };
+		CEFA94B829B886AF003B6B3B /* AddCustomerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA94B729B886AF003B6B3B /* AddCustomerViewModel.swift */; };
+		CEFA94BA29B88B58003B6B3B /* CustomerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA94B929B88B58003B6B3B /* CustomerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -314,7 +322,7 @@
 		CE85159F2997AAF8008E5677 /* MainMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMemberView.swift; sourceTree = "<group>"; };
 		CE8515A12997D752008E5677 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		CE8515A52998BB45008E5677 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
-		CE8515B1299A071E008E5677 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		CE8515B1299A071E008E5677 /* MainTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTaskViewModel.swift; sourceTree = "<group>"; };
 		CE9E57AE299201E700DCDB63 /* SignupViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelImpl.swift; sourceTree = "<group>"; };
 		CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFiled.swift; sourceTree = "<group>"; };
 		CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFiledStyle.swift; sourceTree = "<group>"; };
@@ -322,6 +330,9 @@
 		CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCreateViewModel.swift; sourceTree = "<group>"; };
 		CE9E57C42996370200DCDB63 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		CEB4B8CF29B6849900498E90 /* CompleteNewPasswordAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteNewPasswordAlert.swift; sourceTree = "<group>"; };
+		CEB4B8D229B72E3100498E90 /* ValidJoinAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidJoinAlert.swift; sourceTree = "<group>"; };
+		CEB4B8D429B72E3A00498E90 /* InValidJoinAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InValidJoinAlert.swift; sourceTree = "<group>"; };
+		CEB4B8D629B7351400498E90 /* RoleSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectViewModel.swift; sourceTree = "<group>"; };
 		CEBF988629B5FB8A00129D9B /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		CEBF988A29B6048B00129D9B /* TextErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextErrorLabel.swift; sourceTree = "<group>"; };
 		CEBF988D29B60FD400129D9B /* MainUserInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserInfoData.swift; sourceTree = "<group>"; };
@@ -355,6 +366,11 @@
 		CECAC3A229A78A6300FF8511 /* ChnageButtonBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChnageButtonBackgroundColor.swift; sourceTree = "<group>"; };
 		CECAC3A729A869F900FF8511 /* UIApplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extension.swift"; sourceTree = "<group>"; };
 		CECAC3A929A86F6500FF8511 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
+		CED79E0129B775B100D9DCC8 /* TaskFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFeedModel.swift; sourceTree = "<group>"; };
+		CED79E0329B77C9400D9DCC8 /* TaskMemberFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMemberFeedModel.swift; sourceTree = "<group>"; };
+		CEFA94B429B7A79C003B6B3B /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
+		CEFA94B729B886AF003B6B3B /* AddCustomerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerViewModel.swift; sourceTree = "<group>"; };
+		CEFA94B929B88B58003B6B3B /* CustomerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,15 +589,6 @@
 			path = "캘린더";
 			sourceTree = "<group>";
 		};
-		CE169A5729ADC8670063A57D /* SubView */ = {
-			isa = PBXGroup;
-			children = (
-				CE19D9B72990EB37003F4399 /* RoleSelectView.swift */,
-				CE19D9B92990EB42003F4399 /* CompanyCreateView.swift */,
-			);
-			path = SubView;
-			sourceTree = "<group>";
-		};
 		CE169A5829ADC8800063A57D /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,7 +601,6 @@
 		CE169A5929ADC93D0063A57D /* SubView */ = {
 			isa = PBXGroup;
 			children = (
-				CE64777D29A139ED0051CE1A /* AddCustomerView.swift */,
 				CECAC36429A3F97300FF8511 /* EmployeeProfileView.swift */,
 				CECAC35829A3EABE00FF8511 /* VisitGraphView.swift */,
 			);
@@ -655,6 +661,8 @@
 			isa = PBXGroup;
 			children = (
 				CE662D7A29B5C772000330A2 /* SignupView.swift */,
+				CE19D9B92990EB42003F4399 /* CompanyCreateView.swift */,
+				CE19D9B72990EB37003F4399 /* RoleSelectView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -672,9 +680,9 @@
 		CE169AA429B043DC0063A57D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE9E57C42996370200DCDB63 /* MainTabView.swift */,
 				CE8515992997AA4A008E5677 /* MainHomeView.swift */,
 				CECAC39229A735BD00FF8511 /* AddTaskView.swift */,
+				CEFA94B429B7A79C003B6B3B /* ImageDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -683,8 +691,8 @@
 			isa = PBXGroup;
 			children = (
 				CE85159D2997AAAF008E5677 /* CustomerView.swift */,
+				CE64777D29A139ED0051CE1A /* AddCustomerView.swift */,
 				CE64777F29A147CD0051CE1A /* DetailCustomerView.swift */,
-				CECAC35C29A3EE7200FF8511 /* AddBusinessView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -693,6 +701,7 @@
 			isa = PBXGroup;
 			children = (
 				CE85159B2997AA8F008E5677 /* BusinessManageView.swift */,
+				CECAC35C29A3EE7200FF8511 /* AddBusinessView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -807,6 +816,8 @@
 				CE169B1729B476940063A57D /* ClientInfo.swift */,
 				CE169B1929B4793D0063A57D /* ClientAllInfo.swift */,
 				CE169A7E29AE3AFB0063A57D /* CategoryInfo.swift */,
+				CED79E0129B775B100D9DCC8 /* TaskFeedModel.swift */,
+				CED79E0329B77C9400D9DCC8 /* TaskMemberFeedModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -871,6 +882,7 @@
 			isa = PBXGroup;
 			children = (
 				CE19D9A42990CE15003F4399 /* Umuljeong */,
+				CE1699FC29ADA6B10063A57D /* Domain */,
 				CEBF988C29B604EB00129D9B /* 임시저장 */,
 				CE19D9A32990CE15003F4399 /* Products */,
 			);
@@ -892,7 +904,6 @@
 				CE169AC529B0E1A30063A57D /* Model */,
 				CE169AC129B0E0870063A57D /* Network */,
 				CE2904CE299F408300C9484E /* Data */,
-				CE1699FC29ADA6B10063A57D /* Domain */,
 				CE2904BF299F3E1400C9484E /* Common */,
 				CE217AC9299A327F005C9CF2 /* Service */,
 				CE2904D2299F410700C9484E /* Presentation */,
@@ -933,6 +944,7 @@
 				CE1699F329A9D2FC0063A57D /* GalleryImagesService.swift */,
 				CE217ADF299B3E7B005C9CF2 /* CalendarService.swift */,
 				CE217AE1299B5A03005C9CF2 /* SelectedData.swift */,
+				CED79E0029B774FA00D9DCC8 /* 업무 */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -940,6 +952,7 @@
 		CE2904AE299F34F700C9484E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CEBF988F29B61AAA00129D9B /* Alert */,
 				CE169A5C29ADC9F70063A57D /* PaddingDesign */,
 				CE169A5B29ADC9C90063A57D /* TextField */,
 				CE169A5A29ADC9B80063A57D /* Search */,
@@ -965,7 +978,6 @@
 			children = (
 				CE169AA229B043A30063A57D /* View */,
 				CE2904D7299F45F100C9484E /* ViewModel */,
-				CE169A5729ADC8670063A57D /* SubView */,
 				CE169A5829ADC8800063A57D /* Components */,
 			);
 			name = "회원가입";
@@ -975,8 +987,9 @@
 		CE2904B7299F37AC00C9484E /* 홈 */ = {
 			isa = PBXGroup;
 			children = (
-				CE2904D6299F45CB00C9484E /* ViewModel */,
+				CE9E57C42996370200DCDB63 /* MainTabView.swift */,
 				CE169AA429B043DC0063A57D /* View */,
+				CE2904D6299F45CB00C9484E /* ViewModel */,
 				CE64776E299F4D760051CE1A /* SubViews */,
 				CECAC39629A738AF00FF8511 /* Components */,
 			);
@@ -987,8 +1000,8 @@
 		CE2904B8299F37F400C9484E /* 고객관리 */ = {
 			isa = PBXGroup;
 			children = (
-				CE64779429A321950051CE1A /* ViewModel */,
 				CE169AA529B0440E0063A57D /* View */,
+				CE64779429A321950051CE1A /* ViewModel */,
 				CE169A5929ADC93D0063A57D /* SubView */,
 				CE64777A29A127950051CE1A /* Components */,
 			);
@@ -1036,7 +1049,6 @@
 			isa = PBXGroup;
 			children = (
 				CEBF989B29B6364200129D9B /* Network */,
-				CEBF988F29B61AAA00129D9B /* Alert */,
 				CE1699F929AD9F1C0063A57D /* Constants */,
 				CE64776B299F4C290051CE1A /* Protocol */,
 				CE64776A299F4C230051CE1A /* Extension */,
@@ -1123,7 +1135,7 @@
 		CE2904D6299F45CB00C9484E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CE8515B1299A071E008E5677 /* CalendarViewModel.swift */,
+				CE8515B1299A071E008E5677 /* MainTaskViewModel.swift */,
 				CECAC39429A7364200FF8511 /* AddTaskViewModel.swift */,
 			);
 			path = ViewModel;
@@ -1133,6 +1145,7 @@
 			isa = PBXGroup;
 			children = (
 				CE662D7C29B5CB41000330A2 /* SignupViewModel.swift */,
+				CEB4B8D629B7351400498E90 /* RoleSelectViewModel.swift */,
 				CE9E57C12996063100DCDB63 /* CompanyCreateViewModel.swift */,
 			);
 			path = ViewModel;
@@ -1225,8 +1238,9 @@
 		CE64779429A321950051CE1A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CEFA94B929B88B58003B6B3B /* CustomerViewModel.swift */,
+				CEFA94B729B886AF003B6B3B /* AddCustomerViewModel.swift */,
 				CE64779229A3216F0051CE1A /* DetailCustomerViewModel.swift */,
-				CECAC36029A3F4F800FF8511 /* AddBusinessViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1289,6 +1303,8 @@
 				CEBF989929B6320400129D9B /* TimeOverAlert.swift */,
 				CEBF989E29B64D9C00129D9B /* CodeFailAlert.swift */,
 				CEB4B8CF29B6849900498E90 /* CompleteNewPasswordAlert.swift */,
+				CEB4B8D229B72E3100498E90 /* ValidJoinAlert.swift */,
+				CEB4B8D429B72E3A00498E90 /* InValidJoinAlert.swift */,
 			);
 			name = "로그인, 회원가입";
 			path = "로그인, 회원가입";
@@ -1335,6 +1351,7 @@
 		CECAC36B29A46BE500FF8511 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CECAC36029A3F4F800FF8511 /* AddBusinessViewModel.swift */,
 				CECAC36E29A46C3200FF8511 /* BusinessManagerViewModel.swift */,
 			);
 			path = ViewModel;
@@ -1417,6 +1434,14 @@
 				CECAC39729A738D300FF8511 /* AddButtonLabel.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		CED79E0029B774FA00D9DCC8 /* 업무 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "업무";
+			path = "업무";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1511,7 +1536,7 @@
 				CE217ADD299B3C76005C9CF2 /* CalendarModel.swift in Sources */,
 				CE169AF429B3A6DB0063A57D /* BusinessFixRepository.swift in Sources */,
 				CE662D7D29B5CB41000330A2 /* SignupViewModel.swift in Sources */,
-				CE8515B2299A071E008E5677 /* CalendarViewModel.swift in Sources */,
+				CE8515B2299A071E008E5677 /* MainTaskViewModel.swift in Sources */,
 				CE85159A2997AA4A008E5677 /* MainHomeView.swift in Sources */,
 				CE169A3D29ADACCD0063A57D /* SignupInfo.swift in Sources */,
 				CE2904C3299F3ED900C9484E /* Font.swift in Sources */,
@@ -1522,8 +1547,10 @@
 				CE647770299F50B90051CE1A /* TeskModel.swift in Sources */,
 				CE64779C29A36B080051CE1A /* CalendarVM.swift in Sources */,
 				CE169AE229B325980063A57D /* NetworkError.swift in Sources */,
+				CEFA94B529B7A79C003B6B3B /* ImageDetailView.swift in Sources */,
 				CE647766299F48180051CE1A /* WeekCalendar.swift in Sources */,
 				CE217ACB299A3293005C9CF2 /* CalendarFomatter.swift in Sources */,
+				CEFA94BA29B88B58003B6B3B /* CustomerViewModel.swift in Sources */,
 				CE662D7B29B5C772000330A2 /* SignupView.swift in Sources */,
 				CE64779829A356A80051CE1A /* BusinessWeekCalendar.swift in Sources */,
 				CE169A5E29ADCBC30063A57D /* ButtonTextFiled.swift in Sources */,
@@ -1563,6 +1590,7 @@
 				CE217B21299E2AE7005C9CF2 /* BusinessListCell.swift in Sources */,
 				CE169B0A29B473600063A57D /* TaskDetailRepository.swift in Sources */,
 				CE169A7B29AE38160063A57D /* BusinessSummaryModel.swift in Sources */,
+				CEFA94B829B886AF003B6B3B /* AddCustomerViewModel.swift in Sources */,
 				CE169ADB29B3077D0063A57D /* ApiManager.swift in Sources */,
 				CE169ACC29B0E2B00063A57D /* SignupRepositoryImpl.swift in Sources */,
 				CE85159E2997AAAF008E5677 /* CustomerView.swift in Sources */,
@@ -1575,10 +1603,13 @@
 				CECAC38B29A60F2900FF8511 /* CatogoryModel.swift in Sources */,
 				CEBF989D29B6364D00129D9B /* NetworkAlert.swift in Sources */,
 				CE662D7F29B5D11F000330A2 /* String + Extension.swift in Sources */,
+				CEB4B8D529B72E3A00498E90 /* InValidJoinAlert.swift in Sources */,
 				CE169A4929ADBCDF0063A57D /* LoginInfo.swift in Sources */,
 				CE217AF8299DC41D005C9CF2 /* TaskListView.swift in Sources */,
+				CED79E0229B775B100D9DCC8 /* TaskFeedModel.swift in Sources */,
 				CE64778029A147CD0051CE1A /* DetailCustomerView.swift in Sources */,
 				CE19D9B62990EB22003F4399 /* XSignupView.swift in Sources */,
+				CEB4B8D329B72E3100498E90 /* ValidJoinAlert.swift in Sources */,
 				CECAC39329A735BD00FF8511 /* AddTaskView.swift in Sources */,
 				CE662D6C29B59D33000330A2 /* LoginViewModel.swift in Sources */,
 				CE169A6229ADCC6E0063A57D /* ChangeWorkCategoryView.swift in Sources */,
@@ -1610,6 +1641,7 @@
 				CE662D7029B5A734000330A2 /* PasswordView.swift in Sources */,
 				CE64778429A1EE210051CE1A /* DetailCustomerCallCell.swift in Sources */,
 				CE9E57C52996370200DCDB63 /* MainTabView.swift in Sources */,
+				CEB4B8D729B7351400498E90 /* RoleSelectViewModel.swift in Sources */,
 				CE169A6829ADCC920063A57D /* ResignView.swift in Sources */,
 				CECAC36329A3F68F00FF8511 /* ImportEmployeeLabel.swift in Sources */,
 				CE662D7229B5A81E000330A2 /* PasswordRepository.swift in Sources */,
@@ -1621,6 +1653,7 @@
 				CE217AE0299B3E7B005C9CF2 /* CalendarService.swift in Sources */,
 				CE1699F429A9D2FC0063A57D /* GalleryImagesService.swift in Sources */,
 				CE169B1429B473D40063A57D /* CategoryAllRepository.swift in Sources */,
+				CED79E0429B77C9400D9DCC8 /* TaskMemberFeedModel.swift in Sources */,
 				CEBF989129B61ABA00129D9B /* LoginFailAlert.swift in Sources */,
 				CECAC35D29A3EE7200FF8511 /* AddBusinessView.swift in Sources */,
 				CE169A9729AF4B4A0063A57D /* DetailMemberView.swift in Sources */,

@@ -11,38 +11,33 @@ struct DetailCustomerView: View {
     @State private var searchText = ""
 //    @State var showSheet: Bool = false
     @ObservedObject var viewModel = DetailCustomerViewModel()
+    @Binding var isShowingSheet:Bool
+    @Environment(\.presentationMode) var presentationMode
+    
     
     var body: some View {
         ScrollView {
             VStack(spacing:0){
                 aboutCompany
-                
                 HStack{
                     Text("기업명과 함께한 사업")
                         .font(.customTitle2)
                     Spacer()
                 }
                 .padding(.bottom, 30)
-                
                 CustomerDetailImage()
                 .padding(.bottom, 60)
-                
                 HStack{
                     Text("사업명 검색")
                     .font(.customTitle2)
                     Spacer()
                 }
                 .padding(.bottom, 20)
-                
                 SearchBar(text: $searchText, guideText: "찾으시는 사업명을 입력해주세요")
                 .padding(.bottom, 20)
-                
                 StartFinishDateView(showStartCalendar: $viewModel.showStartCalendar, showFinishCalendar: $viewModel.showFinishCalendar, startDateString: viewModel.startDateString, finishDateString: viewModel.finishDateString)
                     .padding(.bottom, 40)
-                
                 VStack{
-                    
-                    
                     NavigationLink {
                         AddBusinessView()
                             .navigationTitleFontDefault(title: "사업 추가하기")
@@ -57,81 +52,78 @@ struct DetailCustomerView: View {
                     } label: {
                         OtherTaskLabel()
                     }
-                    
                     BusinessCell()
                 }
-                
             }
-                
-
-            
-            
+            .sheet(isPresented: $viewModel.showStartCalendar, onDismiss: {
+                isShowingSheet = false
+                // 네비게이션 링크 호출
+//                presentationMode.wrappedValue.dismiss()
+            }) {
+                VStack(spacing:15){
+                    HStack{
+                        Button {
+                            viewModel.tappedButtonPage(isPrev: true)
+                        } label: {
+                            Text("좌 버튼")
+                        }
+                        Text(viewModel.monthCalendarYearMonth)
+                            .font(.customTitle2)
+                        Button {
+                            viewModel.tappedButtonPage(isPrev: false)
+                        } label: {
+                            Text("우 버튼")
+                        }
+                    }
+                    StartDatePickCalendar(viewModel: viewModel)
+                        .padding(.horizontal, 40)
+                        .frame(height: 252)
+    
+                }
+                    .background(Color.yellow)
+                // Custom Size
+                    .presentationDetents([.calendarSize])
+                    .presentationDragIndicator(.hidden)
+            }
+            .sheet(isPresented: $viewModel.showFinishCalendar) {
+                VStack(spacing:15){
+                    HStack{
+                        Button {
+                            viewModel.tappedButtonPage(isPrev: true)
+                        } label: {
+                            Text("좌 버튼")
+                        }
+                        Text(viewModel.monthCalendarYearMonth)
+                            .font(.customTitle2)
+                        Button {
+                            viewModel.tappedButtonPage(isPrev: false)
+                        } label: {
+                            Text("우 버튼")
+                        }
+                    }
+                    .frame(height: 20)
+                    FinishDatePickCalendar(viewModel: viewModel)
+                        .padding(.horizontal, 40)
+                        .frame(height: 252)
+                }
+                .onDisappear()
+    //                .frame(height: 400)
+                    .background(Color.yellow)
+                // Custom Size
+                    .presentationDetents([.calendarSize])
+                    .presentationDragIndicator(.hidden)
+            }
         } //: ScorllView
-        .sheet(isPresented: $viewModel.showStartCalendar) {
-            VStack(spacing:15){
-                HStack{
-                    Button {
-                        viewModel.tappedButtonPage(isPrev: true)
-                    } label: {
-                        Text("좌 버튼")
-                    }
-                    Text(viewModel.monthCalendarYearMonth)
-                        .font(.customTitle2)
-                    Button {
-                        viewModel.tappedButtonPage(isPrev: false)
-                    } label: {
-                        Text("우 버튼")
-                    }
-                }
-                StartDatePickCalendar(viewModel: viewModel)
-                    .padding(.horizontal, 40)
-                    .frame(height: 252)
-            }
-//                .frame(height: 400)
-                .background(Color.yellow)
-            // Custom Size
-                .presentationDetents([.calendarSize])
-                .presentationDragIndicator(.hidden)
-        }
-        .sheet(isPresented: $viewModel.showFinishCalendar) {
-            VStack(spacing:15){
-                HStack{
-                    Button {
-                        viewModel.tappedButtonPage(isPrev: true)
-                    } label: {
-                        Text("좌 버튼")
-                    }
-                    Text(viewModel.monthCalendarYearMonth)
-                        .font(.customTitle2)
-                    Button {
-                        viewModel.tappedButtonPage(isPrev: false)
-                    } label: {
-                        Text("우 버튼")
-                    }
-                }
-                .frame(height: 20)
-                FinishDatePickCalendar(viewModel: viewModel)
-                    .padding(.horizontal, 40)
-                    .frame(height: 252)
-            }
-//                .frame(height: 400)
-                .background(Color.yellow)
-            // Custom Size
-                .presentationDetents([.calendarSize])
-                .presentationDragIndicator(.hidden)
-        }
         .defaultAppStyleHorizentalPadding()
-        .navigationBarBackButtonImageDefault()
+
         .navigationBarItems(
             trailing:
                 NavigationLink {
-                    AddCustomerView(업무부서명: "업무 부서명", 담당자명: "담당자명", 담당자전화번호: "담당자 전화번호")
+                    AddCustomerView(clientId: 0) //여기 선택한 값 넣어주기
                         .navigationTitleFontDefault(title: "기업명 수정하기")
                 } label: {
                     Image("pencil")
                 })
-        .navigationTitleFontDefault(title: "기업 리스트 상세")
-        
     }
     
     var aboutCompany: some View {
@@ -169,7 +161,8 @@ struct DetailCustomerView: View {
 }
 
 struct DetailCustomerView_Previews: PreviewProvider {
+    @State static var isShowingSheet:Bool = false
     static var previews: some View {
-        DetailCustomerView()
+        DetailCustomerView(isShowingSheet: $isShowingSheet)
     }
 }

@@ -10,10 +10,11 @@ import Combine
 
 
 class CompanyCreateViewModel: ObservableObject {
-    
+    @Published var moveMainTab: Bool = false
     @Published var company:String = ""
     @Published var manager:String = ""
     @Published var isValid:Bool = false
+    
     private var publishers = Set<AnyCancellable>()
     
     init() {
@@ -22,7 +23,17 @@ class CompanyCreateViewModel: ObservableObject {
         .assign(to: \.isValid, on: self)
         .store(in: &publishers)
     }
-
+    
+    func requestCreateCompany() {
+        let networkResult = true
+        if networkResult == true {
+            moveMainTab = true
+        } else {
+            moveMainTab = false
+        }
+    }
+    
+    
     var companyValidPublisher: AnyPublisher<Bool, Never> {
       $company
         .map { company in

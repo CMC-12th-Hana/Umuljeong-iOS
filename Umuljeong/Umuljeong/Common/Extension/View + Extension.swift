@@ -40,6 +40,7 @@ extension View {
     }
     
     func popupNavigationAlertView<Content: View>(
+        radius: CGFloat = 15,
         horizontalPadding: CGFloat = 40,
         height: CGFloat = 200,
         show: Binding<Bool>,
@@ -62,7 +63,7 @@ extension View {
                     .frame(width: size.width - horizontalPadding,
                            height: height,
                            alignment: .center)
-                    .cornerRadius(15)
+                    .cornerRadius(radius)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
             }

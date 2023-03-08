@@ -26,73 +26,53 @@ struct AddTaskView: View {
     ]
     
     var body: some View {
-        VStack(spacing: 8){
-            Spacer()
-                .frame(height: 20)
-            Group{
-                searchCustomer
-                searchBusiness
-                selecteTask
-                    .zIndex(1)
-                taskDateLabel
-            }
-//            .contentShape(Rectangle())
-//            .onTapGesture {
-//                hideKeyboard()
-//            }
-            reportTextField
-            addPhotoButton
-            
-            if !viewModel.selectedImages.isEmpty {
-                selectedImageStack
-            } else {
+        ScrollView{
+            VStack(spacing: 10){
                 Spacer()
+                    .frame(height: 20)
+                Group{
+                    searchCustomer
+                        .zIndex(3)
+                    searchBusiness
+                        .zIndex(2)
+                    selecteTask
+                        .zIndex(1)
+                }
+                
+                VStack(spacing: 0){
+                    reportTextField
+                        .padding(.bottom, 6)
+                    taskDateLabel
+                        .padding(.bottom, 20)
+                    addPhotoButton
+                }
+                
+                if !viewModel.selectedImages.isEmpty {
+                    selectedImageStack
+                } else {
+                    Spacer()
+                        .frame(height: 80)
+                }
+                saveTaskButton
             }
-        
-            saveTaskButton
         }
         .defaultAppStyleHorizentalPadding()
         .navigationDesignDefault(title: "업무 추가하기")
     }
     
     var searchCustomer: some View {
-        NavigationLink {
-            SearhView(searchTopic: "고객사명")
-                .navigationDesignDefault(title: "고객사명 찾기")
-        } label: {
-            AddButtonLabel(label: "고객사명")
-        }
+        DropdownBar(placeholder: "고객사명", options: options)
     }
     
     var searchBusiness: some View {
-        NavigationLink {
-            SearhView(searchTopic: "사업명")
-                .navigationDesignDefault(title: "사업명 찾기")
-        } label: {
-            AddButtonLabel(label: "사업명")
-        }
+        DropdownBar(placeholder: "사업명", options: options)
     }
     
     var selecteTask: some View {
         DropdownBar(placeholder: "업무분류", options: options)
     }
 
-    var taskDateLabel:some View {
-        HStack(spacing: 10){
-            Text("업무 일자")
-                .foregroundColor(Color("font1"))
-            Text(CalendarDateFomatter.date.string(from: selecteDate))
-                .foregroundColor(Color("font2"))
-            Spacer()
-        }
-        .font(.body2)
-        .padding(.horizontal, 15)
-        .frame(height: 46)
-        .overlay(
-            RoundedRectangle(cornerRadius: 6)
-                .stroke(Color("line2"), lineWidth: 1)
-        )
-    }
+
     
     var reportTextField: some View {
         ZStack(alignment: .topLeading) {
@@ -101,7 +81,7 @@ struct AddTaskView: View {
                 .fill(Color("bg1"))
                 .frame(height: 260)
             
-            MultilineTextField(text: $inputReportText, placeholder: "보고 내용을 작성해주세요")
+            MultilineTextField(text: $inputReportText, placeholder: "업무내용을 작성해주세요")
                 .autocorrectionDisabled(true)
                 .font(.body2)
                 .padding(.horizontal, 13)
@@ -109,6 +89,20 @@ struct AddTaskView: View {
                 .frame(height: 260)
         }
     }
+    
+    var taskDateLabel:some View {
+        HStack(spacing: 6){
+            Spacer()
+            Text("작성일자")
+                .foregroundColor(Color("font1"))
+                .font(.body3)
+            Text(CalendarDateFomatter.date.string(from: selecteDate))
+                .foregroundColor(Color("font2"))
+                .font(.body4)
+        }
+    }
+    
+    
     
     var addPhotoButton:some View {
         NavigationLink {

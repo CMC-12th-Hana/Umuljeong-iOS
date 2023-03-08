@@ -17,9 +17,9 @@ struct BasicTextFiled: View {
     @State var placeHolderColor:Color = Color("line2")
         
     var body: some View {
-        VStack(spacing:8){
-            HStack(spacing: 1) {
-                if isLabel {
+        VStack(spacing:0){
+            if isLabel {
+                HStack(spacing: 1) {
                     Text(label)
                         .font(.body3)
                     if checkRed {
@@ -27,27 +27,30 @@ struct BasicTextFiled: View {
                             .foregroundColor(Color("error"))
                             .font(.body3)
                     }
+                    Spacer()
                 }
-                Spacer()
+                .padding(.bottom, 8)
             }
             
-            TextField(placeHolder, text: $inputText, onEditingChanged: { onEditingChanged in
-                if !onEditingChanged {
-                    placeHolderColor = Color("line2")
-                } else {
-                    placeHolderColor = Color("line1")
-                }
-            })
-            .padding(.leading, 15)
-            .font(.body3)
-            .frame(height: 54)
-            .foregroundColor(Color("font1"))
-            .background(
+            ZStack {
                 RoundedRectangle(cornerRadius: 6)
                     .stroke(lineWidth: 1.0)
                     .fill(placeHolderColor)
-                    .frame(height: 46)
-            )
+                
+                TextField(placeHolder, text: $inputText, onEditingChanged: { onEditingChanged in
+                    if !onEditingChanged {
+                        placeHolderColor = Color("line2")
+                    } else {
+                        placeHolderColor = Color("line1")
+                    }
+                })
+                .padding(.leading, 15)
+                .font(.body3)
+                .foregroundColor(Color("font1"))
+                
+                
+            }
+            .frame(height: 46)
             
         }
     }

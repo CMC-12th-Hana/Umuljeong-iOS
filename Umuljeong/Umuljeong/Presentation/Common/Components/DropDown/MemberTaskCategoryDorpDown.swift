@@ -13,11 +13,14 @@ struct MemberTaskCategoryDropDown: View {
     @State private var shouldShowDropdown = false
     
     var body: some View {
-        VStack(spacing: 0){
-            dropDownBar
-            if shouldShowDropdown {
-                dropDown
-                    .padding(.horizontal, 4)
+        
+        ZStack{
+            VStack(spacing: 0){
+                dropDownBar
+                if shouldShowDropdown {
+                    dropDown
+                        .padding(.horizontal, 4)
+                }
             }
         }
         .background(
@@ -61,13 +64,13 @@ struct MemberTaskCategoryDropDown: View {
     }
     
     var dropDown:some View {
-        VStack{
-            TaskWithCategoryCell(taskTitle: "디지툴리얼코리아 전용 회선", categoryName: "문의", categoryColor: .first, height: 61)
-            TaskWithCategoryCell(taskTitle: "울랄라 일정 수행", categoryName: "A/S", categoryColor: .second, height: 61)
-            TaskWithCategoryCell(taskTitle: "저도 절 잘 몰라용", categoryName: "문의", categoryColor: .seventh, height: 61)
-                .padding(.bottom, 15)
+        VStack(spacing: 0){
+            TaskWithCategoryCell(taskTitle: "디지툴리얼코리아 전용 회선", categoryName: "문의", categoryColor: .first)
+            TaskWithCategoryCell(taskTitle: "울랄라 일정 수행", categoryName: "A/S", categoryColor: .second)
+            TaskWithCategoryCell(taskTitle: "저도 절 잘 몰라용", categoryName: "문의", categoryColor: .seventh)
         }
-        .frame(height: .infinity)
+        .padding(.bottom, 15)
+
     }
     
     var profileCircle: some View {

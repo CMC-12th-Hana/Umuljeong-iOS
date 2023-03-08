@@ -26,6 +26,7 @@ struct MonthCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
         calendar.appearance.weekdayFont = UIFont.special3
         calendar.appearance.titleFont = UIFont.body3
         calendar.appearance.weekdayTextColor =  UIColor(named: "font1")
+        calendar.appearance.borderRadius = 0.2
         calendar.calendarWeekdayView.weekdayLabels[0].textColor = UIColor(named: "error")
         calendar.calendarWeekdayView.weekdayLabels[1].textColor = UIColor(named: "font2")
         calendar.calendarWeekdayView.weekdayLabels[2].textColor = UIColor(named: "font2")

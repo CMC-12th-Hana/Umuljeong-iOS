@@ -11,7 +11,6 @@ struct TaskWithCategoryCell: View {
     let taskTitle:String
     let categoryName:String
     let categoryColor:CategoryColor
-    let height: CGFloat
     @State private var onTapped: Bool = false
     
     var body: some View {
@@ -28,11 +27,11 @@ struct TaskWithCategoryCell: View {
             }
             .padding(.horizontal, 20)
         }
+        .frame(height: 61)
         .background(
             RoundedRectangle(cornerRadius: 6)
                 .fill(onTapped ? Color("bg3") : .white)
             // MARK: - 티나 컨펌
-                .frame(height: height)
         )
         .gesture(
             DragGesture(minimumDistance: 0)
@@ -48,6 +47,8 @@ struct TaskWithCategoryCell: View {
 
 struct TaskWithCategoryCell_Previews: PreviewProvider {
     static var previews: some View {
-        TaskWithCategoryCell(taskTitle: "디지툴리얼코리아 전용 회선", categoryName: "문의", categoryColor: .first, height: 60)
+        VStack{
+            TaskWithCategoryCell(taskTitle: "디지툴리얼코리아 전용 회선", categoryName: "문의", categoryColor: .first)
+        }
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct TaskListView: View {
     let isLeader:Bool
     @State var toggleIsOn: Bool = false
-    @Binding var viewModel:CalendarViewModel
+    @Binding var viewModel:MainTaskViewModel
     
     var teskList:[TeskModel] = [TeskModel(work: "디지털코리아 전용 회선", customer: "디지털 코리아", category: "문의"), TeskModel(work: "복실이 랜드", customer: "복실공주", category: "간식이 좋아")]
     
@@ -31,11 +31,7 @@ struct TaskListView: View {
             }
             
             
-            NavigationLink {
-                AddTaskView(selecteDate: viewModel.getDate())
-            } label: {
-                PlusButtonLabel(label: "업무 추가하기")
-            }
+        
             
             if teskList.isEmpty {
                 VStack{
@@ -48,13 +44,17 @@ struct TaskListView: View {
                     if toggleIsOn {
                         MemberTaskCategoryDropDown(memberInfo: MemberSummaryModel(name: "박보노", isLeader: false), taskCount: 3)
                     } else {
-                        //                    ScrollView{
+                        NavigationLink {
+                            AddTaskView(selecteDate: viewModel.getDate())
+                        } label: {
+                            PlusButtonLabel(label: "업무 추가하기")
+                        }
+                        .padding(.bottom, 10)
                         ForEach(teskList) { task in
                             NavigationLink {
                                 DetailTaskView()
                             } label: {
-                                TaskWithCategoryCell(taskTitle: task.work, categoryName: task.category, categoryColor: .second, height: 72)
-                                    .frame(height: 72)
+                                TaskWithCategoryCell(taskTitle: task.work, categoryName: task.category, categoryColor: .second)
                             }
                         } // : ForEach
                         .padding(.bottom, 10)
@@ -76,7 +76,7 @@ struct TaskListView: View {
 }
 
 struct TeskListView_Previews: PreviewProvider {
-    @State static var viewModel = CalendarViewModel()
+    @State static var viewModel = MainTaskViewModel()
     static var previews: some View {
         TaskListView(isLeader: true, viewModel: $viewModel)
     }

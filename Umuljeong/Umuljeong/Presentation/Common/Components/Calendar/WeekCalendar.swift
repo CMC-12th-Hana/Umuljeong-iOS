@@ -22,7 +22,7 @@ struct WeekCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
         calendar.headerHeight = 0
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.scope = .week
-        calendar.appearance.borderRadius = 0.15
+        calendar.appearance.borderRadius = 0.4
         calendar.appearance.selectionColor = UIColor(named: "main")
         calendar.appearance.weekdayFont = UIFont.body2
         calendar.appearance.weekdayTextColor = UIColor(named: "font1")
@@ -66,7 +66,7 @@ struct WeekCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
 }
 
 struct WeekCalendar_Previews: PreviewProvider {
-    @StateObject static var viewModel = CalendarViewModel()
+    @StateObject static var viewModel = MainTaskViewModel()
     static var previews: some View {
         WeekCalendar(viewModel: viewModel)
     }
