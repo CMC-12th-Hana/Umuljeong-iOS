@@ -57,12 +57,12 @@ extension View {
                     
                     let size = proxy.size
                     
-                    NavigationView {
+                    VStack {
                         content()
                     }
                     .frame(width: size.width - horizontalPadding,
                            height: height,
-                           alignment: .center)
+                           alignment: .top)
                     .cornerRadius(radius)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }

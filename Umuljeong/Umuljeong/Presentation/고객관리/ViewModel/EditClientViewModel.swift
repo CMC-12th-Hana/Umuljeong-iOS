@@ -36,7 +36,7 @@ class EditClientViewModel: ObservableObject {
                     self.partManagerName = clientInfo?.salesRepresentativeDto.name  ?? ""
                     self.partManagerTel = clientInfo?.salesRepresentativeDto.phoneNumber  ?? ""
                     requestResult(true)
-            case .failure(.requestError(let message)): self.alertErrorMessage = message; requestResult(false)
+            case .failure(.requestError(let message)): self.alertErrorMessage = "양식이 올바르지 않습니다."; requestResult(false)
             case .failure(.token):
                 self.alertErrorMessage = "로그인 기간이 만료되었습니다. 다시 로그인 해주세요"; requestResult(false)
             }
@@ -48,7 +48,7 @@ class EditClientViewModel: ObservableObject {
         addRepository.requestClientAdd(name: clientName, tel: clientMainTel, managerName: partManagerName, managerCall: partManagerTel, department: department) { result in
             switch result {
             case .success(_): requestResult(true)
-            case .failure(.requestError(let message)): self.alertErrorMessage = message; requestResult(false)
+            case .failure(.requestError(let message)): self.alertErrorMessage = "양식이 올바르지 않습니다."; requestResult(false)
             case .failure(.token):
                 self.alertErrorMessage = "로그인 기간이 만료되었습니다. 다시 로그인 해주세요"; requestResult(false)
             }

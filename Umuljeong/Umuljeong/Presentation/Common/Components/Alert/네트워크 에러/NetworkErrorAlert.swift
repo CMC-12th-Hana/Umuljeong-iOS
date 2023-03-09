@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct NetworkErrorAlert: View {
-    let message:String
+    
+    var message:String = "통신 에러입니다."
     @Binding var showPopup:Bool
     var body: some View {
         VStack(spacing:0) {
@@ -35,6 +36,7 @@ struct NetworkErrorAlert: View {
                 }
             }
         }
+        .background(Color.white)
     }
 }
 

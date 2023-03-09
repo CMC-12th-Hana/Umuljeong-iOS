@@ -41,6 +41,7 @@ struct LoginFailAlert: View {
                 }
             }
         }
+        .background(Color.white)
     }
 }
 

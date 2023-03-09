@@ -9,8 +9,9 @@ import SwiftUI
 
 struct EditClientView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel = EditClientViewModel()
+    @StateObject var viewModel = EditClientViewModel()
     @State var alertNetworkError: Bool = false //API 소통 시 필수 View
+    @State var isLoaded: Bool = false
     @State var to: PageType //.add, .edit
     
     enum PageType {
@@ -23,6 +24,7 @@ struct EditClientView: View {
         VStack{
             VStack(spacing:17) {
                 BasicTextFiled(label: "기업 이름", placeHolder: "기업 이름을 입력해주세요", inputText: $viewModel.clientName)
+                    
                 BasicTextFiled(label: "기업 대표 전화", placeHolder: "기업 대표 전화번호를 입력해주세요", inputText: $viewModel.clientMainTel)
             }
             .padding(.vertical, 30)
@@ -45,7 +47,9 @@ struct EditClientView: View {
                         BasicTextFiled(label: "없어", placeHolder: "담당자의 전화번호를 입력해주세요", inputText: $viewModel.partManagerTel, checkRed: false, isLabel: false)
                     }
                 }
+
                 Spacer()
+                
                 Button {
                     switch to {
                     case .add:
@@ -72,6 +76,10 @@ struct EditClientView: View {
             .defaultAppStyleHorizentalPadding()
             
         }
+        .onAppear(perform : UIApplication.shared.hideKeyboard)
+        .popupNavigationAlertView(height: 160, show: $alertNetworkError) {
+            NetworkErrorAlert(message: viewModel.alertErrorMessage, showPopup: $alertNetworkError)
+        }
         .navigationDesignDefault(title: "고객사 추가하기")
         .onAppear{
             switch to {
@@ -80,16 +88,13 @@ struct EditClientView: View {
                 viewModel.requestCustomerInfo(clientId: id) { result in
                     if result {
                         //불러오기 완료 전까지 똥글뺑이
-                        alertNetworkError = false
+                        isLoaded = true
                         print(viewModel.clientName)
                     } else {
                         alertNetworkError = true
                     }
                 }
             }
-        }
-        .popupNavigationAlertView(height: 175, show: $alertNetworkError) {
-            NetworkErrorAlert(message: viewModel.alertErrorMessage, showPopup: $alertNetworkError)
         }
     }
 }
