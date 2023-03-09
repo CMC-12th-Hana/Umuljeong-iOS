@@ -16,7 +16,9 @@ class SignupViewModel: ObservableObject {
     @Published var isTimerRunningOver: Bool = false
     @Published var timeString: String = "03:00"
     @Published var appearCodeConfirm:Bool = false //코드 요청 버튼 누름
-    @Published var getCodeNetworkResult:Bool = true //요청 네트워킹 성공 
+    @Published var getCodeNetworkResult:Bool = true //요청 네트워킹 성공
+    
+    @Published var signUpButtonState:Bool = false //회원 가입 완료 후 화면 이동
     
     private var timer: AnyCancellable?
     private var startTime: Date?
@@ -46,6 +48,23 @@ class SignupViewModel: ObservableObject {
     var codeConfirm: Bool = false //인증코드 검증 완료 (네트워킹 결과)
     
     @Published var isValid: Bool = false
+    
+    func requestSignup() {
+        service.requestSignup(signupInfo: SignupInfo(name: self.username, phoneNumber: self.phoneNumber, password: self.password, passwordCheck: self.confirmPassword)) { result in
+            switch result {
+            case .success(_): self.signUpButtonState = true; print("회원가입 완료 됐다 : 여기 ViewModel 임"); break
+                
+            case .requestError: break
+                
+            case .pathError: break
+                
+            case .serverError: break
+                
+            case .networkFail: break
+                
+            }
+        }
+    }
     
     init() {
         

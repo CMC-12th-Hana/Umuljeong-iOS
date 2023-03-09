@@ -15,6 +15,9 @@ class CompanyCreateViewModel: ObservableObject {
     @Published var manager:String = ""
     @Published var isValid:Bool = false
     
+    let createRepository = CompanyCreateRepositoryImpl()
+    let myUniqueInfoRepository = MemberUniqueInfoRepository()
+    
     private var publishers = Set<AnyCancellable>()
     
     init() {
@@ -24,12 +27,26 @@ class CompanyCreateViewModel: ObservableObject {
         .store(in: &publishers)
     }
     
-    func requestCreateCompany() {
-        let networkResult = true
-        if networkResult == true {
-            moveMainTab = true
-        } else {
-            moveMainTab = false
+    func requestCreateCompany() { //회사 생성
+        createRepository.requestCreateCompany(name: company) { result in
+            switch result {
+            case .success(_):
+                self.requestUniqueUserInfo {
+                    self.moveMainTab = true
+                }
+            case .failure(_):
+                self.moveMainTab = false
+                //에러창 출력 
+            }
+        }
+    }
+    
+    func requestUniqueUserInfo(completion: @escaping () -> ()) {
+        myUniqueInfoRepository.requestMyUniqueInfo { result in
+            switch result {
+            case .success(_): completion()
+            case .failure(_): completion()
+            }
         }
     }
     

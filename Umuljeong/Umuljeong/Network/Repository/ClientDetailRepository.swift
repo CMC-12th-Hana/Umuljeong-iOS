@@ -75,7 +75,7 @@ class ClientDetailRepository {
     
     private func isInValidData(data: Data) -> String {
         let decoder = JSONDecoder() //서버에서 준 데이터를 Codable을 채택
-        guard let decodedData = try? decoder.decode(ReponseErrorMessage.self, from: data) else { return "네트워킹 에러가 발생하였습니다." }
+        guard let decodedData = try? decoder.decode(ErrorMessageReponse.self, from: data) else { return "네트워킹 에러가 발생하였습니다." }
         return decodedData.message
     }
     

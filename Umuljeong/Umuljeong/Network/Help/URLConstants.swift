@@ -72,7 +72,8 @@ struct URLConstants {
     
     
     // MARK: - Member : 사원 조회 / 추가
-    static let Member_Detail = baseCompanyMemberURL + "/profile"
+    static let Member_Detail = baseCompanyMemberURL + "/profile" //조회
+    
     static let Member_Fix = baseCompanyMemberURL + "/profile"
     
     static func Member_Add(companyId: String) -> String {

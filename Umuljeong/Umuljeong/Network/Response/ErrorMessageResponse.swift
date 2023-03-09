@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReponseErrorMessage:Codable {
+struct ErrorMessageReponse:Codable {
     let errorCode: String
     let message: String
     let cause: String

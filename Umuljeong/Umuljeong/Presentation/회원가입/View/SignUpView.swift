@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignupView: View {
     @ObservedObject var viewModel = SignupViewModel()
-    @State var signUpButtonState = false
+//    @State var signUpButtonState = false
     @State var tapCase:TapCase?
     
     var body: some View {
@@ -313,8 +313,8 @@ struct SignupView: View {
     
     var signButton: some View {
         Button {
-            self.signUpButtonState.toggle()
-//                    viewModel.signup()
+//            .signUpButtonState.toggle()
+            viewModel.requestSignup()
         } label: {
             Spacer()
             Text("가입하기")
@@ -326,7 +326,7 @@ struct SignupView: View {
         .disabled(!viewModel.isSignupValid())
         .background(viewModel.isValid ? Color("main") : Color("bg1"))
         .cornerRadius(6)
-        .fullScreenCover(isPresented: $signUpButtonState) {
+        .fullScreenCover(isPresented: $viewModel.signUpButtonState) {
             RoleSelectView()
         }
     }

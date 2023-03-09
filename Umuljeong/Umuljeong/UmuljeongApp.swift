@@ -33,6 +33,8 @@ struct UmuljeongApp: App {
     var 카테고리전체보기 = CategoryAllRepository()
     var 카테고리삭제하기 = CategoryRemoveRepository()
     
+    var 내정보핸드폰에등록하기 = MemberUniqueInfoRepository()
+    
     var body: some Scene {
         WindowGroup {
 //            MainTabView()
@@ -40,6 +42,16 @@ struct UmuljeongApp: App {
 //            SignupView()
             
                 .onAppear{
+//                    내정보핸드폰에등록하기.requestMyUniqueInfo { result in
+//                        switch result {
+//                        case .success(_):
+//                            print("메서드 실행 완료 시점에서 확인")
+//                            print(ApiManager.shared.myRole())
+//                            print(ApiManager.shared.keychain.get("accessToken"))
+//                        case .failure(_):
+//                            print("메서드 실행 완료 시점에서 확인 : 실패함")
+//                        }
+//                    }
                     //회원가입 성공 -> 아이디, 토큰 받음
 //                    회원가입.requestSignup(signupInfo: SignupInfo(name: "가나다", phoneNumber: "01011111111", password: "qweR!1234", passwordCheck: "qweR!1234")) { response in
 //                        switch response {
@@ -108,7 +120,8 @@ struct UmuljeongApp: App {
 //
 //                    멤버상세보기.requestMemberDetail { response in
 //                        switch response {
-//                        case .success:
+//                        case .success(let userinfo):
+//                            print(userinfo)
 //                            print("멤버상세보기 통신 성공 : StatusCode에 따라 진짜 성공과 뷰 처리 상황 파악")
 //                        default : print("멤버상세보기 통신 실패")
 //                    }

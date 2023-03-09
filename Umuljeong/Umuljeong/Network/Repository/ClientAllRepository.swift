@@ -11,12 +11,19 @@ import KeychainSwift
 
 class ClientAllRepository {
 
-    func requestClientAll(completion: @escaping (Result<ClientInfoFeedResponse?, NetworkError<String>>) -> Void) {
-        let url = URLConstants.Client_All(companyId: "1") //통신할 API 주소
+    func requestClientAll(completion: @escaping (Result<ClientInfoFeedResponse?, ResponseError>) -> Void) {
+        
+
 
         guard let accessToken = KeychainSwift().get("accessToken") else {
-            return completion(.failure(.networkFail))
+            return completion(.failure(.requestError("네트워크 통신이 원할하지 않습니다.")))
                 }
+        
+        guard let companyId = ApiManager.shared.myCompanyId() else {
+            return completion(.failure(.token))
+        }
+        
+        let url = URLConstants.Client_All(companyId: companyId) //통신할 API 주소
 
         let header : HTTPHeaders = ["Content-Type":"application/json",
                                     "Authorization":"Bearer " + accessToken]
@@ -34,7 +41,7 @@ class ClientAllRepository {
             case .success(let res): //데이터 통신이 성공한 경우에
                 
 //            case .success(let res):
-//                print(String(data: res, encoding: .utf8) ?? "")
+                
                 
                 guard let statusCode = response.response?.statusCode else {return}
                 guard let value = response.value else {return}
@@ -46,7 +53,7 @@ class ClientAllRepository {
                             print("토큰 새로 받아오기 성공 ><")
                         } else {
                             print("토큰 새로 받아오기 실패ㅠㅠ")
-                            completion(.failure(.networkFail))
+                            completion(.failure(.token))
                         }
                     }
                 }
@@ -56,16 +63,16 @@ class ClientAllRepository {
                 completion(networkResult)
                 
             case .failure:
-                completion(.failure(.networkFail))
+                completion(.failure(.requestError("통신이 불안정합니다")))
             }
         }
     }
     
-    private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<ClientInfoFeedResponse?, NetworkError<String>> {
+    private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<ClientInfoFeedResponse?, ResponseError> {
         switch statusCode {
         case ..<300 : return .success(isVaildData(data: data))
         case 400...404 : return .failure(.requestError(isInValidData(data: data)))
-        default : return .failure(.networkFail)
+        default : return .failure(.token)
         }
     }
     
@@ -78,7 +85,7 @@ class ClientAllRepository {
     
     private func isInValidData(data: Data) -> String {
         let decoder = JSONDecoder() //서버에서 준 데이터를 Codable을 채택
-        guard let decodedData = try? decoder.decode(ReponseErrorMessage.self, from: data) else { return "네트워킹 에러가 발생하였습니다." }
+        guard let decodedData = try? decoder.decode(ErrorMessageReponse.self, from: data) else { return "네트워킹 에러가 발생하였습니다." }
         return decodedData.message
     }
 }
