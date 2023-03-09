@@ -22,6 +22,7 @@ extension Font {
     static let special2 = Font.custom("Pretendard-Bold", fixedSize: 20)
     static let special3 = Font.custom("Pretendard-SemiBold", fixedSize: 14)
     static let special4 = Font.custom("Pretendard-Regular", fixedSize: 16)
+    static let special5 = Font.custom("Pretendard-SemiBold", fixedSize: 24)
 }
 
 extension UIFont {

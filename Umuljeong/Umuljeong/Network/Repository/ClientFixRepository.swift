@@ -11,13 +11,7 @@ import KeychainSwift
 
 class ClientFixRepository {
     
-    let clientId:Int
-    
-    init(clientId: Int) {
-        self.clientId = clientId
-    }
-    
-    func requestClientFix(clientInfo: ClientInfo, completion: @escaping (Result<Bool, NetworkError<Bool>>) -> Void) {
+    func requestClientFix(clientId: Int, clientInfo: ClientInfo, completion: @escaping (Result<Bool, NetworkError<Bool>>) -> Void) {
         let url = URLConstants.Client_Fix(clientId: String(clientId)) //통신할 API 주소
 
         guard let accessToken = KeychainSwift().get("accessToken") else {

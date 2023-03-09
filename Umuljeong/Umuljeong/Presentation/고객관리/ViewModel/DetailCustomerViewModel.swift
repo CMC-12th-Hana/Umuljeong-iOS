@@ -10,17 +10,39 @@ import FSCalendar
 
 class DetailCustomerViewModel: ObservableObject, CalendarVM {
     let getDetailRepository = ClientDetailRepository()
+        
+    @Published var clientName: String = ""
+    @Published var clientMainTel: String = ""
+    @Published var department: String = ""
+    @Published var partManagerName: String = ""
+    @Published var partManagerTel: String = ""
+    @Published var alertErrorMessage: String = "통신이 불안정합니다."
+    @Published var taskCount: String = ""
+    @Published var businessCount: String = ""
     
-    @Published var clientName:String = ""
-    @Published var department:String = ""
-    @Published var clientCall:String = ""
-    @Published var managerName:String = ""
+    let infoRepository = ClientDetailRepository()
     
-    @Published var alertErrorMessage:String = ""
-    
-//    let fixRepository = ClientFixRepository(clientId: 0) //임의 값
+    func requestCustomerInfo(clientId:Int, requestResult: @escaping (Bool) -> ()) {
+        infoRepository.requestClientDetail(clientId: clientId){ result in
+            switch result {
+            case .success(let clientInfo):
+                self.clientName = clientInfo?.name ?? ""
+                self.clientMainTel = clientInfo?.tel  ?? ""
+                self.department = clientInfo?.salesRepresentativeDto.department  ?? ""
+                self.partManagerName = clientInfo?.salesRepresentativeDto.name  ?? ""
+                self.partManagerTel = clientInfo?.salesRepresentativeDto.phoneNumber  ?? ""
+                self.taskCount = String(clientInfo?.taskCount ?? 0)
+                self.businessCount = String(clientInfo?.businessCount ?? 0)
+                requestResult(true)
+            case .failure(.requestError(let message)): self.alertErrorMessage = message; requestResult(false)
+            case .failure(.token):
+                self.alertErrorMessage = "로그인 기간이 만료되었습니다. 다시 로그인 해주세요"; requestResult(false)
+            }
+        }
+    }
 
     
+
     
     var weekCalendarHeight: CGFloat = 300.0 //필요없는거 추후 삭제 (현재 프로토콜에 걸림)
 
@@ -51,8 +73,8 @@ class DetailCustomerViewModel: ObservableObject, CalendarVM {
             switch result {
             case .success(let clientInfo):
                 self.clientName = clientInfo?.name ?? ""
-                self.clientCall = clientInfo?.tel ?? ""
-                self.managerName = clientInfo?.salesRepresentativeDto.name ?? ""
+                self.clientMainTel = clientInfo?.tel ?? ""
+                self.partManagerName = clientInfo?.salesRepresentativeDto.name ?? ""
                 self.department = clientInfo?.salesRepresentativeDto.department ?? ""
             case .failure(.requestError(let message)): self.alertErrorMessage = message;
             case .failure(.token):

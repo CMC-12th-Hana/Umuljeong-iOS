@@ -7,24 +7,23 @@
 
 import SwiftUI
 
-struct AddClientView: View {
+struct EditClientView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel = AddClientViewModel()
-    @State var alertNetworkError: Bool = false
-    @State var to: PageType
+    @ObservedObject var viewModel = EditClientViewModel()
+    @State var alertNetworkError: Bool = false //API 소통 시 필수 View
+    @State var to: PageType //.add, .edit
     
     enum PageType {
         case add
-        case edit
+        case edit(Int)
     }
     
-    var clientId: Int?
     
     var body: some View {
         VStack{
             VStack(spacing:17) {
-                BasicTextFiled(label: "기업 이름", placeHolder: "기업 이름을 입력해주세요", inputText: $viewModel.customerName)
-                BasicTextFiled(label: "기업 대표 전화", placeHolder: "기업 대표 전화번호를 입력해주세요", inputText: $viewModel.customerMainCall)
+                BasicTextFiled(label: "기업 이름", placeHolder: "기업 이름을 입력해주세요", inputText: $viewModel.clientName)
+                BasicTextFiled(label: "기업 대표 전화", placeHolder: "기업 대표 전화번호를 입력해주세요", inputText: $viewModel.clientMainTel)
             }
             .padding(.vertical, 30)
             .defaultAppStyleHorizentalPadding()
@@ -38,12 +37,12 @@ struct AddClientView: View {
                     Text("해당 고객사 영업 담당")
                         .font(.customTitle2)
                         .padding(.vertical, 30)
-                    BasicTextFiled(label: "부서명", placeHolder: "부서명을 입력해주세요", inputText: $viewModel.partName, checkRed: false)
+                    BasicTextFiled(label: "부서명", placeHolder: "부서명을 입력해주세요", inputText: $viewModel.department, checkRed: false)
                     
                         .padding(.bottom, 20)
                     VStack(spacing: 8){
                         BasicTextFiled(label: "담당자명 및 전화번호", placeHolder: "담당자명을 입력해주세요", inputText: $viewModel.partManagerName, checkRed: false)
-                        BasicTextFiled(label: "없어", placeHolder: "담당자의 전화번호를 입력해주세요", inputText: $viewModel.partManagerCall, checkRed: false, isLabel: false)
+                        BasicTextFiled(label: "없어", placeHolder: "담당자의 전화번호를 입력해주세요", inputText: $viewModel.partManagerTel, checkRed: false, isLabel: false)
                     }
                 }
                 Spacer()
@@ -75,20 +74,28 @@ struct AddClientView: View {
         }
         .navigationDesignDefault(title: "고객사 추가하기")
         .onAppear{
-            guard let recivedClientId = clientId else {return} //수정하기 화면이었다면
-            viewModel.requestCustomerInfo(clientId: recivedClientId) { result in
-                if result {
-                    //불러오기 완료 전까지 똥글뺑이
-                } else {
-                    alertNetworkError = true
+            switch to {
+            case .add: return
+            case .edit(let id):
+                viewModel.requestCustomerInfo(clientId: id) { result in
+                    if result {
+                        //불러오기 완료 전까지 똥글뺑이
+                        alertNetworkError = false
+                        print(viewModel.clientName)
+                    } else {
+                        alertNetworkError = true
+                    }
                 }
             }
+        }
+        .popupNavigationAlertView(height: 175, show: $alertNetworkError) {
+            NetworkErrorAlert(message: viewModel.alertErrorMessage, showPopup: $alertNetworkError)
         }
     }
 }
 
 struct AddCustomerView_Previews: PreviewProvider {
     static var previews: some View {
-        AddClientView(to: .add)
+        EditClientView(to: .add)
     }
 }

@@ -10,8 +10,5 @@ import Foundation
 class MainUserInfoData: ObservableObject {
     
     
-    
-    
-    
-    
+
 }

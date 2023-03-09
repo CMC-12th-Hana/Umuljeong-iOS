@@ -36,12 +36,12 @@ struct MainMemberView: View {
     var searchArea: some View {
         HStack(spacing: 15){
             SearchBar(text: $searchText, guideText: "찾으시는 고객사명을 입력해주세요")
-
-            Button {
-                //
-            } label: {
-                ImageBox(rectangleSize: 24, image: Image("setting"))
-            }
+                
+            NavigationLink(destination: {
+                AddMemberView()
+            }, label: {
+                ImageBox(rectangleSize: 24, image: Image("bluePlusButton"))
+            })
         }
     }
 }

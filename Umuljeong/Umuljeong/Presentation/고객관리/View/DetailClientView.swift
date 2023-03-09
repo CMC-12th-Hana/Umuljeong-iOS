@@ -22,12 +22,13 @@ struct DetailClientView: View {
             VStack(spacing:0){
                 aboutCompany
                 HStack{
-                    Text("\(viewModel.clientName)과 함께한 사업")
+                    Text("\(viewModel.clientName)에서 함께한 사업")
                         .font(.customTitle2)
+                    Image("info")
                     Spacer()
                 }
                 .padding(.bottom, 30)
-                CustomerDetailImage()
+                clientCountInfoBox
                 .padding(.bottom, 60)
                 
                 // MARK: - 고객사의 사업 확인
@@ -125,12 +126,13 @@ struct DetailClientView: View {
 
         .navigationBarItems(
             trailing:
-                NavigationLink {
-                    AddClientView(to: .edit, clientId: 0) //여기 선택한 값 넣어주기
-                        .navigationTitleFontDefault(title: "기업명 수정하기")
-                } label: {
-                    Image("pencil")
-                })
+                Button(action: {
+                    //고객사 삭제하기 통신
+                }, label: {
+                    Image("delete")
+                }
+            )
+        )
     }
     
     var aboutCompany: some View {
@@ -145,23 +147,72 @@ struct DetailClientView: View {
                 
                 Text(viewModel.clientName)
                     .font(.customTitle2)
+                
+                NavigationLink {
+                    EditClientView(to: .edit(clientId))
+                        .navigationTitleFontDefault(title: "기업명 수정하기")
+                } label: {
+                    Image("pencil")
+                }
+                
+                
                 Spacer()
             }
             .padding(.bottom, 20)
             
-            DetailCustomerCallCell(label: "기술자 담당 전화", phoneNumber: "")
+            DetailCustomerCallCell(label: "기술자 담당 전화", phoneNumber: viewModel.partManagerTel)
                 .padding(.bottom, 20)
             HStack{
                 Text("영업 담당 부서 / \(viewModel.department)")
                     .font(.body4)
                 Spacer()
             }
-            DetailCustomerCallCell(label: "기업대표전화", phoneNumber: viewModel.clientCall)
+            DetailCustomerCallCell(label: "기업대표전화", phoneNumber: viewModel.clientMainTel)
                 .padding(.bottom, 10)
             
-            DetailCustomerCallCell(label: "영업담당자명", phoneNumber: viewModel.managerName)
+            DetailCustomerCallCell(label: "영업담당자명", phoneNumber: viewModel.partManagerName)
                 .padding(.bottom, 70)
         }
+    }
+    
+    var clientCountInfoBox: some View {
+        HStack(spacing:10){
+            NavigationLink {
+                VisitGraphView()
+            } label: {
+                ZStack{
+                    RoundedRectangle(cornerRadius: 6)
+                        .stroke(Color("line2"), lineWidth: 1)
+                        .background(Color("bg3"))
+                    VStack{
+                            Text("누적업무건수")
+                            .font(.body1)
+                                .foregroundColor(Color("font1"))
+                        Image("visitImage")
+                        Text(viewModel.taskCount)
+                            .font(.special5)
+                            .foregroundColor(Color("main"))
+                    }
+                }
+            }
+            ZStack{
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(Color("line2"), lineWidth: 1)
+                    .background(Color("bg3"))
+                VStack{
+                    HStack{
+                        Text("사업건수")
+                            .font(.body1)
+                            .foregroundColor(Color("font1"))
+                    }
+                    Image("businessImage")
+                    Text(viewModel.businessCount)
+                        .font(.special5)
+                        .foregroundColor(Color("main"))
+                }
+            }
+        }
+        .frame(height:162)
     }
     
     

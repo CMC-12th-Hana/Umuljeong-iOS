@@ -11,3 +11,4 @@ struct SignupResponse: Codable {
     let memberId: Int?
     let accessToken: String?
 }
+

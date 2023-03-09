@@ -20,7 +20,7 @@ struct ClientView: View {
                 Divider()
                 
                 NavigationLink {
-                    AddClientView(to: .add)
+                    EditClientView(to: .add)
                         .navigationTitleFontDefault(title: "기업 추가하기")
                 } label: {
                     PlusButtonLabel(label: "고객사 추가하기")
@@ -44,6 +44,7 @@ struct ClientView: View {
                 .onAppear{
                     viewModel.requestAllClient()
                 }
+            
         }
     }
 }
