@@ -29,8 +29,6 @@ class ClientViewModel: ObservableObject {
                 switch response {
                 case .success(let resClientFeedInfo):
                     self.clientFeedInfo = resClientFeedInfo?.clientCompanyDtoList ?? []
-                    print(self.clientFeedInfo)
-                    print("고객사_전체보기 통신 성공 : StatusCode에 따라 진짜 성공과 뷰 처리 상황 파악")
                 default : print("고객사_전체보기 통신 실패")
                 }
             }

@@ -7,6 +7,10 @@
 
 import Foundation
 
+
+
+
+
 extension String {
     
     var passwordEight: Bool {
@@ -68,5 +72,4 @@ extension String {
         default: return .first
         }
     }
-    
 }

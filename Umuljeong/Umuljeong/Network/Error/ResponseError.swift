@@ -11,3 +11,4 @@ enum ResponseError: Error {
     case requestError(String)
     case token
 }
+

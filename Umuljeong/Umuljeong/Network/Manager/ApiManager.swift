@@ -11,39 +11,71 @@ import Alamofire
 
 
 class ApiManager {
-    static let shared = ApiManager()
+    static let shared = ApiManager() //
     let keychain = KeychainSwift() // 키체인 사용을 위해 KeychainSwift 라이브러리를 이용합니다.
     private var accessToken: String?
+    
     private var companyId: String?
-    private var roleIsLeader: Bool?
+    private var memberId: String?
+    private var companyName: String?
+    private var userName: String?
+    private var userRole: String?
+    private var isLogin:Bool?
 
     private init() {
         accessToken = keychain.get("accessToken") // 키체인에서 액세스 토큰을 가져옵니다.
         companyId = keychain.get("myCompanyId")
-        roleIsLeader = {
-            let role = keychain.get("myRole")
-            return role == "리더" ? true : false
-        }()
+        memberId = keychain.get("myMemberId")
+        companyName = keychain.get("myCompanyName")
+        userName = keychain.get("myName")
+        userRole =  keychain.get("myRole")
+        isLogin = keychain.getBool("isLogin")
     }
     
-    func uniqueUserInfoSet(companyId: Int, role: String) { //회사 생성 / 합류 / 로그인
-        let id = String(companyId)
-        self.keychain.set(id, forKey: "myCompanyId")
-        self.keychain.set(role, forKey: "myRole")
+    func uniqueUserInfoSet(_ userInfo: UserInfoResponse) { //회사 생성 / 합류 / 로그인
+        self.keychain.set(String(userInfo.companyId), forKey: "myCompanyId")
+        self.keychain.set(String(userInfo.memberId), forKey: "myMemberId")
+        self.keychain.set(userInfo.companyName, forKey: "myCompanyName")
+        self.keychain.set(userInfo.name, forKey: "myName")
+        self.keychain.set(userInfo.role, forKey: "myRole")
+        self.keychain.set(true, forKey: "isLogin")
+    }
+    
+    func memberInfoSet(name:String) {
+        self.keychain.set(name, forKey: "myName")
+        userName = keychain.get("myName")
+    }
+    
+    func accessTokenSet(accessToken:String) { //회사 생성 / 합류 / 로그인
+        self.keychain.set(accessToken, forKey: "accessToken")
     }
     
     func myCompanyId() -> String? {
         return self.companyId
     }
     
+    func myMemberId() -> String? {
+        return self.memberId
+    }
+    
+    func myCompanyName() -> String? {
+        return self.companyName
+    }
+    
+    func myName() -> String? {
+        return self.userName
+    }
+    
     func myRole() -> Bool? {
-        return self.roleIsLeader
+        return self.userRole == "리더"
+    }
+    
+    func myLoginState() -> Bool? {
+        return self.isLogin
     }
     
     
-    func accessTokenSet(accessToken:String) {
-        self.keychain.set(accessToken, forKey: "accessToken")
-    }
+
     
     
     

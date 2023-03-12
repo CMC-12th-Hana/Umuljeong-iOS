@@ -21,7 +21,7 @@ struct StartFinishDateView: View {
 
                     HStack{
                         Text(startDateString ?? "시작일자")
-                            .foregroundColor(Color("font3"))
+                            .foregroundColor(startDateString != nil ? Color("font1") : Color("font3"))
                         Spacer()
                         Button {
                             showStartCalendar.toggle()
@@ -37,7 +37,7 @@ struct StartFinishDateView: View {
                     .stroke(Color("line2"), lineWidth: 1)
                     HStack{
                         Text(finishDateString ?? "종료일자")
-                            .foregroundColor(Color("font3"))
+                            .foregroundColor(finishDateString != nil ? Color("font1") : Color("font3"))
                         Spacer()
                         Button {
                             showFinishCalendar.toggle()
@@ -53,7 +53,7 @@ struct StartFinishDateView: View {
 }
 
 struct StartFinishDateView_Previews: PreviewProvider {
-    @ObservedObject static var viewModel = DetailCustomerViewModel()
+    @ObservedObject static var viewModel = DateStartFinishViewModel()
     
     static var previews: some View {
         StartFinishDateView(showStartCalendar: $viewModel.showStartCalendar, showFinishCalendar: $viewModel.showFinishCalendar, startDateString: viewModel.startDateString, finishDateString: viewModel.finishDateString)

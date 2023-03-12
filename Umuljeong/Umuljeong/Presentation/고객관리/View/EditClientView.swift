@@ -13,6 +13,7 @@ struct EditClientView: View {
     @State var alertNetworkError: Bool = false //API 소통 시 필수 View
     @State var isLoaded: Bool = false
     @State var to: PageType //.add, .edit
+    var clientId:Int = -1
     
     enum PageType {
         case add
@@ -60,8 +61,8 @@ struct EditClientView: View {
                                 alertNetworkError = true
                             }
                         }
-                    case .edit:
-                        viewModel.requestEditClient { result in
+                    case .edit(let id):
+                        viewModel.requestEditClient(clientId: id) { result in
                             if result {
                                 presentationMode.wrappedValue.dismiss()
                             } else {

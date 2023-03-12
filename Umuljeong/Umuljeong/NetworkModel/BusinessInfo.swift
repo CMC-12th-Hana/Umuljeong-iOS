@@ -13,10 +13,10 @@ struct BusinessInfo {
     var memberIdList:[Int]
     var revenue:Int
     var description:String
-    
-    struct BusinessPeriodDto {
-        var start:String
-        var finish:String
-    }
+}
+
+struct BusinessPeriodDto {
+    var start:String
+    var finish:String
 }
 

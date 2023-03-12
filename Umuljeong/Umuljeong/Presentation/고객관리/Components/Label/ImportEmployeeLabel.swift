@@ -20,7 +20,7 @@ struct ImportEmployeeLabel: View {
                     )
                     .padding(.trailing, 20)
                 
-                Text("사원 프로필 가져오기")
+                Text("참여 구성원")
                     .foregroundColor(Color("font1"))
                 
                 Spacer()

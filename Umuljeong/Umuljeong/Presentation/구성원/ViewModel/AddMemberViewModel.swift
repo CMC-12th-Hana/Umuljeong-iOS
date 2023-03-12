@@ -15,10 +15,13 @@ class AddMemberViewModel: ObservableObject {
     
     let repository = MemberAddRepository()
     
-    func requestAddMember(clientId: Int) {
-        
+    func requestAddMember(requestResult: @escaping (Bool) -> ()) {
+        repository.requestMemberAdd(memberInfo: MemberInfo(name: name, phoneNumber: phoneNumber, staffRank: staffRank, staffNumber: staffNumber)) { result in
+            switch result {
+            case .success: requestResult(true)
+            case .failure: requestResult(false)
+            }
+        }
     }
-    
-    
-    
 }
+    

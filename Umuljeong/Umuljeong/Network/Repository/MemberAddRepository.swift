@@ -48,16 +48,13 @@ class MemberAddRepository {
             guard let self = self else { return }
             
             switch response.result {
-            case .success: //데이터 통신이 성공한 경우에
+//            case .success: //데이터 통신이 성공한 경우에
                 
-//            case .success(let res):
-//                print(String(data: res, encoding: .utf8) ?? "") // 바디 출력
+            case .success(let res):
+                print(String(data: res, encoding: .utf8) ?? "") // 바디 출력
                 
                 guard let statusCode = response.response?.statusCode else {return}
                 guard let value = response.value else {return}
-                
-                let networkResult = self.judgeStatus(by: statusCode, value)
-                
                 
                 if statusCode == 401 {
                     print("토큰만료임!!!")

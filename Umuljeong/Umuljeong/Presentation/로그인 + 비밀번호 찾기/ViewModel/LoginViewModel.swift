@@ -13,7 +13,10 @@ class LoginViewModel: ObservableObject {
     @Published var alertPopup:Bool = false
     @Published var phoneNumber: String = ""
     @Published var password: String = ""
-    let repository = LoginRepository()
+    
+    let loginRepository = LoginRepository()
+    let myUniqueInfoRepository = MemberUniqueInfoRepository()
+    
     
     func removeText(tapcase: TapCase) {
         if tapcase == .phoneNumber {
@@ -24,11 +27,26 @@ class LoginViewModel: ObservableObject {
     }
     
     func requestLogin() {
-        repository.requestLogin(loginInfo: LoginInfo(phoneNumber: phoneNumber, password: password)) { result in
+        loginRepository.requestLogin(loginInfo: LoginInfo(phoneNumber: phoneNumber, password: password)) { result in
             switch result {
-            case true: self.loginSuccess = true
+            case true:
+                self.requestUniqueUserInfo()
             case false: self.alertPopup = true
             }
         }
     }
+    
+    func requestUniqueUserInfo() {
+        myUniqueInfoRepository.requestMyUniqueInfo { result in
+            print("회원 정보 가져와서 저장")
+            switch result {
+            case .success(_):
+                self.loginSuccess = true
+                print("회원정보 저장 완료")
+            case .failure(_): print("회원정보 저장 실패")
+            }
+        }
+    }
+    
+    
 }

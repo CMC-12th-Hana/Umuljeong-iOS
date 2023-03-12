@@ -91,7 +91,7 @@ extension MonthCalendar {
 
 
 struct MonthCalendar_Previews: PreviewProvider {
-    @StateObject static var viewModel = DetailCustomerViewModel()
+    @StateObject static var viewModel = DateStartFinishViewModel()
     static var previews: some View {
         MonthCalendar(viewModel: viewModel)
     }

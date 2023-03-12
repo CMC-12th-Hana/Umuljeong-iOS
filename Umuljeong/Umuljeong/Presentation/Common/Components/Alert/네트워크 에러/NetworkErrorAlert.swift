@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct NetworkErrorAlert: View {
-    
-    var message:String = "통신 에러입니다."
+    var message:String = "네트워크 연결 상태가 좋지 않습니다."
     @Binding var showPopup:Bool
     var body: some View {
         VStack(spacing:0) {
             VStack(spacing: 5){
                 Text(message)
-                Text("다시 시도해주세요.")
+                Text("잠시 후 다시 시도해주세요.")
             }
             .frame(height: 104)
             .font(.body2)
@@ -43,6 +42,6 @@ struct NetworkErrorAlert: View {
 struct NetworkErrorAlert_Previews: PreviewProvider {
     @State static var showPopup = false
     static var previews: some View {
-        NetworkErrorAlert(message: "통신 에러입니다.", showPopup: $showPopup)
+        NetworkErrorAlert(showPopup: $showPopup)
     }
 }

@@ -13,8 +13,6 @@ class ClientAllRepository {
 
     func requestClientAll(completion: @escaping (Result<ClientInfoFeedResponse?, ResponseError>) -> Void) {
         
-
-
         guard let accessToken = KeychainSwift().get("accessToken") else {
             return completion(.failure(.requestError("네트워크 통신이 원할하지 않습니다.")))
                 }
@@ -40,27 +38,30 @@ class ClientAllRepository {
             switch response.result {
             case .success(let res): //데이터 통신이 성공한 경우에
                 
+                print(String(data: res, encoding: .utf8) ?? "")
+                
 //            case .success(let res):
                 
                 
                 guard let statusCode = response.response?.statusCode else {return}
                 guard let value = response.value else {return}
                 
+                print("statueCode \(statusCode)")
+                
                 if statusCode == 401 {
                     print("토큰만료임!!!")
                     ApiManager.shared.refreshToken { isSuccess in
                         if isSuccess {
-                            print("토큰 새로 받아오기 성공 ><")
+                            self.requestClientAll(completion: completion)
                         } else {
                             print("토큰 새로 받아오기 실패ㅠㅠ")
                             completion(.failure(.token))
                         }
                     }
+                } else {
+                    let networkResult = self.judgeStatus(by: statusCode, value)
+                    completion(networkResult)
                 }
-                
-                let networkResult = self.judgeStatus(by: statusCode, value)
-
-                completion(networkResult)
                 
             case .failure:
                 completion(.failure(.requestError("통신이 불안정합니다")))

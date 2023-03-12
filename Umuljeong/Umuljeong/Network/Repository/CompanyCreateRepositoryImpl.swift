@@ -7,14 +7,20 @@
 
 import Foundation
 import Alamofire
+import KeychainSwift
 
 class CompanyCreateRepositoryImpl {
 
     func requestCreateCompany(name: String, completion: @escaping (Result<Bool, NetworkError<Bool>>) -> Void) {
+        
+        guard let accessToken = KeychainSwift().get("accessToken") else {
+            return completion(.failure(.requestError(false)))
+                }
+        
         let url = URLConstants.Company_Create //통신할 API 주소
 
         let header : HTTPHeaders = ["Content-Type":"application/json",
-                                    "Authorization":"Bearer " + "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmdzdHJpbiIsIk5laWdoYm9yQVBJIjoiUk9MRV9TVEFGRiIsImV4cCI6MTY3NzkwMzA5MH0.rtKAYmaQ1T6QQs_ASMx5Km_STpyZA5Cb4GxEhFiUTEKEXezTAGm6RyVwvY61JwBLYTWEQ_FL-fmZCTbCqLkFag"]
+                                    "Authorization":"Bearer " + accessToken]
         
         //요청 바디
         let body : Parameters = [
@@ -54,7 +60,9 @@ class CompanyCreateRepositoryImpl {
     
     private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<Bool, NetworkError<Bool>> {
         switch statusCode {
-        case ..<300 : return .success(true)
+        case ..<300 :
+            
+            return .success(true)
 //        case 404 : return .failure(.requestError)
         default : return .failure(.networkFail)
         }

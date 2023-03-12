@@ -19,13 +19,13 @@ struct UmuljeongApp: App {
     var 사업수정하기 = BusinessFixRepository()
     
     var 멤버추가하기 = MemberAddRepository()
-    var 멤버상세보기 = MemberDetailRepository()
-    var 멤버수정하기 = MemberFixRepository()
+    var 멤버상세보기 = MemberMyDetailRepository()
+    var 멤버수정하기 = MemberFixMyProfileRepository()
     var 멤버회사전체보기 = MemberAllRepository()
     
     var 고객사추가하기 = ClientAddRepository()
     var 고객사상세보기 = ClientDetailRepository()
-//    var 고객사수정하기 = ClientFixRepository()
+    //    var 고객사수정하기 = ClientFixRepository()
     var 고객사전체보기 = ClientAllRepository()
     
     var 카테고리추가하기 = CategoryAddRepository()
@@ -37,11 +37,21 @@ struct UmuljeongApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            MainTabView()
-            LoginView()
+//            if ApiManager.shared.myLoginState() ?? false {
+//                MainTabView()
+//                    .onAppear{
+//                        print(ApiManager.shared.myLoginState())
+//                    }
+//            } else {
+                LoginView()
+//            }
+        }
+    }
+}
+            
 //            SignupView()
             
-                .onAppear{
+//                .onAppear{
 //                    내정보핸드폰에등록하기.requestMyUniqueInfo { result in
 //                        switch result {
 //                        case .success(_):
@@ -212,7 +222,4 @@ struct UmuljeongApp: App {
                     // : 토큰 만료 시 다시 재로그인 후(추후 재발급 과정 바뀔 수도 있음) 로직 수행 테스트
                     
                     
-                }
-        }
-    }
-}
+//                }

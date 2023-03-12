@@ -19,7 +19,6 @@ struct MemberLabel: View {
                     LeaderLabel(width: 30, height: 17)
                 }
                 Spacer()
-                rightArrowImage
             }
             .padding(.horizontal, 20)
             .frame(height: 70)
@@ -58,10 +57,6 @@ struct MemberLabel: View {
         Text(memberInfo.name)
             .font(.body2)
             .foregroundColor(Color("font1"))
-    }
-    
-    var rightArrowImage: some View {
-        ImageBox(rectangleSize: 24, image: Image("rightArrow"))
     }
     
 }

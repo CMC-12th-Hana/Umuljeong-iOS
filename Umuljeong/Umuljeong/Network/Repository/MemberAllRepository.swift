@@ -11,14 +11,14 @@ import KeychainSwift
 
 class MemberAllRepository {
 
-    func requestMemberAll(completion: @escaping (Result<MemberAllInfoResponse?, ResponseError>) -> Void) {
+    func requestMemberAll(completion: @escaping (Result<MemberAllInfoResponse?, ResError>) -> Void) {
         
         guard let accessToken = KeychainSwift().get("accessToken") else {
-            return completion(.failure(.token))
+            return completion(.failure(.NON_TOKEN))
                 }
         
         guard let companyId = ApiManager.shared.myCompanyId() else {
-            return completion(.failure(.token))
+            return completion(.failure(.CHANGE_AUTHORITY_403))
         }
             
         let url = URLConstants.Member_All(companyId: companyId) //통신할 API 주소
@@ -33,8 +33,8 @@ class MemberAllRepository {
                                      encoding: JSONEncoding.default,
                                      headers: header)
         
-        //request 시작 ,responseData를 호출하면서 데이터 통신 시작
-        dataRequest.responseData { [weak self] response in //데이터 통신의 결과가 response에 담기게 된다 //[weak self] 로 강한 순환 참조 해결
+        
+        dataRequest.responseData { [weak self] response in
             guard let self = self else { return }
             
             switch response.result {
@@ -52,7 +52,7 @@ class MemberAllRepository {
                             self.requestMemberAll(completion: completion) //재귀함수 //함수를 다시 실행
                         } else {
                             print("토큰 새로 받아오기 실패ㅠㅠ")
-                            completion(.failure(.requestError("통신이 불안정합니다")))
+                            completion(.failure(.OVER_TOKEN_401))
                         }
                     }
                 } else {
@@ -61,16 +61,19 @@ class MemberAllRepository {
                 }
                 
             case .failure:
-                completion(.failure(.requestError("통신이 불안정합니다")))
+                completion(.failure(.FAILURE_NETWORK))
             }
         }
     }
-    
-    private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<MemberAllInfoResponse?, ResponseError> {
+
+    private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<MemberAllInfoResponse?, ResError> {
         switch statusCode {
-        case ..<300 : return .success(isVaildData(data: data))
-        case 401 : return .failure(.token)
-        default : return .failure(.requestError(isInValidData(data: data)))
+        case ..<300: return .success(isVaildData(data: data))
+        case 400: return .failure(.BAD_REQUEST_400(isInValidData(data: data)))
+        case 401: return .failure(.OVER_TOKEN_401)
+        case 403: return .failure(.CHANGE_AUTHORITY_403)
+        case 404: return .failure(.NOT_FOUND_404(isInValidData(data: data)))
+        default: return .failure(.FAILURE_NETWORK)
         }
     }
     
@@ -81,8 +84,8 @@ class MemberAllRepository {
     }
     
     private func isInValidData(data: Data) -> String {
-        let decoder = JSONDecoder() //서버에서 준 데이터를 Codable을 채택
-        guard let decodedData = try? decoder.decode(ErrorMessageReponse.self, from: data) else { return "네트워킹 에러가 발생하였습니다." }
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(ErrorMessageReponse.self, from: data) else { return "네트워크 연결 상태가 좋지 않습니다." }
         return decodedData.message
     }
     

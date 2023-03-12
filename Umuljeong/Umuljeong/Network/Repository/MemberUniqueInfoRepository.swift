@@ -10,12 +10,12 @@ import Alamofire
 import KeychainSwift
 
 class MemberUniqueInfoRepository {
-    func requestMyUniqueInfo(completion: @escaping (Result<UserInfoResponse?, ResponseError>) -> Void) {
-        let url = URLConstants.Member_Detail //통신할 API 주소
-        
+    func requestMyUniqueInfo(completion: @escaping (Result<UserInfoResponse?, ResError>) -> Void) {
         guard let accessToken = KeychainSwift().get("accessToken") else {
-            return completion(.failure(.token))
+            return completion(.failure(.NON_TOKEN))
         }
+        
+        let url = URLConstants.Member_MyDetail //통신할 API 주소
         
         let header : HTTPHeaders = ["Content-Type":"application/json",
                                     "Authorization":"Bearer " + accessToken]
@@ -45,7 +45,7 @@ class MemberUniqueInfoRepository {
                             self.requestMyUniqueInfo(completion: completion) //재귀함수 //함수를 다시 실행
                         } else {
                             print("토큰 새로 받아오기 실패ㅠㅠ")
-                            completion(.failure(.requestError("통신이 불안정합니다")))
+                            completion(.failure(.OVER_TOKEN_401))
                         }
                     }
                 } else {
@@ -54,16 +54,19 @@ class MemberUniqueInfoRepository {
                 }
                 
             case .failure:
-                completion(.failure(.requestError("통신이 불안정합니다")))
+                completion(.failure(.FAILURE_NETWORK))
             }
         }
     }
     
-    private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<UserInfoResponse?, ResponseError> {
+    private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<UserInfoResponse?, ResError> {
         switch statusCode {
-        case ..<300 : return .success(isVaildData(data: data))
-        case 400...404 : return .failure(.requestError(isInValidData(data: data)))
-        default : return .failure(.token)
+        case ..<300: return .success(isVaildData(data: data))
+        case 400: return .failure(.BAD_REQUEST_400(isInValidData(data: data)))
+        case 401: return .failure(.OVER_TOKEN_401)
+        case 403: return .failure(.CHANGE_AUTHORITY_403)
+        case 404: return .failure(.NOT_FOUND_404(isInValidData(data: data)))
+        default: return .failure(.FAILURE_NETWORK)
         }
     }
     
@@ -71,7 +74,7 @@ class MemberUniqueInfoRepository {
     private func isVaildData(data: Data) -> UserInfoResponse? {
         let decoder = JSONDecoder() //서버에서 준 데이터를 Codable을 채택
         guard let decodedData = try? decoder.decode(UserInfoResponse.self, from: data) else { return nil }
-        ApiManager.shared.uniqueUserInfoSet(companyId: decodedData.companyId, role: decodedData.role)
+        ApiManager.shared.uniqueUserInfoSet(decodedData)
         return decodedData
     }
     

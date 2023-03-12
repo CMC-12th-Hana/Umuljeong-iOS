@@ -12,6 +12,7 @@ struct ClientView: View {
     @Binding var selectedTab: Tags
     @State private var searchText = ""
     @ObservedObject var viewModel = ClientViewModel()
+    @State var stack = NavigationPath()
     
     var body: some View {
             VStack(spacing:20) {
@@ -27,9 +28,11 @@ struct ClientView: View {
                 }
                 
                 ScrollView() {
+                    
+                    
                     LazyVStack(spacing: 10) {
                     ForEach(viewModel.clientFeedInfo, id: \.clientId) { client in
-                        NavigationLink {
+                        NavigationLink() {
                             DetailClientView(clientId: client.clientId, isShowingSheet: $isShowingSheetStartDate)
                         } label: {
                             CustomerCell(customer: client.name, visitCount: client.taskCount, businessCount: client.businessCount)

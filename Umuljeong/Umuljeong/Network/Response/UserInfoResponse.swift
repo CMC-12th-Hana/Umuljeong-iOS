@@ -12,7 +12,7 @@ struct MemberAllInfoResponse: Codable {
 }
 
 struct UserInfoResponse: Codable {
-    let companyId: Int
+    let companyId, memberId: Int
     let name, role, companyName, staffRank: String
     let phoneNumber, staffNumber: String
 }

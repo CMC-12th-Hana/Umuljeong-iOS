@@ -67,8 +67,4 @@ class BusinessManagerViewModel: ObservableObject, CalendarVM {
     func changeFinishDateToString(_ date: Date) {
         finishDateString = CalendarDateFomatter.date.string(from: date)
     }
-    
-    
-    
-    
 }

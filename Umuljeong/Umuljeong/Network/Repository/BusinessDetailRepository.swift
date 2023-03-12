@@ -10,18 +10,16 @@ import Alamofire
 import KeychainSwift
 
 class BusinessDetailRepository {
-
-    func requestBusinessDetail(completion: @escaping (Result<Bool, NetworkError<Bool>>) -> Void) {
-        let url = URLConstants.Business_Detail(businessId: "1") //통신할 API 주소
-
+    func requestBusinessDetail(businessId: Int, completion: @escaping (Result<Bool, NetworkError<Bool>>) -> Void) {
+        
         guard let accessToken = KeychainSwift().get("accessToken") else {
             return completion(.failure(.networkFail))
                 }
+        
+        let url = URLConstants.Business_Detail(businessId: String(businessId)) //통신할 API 주소
 
         let header : HTTPHeaders = ["Content-Type":"application/json",
                                     "Authorization":"Bearer " + accessToken]
-        
-
         
         let dataRequest = AF.request(url,
                                      method: .get,

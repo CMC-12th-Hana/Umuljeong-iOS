@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct AddMemberView: View {
+    
     @ObservedObject var viewModel = AddMemberViewModel()
+    @State var alertNetworkError: Bool = false //API 소통 시 필수 View
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack(spacing: 25) {
@@ -23,10 +26,20 @@ struct AddMemberView: View {
             Spacer()
             
             Button {
-                
+                viewModel.requestAddMember { result in
+                    switch result {
+                    case true:
+                        presentationMode.wrappedValue.dismiss()
+                    case false:
+                        alertNetworkError = true
+                    }
+                }
             } label: {
                 BasicButtonLabel(text: "완료")
             }
+        }
+        .popupNavigationAlertView(height: 160, show: $alertNetworkError) {
+            FormErrorAlert(showPopup: $alertNetworkError)
         }
         .navigationDesignDefault(title: "구성원 추가하기")
         .defaultAppStyleHorizentalPadding()

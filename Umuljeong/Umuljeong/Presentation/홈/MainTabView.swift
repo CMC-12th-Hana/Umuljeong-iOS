@@ -46,7 +46,7 @@ struct MainTabView: View {
                         }
                         .tag(Tags.tag2)
                     
-                    BusinessManageView(selectedTab: $tabSelection)
+                    BusinessView(selectedTab: $tabSelection)
                         .tabItem {
                             ImageBox(rectangleSize: 26, image: tabSelection == .tag3 ? Image("tab31") : Image("tab32"))
                             
@@ -67,6 +67,7 @@ struct MainTabView: View {
                         .tag(Tags.tag4)
                     
                 }
+                
                 .background(
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)

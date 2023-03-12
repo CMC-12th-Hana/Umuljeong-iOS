@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TESTVIEW: View {
-    @StateObject var viewModel = DetailCustomerViewModel()
+    @StateObject var viewModel = DateStartFinishViewModel()
     var body: some View {
         VStack{
             HStack{

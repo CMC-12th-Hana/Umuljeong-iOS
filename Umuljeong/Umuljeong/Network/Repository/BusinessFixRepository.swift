@@ -11,12 +11,13 @@ import KeychainSwift
 
 class BusinessFixRepository {
 
-    func requestBusinessFix(businessInfo: BusinessInfo, completion: @escaping (Result<Bool, NetworkError<Bool>>) -> Void) {
-        let url = URLConstants.Business_Fix(businessId: "1") //통신할 API 주소
+    func requestBusinessFix(businessId: Int, businessInfo: BusinessInfo, completion: @escaping (Result<Bool, NetworkError<Bool>>) -> Void) {
 
         guard let accessToken = KeychainSwift().get("accessToken") else {
             return completion(.failure(.networkFail))
                 }
+        
+        let url = URLConstants.Business_Fix(businessId: String(businessId)) //통신할 API 주소
 
         let header : HTTPHeaders = ["Content-Type":"application/json",
                                     "Authorization":"Bearer " + accessToken]

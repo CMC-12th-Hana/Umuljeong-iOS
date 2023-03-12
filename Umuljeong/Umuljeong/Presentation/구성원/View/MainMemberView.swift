@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct MainMemberView: View {
+    @ObservedObject var viewModel = MemberViewModel()
     @Binding var selectedTab: Tags
     @State var searchText:String = ""
-    var isLeader:Bool = false
+    let myMemberId = Int(ApiManager.shared.myMemberId() ?? "-1") ?? -1
+//    var isLeader:Bool = false
     
     var body: some View {
         VStack(spacing:20){
@@ -21,15 +23,30 @@ struct MainMemberView: View {
                 .fill(Color("line2"))
                 .frame(width: UIScreen.main.bounds.width, height: 1)
             
-            ScrollView{
-                MemberLabel(memberInfo: MemberSummaryModel(name: "티나", isLeader: true))
-                MemberLabel(memberInfo: MemberSummaryModel(name: "뽀로로", isLeader: false))
-                MemberLabel(memberInfo: MemberSummaryModel(name: "뽀노뽀", isLeader: false))
-                MemberLabel(memberInfo: MemberSummaryModel(name: "뽀노", isLeader: false))
-                MemberLabel(memberInfo: MemberSummaryModel(name: "뽀로로", isLeader: false))
-                MemberLabel(memberInfo: MemberSummaryModel(name: "노보노보", isLeader: false))
+            ScrollView() {
+                
+                
+                LazyVStack(spacing: 10) {
+                    NavigationLink {
+                        MyProfileView()
+                    } label: {
+                        UserLabel(memberInfo: MemberSummaryModel(name: viewModel.myInfo.name, isLeader: viewModel.myInfo.role == "리더"))
+                    }
+                    
+                    ForEach(viewModel.memberFeedInfo.filter{$0.memberId != myMemberId}, id: \.memberId) { member in
+                        NavigationLink {
+                            MemberProfileView(memberId: member.memberId)
+                        } label: {
+                            MemberLabel(memberInfo: MemberSummaryModel(name: member.name, isLeader: member.role == "리더"))
+                        }
+                    }
+                }
             }
             .defaultAppStyleHorizentalPadding()
+        }
+        .onAppear{
+            viewModel.requestMyinfo()
+            viewModel.requestAllMember()
         }
     }
     
@@ -37,11 +54,13 @@ struct MainMemberView: View {
         HStack(spacing: 15){
             SearchBar(text: $searchText, guideText: "찾으시는 고객사명을 입력해주세요")
                 
-            NavigationLink(destination: {
-                AddMemberView()
-            }, label: {
-                ImageBox(rectangleSize: 24, image: Image("bluePlusButton"))
-            })
+            if let role = ApiManager.shared.myRole(), role == true {
+                NavigationLink(destination: {
+                    AddMemberView()
+                }, label: {
+                    ImageBox(rectangleSize: 24, image: Image("bluePlusButton"))
+                })
+            }
         }
     }
 }

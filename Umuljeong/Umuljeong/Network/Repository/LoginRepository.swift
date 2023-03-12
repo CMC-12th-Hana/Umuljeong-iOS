@@ -33,9 +33,6 @@ class LoginRepository {
             switch response.result {
             case .success: //데이터 통신이 성공한 경우에
                 
-//            case .success(let res):
-//                print(String(data: res, encoding: .utf8) ?? "") // 바디 출력
-                
                 guard let statusCode = response.response?.statusCode else {return}
                 guard let value = response.value else {return}
                 

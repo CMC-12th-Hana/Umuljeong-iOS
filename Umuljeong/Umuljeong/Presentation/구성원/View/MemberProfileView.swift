@@ -7,27 +7,44 @@
 
 import SwiftUI
 
-struct DetailMemberView: View {
-    var memberInfo: MemberSummaryModel
+struct MemberProfileView: View {
+    @ObservedObject var viewModel = MemberProfileViewModel()
+    @State var isLoaded: Bool = false
+    let memberId:Int
+    let myRole = ApiManager.shared.myRole() ?? true //출시 시 기본 상태 true로
+    
     var body: some View {
         VStack(spacing: 0){
             profileCircle
                 .padding(.top, 50)
             memberName
             
-            deleteButton
-                .padding(.top, 32)
+            if myRole {
+                fixButton
+                    .padding(.top, 32)
+            }
             
             VStack(spacing: 10){
-                DetailMemberLabel(imageName: "companyDark", title: "회사명", info: "회사명이 들어갑니다")
-                DetailMemberLabel(imageName: "companyDark", title: "연락처", info: "02-1234-****")
-                DetailMemberLabel(imageName: "companyDark", title: "직급", info: "사원")
-                DetailMemberLabel(imageName: "companyDark", title: "사번", info: "176975")
+                DetailMemberLabel(imageName: "companyDark", title: "회사명", info: viewModel.memberInfo.companyName)
+                DetailMemberLabel(imageName: "companyDark", title: "연락처", info: viewModel.memberInfo.phoneNumber)
+                DetailMemberLabel(imageName: "companyDark", title: "직급", info: viewModel.memberInfo.staffRank)
+                DetailMemberLabel(imageName: "companyDark", title: "사번", info: viewModel.memberInfo.staffNumber)
             }
             .padding(.top, 10)
             
         }
         .navigationDesignDefault(title: "프로필 상세")
+        .onAppear{
+            viewModel.requestMemberInfo(memberId: self.memberId) { result in
+                    if result {
+                        print("요고요고 확인중")
+                        isLoaded = true
+                        
+                    } else {
+                        isLoaded = false
+                    }
+            }
+        }
     }
     
     var profileCircle: some View {
@@ -53,23 +70,25 @@ struct DetailMemberView: View {
     
     var memberName: some View {
         HStack(spacing:0) {
-            Spacer()
-                .frame(width: 37, height: 21)
+            if viewModel.memberInfo.role == "리더" {
+                Spacer()
+                    .frame(width: 37, height: 21)
+            }
             
-            Text(memberInfo.name)
+            Text(viewModel.memberInfo.name)
                 .font(.special2)
-            
-            LeaderLabel(width: 31, height: 21)
-                .padding(.leading, 6)
+            if viewModel.memberInfo.role == "리더" {
+                LeaderLabel(width: 31, height: 21)
+                    .padding(.leading, 6)
+            }
         }
     }
     
-    var deleteButton:some View {
+    var fixButton:some View {
         HStack{
             Spacer()
-            
-            Button {
-                
+            NavigationLink {
+                FixMemberProfileView(userInfo: viewModel.memberInfo)
             } label: {
                 Text("수정")
                     .font(.body6)
@@ -88,6 +107,6 @@ struct DetailMemberView: View {
 
 struct DetailMemberView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailMemberView(memberInfo: MemberSummaryModel(name: "박보노", isLeader: true))
+        MemberProfileView(memberId: 0)
     }
 }
