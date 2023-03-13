@@ -10,7 +10,7 @@ import Alamofire
 import KeychainSwift
 
 class BusinessAddRepository {
-    func requestBusinessAdd(clientId: Int, businessInfo: BusinessInfo, completion: @escaping (Result<Bool, ResError>) -> Void) {
+    func requestBusinessAdd(clientId: Int, businessInfo: BusinessInfoRequest, completion: @escaping (Result<Bool, ResError>) -> Void) {
         
         guard let accessToken = KeychainSwift().get("accessToken") else {
             return completion(.failure(.NON_TOKEN))
@@ -46,9 +46,9 @@ class BusinessAddRepository {
             
             switch response.result {
                 
-            case .success(let res):
+            case .success:
                 
-                print(String(data: res, encoding: .utf8) ?? "") // 확인
+//                print(String(data: res, encoding: .utf8) ?? "")
                 
                 guard let statusCode = response.response?.statusCode else {return}
                 guard let value = response.value else {return}

@@ -9,9 +9,13 @@ import Foundation
 import FSCalendar
 
 class DetailClientViewModel: ObservableObject {
-    let getDetailRepository = ClientDetailRepository()
+//    let getDetailRepository = ClientDetailRepository()
+    let infoRepository = ClientDetailRepository()
     let removeRepository = ClientRemoveRepository()
-        
+    let businessRepository = ClientBusinessAllRepository()
+    
+    @Published var businessList:[BusinessDtoList] = []
+    
     @Published var clientName: String = ""
     @Published var clientMainTel: String = ""
     @Published var department: String = ""
@@ -20,8 +24,7 @@ class DetailClientViewModel: ObservableObject {
     @Published var alertErrorMessage: String = "통신이 불안정합니다."
     @Published var taskCount: String = "0"
     @Published var businessCount: String = "0"
-    
-    let infoRepository = ClientDetailRepository()
+
     
     func requestCustomerInfo(clientId:Int, requestResult: @escaping (Bool) -> ()) {
         infoRepository.requestClientDetail(clientId: clientId){ result in
@@ -38,6 +41,20 @@ class DetailClientViewModel: ObservableObject {
             case .failure(.requestError(let message)): self.alertErrorMessage = message; requestResult(false)
             case .failure(.token):
                 self.alertErrorMessage = "로그인 기간이 만료되었습니다. 다시 로그인 해주세요"; requestResult(false)
+            }
+        }
+    }
+    
+    func requestClientBusiness(clientId:Int, requestResult: @escaping (Bool) -> ()) {
+        businessRepository.requestClientBusinessAll(clientId: clientId) { res in
+            switch res {
+            case .success(let businessList):
+                guard let businessList = businessList else {return requestResult(false)}
+                self.businessList = businessList.businessDtoList
+                print(self.businessList)
+                requestResult(true)
+            case .failure(_):
+                requestResult(false)
             }
         }
     }
@@ -79,21 +96,21 @@ class DetailClientViewModel: ObservableObject {
 //    }
 //
 //
-    func requestDetail(clientId: Int) {
-        print("내가 건넨 clientId 가 일단 뭐야? : \(clientId)")
-        getDetailRepository.requestClientDetail(clientId: clientId) { result in
-            switch result {
-            case .success(let clientInfo):
-                self.clientName = clientInfo?.name ?? ""
-                self.clientMainTel = clientInfo?.tel ?? ""
-                self.partManagerName = clientInfo?.salesRepresentativeDto.name ?? ""
-                self.department = clientInfo?.salesRepresentativeDto.department ?? ""
-            case .failure(.requestError(let message)): self.alertErrorMessage = message;
-            case .failure(.token):
-                self.alertErrorMessage = "로그인 기간이 만료되었습니다. 다시 로그인 해주세요";
-            }
-        }
-    }
+//    func requestDetail(clientId: Int) {
+//        print("내가 건넨 clientId 가 일단 뭐야? : \(clientId)")
+//        getDetailRepository.requestClientDetail(clientId: clientId) { result in
+//            switch result {
+//            case .success(let clientInfo):
+//                self.clientName = clientInfo?.name ?? ""
+//                self.clientMainTel = clientInfo?.tel ?? ""
+//                self.partManagerName = clientInfo?.salesRepresentativeDto.name ?? ""
+//                self.department = clientInfo?.salesRepresentativeDto.department ?? ""
+//            case .failure(.requestError(let message)): self.alertErrorMessage = message;
+//            case .failure(.token):
+//                self.alertErrorMessage = "로그인 기간이 만료되었습니다. 다시 로그인 해주세요";
+//            }
+//        }
+//    }
 //
 //    func selectDate(_ date: Date) {
 //        selecteDate = date

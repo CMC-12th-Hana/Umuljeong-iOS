@@ -12,13 +12,9 @@ struct EditClientView: View {
     @StateObject var viewModel = EditClientViewModel()
     @State var alertNetworkError: Bool = false //API 소통 시 필수 View
     @State var isLoaded: Bool = false
-    @State var to: PageType //.add, .edit
+    @State var to: EditPageType //.add, .edit
     var clientId:Int = -1
     
-    enum PageType {
-        case add
-        case edit(Int)
-    }
     
     
     var body: some View {
@@ -61,7 +57,7 @@ struct EditClientView: View {
                                 alertNetworkError = true
                             }
                         }
-                    case .edit(let id):
+                    case .fix(let id):
                         viewModel.requestEditClient(clientId: id) { result in
                             if result {
                                 presentationMode.wrappedValue.dismiss()
@@ -85,7 +81,7 @@ struct EditClientView: View {
         .onAppear{
             switch to {
             case .add: return
-            case .edit(let id):
+            case .fix(let id):
                 viewModel.requestCustomerInfo(clientId: id) { result in
                     if result {
                         //불러오기 완료 전까지 똥글뺑이

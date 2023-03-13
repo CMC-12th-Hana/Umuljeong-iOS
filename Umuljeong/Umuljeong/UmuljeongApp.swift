@@ -44,6 +44,9 @@ struct UmuljeongApp: App {
 //                    }
 //            } else {
                 LoginView()
+                .onAppear{
+                    ApiManager.shared.allInfoTokenReset()
+                }
 //            }
         }
     }

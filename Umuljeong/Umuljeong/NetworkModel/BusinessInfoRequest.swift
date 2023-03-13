@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BusinessInfo {
+struct BusinessInfoRequest {
     var name:String
     var businessPeriodDto:BusinessPeriodDto
     var memberIdList:[Int]
@@ -15,8 +15,9 @@ struct BusinessInfo {
     var description:String
 }
 
-struct BusinessPeriodDto {
+struct BusinessPeriodDto: Codable {
     var start:String
     var finish:String
 }
+
 

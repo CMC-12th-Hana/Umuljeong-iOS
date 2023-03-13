@@ -22,7 +22,7 @@ class AddBusinessMemberViewModel: ObservableObject { //사업 추가 서비스�
     @Published var selectMemberInfo:[UserInfoResponse] = []
     @Published var deselectMemberInfo:[UserInfoResponse] = []
     
-    let service = AddBusinessService.shared
+    let service = EditBusinessService.shared
     
     @Published var memberIdList:[Int] = []
     
@@ -40,6 +40,12 @@ class AddBusinessMemberViewModel: ObservableObject { //사업 추가 서비스�
         self.filterMember()
     }
     
+    func setBeforeFixIdList(businessId: Int) {
+//        service.setMemberIdList(idList: beforeInfo.memberDtoList.map{$0.id})
+//        self.memberIdList = beforeInfo.memberDtoList.map{$0.id}
+//        self.filterMember()
+    }
+    
     func resetViewModelIdListData() {
         memberIdList = []
         self.filterMember()
@@ -47,6 +53,11 @@ class AddBusinessMemberViewModel: ObservableObject { //사업 추가 서비스�
     
     func saveMemberIdList() {
         service.setMemberIdList(idList: self.memberIdList)
+    }
+    
+    func requestFixBusinessMember(beforeInfo: BusinessDtoList, reqResult:(Bool)->()) {
+        
+
     }
     
     func requestAllMember() {

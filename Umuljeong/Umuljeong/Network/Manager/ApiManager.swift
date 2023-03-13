@@ -32,6 +32,10 @@ class ApiManager {
         isLogin = keychain.getBool("isLogin")
     }
     
+    func allInfoTokenReset() {
+        self.keychain.clear()
+    }
+    
     func uniqueUserInfoSet(_ userInfo: UserInfoResponse) { //회사 생성 / 합류 / 로그인
         self.keychain.set(String(userInfo.companyId), forKey: "myCompanyId")
         self.keychain.set(String(userInfo.memberId), forKey: "myMemberId")
@@ -74,21 +78,22 @@ class ApiManager {
         return self.isLogin
     }
     
-    
 
-    
-    
-    
     func refreshToken(completion: @escaping (_ isSuccess:Bool) -> Void) {
         let url = URLConstants.Auth_Login //통신할 API 주소
 
         let header : HTTPHeaders = ["Content-Type":"application/json"]
         
         //요청 바디
+        
+        // MARK: - 리프레쉬 토큰 발급 API나올 때 까지 강제 입력 로그인으로 토큰 수신
+
         let body : Parameters = [
             "phoneNumber": "01011111111",
             "password": "qweR!1234"
         ]
+        
+        //강제로 로그인 해주느라 그런 거였어... 참나
         
         let dataRequest = AF.request(url,
                                     method: .post,

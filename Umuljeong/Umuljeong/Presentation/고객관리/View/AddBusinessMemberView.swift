@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AddBusinessMemberView: View {
-    @StateObject var viewModel = AddBusinessMemberViewModel() //앞 View에서 계속 호출돼서 State로 변경 
+    @StateObject var viewModel = AddBusinessMemberViewModel() //앞 View에서 계속 호출돼서 State로 변경
+    let to:EditMemberPage
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -42,7 +43,15 @@ struct AddBusinessMemberView: View {
             }
             
             Button {
-                viewModel.saveMemberIdList()
+                switch to {
+                case .add:
+                    viewModel.saveMemberIdList()
+                case .fix(let businessId):
+                    break
+//                    viewModel.requestFixBusinessMember(businessId: businessId) { result in
+//                        //결과에 따라 수정 성공 / 비성공 알림창 출력
+//                    }
+                }
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 BasicButtonLabel(text: "저장")
@@ -53,7 +62,12 @@ struct AddBusinessMemberView: View {
             viewModel.resetViewModelIdListData()
         }
         .onAppear{
-            viewModel.loadSelectIdList()
+            switch to {
+            case .add:
+                viewModel.loadSelectIdList()
+            case .fix(let businessId):
+                viewModel.setBeforeFixIdList(businessId: businessId)
+            }
         }
         .navigationDesignDefault(title: "참여 구성원 추가하기")
     }
@@ -68,6 +82,11 @@ struct AddBusinessMemberView_Previews: PreviewProvider {
     static var memberIdList:[Int] = []
     
     static var previews: some View {
-        AddBusinessMemberView()
+        AddBusinessMemberView(to: .add(0))
     }
+}
+
+enum EditMemberPage {
+    case add(Int)
+    case fix(Int)
 }

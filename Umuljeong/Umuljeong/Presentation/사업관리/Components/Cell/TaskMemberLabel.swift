@@ -1,21 +1,22 @@
 //
-//  ImportEmployeeLabel.swift
+//  TaskMemberLabel.swift
 //  Umuljeong
 //
-//  Created by 박혜운 on 2023/02/21.
+//  Created by 박혜운 on 2023/03/13.
 //
 
 import SwiftUI
 
-struct ImportEmployeeLabel: View {
-    var title:String = "참여 구성원"
+struct TaskMemberLabel: View {
+    var title:String = "참여한 구성원"
     var count:Int
     var body: some View {
         ZStack {
             HStack(spacing:0){
+        
                 
                 profileCircle
-                    .padding(.trailing, 15)
+                    .padding(.trailing, 20)
                 
                 Text(title)
                     .font(.body2)
@@ -41,31 +42,29 @@ struct ImportEmployeeLabel: View {
     }
     
     var profileCircle: some View {
-        ZStack(alignment: .bottom) {
+        ZStack {
             Circle()
                 .fill(Color("bg2"))
-                .frame(width: 40, height: 40)
-            
-            
+                .frame(width: 30, height: 30)
+
             Rectangle()
                 .fill(Color.clear)
-                .frame(width:34, height:34)
                 .overlay(
                     ZStack{
-                        Image("defaultUserLarge")
-                            .padding(.top, 3.15)
+                        Image("defaultUser")
+                            .padding(.top, 5.36)
                     }
-                    .frame(width:34, height:34)
+                    .frame(width:30, height:30)
                     .clipShape(Circle())
                 )
             
         }
-        .frame(width: 40, height: 40)
+        .frame(width: 30, height: 30)
     }
 }
 
-struct ImportEmployeeLabel_Previews: PreviewProvider {
+struct TaskMemberLabel_Previews: PreviewProvider {
     static var previews: some View {
-        ImportEmployeeLabel(count: 0)
+        TaskMemberLabel(count: 0)
     }
 }

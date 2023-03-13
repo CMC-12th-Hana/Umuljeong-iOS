@@ -1,17 +1,15 @@
 //
-//  MainMemberView.swift
+//  JoinMemberBusinessView.swift
 //  Umuljeong
 //
-//  Created by 박혜운 on 2023/02/11.
+//  Created by 박혜운 on 2023/03/13.
 //
 
 import SwiftUI
 
-struct MainMemberView: View {
+struct JoinMemberBusinessView: View {
     @ObservedObject var viewModel = MemberViewModel()
-    @Binding var selectedTab: Tags
     @State var searchText:String = ""
-    let myMemberId = Int(ApiManager.shared.myMemberId() ?? "-1") ?? -1
 //    var isLeader:Bool = false
     
     var body: some View {
@@ -25,13 +23,8 @@ struct MainMemberView: View {
             
             ScrollView() {
                 LazyVStack(spacing: 10) {
-                    NavigationLink {
-                        MyProfileView()
-                    } label: {
-                        UserLabel(memberInfo: MemberSummaryModel(name: viewModel.myInfo.name, isLeader: viewModel.myInfo.role == "리더"))
-                    }
                     
-                    ForEach(viewModel.memberFeedInfo.filter{$0.memberId != myMemberId}, id: \.memberId) { member in
+                    ForEach(viewModel.memberFeedInfo, id: \.memberId) { member in
                         NavigationLink {
                             MemberProfileView(memberId: member.memberId)
                         } label: {
@@ -63,10 +56,10 @@ struct MainMemberView: View {
     }
 }
 
-struct MemberView_Previews: PreviewProvider {
+struct JoinMemberBusinessView_Previews: PreviewProvider {
     @State static var selectedTab = Tags.tag4
     @State var searchText:String = ""
     static var previews: some View {
-        MainMemberView(selectedTab: $selectedTab)
+        JoinMemberBusinessView()
     }
 }

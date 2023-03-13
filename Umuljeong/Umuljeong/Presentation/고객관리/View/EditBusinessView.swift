@@ -7,13 +7,16 @@
 
 import SwiftUI
 
-struct AddBusinessView: View {
+struct EditBusinessView: View {
     @StateObject var dateViewModel =  DateStartFinishViewModel()
-    @StateObject var infoViewModel = AddBusinessViewModel()
-    @Environment(\.presentationMode) var presentationMode
-
-    let clientId:Int
+    @StateObject var infoViewModel = EditBusinessViewModel()
+//    @StateObject var fixViewModel = FixInfoBusinessViewModel()
+    
     @Binding var isShowingSheet:Bool
+    
+    let to:EditMemberPage //.fix 일 때 businessId 가지고 들어오기
+    
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         VStack(spacing:20){
@@ -27,17 +30,21 @@ struct AddBusinessView: View {
                 .font(.body4)
                 StartFinishDateView(showStartCalendar: $dateViewModel.showStartCalendar, showFinishCalendar: $dateViewModel.showFinishCalendar, startDateString: dateViewModel.startDateString, finishDateString: dateViewModel.finishDateString)
             }
-            VStack(alignment: .leading, spacing: 6) {
-                HStack(spacing:0){
-                    Text("참여 구성원 추가")
+            switch to {
+            case .add:
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack(spacing:0){
+                        Text("참여 구성원 추가")
+                    }
+                    .font(.body4)
+                    
+                    NavigationLink {
+                        AddBusinessMemberView(to: .add(0))
+                    } label: {
+                        ImportEmployeeLabel(count: infoViewModel.checkMemberCount())
+                    }
                 }
-                .font(.body4)
-                
-                NavigationLink {
-                    AddBusinessMemberView()
-                } label: {
-                    ImportEmployeeLabel()
-                }
+            case .fix: EmptyView()
             }
             
             descriptionView
@@ -47,14 +54,28 @@ struct AddBusinessView: View {
             Spacer()
             
             Button {
-                infoViewModel.requestAddBusiness(clientId: clientId) {
-                    result in
-                    if result == true {
-                        presentationMode.wrappedValue.dismiss()
-                    } else {
-                        
+                switch to {
+                case .add(let clientId):
+                    infoViewModel.requestAddBusiness(clientId: clientId) {
+                        result in
+                        if result == true {
+                            presentationMode.wrappedValue.dismiss()
+                        } else {
+                            print("추가실패가 여기서 사는구만!")
+                        }
+                    }
+                case .fix(let businessId):
+                    infoViewModel.requestFixBusiness(businessId: businessId) {
+                        result in
+                        if result == true {
+                            print("수정완료")
+                            presentationMode.wrappedValue.dismiss()
+                        } else {
+                            print("뷰에서 받은 실패")
+                        }
                     }
                 }
+                
             } label: {
                 BasicButtonLabel(text: "저장")
             }
@@ -62,6 +83,25 @@ struct AddBusinessView: View {
 
 
             }
+        .onAppear{
+            switch to {
+            case .add: return
+            case .fix(let businessId):
+                infoViewModel.requestBusinessInfo(businessId: businessId) { result in
+                    if result {
+                        print("기존정보 받아오기 완료")
+                        dateViewModel.setDefault() //⭐️
+                        //불러오기 완료 전까지 똥글뺑이
+//                        isLoaded = true
+//                        print(viewModel.clientName)
+                    } else {
+                        print("기존정보 받아오기 실패")
+//                        alertNetworkError = true
+                    }
+                }
+            }
+        }
+        
         .sheet(isPresented: $dateViewModel.showStartCalendar, onDismiss: {
             isShowingSheet = true
         }) {
@@ -80,7 +120,7 @@ struct AddBusinessView: View {
     }
 }
 
-extension AddBusinessView {
+extension EditBusinessView {
     
     var descriptionView:some View {
         VStack(spacing: 8) {
@@ -166,6 +206,6 @@ extension AddBusinessView {
 struct AddBusinessView_Previews: PreviewProvider {
     @State static var isShowingSheet:Bool = false
     static var previews: some View {
-        AddBusinessView(clientId: 0, isShowingSheet: $isShowingSheet)
+        EditBusinessView(isShowingSheet: $isShowingSheet, to: .add(0))
     }
 }

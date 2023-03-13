@@ -20,7 +20,7 @@ struct MultilineTextField: UIViewRepresentable {
         
         func textViewDidBeginEditing(_ textView: UITextView) {
             if textView.text == parent.placeholder {
-                textView.text = nil
+                textView.text = ""
                 textView.textColor = .black
             }
         }
@@ -28,7 +28,7 @@ struct MultilineTextField: UIViewRepresentable {
         func textViewDidEndEditing(_ textView: UITextView) {
             if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 textView.text = parent.placeholder
-                textView.textColor = UIColor(named: "font3")
+                textView.textColor = UIColor(named: "font1")
             }
         }
         
@@ -61,13 +61,13 @@ struct MultilineTextField: UIViewRepresentable {
         textView.spellCheckingType = .no
         textView.text = placeholder
         textView.font = .body2
-        textView.textColor = UIColor(named: "font3")
+        textView.textColor = UIColor(named: "font1")
         
         return textView
     }
     
     func updateUIView(_ uiView: UITextView, context: Context) {
-
+        uiView.text = text
     }
     
     func makeCoordinator() -> MultilineTextField.Coordinator {

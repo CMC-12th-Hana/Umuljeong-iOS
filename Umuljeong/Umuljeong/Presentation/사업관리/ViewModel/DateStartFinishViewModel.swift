@@ -11,7 +11,8 @@ import FSCalendar
 class DateStartFinishViewModel: ObservableObject, PickDateCalendarVM, CalendarVM {
     
     init() {
-        AddBusinessService.shared.resetDate()
+        print("이거 설마 계속 반응해서 그런거 아냐?")
+        EditBusinessService.shared.resetDate()
         
         monthCalendarYearMonth = CalendarDateFomatter.yearMonth.string(from: CalendarService.shared.model.focusedDate)
     }
@@ -34,6 +35,21 @@ class DateStartFinishViewModel: ObservableObject, PickDateCalendarVM, CalendarVM
     
     var monthCalendarYearMonth:String = ""
     
+    
+    
+    func setDefault() {
+        let startFinishDate = EditBusinessService.shared.getDateInfo()
+
+        if let startDate = startFinishDate.0 {
+            self.startDate = startDate
+            changeStartDateToString(startDate)
+        }
+        if let finishDate = startFinishDate.1 {
+            self.finishDate = finishDate
+            changeFinishDateToString(finishDate)
+        }
+    }
+    
     func selectDate(_ date: Date) {
         selecteDate = date
         monthCalendarYearMonth = CalendarDateFomatter.yearMonth.string(from: date)
@@ -55,28 +71,27 @@ class DateStartFinishViewModel: ObservableObject, PickDateCalendarVM, CalendarVM
     func startDateSet(_ date: Date) {
         startDate = date
         changeStartDateToString(date)
-        AddBusinessService.shared.setStartDate(startDate: date)
+        EditBusinessService.shared.setStartDate(startDate: date)
     }
     
     func finishDateSet(_ date: Date) {
         finishDate = date
         changeFinishDateToString(date)
-        AddBusinessService.shared.setFinishDate(finishDate: date)
+        EditBusinessService.shared.setFinishDate(finishDate: date)
     }
     
     func startDateReset() {
         print("시작 데이터 리셋")
         startDate = nil
         startDateString = ""
-        AddBusinessService.shared.setStartDate(startDate: nil)
-        
+        EditBusinessService.shared.setStartDate(startDate: nil)
     }
     
     func finishDateReset() {
         print("마지막 데이터 리셋")
         finishDate = nil
         finishDateString = ""
-        AddBusinessService.shared.setFinishDate(finishDate: nil)
+        EditBusinessService.shared.setFinishDate(finishDate: nil)
     }
     
     func changeStartDateToString(_ date: Date) {

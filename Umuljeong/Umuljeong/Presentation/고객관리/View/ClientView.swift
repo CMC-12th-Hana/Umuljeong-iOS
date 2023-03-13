@@ -11,7 +11,7 @@ struct ClientView: View {
     @State private var isShowingSheetStartDate = false
     @Binding var selectedTab: Tags
     @State private var searchText = ""
-    @ObservedObject var viewModel = ClientViewModel()
+    @StateObject var viewModel = ClientViewModel()
     @State var stack = NavigationPath()
     
     var body: some View {
@@ -40,6 +40,7 @@ struct ClientView: View {
                         }
                     }
                 }
+                
                   //화면 터치시 키보드 숨김
                 .onTapGesture {
                     hideKeyboard()

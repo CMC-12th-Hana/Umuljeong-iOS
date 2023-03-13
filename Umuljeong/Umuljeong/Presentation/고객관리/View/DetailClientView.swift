@@ -11,8 +11,8 @@ struct DetailClientView: View {
     @State private var searchText = ""
     @State var alertRemove:Bool = false
     let clientId: Int
-    @ObservedObject var infoViewModel = DetailClientViewModel()
-    @ObservedObject var dateViewModel =  DateStartFinishViewModel()
+    @StateObject var infoViewModel = DetailClientViewModel()
+    @StateObject var dateViewModel =  DateStartFinishViewModel()
     @Binding var isShowingSheet:Bool
     @Environment(\.presentationMode) var presentationMode
     
@@ -44,19 +44,27 @@ struct DetailClientView: View {
                     .padding(.bottom, 40)
                 VStack{
                     NavigationLink {
-                        AddBusinessView(clientId: self.clientId, isShowingSheet: $isShowingSheet)
+                        EditBusinessView(isShowingSheet: $isShowingSheet, to: .add(self.clientId))
                     } label: {
                         PlusButtonLabel(label: "사업 추가하기")
                     }
                     .padding(.bottom, 20)
-
+                    
+                    // MARK: - 기타 사업 링크
                     NavigationLink {
-//                        AddCustomerView()
-//                            .navigationTitleFontDefault(title: "기업 추가하기")
+
                     } label: {
                         OtherTaskLabel()
                     }
-                    BusinessCell()
+                    
+                    ForEach(infoViewModel.businessList, id: \.businessId) { businessInfo in
+                        NavigationLink {
+                            DetailBusinessView(businessId: businessInfo.businessId)
+                        } label: {
+                            ClientBusinessLabel(businessName: businessInfo.name, startDate: businessInfo.businessPeriodDto.start, finishDate: businessInfo.businessPeriodDto.finish, memberCount: businessInfo.memberDtoList.count)
+                        }
+                    }
+//                    ClientBusinessLabel()
                 }
     }
             .sheet(isPresented: $dateViewModel.showStartCalendar, onDismiss: {
@@ -77,7 +85,18 @@ struct DetailClientView: View {
             }
         } //: ScorllView
         .onAppear{
-            infoViewModel.requestDetail(clientId: self.clientId)
+            infoViewModel.requestCustomerInfo(clientId: self.clientId, requestResult: { req in
+                if req {
+                    
+                }
+            })
+            infoViewModel.requestClientBusiness(clientId: self.clientId) { req in
+                if req {
+                    print("통신성공")
+                } else {
+                    print("통신실패")
+                }
+            }
         }
         .defaultAppStyleHorizentalPadding()
 
@@ -125,7 +144,7 @@ struct DetailClientView: View {
                     .font(.customTitle2)
                 
                 NavigationLink {
-                    EditClientView(to: .edit(clientId))
+                    EditClientView(to: .fix(clientId))
                         .navigationTitleFontDefault(title: "기업명 수정하기")
                 } label: {
                     Image("pencil")

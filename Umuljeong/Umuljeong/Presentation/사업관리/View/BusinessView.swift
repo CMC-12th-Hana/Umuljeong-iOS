@@ -34,9 +34,9 @@ struct BusinessView: View {
             }
             
             ScrollView{
-                BusinessCell()
-                BusinessCell()
-                BusinessCell()
+                ClientBusinessLabel()
+                ClientBusinessLabel()
+                ClientBusinessLabel()
                 
             }
         }
