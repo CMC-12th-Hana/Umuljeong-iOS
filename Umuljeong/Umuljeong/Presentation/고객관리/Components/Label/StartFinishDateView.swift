@@ -10,8 +10,8 @@ import SwiftUI
 struct StartFinishDateView: View {
     @Binding var showStartCalendar:Bool
     @Binding var showFinishCalendar:Bool
-    var startDateString:String?
-    var finishDateString:String?
+    var startDateString:String = ""
+    var finishDateString:String = ""
     
     var body: some View {
         HStack(spacing:10){
@@ -20,8 +20,8 @@ struct StartFinishDateView: View {
                     .stroke(Color("line2"), lineWidth: 1)
 
                     HStack{
-                        Text(startDateString ?? "시작일자")
-                            .foregroundColor(startDateString != nil ? Color("font1") : Color("font3"))
+                        Text(startDateString == "" ? "시작일자" : startDateString)
+                            .foregroundColor(startDateString == "" ? Color("font3") : Color("font1"))
                         Spacer()
                         Button {
                             showStartCalendar.toggle()
@@ -36,8 +36,8 @@ struct StartFinishDateView: View {
                 RoundedRectangle(cornerRadius: 6)
                     .stroke(Color("line2"), lineWidth: 1)
                     HStack{
-                        Text(finishDateString ?? "종료일자")
-                            .foregroundColor(finishDateString != nil ? Color("font1") : Color("font3"))
+                        Text(finishDateString == "" ? "종료일자" : finishDateString)
+                            .foregroundColor(finishDateString == "" ? Color("font3") : Color("font1"))
                         Spacer()
                         Button {
                             showFinishCalendar.toggle()
@@ -53,9 +53,9 @@ struct StartFinishDateView: View {
 }
 
 struct StartFinishDateView_Previews: PreviewProvider {
-    @ObservedObject static var viewModel = DateStartFinishViewModel()
+    @ObservedObject static var viewModel = DatePickStartFinishViewModel()
     
     static var previews: some View {
-        StartFinishDateView(showStartCalendar: $viewModel.showStartCalendar, showFinishCalendar: $viewModel.showFinishCalendar, startDateString: viewModel.startDateString, finishDateString: viewModel.finishDateString)
+        StartFinishDateView(showStartCalendar: $viewModel.showStartCalendar, showFinishCalendar: $viewModel.showFinishCalendar, startDateString: viewModel.startDateString ?? "", finishDateString: viewModel.finishDateString ?? "")
     }
 }

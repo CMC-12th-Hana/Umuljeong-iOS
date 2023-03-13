@@ -27,7 +27,7 @@ struct TaskWithCategoryCell: View {
             }
             .padding(.horizontal, 20)
         }
-        .frame(height: 61)
+        .frame(height: 72)
         .background(
             RoundedRectangle(cornerRadius: 6)
                 .fill(onTapped ? Color("bg3") : .white)

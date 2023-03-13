@@ -15,7 +15,7 @@ struct PopupCategoryView: View {
     
     @State var inputCategoryText:String = ""
     @State var isSelected: CategoryColor = .first
-    var colors: [CategoryColor] = [.first, .second, .third, .fourth, .fifth, .sixth, .seventh]
+    let colors: [CategoryColor] = [.first, .second, .third, .fourth, .fifth, .sixth, .seventh]
     
     var body: some View {
         VStack(spacing:30){
@@ -26,10 +26,10 @@ struct PopupCategoryView: View {
             HStack(spacing:11) {
                 Button {
                     if categoryAddNotChange {
-                        viewModel.addCategoryList(newCategoryName: inputCategoryText, newColor: isSelected)
+                        viewModel.addCategoryList(name: inputCategoryText, color: isSelected)
                     } else {
                         guard let original = originalCategory else {return}
-                        viewModel.changeCategoryList(originalName: original.catogoryName, changeName: inputCategoryText, originalColor: original.categoryColor, changeColor: isSelected)
+                        viewModel.changeCategoryList(id: original.id, name: inputCategoryText, color: isSelected) 
                     }
                     
                     showPopup.toggle()

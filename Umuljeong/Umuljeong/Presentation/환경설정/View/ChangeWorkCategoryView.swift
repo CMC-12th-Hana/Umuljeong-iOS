@@ -13,7 +13,7 @@ struct ChangeWorkCategoryView: View {
     @State var addCategoryPopup = false
     @State var changeCategoryPopup = false
     @State var selectCategory:CategoryModel?
-    @State var deleteCategoryList:[CategoryModel] = []
+    @State var deleteIdList:[Int] = []
 
     var body: some View {
         VStack(spacing:0){
@@ -33,11 +33,12 @@ struct ChangeWorkCategoryView: View {
                         .simultaneousGesture(
                             TapGesture()
                                 .onEnded { _ in
-                                    if deleteCategoryList.contains(category) {
-                                        guard let index = deleteCategoryList.firstIndex(of: category) else {return}
-                                        deleteCategoryList.remove(at: index)
+                                    print(deleteIdList)
+                                    if deleteIdList.contains(category.id) {
+                                        guard let index = deleteIdList.firstIndex(of: category.id) else {return}
+                                        deleteIdList.remove(at: index)
                                     } else {
-                                        deleteCategoryList.append(category)
+                                        deleteIdList.append(category.id)
                                     }
                                 }
                         )
@@ -56,16 +57,14 @@ struct ChangeWorkCategoryView: View {
             
         if setDeleteCategoryState {
             Button {
-                viewModel.deletCategoryList(deleteCategory: deleteCategoryList)
+                print(deleteIdList)
+                viewModel.deletCategoryList(idList: deleteIdList)
                 withAnimation{
                     setDeleteCategoryState.toggle()
                 }
             } label: {
                 BasicButtonLabel(text: "삭제하기")
             }
-
-            
-            
         }
 
         }//: Vstack
@@ -92,6 +91,11 @@ struct ChangeWorkCategoryView: View {
                     .environmentObject(viewModel)
                     .padding(.top, 30)
                 Spacer()
+            }
+        }
+        .onAppear{
+            viewModel.requestAllCategory { result in
+                
             }
         }
     }

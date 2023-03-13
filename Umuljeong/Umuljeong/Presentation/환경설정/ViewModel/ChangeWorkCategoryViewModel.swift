@@ -8,23 +8,66 @@
 import Foundation
 
 class ChangeWorkCategoryViewModel:ObservableObject {
-    @Published var categoryList: [CategoryModel] = [CategoryModel(catogoryName: "A/S", categoryColor: .first), CategoryModel(catogoryName: "단순문의", categoryColor: .second)]
-    @Published var isSelected: CategoryColor = .first
+    @Published var categoryList: [CategoryModel] = []
+//    @Published var isSelected: CategoryColor = .first
     
-    func changeCategoryList(originalName: String, changeName: String, originalColor: CategoryColor, changeColor: CategoryColor) {
-        let newCategory = CategoryModel(catogoryName: changeName, categoryColor: changeColor)
-        categoryList.indices.filter{categoryList[$0].catogoryName == originalName && categoryList[$0].categoryColor == originalColor}.forEach{ categoryList[$0] = newCategory}
-        print(categoryList)
-    }
+    let allRepository = CategoryAllRepository()
+    let addRepository = CategoryAddRepository()
+    let removeRepository = CategoryRemoveRepository()
+    let fixRepository = CategoryFixRepository()
     
-    func addCategoryList(newCategoryName: String, newColor: CategoryColor) {
-        categoryList.append(CategoryModel(catogoryName: newCategoryName, categoryColor: newColor))
-    }
     
-    func deletCategoryList(deleteCategory: [CategoryModel]) {
-        deleteCategory.forEach { deleteCategory in
-            guard let index = categoryList.firstIndex(of: deleteCategory) else {return}
-            categoryList.remove(at: index)
+    func requestAllCategory(reqResult : @escaping (Bool) -> ()) {
+        allRepository.requestCategoryAll { result in
+            switch result {
+            case .success(let categoryList):
+                guard let categoryList = categoryList else {return reqResult(false)}
+                self.categoryList = categoryList.map{CategoryModel(id: $0.taskCategoryId, catogoryName: $0.name, categoryColor: $0.color.uppercased().checkColorCategory())}
+                reqResult(true)
+            case .failure:
+                reqResult(false)
+            }
         }
+    }
+    
+    func changeCategoryList(id: Int, name: String, color: CategoryColor) {
+        fixRepository.requestCategoryFix(taskCategoryDto: TaskCategoryDtoList(taskCategoryId: id, name: name, color: color.rawValue)) { result in
+            switch result {
+            case .success(_): self.requestAllCategory { result in
+                
+            }
+            case .failure(_): break
+            }
+        }
+//        let newCategory = CategoryModel(catogoryName: changeName, categoryColor: changeColor)
+//        categoryList.indices.filter{categoryList[$0].catogoryName == originalName && categoryList[$0].categoryColor == originalColor}.forEach{ categoryList[$0] = newCategory}
+//        print(categoryList)
+    }
+    
+    func addCategoryList(name: String, color: CategoryColor) {
+        addRepository.requestCategoryAdd(categoryInfo: CategoryInfo(name: name, color: color.rawValue)) { result in
+            switch result {
+            case .success(_): self.requestAllCategory { result in
+                
+            }
+            case .failure(_): break
+            }
+        }
+    }
+    
+    func deletCategoryList(idList: [Int]) {
+        removeRepository.requestCategoryRemove(taskCategoryIdList: idList) { result in
+            print("삭제 왜 적용이 안돼!")
+            print(result)
+            switch result {
+            case .success(_): self.requestAllCategory { result in
+                
+            }
+            case .failure(_): break
+            }
+        }
+//        deleteCategory.forEach { deleteCategory in
+//            guard let index = categoryList.firstIndex(of: deleteCategory) else {return}
+//            categoryList.remove(at: index)
     }
 }

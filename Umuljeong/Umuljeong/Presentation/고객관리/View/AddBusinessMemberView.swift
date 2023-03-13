@@ -46,20 +46,27 @@ struct AddBusinessMemberView: View {
                 switch to {
                 case .add:
                     viewModel.saveMemberIdList()
+                    presentationMode.wrappedValue.dismiss()
                 case .fix(let businessId):
-                    break
-//                    viewModel.requestFixBusinessMember(businessId: businessId) { result in
-//                        //결과에 따라 수정 성공 / 비성공 알림창 출력
-//                    }
+                    viewModel.requestFixBusinessMember(businessId: businessId) { result in
+                        if result {
+                            presentationMode.wrappedValue.dismiss()
+                        } else {
+                            print("멤버 수정 실패")
+                        }
+                    }
                 }
-                presentationMode.wrappedValue.dismiss()
+                
             } label: {
                 BasicButtonLabel(text: "저장")
             }
             
         }
         .onDisappear{
-            viewModel.resetViewModelIdListData()
+            switch to {
+            case .add: break
+            case .fix: viewModel.resetViewModelIdListData()
+            }
         }
         .onAppear{
             switch to {

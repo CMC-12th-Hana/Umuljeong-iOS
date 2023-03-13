@@ -12,7 +12,7 @@ struct DetailClientView: View {
     @State var alertRemove:Bool = false
     let clientId: Int
     @StateObject var infoViewModel = DetailClientViewModel()
-    @StateObject var dateViewModel =  DateStartFinishViewModel()
+    @StateObject var dateViewModel =  DatePickStartFinishViewModel()
     @Binding var isShowingSheet:Bool
     @Environment(\.presentationMode) var presentationMode
     
@@ -40,7 +40,7 @@ struct DetailClientView: View {
         
                 SearchBar(text: $searchText, guideText: "찾으시는 사업명을 입력해주세요")
                 .padding(.bottom, 20)
-                StartFinishDateView(showStartCalendar: $dateViewModel.showStartCalendar, showFinishCalendar: $dateViewModel.showFinishCalendar, startDateString: dateViewModel.startDateString, finishDateString: dateViewModel.finishDateString)
+                StartFinishDateView(showStartCalendar: $dateViewModel.showStartCalendar, showFinishCalendar: $dateViewModel.showFinishCalendar, startDateString: dateViewModel.startDateString ?? "", finishDateString: dateViewModel.finishDateString ?? "")
                     .padding(.bottom, 40)
                 VStack{
                     NavigationLink {

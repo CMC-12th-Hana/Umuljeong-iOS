@@ -26,6 +26,8 @@ class AddBusinessMemberViewModel: ObservableObject { //사업 추가 서비스�
     
     @Published var memberIdList:[Int] = []
     
+    var beforeBusinessInfo:BusinessDtoList?
+    
     
     let repository = MemberAllRepository()
     
@@ -41,6 +43,16 @@ class AddBusinessMemberViewModel: ObservableObject { //사업 추가 서비스�
     }
     
     func setBeforeFixIdList(businessId: Int) {
+        service.requestInfoBusiness(businessId: businessId) { result in
+            switch result {
+            case .success(let info):
+                guard let beforeInfo = info else {return}
+                self.beforeBusinessInfo = beforeInfo
+                self.loadSelectIdList()
+                
+            case .failure: print("멤버 불러오기 실패")
+            }
+        }
 //        service.setMemberIdList(idList: beforeInfo.memberDtoList.map{$0.id})
 //        self.memberIdList = beforeInfo.memberDtoList.map{$0.id}
 //        self.filterMember()
@@ -55,9 +67,14 @@ class AddBusinessMemberViewModel: ObservableObject { //사업 추가 서비스�
         service.setMemberIdList(idList: self.memberIdList)
     }
     
-    func requestFixBusinessMember(beforeInfo: BusinessDtoList, reqResult:(Bool)->()) {
-        
-
+    func requestFixBusinessMember(businessId: Int, reqResult: @escaping (Bool)->()) {
+        guard let beforeInfo = self.beforeBusinessInfo else {return reqResult(false)}
+        service.requestFixMemberBusiness(businessId: businessId, beforeInfo: beforeInfo, newMemberIdList: self.memberIdList) { result in
+            switch result {
+            case .success(_): return reqResult(true)
+            case .failure(_): return reqResult(false)
+            }
+        }
     }
     
     func requestAllMember() {

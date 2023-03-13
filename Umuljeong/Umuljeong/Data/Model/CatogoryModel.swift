@@ -8,7 +8,7 @@
 import Foundation
 
 struct CategoryModel: Identifiable, Equatable {
-    let id: String = UUID().uuidString
+    let id: Int
     var catogoryName: String
     var categoryColor: CategoryColor
 }

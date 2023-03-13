@@ -12,14 +12,14 @@ import SwiftUI
 //}
 
 
-enum CategoryColor {
-    case first
-    case second
-    case third
-    case fourth
-    case fifth
-    case sixth
-    case seventh
+enum CategoryColor:String {
+    case first = "D813A2"
+    case second = "E71F2A"
+    case third = "356DF8"
+    case fourth = "108852"
+    case fifth = "4B5390"
+    case sixth = "FFAD0F"
+    case seventh = "8F00FF"
 }
 
 func setCategoryColor(_ color: CategoryColor) -> Color {

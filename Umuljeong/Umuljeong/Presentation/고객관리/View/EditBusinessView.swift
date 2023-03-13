@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditBusinessView: View {
-    @StateObject var dateViewModel =  DateStartFinishViewModel()
+    @StateObject var dateViewModel =  DatePickStartFinishViewModel()
     @StateObject var infoViewModel = EditBusinessViewModel()
 //    @StateObject var fixViewModel = FixInfoBusinessViewModel()
     
@@ -28,7 +28,7 @@ struct EditBusinessView: View {
                         .foregroundColor(Color("error"))
                 }
                 .font(.body4)
-                StartFinishDateView(showStartCalendar: $dateViewModel.showStartCalendar, showFinishCalendar: $dateViewModel.showFinishCalendar, startDateString: dateViewModel.startDateString, finishDateString: dateViewModel.finishDateString)
+                StartFinishDateView(showStartCalendar: $dateViewModel.showStartCalendar, showFinishCalendar: $dateViewModel.showFinishCalendar, startDateString: dateViewModel.startDateString ?? "", finishDateString: dateViewModel.finishDateString ?? "")
             }
             switch to {
             case .add:
@@ -90,7 +90,7 @@ struct EditBusinessView: View {
                 infoViewModel.requestBusinessInfo(businessId: businessId) { result in
                     if result {
                         print("기존정보 받아오기 완료")
-                        dateViewModel.setDefault() //⭐️
+                        dateViewModel.setDefault()
                         //불러오기 완료 전까지 똥글뺑이
 //                        isLoaded = true
 //                        print(viewModel.clientName)

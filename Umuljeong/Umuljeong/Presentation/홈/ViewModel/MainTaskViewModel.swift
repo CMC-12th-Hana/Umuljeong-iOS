@@ -53,7 +53,7 @@ extension MainTaskViewModel {
     func requestDateToTaskFeed(Date:Date) {
         let requestResult = true //임시
         switch requestResult {
-        case true: taskFeedList = [TaskFeedModel(taskNmae: "조개 껍데기 모으기", categoryModel: CategoryModel(catogoryName: "A/S", categoryColor: "8F00FF".checkColorCategory()))] //색상 날라온 거 처리해서 보내주기 //이건 레포지터리 딴에서 해결 //예시로 남겨두
+        case true: taskFeedList = [TaskFeedModel(taskNmae: "조개 껍데기 모으기", categoryModel: CategoryModel(id: 0, catogoryName: "A/S", categoryColor: "8F00FF".checkColorCategory()))] //색상 날라온 거 처리해서 보내주기 //이건 레포지터리 딴에서 해결 //예시로 남겨두
         case false: break
         }
     }
@@ -61,7 +61,7 @@ extension MainTaskViewModel {
     func requestDateToMemberFeed(Date:Date){
         let requestResult = true //임시
         switch requestResult {
-        case true: taskMemberFeedList = [TaskMemberFeedModel(memberName: "보노보노", taskList: [TaskFeedModel(taskNmae: "조개 껍데기 모으기", categoryModel: CategoryModel(catogoryName: "A/S", categoryColor: "8F00FF".checkColorCategory()))])] //색상 날라온 거 처리해서 보내주기 //이건 레포지터리 딴에서 해결 //예시로 남겨두
+        case true: taskMemberFeedList = [TaskMemberFeedModel(memberName: "보노보노", taskList: [TaskFeedModel(taskNmae: "조개 껍데기 모으기", categoryModel: CategoryModel(id: 0, catogoryName: "A/S", categoryColor: "8F00FF".checkColorCategory()))])] //색상 날라온 거 처리해서 보내주기 //이건 레포지터리 딴에서 해결 //예시로 남겨두
         case false: break
         }
     }

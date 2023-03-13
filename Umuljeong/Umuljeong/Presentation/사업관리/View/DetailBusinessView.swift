@@ -22,7 +22,7 @@ struct DetailBusinessView: View {
                 
                 VStack(spacing: 10){
                     NavigationLink {
-                        BusinessMemberListView()
+                        BusinessMemberListView(businessId: self.businessId)
                     } label: {
                         TaskMemberLabel(count: viewModel.memberCount)
                     }

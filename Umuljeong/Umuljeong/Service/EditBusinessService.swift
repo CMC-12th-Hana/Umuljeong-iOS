@@ -12,14 +12,12 @@ class EditBusinessService: ObservableObject {
         didSet {
             guard let startDate = startDate else {return start = ""}
             start = CalendarDateFomatter.date.string(from: startDate)
-            print(self.startDate)
         }
     }
     private var finishDate: Date? = nil {
         didSet {
             guard let finishDate = finishDate else {return finish = ""}
             finish = CalendarDateFomatter.date.string(from: finishDate)
-            print(self.finishDate)
         }
     }
     private var start: String = ""
@@ -87,8 +85,6 @@ class EditBusinessService: ObservableObject {
                 self.memberIdList = businessinfo.memberDtoList.map{$0.id} //요주의
                 self.startDate = CalendarDateFomatter.date.date(from: businessinfo.businessPeriodDto.start)
                 self.finishDate = CalendarDateFomatter.date.date(from: businessinfo.businessPeriodDto.finish)
-                print(self.startDate)
-                print(self.finishDate)
                 completion(reqResult)
             case .failure(_):
                 completion(reqResult)
@@ -103,7 +99,6 @@ class EditBusinessService: ObservableObject {
             switch result {
             case .success:
                 //수정 성공 후 모든 데이터 지우기
-                print("수정요청")
                 self.resetDate()
                 self.resetInfoData()
                 completion(result)
@@ -113,8 +108,8 @@ class EditBusinessService: ObservableObject {
         }
     }
     
-    func requestFixMemberBusiness(beforeInfo: BusinessDtoList, newMemberIdList: [Int], completion: @escaping ((Result<Bool, ResError>) -> Void)) {
-        fixRepository.requestBusinessFix(businessId: beforeInfo.businessId, businessInfo: BusinessInfoRequest(name: beforeInfo.name, businessPeriodDto: BusinessPeriodDto(start: beforeInfo.businessPeriodDto.start, finish: beforeInfo.businessPeriodDto.finish), memberIdList: newMemberIdList, revenue: beforeInfo.revenue, description: beforeInfo.description)) { result in
+    func requestFixMemberBusiness(businessId:Int, beforeInfo:BusinessDtoList, newMemberIdList: [Int], completion: @escaping ((Result<Bool, ResError>) -> Void)) {
+        fixRepository.requestBusinessFix(businessId: businessId, businessInfo: BusinessInfoRequest(name: beforeInfo.name, businessPeriodDto: BusinessPeriodDto(start: beforeInfo.businessPeriodDto.start, finish: beforeInfo.businessPeriodDto.finish), memberIdList: newMemberIdList, revenue: beforeInfo.revenue, description: beforeInfo.description)) { result in
             completion(result)
             switch result {
             case .success:

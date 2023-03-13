@@ -155,7 +155,7 @@ extension FinishDatePickCalendar {
 
 
 struct FinishDatePickCalendar_Previews: PreviewProvider {
-    @StateObject static var viewModel = DateStartFinishViewModel()
+    @StateObject static var viewModel = DatePickStartFinishViewModel()
     static var previews: some View {
         FinishDatePickCalendar(viewModel: viewModel)
     }

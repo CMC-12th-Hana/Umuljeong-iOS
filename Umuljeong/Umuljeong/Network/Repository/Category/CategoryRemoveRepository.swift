@@ -11,78 +11,72 @@ import KeychainSwift
 
 class CategoryRemoveRepository {
 
-    func requestCategoryRemove(taskCategoryIdList: [Int], completion: @escaping (Result<Bool, NetworkError<Bool>>) -> Void) {
-        let url = URLConstants.TaskCategory_Remove //통신할 API 주소
-
+    func requestCategoryRemove(taskCategoryIdList: [Int], completion: @escaping (Result<Bool, ResError>) -> Void) {
+        
         guard let accessToken = KeychainSwift().get("accessToken") else {
-            return completion(.failure(.networkFail))
+            return completion(.failure(.NON_TOKEN))
                 }
+        
+        let url = URLConstants.TaskCategory_Remove //통신할 API 주소
+        
+        let queryString = "categoryIds=\(taskCategoryIdList.map(String.init).joined(separator: ","))"
+
 
         let header : HTTPHeaders = ["Content-Type":"application/json",
                                     "Authorization":"Bearer " + accessToken]
         
-        //요청 바디
-        let body : Parameters = [
-            "taskCategoryIdList": taskCategoryIdList
-        ]
-        
-    
-        
-        let dataRequest = AF.request(url,
+        let dataRequest = AF.request("\(url)?\(queryString)",
                                      method: .delete,
-                                     parameters: body,
-                                     encoding: JSONEncoding.default,
+                                     encoding: URLEncoding.queryString,
                                      headers: header)
         
-        //request 시작 ,responseData를 호출하면서 데이터 통신 시작
-        dataRequest.responseData{
-            response in //데이터 통신의 결과가 response에 담기게 된다
+
+        dataRequest.responseData { [weak self] response in
+            
+            guard let self = self else { return }
+            
             switch response.result {
-            case .success(let res): //데이터 통신이 성공한 경우에
                 
-//            case .success(let res):
+            case .success(let res):
+                
                 print(String(data: res, encoding: .utf8) ?? "")
                 
                 guard let statusCode = response.response?.statusCode else {return}
                 guard let value = response.value else {return}
                 
-                let networkResult = self.judgeStatus(by: statusCode, value)
-
                 if statusCode == 401 {
-                    print("토큰만료임!!!")
                     ApiManager.shared.refreshToken { isSuccess in
                         if isSuccess {
-                            print("토큰 새로 받아오기 성공 ><")
-                            completion(.success(true))
+                            self.requestCategoryRemove(taskCategoryIdList: taskCategoryIdList, completion: completion)
                         } else {
-                            print("토큰 새로 받아오기 실패ㅠㅠ")
-                            completion(.failure(.networkFail))
+                            completion(.failure(.OVER_TOKEN_401))
                         }
                     }
+                } else {
+                    let networkResult = self.judgeStatus(by: statusCode, value)
+                    completion(networkResult)
                 }
                 
-                completion(networkResult)
-                
             case .failure:
-                completion(.failure(.networkFail))
+                completion(.failure(.FAILURE_NETWORK))
             }
         }
     }
     
-    private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<Bool, NetworkError<Bool>> {
+    private func judgeStatus(by statusCode: Int, _ data: Data) -> Result<Bool, ResError> {
         switch statusCode {
-        case ..<300 : return .success(true)
-//        case 404 : return .failure(.requestError)
-        default : return .failure(.networkFail)
+        case ..<300: return .success(true)
+        case 400: return .failure(.BAD_REQUEST_400(isInValidData(data: data)))
+        case 401: return .failure(.OVER_TOKEN_401)
+        case 403: return .failure(.CHANGE_AUTHORITY_403)
+        case 404: return .failure(.NOT_FOUND_404(isInValidData(data: data)))
+        default: return .failure(.FAILURE_NETWORK)
         }
     }
     
-    //통신이 성공하고 원하는 데이터가 올바르게 들어왔을때 처리하는 함수
-//    private func isVaildData(data: Data) -> Result<Bool, NetworkError<Bool>> {
-//        let decoder = JSONDecoder() //서버에서 준 데이터를 Codable을 채택
-//        guard let decodedData = try? decoder.decode(SignupResponse.self, from: data) else { return .pathError }
-//
-//        return .success(decodedData as Any)
-//    }
-    
+    private func isInValidData(data: Data) -> String {
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(ErrorMessageReponse.self, from: data) else { return "네트워크 연결 상태가 좋지 않습니다." }
+        return decodedData.message
+    }
 }

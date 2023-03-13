@@ -9,8 +9,7 @@ import SwiftUI
 
 struct BusinessView: View {
     @Binding var selectedTab: Tags
-    @ObservedObject var dateViewModel =  DateStartFinishViewModel()
-    @ObservedObject var infoViewModel = BusinessViewModel()
+    @ObservedObject var viewModel = BusinessViewModel()
     @State var searchWord: String = ""
     
     var body: some View {
@@ -18,8 +17,9 @@ struct BusinessView: View {
             searchArea
                 .defaultAppStyleHorizentalPadding()
             
-            StartFinishDateView(showStartCalendar: $dateViewModel.showStartCalendar, showFinishCalendar: $dateViewModel.showFinishCalendar, startDateString: dateViewModel.startDateString, finishDateString: dateViewModel.finishDateString)
+            StartFinishDateView(showStartCalendar: $viewModel.showStartCalendar, showFinishCalendar: $viewModel.showFinishCalendar, startDateString: viewModel.startDateString ?? "", finishDateString: viewModel.finishDateString ?? "")
                 .padding(.bottom, 20)
+            
             Divider()
                 .padding(.bottom, 30)
             
@@ -34,80 +34,89 @@ struct BusinessView: View {
             }
             
             ScrollView{
-                ClientBusinessLabel()
-                ClientBusinessLabel()
-                ClientBusinessLabel()
+                MainBusinessLabel()
                 
             }
         }
-        .sheet(isPresented: $dateViewModel.showStartCalendar, onDismiss: {
-//            isShowingSheet = false
+        .sheet(isPresented: $viewModel.showStartCalendar, onDismiss: {
+//            isShowingSheet = true
         }) {
-            VStack(spacing:15){
-                HStack{
-                    Button {
-                        dateViewModel.tappedButtonPage(isPrev: true)
-                    } label: {
-                        Text("좌 버튼")
-                    }
-                    Text(dateViewModel.monthCalendarYearMonth)
-                        .font(.customTitle2)
-                    Button {
-                        dateViewModel.tappedButtonPage(isPrev: false)
-                    } label: {
-                        Text("우 버튼")
-                    }
-                }
-                StartDatePickCalendar(viewModel: dateViewModel)
-                    .padding(.horizontal, 40)
-                    .frame(height: 252)
-
-            }
-                .background(Color.yellow)
-            // Custom Size
+            startCalendarPopup
                 .presentationDetents([.calendarSize])
                 .presentationDragIndicator(.hidden)
         }
-        .sheet(isPresented: $dateViewModel.showFinishCalendar) {
-            VStack(spacing:15){
-                HStack{
-                    Button {
-                        dateViewModel.tappedButtonPage(isPrev: true)
-                    } label: {
-                        Text("좌 버튼")
-                    }
-                    Text(dateViewModel.monthCalendarYearMonth)
-                        .font(.customTitle2)
-                    Button {
-                        dateViewModel.tappedButtonPage(isPrev: false)
-                    } label: {
-                        Text("우 버튼")
-                    }
-                }
-                .frame(height: 20)
-                FinishDatePickCalendar(viewModel: dateViewModel)
-                    .padding(.horizontal, 40)
-                    .frame(height: 252)
-            }
-            .onDisappear()
-//                .frame(height: 400)
-                .background(Color.yellow)
-            // Custom Size
-                .presentationDetents([.calendarSize])
-                .presentationDragIndicator(.hidden)
+        .sheet(isPresented: $viewModel.showFinishCalendar, onDismiss: {
+//            isShowingSheet = true
+        }) {
+            finishCalendarPopup
+            .presentationDetents([.calendarSize])
+            .presentationDragIndicator(.hidden)
         }
     }
     
     var searchArea: some View {
         HStack(spacing: 15){
-            SearchBar(text: $infoViewModel.searchText, guideText: "찾으시는 사업명을 입력해주세요")
-//            NavigationLink(destination: {
-//                AddBusinessView()
-//            }, label: {
-//                ImageBox(rectangleSize: 24, image: Image("bluePlusButton"))
-//            })
+            SearchBar(text: $viewModel.searchText, guideText: "찾으시는 사업명을 입력해주세요")
         }
     }
+
+
+    var startCalendarPopup: some View {
+        VStack(spacing: 15){
+            Spacer()
+                .frame(height: 20)
+            HStack(spacing: 15) {
+                Button {
+                    viewModel.tappedButtonPage(isPrev: true)
+                } label: {
+                    ImageBox(rectangleSize: 16, image: Image("leftButton"))
+                }
+                Text(viewModel.monthCalendarYearMonth)
+                    .font(.customTitle2)
+                
+                Button {
+                    viewModel.tappedButtonPage(isPrev: false)
+                } label: {
+                    ImageBox(rectangleSize: 16, image: Image("rightArrow"))
+                }
+            }
+            StartDatePickCalendar(viewModel: viewModel)
+                .padding(.horizontal, 40)
+                .frame(height: 294)
+        }
+        .frame(height: 328)
+        .presentationDetents([.calendarSize])
+        .presentationDragIndicator(.hidden)
+    }
+
+    var finishCalendarPopup: some View {
+        VStack(spacing:15){
+            Spacer()
+                .frame(height: 20)
+            HStack(spacing: 15) {
+                Button {
+                    viewModel.tappedButtonPage(isPrev: true)
+                } label: {
+                    ImageBox(rectangleSize: 16, image: Image("leftButton"))
+                }
+                Text(viewModel.monthCalendarYearMonth)
+                    .font(.customTitle2)
+                
+                Button {
+                    viewModel.tappedButtonPage(isPrev: false)
+                } label: {
+                    ImageBox(rectangleSize: 16, image: Image("rightArrow"))
+                }
+            }
+            FinishDatePickCalendar(viewModel: viewModel)
+                .padding(.horizontal, 40)
+                .frame(height: 294)
+        }
+    }
+
+
+
+
 }
 
 struct BusinessManageView_Previews: PreviewProvider {

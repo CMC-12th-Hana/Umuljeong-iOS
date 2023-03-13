@@ -89,8 +89,8 @@ class ApiManager {
         // MARK: - 리프레쉬 토큰 발급 API나올 때 까지 강제 입력 로그인으로 토큰 수신
 
         let body : Parameters = [
-            "phoneNumber": "01011111111",
-            "password": "qweR!1234"
+            "phoneNumber": "01012341234",
+            "password": "qwe123Q!"
         ]
         
         //강제로 로그인 해주느라 그런 거였어... 참나

@@ -147,7 +147,7 @@
 		CE6CA48629BB81FE00DB297F /* MemberOtherDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA48529BB81FE00DB297F /* MemberOtherDetailRepository.swift */; };
 		CE6CA48829BB86C000DB297F /* FixMyProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA48729BB86C000DB297F /* FixMyProfileModel.swift */; };
 		CE6CA48A29BC32D200DB297F /* EditBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA48929BC32D200DB297F /* EditBusinessService.swift */; };
-		CE6CA48C29BC362300DB297F /* DateStartFinishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA48B29BC362300DB297F /* DateStartFinishViewModel.swift */; };
+		CE6CA48C29BC362300DB297F /* DatePickStartFinishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA48B29BC362300DB297F /* DatePickStartFinishViewModel.swift */; };
 		CE6CA48E29BC367900DB297F /* BusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA48D29BC367900DB297F /* BusinessViewModel.swift */; };
 		CE6CA49229BC758400DB297F /* SearchBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA49129BC758400DB297F /* SearchBusinessService.swift */; };
 		CE6CA49629BD999700DB297F /* AddBusinessMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA49529BD999700DB297F /* AddBusinessMemberView.swift */; };
@@ -178,10 +178,13 @@
 		CE6CA4D529BF017E00DB297F /* GrayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4D429BF017E00DB297F /* GrayLabel.swift */; };
 		CE6CA4D729BF166300DB297F /* DetailBusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4D629BF166300DB297F /* DetailBusinessViewModel.swift */; };
 		CE6CA4D929BF2E2400DB297F /* JoinMemberBusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4D829BF2E2400DB297F /* JoinMemberBusinessView.swift */; };
-		CE6CA4DB29BF2E8F00DB297F /* JoinMemberBusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4DA29BF2E8F00DB297F /* JoinMemberBusinessViewModel.swift */; };
+		CE6CA4DB29BF2E8F00DB297F /* BusinessMemberListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4DA29BF2E8F00DB297F /* BusinessMemberListViewModel.swift */; };
 		CE6CA4DD29BF30BE00DB297F /* FixInfoBusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4DC29BF30BE00DB297F /* FixInfoBusinessViewModel.swift */; };
 		CE6CA4DF29BF30D000DB297F /* FixInfoBusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4DE29BF30D000DB297F /* FixInfoBusinessView.swift */; };
 		CE6CA4E129BF3C0A00DB297F /* EditPageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4E029BF3C0A00DB297F /* EditPageType.swift */; };
+		CE6CA4E329BFA8E700DB297F /* MainBusinessLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4E229BFA8E700DB297F /* MainBusinessLabel.swift */; };
+		CE6CA4E529BFB6B400DB297F /* LogoutAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4E429BFB6B400DB297F /* LogoutAlert.swift */; };
+		CE6CA4E729BFC4C300DB297F /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CA4E629BFC4C300DB297F /* CategoryResponse.swift */; };
 		CE85159A2997AA4A008E5677 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8515992997AA4A008E5677 /* MainHomeView.swift */; };
 		CE85159C2997AA8F008E5677 /* BusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159B2997AA8F008E5677 /* BusinessView.swift */; };
 		CE85159E2997AAAF008E5677 /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85159D2997AAAF008E5677 /* ClientView.swift */; };
@@ -217,7 +220,6 @@
 		CECAC36129A3F4F800FF8511 /* EditBusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC36029A3F4F800FF8511 /* EditBusinessViewModel.swift */; };
 		CECAC36329A3F68F00FF8511 /* ImportEmployeeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC36229A3F68F00FF8511 /* ImportEmployeeLabel.swift */; };
 		CECAC36529A3F97300FF8511 /* EmployeeProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC36429A3F97300FF8511 /* EmployeeProfileView.swift */; };
-		CECAC36F29A46C3200FF8511 /* BusinessManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC36E29A46C3200FF8511 /* BusinessManagerViewModel.swift */; };
 		CECAC37629A472EF00FF8511 /* SettingCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC37529A472EF00FF8511 /* SettingCategoryCell.swift */; };
 		CECAC37929A4C71E00FF8511 /* CategoryOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC37829A4C71E00FF8511 /* CategoryOptionCell.swift */; };
 		CECAC37B29A4D62C00FF8511 /* PopupCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAC37A29A4D62C00FF8511 /* PopupCategoryView.swift */; };
@@ -385,7 +387,7 @@
 		CE6CA48529BB81FE00DB297F /* MemberOtherDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOtherDetailRepository.swift; sourceTree = "<group>"; };
 		CE6CA48729BB86C000DB297F /* FixMyProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixMyProfileModel.swift; sourceTree = "<group>"; };
 		CE6CA48929BC32D200DB297F /* EditBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBusinessService.swift; sourceTree = "<group>"; };
-		CE6CA48B29BC362300DB297F /* DateStartFinishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStartFinishViewModel.swift; sourceTree = "<group>"; };
+		CE6CA48B29BC362300DB297F /* DatePickStartFinishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickStartFinishViewModel.swift; sourceTree = "<group>"; };
 		CE6CA48D29BC367900DB297F /* BusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewModel.swift; sourceTree = "<group>"; };
 		CE6CA49129BC758400DB297F /* SearchBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBusinessService.swift; sourceTree = "<group>"; };
 		CE6CA49529BD999700DB297F /* AddBusinessMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBusinessMemberView.swift; sourceTree = "<group>"; };
@@ -416,10 +418,13 @@
 		CE6CA4D429BF017E00DB297F /* GrayLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayLabel.swift; sourceTree = "<group>"; };
 		CE6CA4D629BF166300DB297F /* DetailBusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBusinessViewModel.swift; sourceTree = "<group>"; };
 		CE6CA4D829BF2E2400DB297F /* JoinMemberBusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMemberBusinessView.swift; sourceTree = "<group>"; };
-		CE6CA4DA29BF2E8F00DB297F /* JoinMemberBusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMemberBusinessViewModel.swift; sourceTree = "<group>"; };
+		CE6CA4DA29BF2E8F00DB297F /* BusinessMemberListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMemberListViewModel.swift; sourceTree = "<group>"; };
 		CE6CA4DC29BF30BE00DB297F /* FixInfoBusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixInfoBusinessViewModel.swift; sourceTree = "<group>"; };
 		CE6CA4DE29BF30D000DB297F /* FixInfoBusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixInfoBusinessView.swift; sourceTree = "<group>"; };
 		CE6CA4E029BF3C0A00DB297F /* EditPageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPageType.swift; sourceTree = "<group>"; };
+		CE6CA4E229BFA8E700DB297F /* MainBusinessLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBusinessLabel.swift; sourceTree = "<group>"; };
+		CE6CA4E429BFB6B400DB297F /* LogoutAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlert.swift; sourceTree = "<group>"; };
+		CE6CA4E629BFC4C300DB297F /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
 		CE8515992997AA4A008E5677 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
 		CE85159B2997AA8F008E5677 /* BusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessView.swift; sourceTree = "<group>"; };
 		CE85159D2997AAAF008E5677 /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
@@ -454,7 +459,6 @@
 		CECAC36029A3F4F800FF8511 /* EditBusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBusinessViewModel.swift; sourceTree = "<group>"; };
 		CECAC36229A3F68F00FF8511 /* ImportEmployeeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportEmployeeLabel.swift; sourceTree = "<group>"; };
 		CECAC36429A3F97300FF8511 /* EmployeeProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileView.swift; sourceTree = "<group>"; };
-		CECAC36E29A46C3200FF8511 /* BusinessManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessManagerViewModel.swift; sourceTree = "<group>"; };
 		CECAC37529A472EF00FF8511 /* SettingCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCategoryCell.swift; sourceTree = "<group>"; };
 		CECAC37829A4C71E00FF8511 /* CategoryOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOptionCell.swift; sourceTree = "<group>"; };
 		CECAC37A29A4D62C00FF8511 /* PopupCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCategoryView.swift; sourceTree = "<group>"; };
@@ -812,8 +816,8 @@
 			children = (
 				CE85159B2997AA8F008E5677 /* BusinessView.swift */,
 				CE6CA4C829BEF14100DB297F /* DetailBusinessView.swift */,
-				CE6CA4DE29BF30D000DB297F /* FixInfoBusinessView.swift */,
 				CE6CA4CA29BEF22900DB297F /* BusinessMemberListView.swift */,
+				CE6CA4DE29BF30D000DB297F /* FixInfoBusinessView.swift */,
 				CE6CA4D829BF2E2400DB297F /* JoinMemberBusinessView.swift */,
 			);
 			path = View;
@@ -837,6 +841,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8515A12997D752008E5677 /* SettingView.swift */,
+				CE169A6129ADCC6E0063A57D /* ChangeWorkCategoryView.swift */,
 				CE662D6629B4D614000330A2 /* AlertSettingView.swift */,
 			);
 			path = View;
@@ -981,6 +986,7 @@
 				CE6CA46629BA19B000DB297F /* UserInfoResponse.swift */,
 				CE6CA47B29BB141D00DB297F /* UserFeedInfo.swift */,
 				CE6CA4C029BED57700DB297F /* BusinessResponse.swift */,
+				CE6CA4E629BFC4C300DB297F /* CategoryResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1143,8 +1149,8 @@
 		CE2904BB299F383D00C9484E /* 환경설정 */ = {
 			isa = PBXGroup;
 			children = (
-				CECAC38C29A6120300FF8511 /* ViewModel */,
 				CE169AA829B044310063A57D /* View */,
+				CECAC38C29A6120300FF8511 /* ViewModel */,
 				CE647771299F53C70051CE1A /* SubViews */,
 				CECAC37429A472C200FF8511 /* Components */,
 			);
@@ -1318,7 +1324,6 @@
 		CE647771299F53C70051CE1A /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				CE169A6129ADCC6E0063A57D /* ChangeWorkCategoryView.swift */,
 				CE169A6329ADCC7A0063A57D /* ChangePasswordView.swift */,
 				CE169A6529ADCC850063A57D /* LogoutView.swift */,
 				CE169A6729ADCC920063A57D /* ResignView.swift */,
@@ -1515,6 +1520,7 @@
 			isa = PBXGroup;
 			children = (
 				CEBF989029B61ABA00129D9B /* LoginFailAlert.swift */,
+				CE6CA4E429BFB6B400DB297F /* LogoutAlert.swift */,
 				CEBF989929B6320400129D9B /* TimeOverAlert.swift */,
 				CEBF989E29B64D9C00129D9B /* CodeFailAlert.swift */,
 				CEB4B8CF29B6849900498E90 /* CompleteNewPasswordAlert.swift */,
@@ -1557,12 +1563,11 @@
 		CECAC36B29A46BE500FF8511 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CECAC36E29A46C3200FF8511 /* BusinessManagerViewModel.swift */,
 				CE6CA48D29BC367900DB297F /* BusinessViewModel.swift */,
 				CE6CA4D629BF166300DB297F /* DetailBusinessViewModel.swift */,
+				CE6CA4DA29BF2E8F00DB297F /* BusinessMemberListViewModel.swift */,
 				CE6CA4DC29BF30BE00DB297F /* FixInfoBusinessViewModel.swift */,
-				CE6CA4DA29BF2E8F00DB297F /* JoinMemberBusinessViewModel.swift */,
-				CE6CA48B29BC362300DB297F /* DateStartFinishViewModel.swift */,
+				CE6CA48B29BC362300DB297F /* DatePickStartFinishViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1581,6 +1586,7 @@
 				CE6CA4D029BEF87E00DB297F /* TaskMemberLabel.swift */,
 				CE6CA4CC29BEF34D00DB297F /* TaskGraphLabel.swift */,
 				CE6CA4CE29BEF35E00DB297F /* TaskCalendarLabel.swift */,
+				CE6CA4E229BFA8E700DB297F /* MainBusinessLabel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1746,6 +1752,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6CA4E529BFB6B400DB297F /* LogoutAlert.swift in Sources */,
 				CE217ADD299B3C76005C9CF2 /* CalendarModel.swift in Sources */,
 				CE169AF429B3A6DB0063A57D /* BusinessFixRepository.swift in Sources */,
 				CE6CA47C29BB141D00DB297F /* UserFeedInfo.swift in Sources */,
@@ -1760,6 +1767,7 @@
 				CE169B0029B472CD0063A57D /* ClientAddRepository.swift in Sources */,
 				CE169AE829B32BAC0063A57D /* LoginResponse.swift in Sources */,
 				CE169B0429B4730C0063A57D /* ClientFixRepository.swift in Sources */,
+				CE6CA4E729BFC4C300DB297F /* CategoryResponse.swift in Sources */,
 				CE6CA49A29BDA40100DB297F /* FixMemberLabel.swift in Sources */,
 				CE169AB029B04ED70063A57D /* MemberTaskCategoryDorpDown.swift in Sources */,
 				CE647770299F50B90051CE1A /* TeskModel.swift in Sources */,
@@ -1863,7 +1871,6 @@
 				CE2904C9299F3F6E00C9484E /* Text.swift in Sources */,
 				CE169AFA29B3A9410063A57D /* MemberMyDetailRepository.swift in Sources */,
 				CECAC36529A3F97300FF8511 /* EmployeeProfileView.swift in Sources */,
-				CECAC36F29A46C3200FF8511 /* BusinessManagerViewModel.swift in Sources */,
 				CE9E57B729954CD700DCDB63 /* BasicTextFiled.swift in Sources */,
 				CE6CA46C29BA213600DB297F /* UserInfo.swift in Sources */,
 				CE8515A62998BB45008E5677 /* SettingModel.swift in Sources */,
@@ -1879,6 +1886,7 @@
 				CE64779A29A3593B0051CE1A /* TESTVIEW.swift in Sources */,
 				CE169B1829B476940063A57D /* ClientInfo.swift in Sources */,
 				CE169A9E29AF62830063A57D /* LeaderLabel.swift in Sources */,
+				CE6CA4E329BFA8E700DB297F /* MainBusinessLabel.swift in Sources */,
 				CE6CA48829BB86C000DB297F /* FixMyProfileModel.swift in Sources */,
 				CECAC37D29A5154000FF8511 /* CancelButtonLabel.swift in Sources */,
 				CE6CA48A29BC32D200DB297F /* EditBusinessService.swift in Sources */,
@@ -1889,7 +1897,7 @@
 				CE9E57C22996063100DCDB63 /* CompanyCreateViewModel.swift in Sources */,
 				CE662D7029B5A734000330A2 /* PasswordView.swift in Sources */,
 				CE64778429A1EE210051CE1A /* DetailCustomerCallCell.swift in Sources */,
-				CE6CA4DB29BF2E8F00DB297F /* JoinMemberBusinessViewModel.swift in Sources */,
+				CE6CA4DB29BF2E8F00DB297F /* BusinessMemberListViewModel.swift in Sources */,
 				CE6CA4D129BEF87E00DB297F /* TaskMemberLabel.swift in Sources */,
 				CE9E57C52996370200DCDB63 /* MainTabView.swift in Sources */,
 				CEB4B8D729B7351400498E90 /* RoleSelectViewModel.swift in Sources */,
@@ -1947,7 +1955,7 @@
 				CE169B1229B473B30063A57D /* CategoryFixRepository.swift in Sources */,
 				CE6CA49629BD999700DB297F /* AddBusinessMemberView.swift in Sources */,
 				CE64778C29A20EA10051CE1A /* BasicLineButtonLabel.swift in Sources */,
-				CE6CA48C29BC362300DB297F /* DateStartFinishViewModel.swift in Sources */,
+				CE6CA48C29BC362300DB297F /* DatePickStartFinishViewModel.swift in Sources */,
 				CE64778A29A20E8D0051CE1A /* BasicButtonLabel.swift in Sources */,
 				CECAC3A829A869F900FF8511 /* UIApplication + Extension.swift in Sources */,
 				CE662D7929B5AE12000330A2 /* NewPasswordView.swift in Sources */,
