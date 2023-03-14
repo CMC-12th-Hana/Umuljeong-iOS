@@ -11,6 +11,16 @@ import KeychainSwift
 import UIKit
 
 class TaskAddRepository {
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        let scale = newWidth / image.size.width // 새 이미지 확대/축소 비율
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+        image.draw(in: CGRectMake(0, 0, newWidth, newHeight))
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage(named: "smileDark")!}
+        UIGraphicsEndImageContext()
+        return newImage
+    }
 
     func requestTaskAdd(businessId: Int, taskCategoryId:Int, date:String, title:String, description: String, taskImageList:[UIImage], completion: @escaping (Result<Bool, ResError>) -> Void) {
 
@@ -42,11 +52,13 @@ class TaskAddRepository {
             
             // 이미지 배열 데이터 추가
             for (index, image) in taskImageList.enumerated() {
-                if let imageData = image.jpegData(compressionQuality: 0.5) {
+                let scaledImage = self.resizeImage(image: image, newWidth: 400)
+                if let imageData = scaledImage.jpegData(compressionQuality: 0.5) {
                     formData.append(imageData, withName: "taskImageList[\(index)]", fileName: "\(Date().timeIntervalSince1970).jpeg", mimeType: "image/jpeg")
                 }
             }
         }
+        
 
         let dataRequest = AF.upload(multipartFormData: multipartFormData, to: url, method: .post, headers: header)
             .validate()
