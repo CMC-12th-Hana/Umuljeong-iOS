@@ -14,6 +14,7 @@ struct URLConstants {
     static let baseCompanyMemberURL = baseCompanyURL + "/member"
     static let baseCompanyClientURL = baseCompanyURL + "/client"
     static let baseCompanyClientBusinessURL = baseCompanyClientURL + "/business"
+    static let baseCompanyClientBusinessTaskURL = baseCompanyClientBusinessURL + "/task"
     
     
     // MARK: - Feature URL
@@ -27,6 +28,23 @@ struct URLConstants {
     
     
     // MARK: - Task : 업무 조회 / 추가
+    static let Task_Add = baseCompanyClientBusinessTaskURL
+    
+    static func Task_Detail(taskId: String) -> String {
+        return baseCompanyClientBusinessTaskURL + "/\(taskId)"
+    }
+    static func Task_Remove(taskId: String) -> String {
+        return baseCompanyClientBusinessTaskURL + "/\(taskId)"
+    }
+    static func Task_Main_All(companyId: String) -> String {
+        return baseCompanyURL + "/\(companyId)" + "/client/business/tasks"
+    }
+    static func Task_Graph(clientId: String) -> String {
+        return baseCompanyClientURL + "/\(clientId)" + "/business/task/statistic"
+    }
+    static func Task_Calendar_All(businessId: String) -> String {
+        return baseCompanyClientBusinessURL + "/\(businessId)" + "/tasks"
+    }
     
     
     
