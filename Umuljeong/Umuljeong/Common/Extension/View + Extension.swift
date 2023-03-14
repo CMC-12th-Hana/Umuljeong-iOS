@@ -38,6 +38,37 @@ extension View {
             }
         }
     }
+    
+    func popupNavigationAlertView<Content: View>(
+        radius: CGFloat = 15,
+        horizontalPadding: CGFloat = 40,
+        height: CGFloat = 200,
+        show: Binding<Bool>,
+        @ViewBuilder content: @escaping ()->Content)
+    -> some View {
+        return self
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .overlay {
+            if show .wrappedValue {
+                GeometryReader { proxy in
+                    Color.primary
+                        .opacity(0.15)
+                        .ignoresSafeArea()
+                    
+                    let size = proxy.size
+                    
+                    VStack {
+                        content()
+                    }
+                    .frame(width: size.width - horizontalPadding,
+                           height: height,
+                           alignment: .top)
+                    .cornerRadius(radius)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                }
+            }
+        }
+    }
 }
 
 
@@ -136,7 +167,7 @@ struct NavigationAddDividerLine: ViewModifier {
 // MARK: - SetHorizentalPadding
 
 extension View {
-    func defaultAppStyleHorizentalPadding(horizontal: CGFloat = 15) -> some View {
+    func defaultAppStyleHorizentalPadding(horizontal: CGFloat = 20) -> some View {
         self.modifier(PaddingModifier(horizontal: horizontal))
     }
 }

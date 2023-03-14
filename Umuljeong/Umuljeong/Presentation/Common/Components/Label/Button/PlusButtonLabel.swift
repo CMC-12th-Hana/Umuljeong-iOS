@@ -13,7 +13,7 @@ struct PlusButtonLabel: View {
         VStack(spacing:0){
             HStack{
                 Spacer()
-                Image(systemName: "plus")
+                ImageBox(rectangleSize: 24, image: Image("plus"))
                 Text(label)
                     .font(.body2)
                 Spacer()
@@ -22,7 +22,11 @@ struct PlusButtonLabel: View {
             .foregroundColor(Color("font1"))
             .background(
                 RoundedRectangle(cornerRadius: 6)
-                    .stroke(Color("font1"), lineWidth: 1.5)
+                    .stroke(Color("line1"), lineWidth: 1)
+            )
+            .background(
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(Color.white)
             )
         }
     }

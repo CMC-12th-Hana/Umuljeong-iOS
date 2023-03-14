@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DropdownOption: Hashable {
-    let key: String
+    let key: Int
     let value: String
 
     public static func == (lhs: DropdownOption, rhs: DropdownOption) -> Bool {
@@ -59,6 +59,10 @@ struct Dropdown: View {
         }
         .frame(minHeight: options.count < 6 ? CGFloat(options.count) * 40 + 30 : 220)
         .cornerRadius(5)
+        .background(
+            RoundedRectangle(cornerRadius: 5)
+                .fill(Color.white)
+        )
         .overlay(
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color("line2"), lineWidth: 1)
@@ -69,6 +73,7 @@ struct Dropdown: View {
 struct DropdownBar: View {
     @State private var shouldShowDropdown = false
     @State private var selectedOption: DropdownOption? = nil
+    let paddingL:CGFloat
     var placeholder: String
     var options: [DropdownOption]
     var onOptionSelected: ((_ option: DropdownOption) -> Void)?
@@ -79,14 +84,22 @@ struct DropdownBar: View {
                 self.shouldShowDropdown.toggle()
             }) {
                 HStack {
-                    Text(selectedOption == nil ? placeholder : selectedOption!.value)
-                        .font(.body2)
+                    Text(placeholder)
                         .foregroundColor(Color("font1"))
+                    
+                    if selectedOption != nil {
+                        Text(selectedOption!.value)
+                            .foregroundColor(Color("font2"))
+                            .padding(.leading, self.paddingL)
+                    }
+                        
                     
                     Spacer()
                     
                     ImageBox(rectangleSize: 24, image: Image(self.shouldShowDropdown ? "upArrow" : "downArrow"))
                 }
+                .font(.body2)
+
             }
             .padding(.horizontal, 15)
             .cornerRadius(6)
@@ -120,21 +133,21 @@ struct DropdownBar_Previews: PreviewProvider {
     }
 
     static let options: [DropdownOption] = [
-        DropdownOption(key: UUID().uuidString, value: "단순문의"),
-        DropdownOption(key: UUID().uuidString, value: "고객민원"),
-        DropdownOption(key: UUID().uuidString, value: "A/S"),
-        DropdownOption(key: UUID().uuidString, value: "기술컨설팅"),
-        DropdownOption(key: UUID().uuidString, value: "사전점검"),
-        DropdownOption(key: UUID().uuidString, value: "사전점검"),
-        DropdownOption(key: UUID().uuidString, value: "사전점검"),
-        DropdownOption(key: UUID().uuidString, value: "사전점검")
+        DropdownOption(key: 0, value: "단순문의"),
+        DropdownOption(key: 1, value: "고객민원"),
+        DropdownOption(key: 2, value: "A/S"),
+        DropdownOption(key: 3, value: "기술컨설팅"),
+        DropdownOption(key: 4, value: "사전점검"),
+        DropdownOption(key: 5, value: "사전점검"),
+        DropdownOption(key: 6, value: "사전점검"),
+        DropdownOption(key: 7, value: "사전점검")
     ]
 
 
     static var previews: some View {
         Group {
             DropdownBar(
-                placeholder: "업무분류",
+                paddingL: 20, placeholder: "업무분류",
                 options: options,
                 onOptionSelected: { option in
                     print(option)

@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 extension Font {
-    static let title1 = Font.custom("Pretendard-Bold", fixedSize: 24)
+    static let customTitle1 = Font.custom("Pretendard-Bold", fixedSize: 24)
     static let customTitle2 = Font.custom("Pretendard-Bold", fixedSize: 18)
     static let body1 = Font.custom("Pretendard-Bold", fixedSize: 16)
     static let body2 = Font.custom("Pretendard-Medium", fixedSize: 16)
@@ -17,12 +17,21 @@ extension Font {
     static let body4 = Font.custom("Pretendard-Regular", fixedSize: 14)
     static let body5 = Font.custom("Pretendard-Regular", fixedSize: 13)
     static let body6 = Font.custom("Pretendard-Medium", fixedSize: 12)
+    
+    static let special1 = Font.custom("Pretendard-Medium", fixedSize: 11)
+    static let special2 = Font.custom("Pretendard-Bold", fixedSize: 20)
+    static let special3 = Font.custom("Pretendard-SemiBold", fixedSize: 14)
+    static let special4 = Font.custom("Pretendard-Regular", fixedSize: 16)
+    static let special5 = Font.custom("Pretendard-SemiBold", fixedSize: 24)
 }
 
 extension UIFont {
 //    static let title1 = Font.custom("Pretendard-Bold", fixedSize: 24)
+    static let body1 = UIFont(name: "Pretendard-Bold", size: 16)
     static let body2 = UIFont(name: "Pretendard-Medium", size: 16)
+    static let body3 = UIFont(name: "Pretendard-Medium", size: 14)
     static let body5 = UIFont(name: "Pretendard-Regular", size: 13)
+    static let special3 = UIFont(name: "Pretendard-SemiBold", size: 14)
 //    static let body1 = Font.custom("Pretendard-Bold", fixedSize: 16)
 //    static let body2 = Font.custom("Pretendard-Medium", fixedSize: 16)
 //    static let body3 = Font.custom("Pretendard-Medium", fixedSize: 14)

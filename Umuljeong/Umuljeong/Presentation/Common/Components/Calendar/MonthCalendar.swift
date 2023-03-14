@@ -15,7 +15,8 @@ struct MonthCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
     
     init(viewModel: viewModelType) {
         self.viewModel = viewModel
-//        calendar.select(viewModel.selectedDate)
+        
+//        selfvi .select(viewModel.selectedDate)
     }
     
     func makeUIView(context: Context) -> FSCalendar {
@@ -23,18 +24,36 @@ struct MonthCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
         calendar.dataSource = context.coordinator
         calendar.headerHeight = 0
         calendar.locale = Locale(identifier: "ko_KR")
+        calendar.appearance.weekdayFont = UIFont.special3
+        calendar.appearance.titleFont = UIFont.body3
+        calendar.appearance.weekdayTextColor =  UIColor(named: "font1")
+        calendar.appearance.borderRadius = 0.2
+        calendar.calendarWeekdayView.weekdayLabels[0].textColor = UIColor(named: "error")
+        calendar.calendarWeekdayView.weekdayLabels[1].textColor = UIColor(named: "font2")
+        calendar.calendarWeekdayView.weekdayLabels[2].textColor = UIColor(named: "font2")
+        calendar.calendarWeekdayView.weekdayLabels[3].textColor = UIColor(named: "font2")
+        calendar.calendarWeekdayView.weekdayLabels[4].textColor = UIColor(named: "font2")
+        calendar.calendarWeekdayView.weekdayLabels[5].textColor = UIColor(named: "font2")
+        calendar.calendarWeekdayView.weekdayLabels[6].textColor = UIColor(named: "main")
+        calendar.placeholderType = .none
+        calendar.select(viewModel.selecteDate) ///
+        calendar.setCurrentPage(viewModel.monthCalendarCurrentDate, animated: true)
+        
         return calendar
     }
     
     func updateUIView(_ uiView: FSCalendar, context: Context) {
+//        calendar.setCurrentPage(calendar.currentPage, animated: true)
         uiView.setCurrentPage(viewModel.monthCalendarCurrentDate, animated: true)
+//        uiView.setCurrentPage(viewModel.selecteDate, animated: true)
+//        uiView.select(viewModel.selecteDate)
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(viewModel: viewModel)
     }
     
-    class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource {
+    class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
         
         var viewModel: viewModelType
         
@@ -51,6 +70,17 @@ struct MonthCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
                 viewModel.pageScroll(calendar.currentPage)
             }
             }
+        
+        func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+            let weekday = Calendar.current.component(.weekday, from: date)
+            if weekday == 1 {
+                return UIColor(named: "error") // 주말 폰트 색상 변경
+            } else if weekday == 7 {
+                return UIColor(named: "main")
+            }
+            return appearance.titleDefaultColor
+        }
+        
         }
     }
 
@@ -68,7 +98,7 @@ extension MonthCalendar {
 
 
 struct MonthCalendar_Previews: PreviewProvider {
-    @StateObject static var viewModel = DetailCustomerViewModel()
+    @StateObject static var viewModel = DatePickStartFinishViewModel()
     static var previews: some View {
         MonthCalendar(viewModel: viewModel)
     }
