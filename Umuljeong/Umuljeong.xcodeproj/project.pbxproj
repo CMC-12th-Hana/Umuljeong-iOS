@@ -72,7 +72,6 @@
 		CE19D9AA2990CE16003F4399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9A92990CE16003F4399 /* Assets.xcassets */; };
 		CE19D9AD2990CE16003F4399 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9AC2990CE16003F4399 /* Preview Assets.xcassets */; };
 		CE19D9B42990EB18003F4399 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9B32990EB18003F4399 /* LoginView.swift */; };
-		CE19D9B62990EB22003F4399 /* XSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9B52990EB22003F4399 /* XSignupView.swift */; };
 		CE19D9B82990EB37003F4399 /* RoleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9B72990EB37003F4399 /* RoleSelectView.swift */; };
 		CE19D9BA2990EB42003F4399 /* CompanyCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19D9B92990EB42003F4399 /* CompanyCreateView.swift */; };
 		CE19D9C72990F016003F4399 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9BE2990F015003F4399 /* Pretendard-Thin.otf */; };
@@ -199,7 +198,6 @@
 		CE8D7C5329B9A27A00678779 /* NetworkErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D7C5229B9A27A00678779 /* NetworkErrorAlert.swift */; };
 		CE8D7C5529B9B77100678779 /* AddMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D7C5429B9B77100678779 /* AddMemberView.swift */; };
 		CE8D7C5729B9B7BE00678779 /* AddMemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D7C5629B9B7BE00678779 /* AddMemberViewModel.swift */; };
-		CE9E57AF299201E700DCDB63 /* SignupViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57AE299201E700DCDB63 /* SignupViewModelImpl.swift */; };
 		CE9E57B729954CD700DCDB63 /* BasicTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */; };
 		CE9E57BD2995E80100DCDB63 /* TextFiledStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */; };
 		CE9E57BF2995E85400DCDB63 /* TapCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E57BE2995E85400DCDB63 /* TapCase.swift */; };
@@ -314,7 +312,6 @@
 		CE19D9A92990CE16003F4399 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE19D9AC2990CE16003F4399 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE19D9B32990EB18003F4399 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		CE19D9B52990EB22003F4399 /* XSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSignupView.swift; sourceTree = "<group>"; };
 		CE19D9B72990EB37003F4399 /* RoleSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectView.swift; sourceTree = "<group>"; };
 		CE19D9B92990EB42003F4399 /* CompanyCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCreateView.swift; sourceTree = "<group>"; };
 		CE19D9BE2990F015003F4399 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
@@ -441,7 +438,6 @@
 		CE8D7C5229B9A27A00678779 /* NetworkErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorAlert.swift; sourceTree = "<group>"; };
 		CE8D7C5429B9B77100678779 /* AddMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberView.swift; sourceTree = "<group>"; };
 		CE8D7C5629B9B7BE00678779 /* AddMemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewModel.swift; sourceTree = "<group>"; };
-		CE9E57AE299201E700DCDB63 /* SignupViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelImpl.swift; sourceTree = "<group>"; };
 		CE9E57B629954CD700DCDB63 /* BasicTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextFiled.swift; sourceTree = "<group>"; };
 		CE9E57BC2995E80100DCDB63 /* TextFiledStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFiledStyle.swift; sourceTree = "<group>"; };
 		CE9E57BE2995E85400DCDB63 /* TapCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCase.swift; sourceTree = "<group>"; };
@@ -513,200 +509,6 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		CE1699FC29ADA6B10063A57D /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A0929ADA90D0063A57D /* 로그인 + 비밀번호 찾기 */,
-				CE169AB429B0B53F0063A57D /* 갤러리 */,
-				CE169A7C29AE3AA90063A57D /* 업무카테고리 */,
-				CE169A0A29ADA9110063A57D /* 회원가입 */,
-				CE169A0829ADA9080063A57D /* 기업등록 + 합류하기 */,
-				CE169A0729ADA8DF0063A57D /* 세팅 */,
-				CE169A8A29AE4EA20063A57D /* 검색 */,
-				CE169A0629ADA8D80063A57D /* 홈 */,
-				CE169A0529ADA8C80063A57D /* 고객관리 */,
-				CE169A0429ADA8AF0063A57D /* MY */,
-				CE169A0329ADA8340063A57D /* 상단바 */,
-				CE169A0229ADA8300063A57D /* 환경설정 */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		CE169A0229ADA8300063A57D /* 환경설정 */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A3929ADAAC10063A57D /* Model */,
-				CE169A3829ADAAC00063A57D /* Protocol */,
-			);
-			name = "환경설정";
-			path = "환경설정";
-			sourceTree = "<group>";
-		};
-		CE169A0329ADA8340063A57D /* 상단바 */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A3429ADAAB80063A57D /* Model */,
-				CE169A3329ADAAB70063A57D /* Protocol */,
-			);
-			name = "상단바";
-			path = "상단바";
-			sourceTree = "<group>";
-		};
-		CE169A0429ADA8AF0063A57D /* MY */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A2E29ADAAAA0063A57D /* Protocol */,
-			);
-			path = MY;
-			sourceTree = "<group>";
-		};
-		CE169A0529ADA8C80063A57D /* 고객관리 */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A2929ADAAA00063A57D /* Protocol */,
-			);
-			name = "고객관리";
-			path = "고객관리";
-			sourceTree = "<group>";
-		};
-		CE169A0629ADA8D80063A57D /* 홈 */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A2229ADAA920063A57D /* Protocol */,
-			);
-			name = "홈";
-			path = "홈";
-			sourceTree = "<group>";
-		};
-		CE169A0729ADA8DF0063A57D /* 세팅 */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A2029ADAA5D0063A57D /* Model */,
-				CE169A1F29ADAA5B0063A57D /* Protocol */,
-			);
-			name = "세팅";
-			path = "세팅";
-			sourceTree = "<group>";
-		};
-		CE169A0829ADA9080063A57D /* 기업등록 + 합류하기 */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A1A29ADAA370063A57D /* Protocol */,
-			);
-			name = "기업등록 + 합류하기";
-			path = "기업등록";
-			sourceTree = "<group>";
-		};
-		CE169A0929ADA90D0063A57D /* 로그인 + 비밀번호 찾기 */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A1529ADA9F50063A57D /* Protocol */,
-			);
-			name = "로그인 + 비밀번호 찾기";
-			path = "로그인";
-			sourceTree = "<group>";
-		};
-		CE169A0A29ADA9110063A57D /* 회원가입 */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A0F29ADA9740063A57D /* Protocol */,
-			);
-			name = "회원가입";
-			path = "회원가입";
-			sourceTree = "<group>";
-		};
-		CE169A0F29ADA9740063A57D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		CE169A1529ADA9F50063A57D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		CE169A1A29ADAA370063A57D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		CE169A1F29ADAA5B0063A57D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		CE169A2029ADAA5D0063A57D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		CE169A2229ADAA920063A57D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		CE169A2929ADAAA00063A57D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		CE169A2E29ADAAAA0063A57D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		CE169A3329ADAAB70063A57D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		CE169A3429ADAAB80063A57D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		CE169A3829ADAAC00063A57D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		CE169A3929ADAAC10063A57D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		CE169A5629ADC7790063A57D /* 날짜기준 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "날짜기준";
-			path = "캘린더";
-			sourceTree = "<group>";
-		};
 		CE169A5829ADC8800063A57D /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,31 +550,6 @@
 				CECAC39C29A73DD600FF8511 /* ImageBox.swift */,
 			);
 			path = PaddingDesign;
-			sourceTree = "<group>";
-		};
-		CE169A7329AE33970063A57D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		CE169A7C29AE3AA90063A57D /* 업무카테고리 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "업무카테고리";
-			path = "업무카테고리";
-			sourceTree = "<group>";
-		};
-		CE169A8A29AE4EA20063A57D /* 검색 */ = {
-			isa = PBXGroup;
-			children = (
-				CE169A7329AE33970063A57D /* Model */,
-				CE169A5629ADC7790063A57D /* 날짜기준 */,
-			);
-			name = "검색";
-			path = "검색기능";
 			sourceTree = "<group>";
 		};
 		CE169AA229B043A30063A57D /* View */ = {
@@ -904,22 +681,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		CE169AB429B0B53F0063A57D /* 갤러리 */ = {
-			isa = PBXGroup;
-			children = (
-				CE169AB629B0B5590063A57D /* Protocol */,
-			);
-			name = "갤러리";
-			path = "갤러리";
-			sourceTree = "<group>";
-		};
-		CE169AB629B0B5590063A57D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		CE169AC129B0E0870063A57D /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -1002,7 +763,6 @@
 			isa = PBXGroup;
 			children = (
 				CE19D9A42990CE15003F4399 /* Umuljeong */,
-				CEBF988C29B604EB00129D9B /* 임시저장 */,
 				CE19D9A32990CE15003F4399 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1513,17 +1273,6 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		CEBF988C29B604EB00129D9B /* 임시저장 */ = {
-			isa = PBXGroup;
-			children = (
-				CE1699FC29ADA6B10063A57D /* Domain */,
-				CE19D9B52990EB22003F4399 /* XSignupView.swift */,
-				CE9E57AE299201E700DCDB63 /* SignupViewModelImpl.swift */,
-			);
-			name = "임시저장";
-			path = "임시저장";
-			sourceTree = "<group>";
-		};
 		CEBF988F29B61AAA00129D9B /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -1872,7 +1621,6 @@
 				CED79E0229B775B100D9DCC8 /* TaskFeedModel.swift in Sources */,
 				CE64778029A147CD0051CE1A /* DetailClientView.swift in Sources */,
 				CE6CA4A729BDEB0600DB297F /* RemoveClientAlert.swift in Sources */,
-				CE19D9B62990EB22003F4399 /* XSignupView.swift in Sources */,
 				CEB4B8D329B72E3100498E90 /* ValidJoinAlert.swift in Sources */,
 				CE8D7C5529B9B77100678779 /* AddMemberView.swift in Sources */,
 				CE6CA4A229BDE83E00DB297F /* BusinessRemoveRespository.swift in Sources */,
@@ -1993,7 +1741,6 @@
 				CE8515A02997AAF8008E5677 /* MainMemberView.swift in Sources */,
 				CECAC37629A472EF00FF8511 /* SettingCategoryCell.swift in Sources */,
 				CE1699F729ACA6450063A57D /* Tags.swift in Sources */,
-				CE9E57AF299201E700DCDB63 /* SignupViewModelImpl.swift in Sources */,
 				CE169AFC29B3AA0A0063A57D /* MemberFixMyProfileRepository.swift in Sources */,
 				CE169AEE29B39E5F0063A57D /* BusinessAddRepository.swift in Sources */,
 			);
