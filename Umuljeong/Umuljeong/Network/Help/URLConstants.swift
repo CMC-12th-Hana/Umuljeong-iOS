@@ -91,12 +91,19 @@ struct URLConstants {
     static func Business_Add(clientId: String) -> String {
         return baseCompanyClientURL + "/\(clientId)" + "/business"
     }
+    
+    static func Business_All(companyId: String) -> String {
+        return baseCompanyURL + "/\(companyId)" + "/client/businesses"
+    }
+    
     static func Business_Detail(businessId: String) -> String {
         return baseCompanyClientBusinessURL + "/\(businessId)"
     }
     static func Business_Fix(businessId: String) -> String {
         return baseCompanyClientBusinessURL + "/\(businessId)"
     }
+    
+    
     
     
     // MARK: - Member : 사원 조회 / 추가

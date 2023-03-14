@@ -12,16 +12,6 @@ import UIKit
 
 class TaskAddRepository {
     
-    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-        let scale = newWidth / image.size.width // 새 이미지 확대/축소 비율
-        let newHeight = image.size.height * scale
-        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
-        image.draw(in: CGRectMake(0, 0, newWidth, newHeight))
-        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage(named: "smileDark")!}
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-
     func requestTaskAdd(businessId: Int, taskCategoryId:Int, date:String, title:String, description: String, taskImageList:[UIImage], completion: @escaping (Result<Bool, ResError>) -> Void) {
 
         guard let accessToken = KeychainSwift().get("accessToken") else {
@@ -115,6 +105,16 @@ class TaskAddRepository {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(ErrorMessageReponse.self, from: data) else { return "네트워크 연결 상태가 좋지 않습니다." }
         return decodedData.message
+    }
+    
+    private func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        let scale = newWidth / image.size.width // 새 이미지 확대/축소 비율
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+        image.draw(in: CGRectMake(0, 0, newWidth, newHeight))
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage(named: "smileDark")!}
+        UIGraphicsEndImageContext()
+        return newImage
     }
 
 }

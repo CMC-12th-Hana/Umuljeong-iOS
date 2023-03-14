@@ -9,11 +9,21 @@ import Foundation
 import FSCalendar
 
 class BusinessViewModel: ObservableObject, PickDateCalendarVM, CalendarVM {
-    @Published var searchText:String = ""
-    init() {
-        monthCalendarYearMonth = CalendarDateFomatter.yearMonth.string(from: CalendarService.shared.model.focusedDate)
+    @Published var searchText:String = "" {
+        didSet {
+            self.requestBusinessAll()
+        }
     }
     
+    
+    
+    init() {
+        monthCalendarYearMonth = CalendarDateFomatter.yearMonth.string(from: CalendarService.shared.model.focusedDate)
+//        startDateReset()
+//        finishDateReset()
+    }
+    
+    @Published var businessInfo:[BusinessDtoList] = []
     
     
     var weekCalendarHeight: CGFloat = 300.0 //필요없는거 추후 삭제 (현재 프로토콜에 걸림)
@@ -29,29 +39,50 @@ class BusinessViewModel: ObservableObject, PickDateCalendarVM, CalendarVM {
     @Published var startDate: Date?
     @Published var finishDate: Date?
     
-    @Published var startDateString:String?
-    @Published var finishDateString:String?
+    @Published var startDateString:String = ""
+    @Published var finishDateString:String = ""
+    
+    let repositoy = BusinessAllRepository()
     
     var monthCalendarYearMonth:String = ""
     
-    
-    
-    func setDefault() {
-        let startFinishDate = EditBusinessService.shared.getDateInfo()
-        
-        if let startDate = startFinishDate.0 {
-            self.startDate = startDate
-            changeStartDateToString(startDate)
-        }
-        if let finishDate = startFinishDate.1 {
-            self.finishDate = finishDate
-            changeFinishDateToString(finishDate)
+    func requestBusinessAll() {
+        repositoy.requestBusinessAll(searchText: searchText, startDate: startDateString, finishDate: finishDateString) { result in
+            switch result {
+            case .success(let info):
+                guard let info = info else {return}
+                self.businessInfo = info.businessDtoList
+                print(self.businessInfo)
+                
+            case .failure(_): print("실패")
+                
+            }
         }
     }
+    
+    
+    
+//    func setDefault() {
+//        let startFinishDate = EditBusinessService.shared.getDateInfo()
+//
+//        if let startDate = startFinishDate.0 {
+//            self.startDate = startDate
+//            changeStartDateToString(startDate)
+//        }
+//        if let finishDate = startFinishDate.1 {
+//            self.finishDate = finishDate
+//            changeFinishDateToString(finishDate)
+//        }
+//    }
+    
+    
+    
+    
     
     func selectDate(_ date: Date) {
         selecteDate = date
         monthCalendarYearMonth = CalendarDateFomatter.yearMonth.string(from: date)
+
         //        currentMonthPage = date
     }
     
@@ -70,11 +101,14 @@ class BusinessViewModel: ObservableObject, PickDateCalendarVM, CalendarVM {
     func startDateSet(_ date: Date) {
         startDate = date
         changeStartDateToString(date)
+        print("눌리고 있음?")
+        self.requestBusinessAll()
     }
     
     func finishDateSet(_ date: Date) {
         finishDate = date
         changeFinishDateToString(date)
+        self.requestBusinessAll()
     }
     
     func startDateReset() {

@@ -15,6 +15,7 @@ struct BusinessListResponse: Codable {
 // MARK: - BusinessDtoList
 struct BusinessDtoList: Codable {
     let businessId: Int
+    let clientName: String
     let name: String
     let businessPeriodDto: BusinessPeriodDto
     let revenue: Int

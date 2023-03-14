@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BusinessView: View {
     @Binding var selectedTab: Tags
-    @ObservedObject var viewModel = BusinessViewModel()
+    @StateObject var viewModel = BusinessViewModel()
     @State var searchWord: String = ""
     
     var body: some View {
@@ -17,7 +17,7 @@ struct BusinessView: View {
             searchArea
                 .defaultAppStyleHorizentalPadding()
             
-            StartFinishDateView(showStartCalendar: $viewModel.showStartCalendar, showFinishCalendar: $viewModel.showFinishCalendar, startDateString: viewModel.startDateString ?? "", finishDateString: viewModel.finishDateString ?? "")
+            StartFinishDateView(showStartCalendar: $viewModel.showStartCalendar, showFinishCalendar: $viewModel.showFinishCalendar, startDateString: viewModel.startDateString, finishDateString: viewModel.finishDateString)
                 .padding(.bottom, 20)
             
             Divider()
@@ -34,8 +34,9 @@ struct BusinessView: View {
             }
             
             ScrollView{
-                MainBusinessLabel()
-                
+                ForEach(viewModel.businessInfo, id: \.businessId) { info in
+                    MainBusinessLabel(clientName: info.clientName, businessName: info.name, startDate: info.businessPeriodDto.start, finishDate: info.businessPeriodDto.finish, memberCount: info.memberDtoList.count)
+                }
             }
         }
         .sheet(isPresented: $viewModel.showStartCalendar, onDismiss: {
@@ -51,6 +52,9 @@ struct BusinessView: View {
             finishCalendarPopup
             .presentationDetents([.calendarSize])
             .presentationDragIndicator(.hidden)
+        }
+        .onAppear{
+            viewModel.requestBusinessAll()
         }
     }
     

@@ -84,6 +84,7 @@
 		CE19D9CD2990F016003F4399 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C42990F016003F4399 /* Pretendard-Black.otf */; };
 		CE19D9CE2990F016003F4399 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C52990F016003F4399 /* Pretendard-SemiBold.otf */; };
 		CE19D9CF2990F016003F4399 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE19D9C62990F016003F4399 /* Pretendard-ExtraLight.otf */; };
+		CE1B70FE29C10097003E1CDE /* BusinessAllRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B70FD29C10097003E1CDE /* BusinessAllRepository.swift */; };
 		CE217ACB299A3293005C9CF2 /* CalendarFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217ACA299A3293005C9CF2 /* CalendarFomatter.swift */; };
 		CE217ADD299B3C76005C9CF2 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217ADC299B3C76005C9CF2 /* CalendarModel.swift */; };
 		CE217AE0299B3E7B005C9CF2 /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE217ADF299B3E7B005C9CF2 /* CalendarService.swift */; };
@@ -326,6 +327,7 @@
 		CE19D9C52990F016003F4399 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		CE19D9C62990F016003F4399 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		CE19D9D02990F064003F4399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CE1B70FD29C10097003E1CDE /* BusinessAllRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessAllRepository.swift; sourceTree = "<group>"; };
 		CE217ACA299A3293005C9CF2 /* CalendarFomatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFomatter.swift; sourceTree = "<group>"; };
 		CE217ADC299B3C76005C9CF2 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		CE217ADF299B3E7B005C9CF2 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
@@ -1443,6 +1445,7 @@
 				CE169AF129B3A4200063A57D /* BusinessDetailRepository.swift */,
 				CE169AF329B3A6DB0063A57D /* BusinessFixRepository.swift */,
 				CE6CA4A129BDE83E00DB297F /* BusinessRemoveRespository.swift */,
+				CE1B70FD29C10097003E1CDE /* BusinessAllRepository.swift */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -1944,6 +1947,7 @@
 				CE169AF029B39F270063A57D /* BusinessInfoRequest.swift in Sources */,
 				CECAC38E29A6121B00FF8511 /* ChangeWorkCategoryViewModel.swift in Sources */,
 				CE217AE2299B5A03005C9CF2 /* SelectedData.swift in Sources */,
+				CE1B70FE29C10097003E1CDE /* BusinessAllRepository.swift in Sources */,
 				CECAC37B29A4D62C00FF8511 /* PopupCategoryView.swift in Sources */,
 				CE169AE429B325FD0063A57D /* LoginRepository.swift in Sources */,
 				CE6CA4D329BF017700DB297F /* BlueLable.swift in Sources */,
