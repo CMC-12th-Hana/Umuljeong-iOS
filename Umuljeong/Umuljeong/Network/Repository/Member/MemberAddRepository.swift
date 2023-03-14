@@ -51,6 +51,7 @@ class MemberAddRepository {
 //            case .success: //데이터 통신이 성공한 경우에
                 
             case .success(let res):
+                print("데이터 받아오는 즁")
                 print(String(data: res, encoding: .utf8) ?? "") // 바디 출력
                 
                 guard let statusCode = response.response?.statusCode else {return}

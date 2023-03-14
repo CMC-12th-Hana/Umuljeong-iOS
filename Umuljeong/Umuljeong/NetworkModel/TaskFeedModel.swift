@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct TaskFeedModel: Identifiable {
-    let id: String = UUID().uuidString
+struct TaskFeedModel {
+    let taskId: String
     let taskNmae:String
     let categoryModel:CategoryModel
 }

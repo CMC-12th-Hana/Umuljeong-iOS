@@ -95,6 +95,9 @@ class EditBusinessService: ObservableObject {
     
     
     func requestFixInfoBusiness(businessId: Int, businessName:String, revenue: Int, description: String, completion: @escaping ((Result<Bool, ResError>) -> Void)) {
+        let startDate = self.start
+        let finishDate = self.finish
+        
         fixRepository.requestBusinessFix(businessId: businessId, businessInfo: BusinessInfoRequest(name: businessName, businessPeriodDto: BusinessPeriodDto(start: self.start, finish: self.finish), memberIdList: self.memberIdList, revenue: revenue, description: description)) { result in
             switch result {
             case .success:

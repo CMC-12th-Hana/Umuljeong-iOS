@@ -34,6 +34,7 @@ class ApiManager {
     
     func allInfoTokenReset() {
         self.keychain.clear()
+        print("모든 로그인 정보 리셋하고 다시 시작")
     }
     
     func uniqueUserInfoSet(_ userInfo: UserInfoResponse) { //회사 생성 / 합류 / 로그인

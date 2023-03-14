@@ -15,7 +15,8 @@ struct MonthCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
     
     init(viewModel: viewModelType) {
         self.viewModel = viewModel
-//        calendar.select(viewModel.selectedDate)
+        
+//        selfvi .select(viewModel.selectedDate)
     }
     
     func makeUIView(context: Context) -> FSCalendar {
@@ -35,11 +36,17 @@ struct MonthCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
         calendar.calendarWeekdayView.weekdayLabels[5].textColor = UIColor(named: "font2")
         calendar.calendarWeekdayView.weekdayLabels[6].textColor = UIColor(named: "main")
         calendar.placeholderType = .none
+        calendar.select(viewModel.selecteDate) ///
+        calendar.setCurrentPage(viewModel.monthCalendarCurrentDate, animated: true)
+        
         return calendar
     }
     
     func updateUIView(_ uiView: FSCalendar, context: Context) {
+//        calendar.setCurrentPage(calendar.currentPage, animated: true)
         uiView.setCurrentPage(viewModel.monthCalendarCurrentDate, animated: true)
+//        uiView.setCurrentPage(viewModel.selecteDate, animated: true)
+//        uiView.select(viewModel.selecteDate)
     }
     
     func makeCoordinator() -> Coordinator {

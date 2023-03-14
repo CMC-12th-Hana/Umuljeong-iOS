@@ -10,6 +10,7 @@ import SwiftUI
 struct MemberTaskCategoryDropDown: View {
     let memberInfo: MemberSummaryModel
     let taskCount: Int
+    @State var taskList: [TaskDtoList] = []
     @State private var shouldShowDropdown = false
     
     var body: some View {
@@ -65,9 +66,16 @@ struct MemberTaskCategoryDropDown: View {
     
     var dropDown:some View {
         VStack(spacing: 0){
-            TaskWithCategoryCell(taskTitle: "디지툴리얼코리아 전용 회선", categoryName: "문의", categoryColor: .first)
-            TaskWithCategoryCell(taskTitle: "울랄라 일정 수행", categoryName: "A/S", categoryColor: .second)
-            TaskWithCategoryCell(taskTitle: "저도 절 잘 몰라용", categoryName: "문의", categoryColor: .seventh)
+            ForEach(taskList, id: \.taskId) { task in
+                NavigationLink {
+                    
+                } label: {
+                    TaskWithCategoryCell(taskTitle: task.title, categoryName: task.taskCategory, categoryColor: task.taskCategoryColor.checkColorCategory())
+                }
+            }
+            
+//            TaskWithCategoryCell(taskTitle: "울랄라 일정 수행", categoryName: "A/S", categoryColor: .second)
+//            TaskWithCategoryCell(taskTitle: "저도 절 잘 몰라용", categoryName: "문의", categoryColor: .seventh)
         }
         .padding(.bottom, 15)
 

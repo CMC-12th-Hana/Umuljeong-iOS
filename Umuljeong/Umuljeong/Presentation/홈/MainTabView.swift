@@ -12,7 +12,7 @@ struct MainTabView: View {
     @State var tabSelection: Tags = .tag1
     @State var showSetting:Bool = false
     @State var showMonthCalendar:Bool = false
-    @ObservedObject var viewModel = MainTaskViewModel()
+//    @StateObject var viewModel = MainTaskViewModel()
     
     var xOffset: CGFloat {
         showSetting ? 0 : -UIScreen.main.bounds.width
@@ -26,7 +26,7 @@ struct MainTabView: View {
         ZStack{
             NavigationView {
                 TabView(selection: $tabSelection) {
-                    MainHomeView(calendarViewModel: viewModel, showMonthCalendar: $showMonthCalendar)
+                    MainHomeView(showMonthCalendar: $showMonthCalendar)
                         .tabItem {
                             ImageBox(rectangleSize: 26, image: tabSelection == .tag1 ? Image("tab11") : Image("tab12"))
                             

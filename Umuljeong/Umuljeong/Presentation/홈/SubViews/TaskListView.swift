@@ -10,14 +10,11 @@ import SwiftUI
 struct TaskListView: View {
     let isLeader:Bool
     @State var toggleIsOn: Bool = false
-    @Binding var viewModel:MainTaskViewModel
-    
-    var teskList:[TeskModel] = [TeskModel(work: "디지털코리아 전용 회선", customer: "디지털 코리아", category: "문의"), TeskModel(work: "복실이 랜드", customer: "복실공주", category: "간식이 좋아")]
+    @EnvironmentObject var viewModel:MainTaskViewModel
     
     var body: some View {
         VStack(spacing: 20){
-            
-            if isLeader {
+            if isLeader == true {
                 HStack(spacing: 10) {
                     Spacer()
                     Toggle(
@@ -25,24 +22,27 @@ struct TaskListView: View {
                             Text("구성원 업무보기")
                                 .font(.body3)
                                 .foregroundColor(Color("font2"))
-                        } //: Toggle
+                        }
                         .toggleStyle(MyToggleStyle())
                 }
             }
             
-            
-        
-            
-            if teskList.isEmpty {
+            if viewModel.taskFeedList.isEmpty {
                 VStack{
-                    Text("표시할 목록이 없습니다").font(.custom("Pretendard Medium", size: 14))
+                    Text("표시할 목록이 없습니다")
+                        .font(.custom("Pretendard Medium", size: 14))
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-            } else {
+            }
+            else {
                 VStack(spacing: 0){
                     if toggleIsOn {
-                        MemberTaskCategoryDropDown(memberInfo: MemberSummaryModel(name: "박보노", isLeader: false), taskCount: 3)
+                        ForEach(viewModel.taskMemberFeedList, id:\.memberId) { task in
+                            MemberTaskCategoryDropDown(memberInfo: MemberSummaryModel(name: task.memberName, isLeader:false), taskCount: task.taskCount, taskList: task.taskDtoList)
+                        }
+                        
+                        
                     } else {
                         NavigationLink {
                             AddTaskView(selecteDate: viewModel.getDate())
@@ -50,11 +50,11 @@ struct TaskListView: View {
                             PlusButtonLabel(label: "업무 추가하기")
                         }
                         .padding(.bottom, 10)
-                        ForEach(teskList) { task in
+                        ForEach(viewModel.taskFeedList, id:\.taskId) { task in
                             NavigationLink {
                                 DetailTaskView()
                             } label: {
-                                TaskWithCategoryCell(taskTitle: task.work, categoryName: task.category, categoryColor: .second)
+                                TaskWithCategoryCell(taskTitle: task.title, categoryName: task.taskCategory, categoryColor: task.taskCategory.checkColorCategory())
                             }
                         } // : ForEach
                         .padding(.bottom, 10)
@@ -69,16 +69,14 @@ struct TaskListView: View {
         }
         .padding(.top, 20)
         .defaultAppStyleHorizentalPadding()
-//        .background(
-//        Color("bg3")
-//        )
     }
 }
 
 struct TeskListView_Previews: PreviewProvider {
     @State static var viewModel = MainTaskViewModel()
     static var previews: some View {
-        TaskListView(isLeader: true, viewModel: $viewModel)
+        TaskListView(isLeader: true)
+            .environmentObject(MainTaskViewModel())
     }
 }
 

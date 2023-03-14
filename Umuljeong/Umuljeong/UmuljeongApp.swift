@@ -45,7 +45,12 @@ struct UmuljeongApp: App {
 //            } else {
                 LoginView()
                 .onAppear{
-                    ApiManager.shared.allInfoTokenReset()
+                    
+//                    내정보핸드폰에등록하기.requestMyUniqueInfo { result in
+//                        print(result)
+//
+//                    }
+//                    ApiManager.shared.allInfoTokenReset()
                 }
 //            }
         }

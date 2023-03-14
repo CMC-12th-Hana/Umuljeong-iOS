@@ -10,8 +10,8 @@ import FSCalendar
 
 struct MainHomeView: View {
 //    @Binding var selectedTab: Tags //탭바 페이지 이동
-    @ObservedObject var viewModel = MainTaskViewModel()
-    @State var calendarViewModel: MainTaskViewModel
+//    @StateObject var viewModel = MainTaskViewModel()
+    @StateObject var viewModel = MainTaskViewModel()
     @Binding var showMonthCalendar: Bool
 
     var body: some View {
@@ -19,8 +19,8 @@ struct MainHomeView: View {
                 customNavigationBar
                 
                 ZStack(alignment: .top) {
-                    WeekCalendar(viewModel: calendarViewModel)
-                        .frame(height: calendarViewModel.weekCalendarHeight)
+                    WeekCalendar(viewModel: viewModel)
+                        .frame(height: viewModel.weekCalendarHeight)
                         .padding(.top, 20)
                         .padding(.bottom, 20)
                         .padding(.horizontal, 30)
@@ -28,12 +28,17 @@ struct MainHomeView: View {
                 
                 
                 ScrollView {
-                    TaskListView(isLeader: true, viewModel: $calendarViewModel)
+                    TaskListView(isLeader: true)
+                        .environmentObject(viewModel)
                 }
                 .background(Color("bg3"))
             }
             .sheet(isPresented: $showMonthCalendar) {
                 showCalendarPopup
+            }
+            .onAppear{
+                viewModel.requestAllTask()
+                viewModel.requestAllMemberTask()
             }
             .toolbarBackground(Color.white, for: .navigationBar)
     }
@@ -48,22 +53,22 @@ extension MainHomeView {
                 .frame(height: 20)
             HStack(spacing: 15) {
                 Button {
-                    calendarViewModel
+                    viewModel
                     .tappedButtonPage(isPrev: true)
                 } label: {
                     ImageBox(rectangleSize: 16, image: Image("leftButton"))
                 }
                 
-                Text(calendarViewModel.monthCalendarYearMonth)
+                Text(viewModel.monthCalendarYearMonth)
                     .font(.customTitle2)
                 
                 Button {
-                    calendarViewModel.tappedButtonPage(isPrev: false)
+                    viewModel.tappedButtonPage(isPrev: false)
                 } label: {
                     ImageBox(rectangleSize: 16, image: Image("rightArrow"))
                 }
             }
-            MonthCalendar(viewModel: calendarViewModel)
+            MonthCalendar(viewModel: viewModel)
             .frame(height: 294)
             .padding(.horizontal, 40)
         }
@@ -75,7 +80,7 @@ extension MainHomeView {
     var customNavigationBar: some View {
         HStack(spacing: 15) {
             HStack {
-                Text(viewModel.monthCalendarYearMonth)
+                Text(viewModel.weekCalendarYearMonth)
                     .font(.customTitle2)
                 Button(action: {
                     showMonthCalendar.toggle()
@@ -112,7 +117,7 @@ struct MainHomeView_Previews: PreviewProvider {
     @StateObject static var calendarViewModel = MainTaskViewModel()
     
     static var previews: some View {
-        MainHomeView(calendarViewModel: calendarViewModel, showMonthCalendar: $showMonthCalendar)
+        MainHomeView(showMonthCalendar: $showMonthCalendar)
     }
 }
 

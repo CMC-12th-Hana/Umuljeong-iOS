@@ -8,6 +8,6 @@
 import Foundation
 
 struct CalendarModel {
-    var eventDate: Date?
+    var eventDate: Date
     var focusedDate: Date = Date()
 }

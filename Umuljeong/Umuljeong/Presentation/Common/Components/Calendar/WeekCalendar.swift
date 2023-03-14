@@ -29,6 +29,7 @@ struct WeekCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
         calendar.appearance.titleFont = UIFont.body1
 //        calendar.calendarWeekdayView.isHidden = true
 //        calendar.calendarWeekdayView.removeFromSuperview()
+        calendar.select(viewModel.selecteDate)
         calendar.placeholderType = .none
         
         calendar.layer.frame = CGRect(x: 10, y: 10, width: 10, height: 10)
@@ -42,6 +43,7 @@ struct WeekCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
     
     func makeCoordinator() -> Coordinator {
         Coordinator(viewModel: viewModel)
+    
     }
     
     class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
@@ -54,6 +56,7 @@ struct WeekCalendar<viewModelType: CalendarVM>: UIViewRepresentable {
         
         func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
             viewModel.selectDate(date)
+            
         }
         
         func calendar(_ calendar: FSCalendar,

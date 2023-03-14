@@ -42,6 +42,6 @@ struct NetworkAlert: View {
 struct NetworkAlert_Previews: PreviewProvider {
     @State static var showPopup = false
     static var previews: some View {
-        NetworkAlert(showPopup: $showPopup, ErrorMessage: "ErrorMessage")
+        NetworkAlert(showPopup: $showPopup, ErrorMessage: "Error Message")
     }
 }

@@ -32,6 +32,7 @@ class ClientDetailRepository {
             response in //데이터 통신의 결과가 response에 담기게 된다
             switch response.result {
             case .success(let res): //데이터 통신이 성공한 경우에
+                print(res)
                 
                 guard let statusCode = response.response?.statusCode else {return}
                 guard let value = response.value else {return}
@@ -40,9 +41,7 @@ class ClientDetailRepository {
                     print("토큰만료임!!!")
                     ApiManager.shared.refreshToken { isSuccess in
                         if isSuccess {
-                            print("토큰 새로 받아오기 성공 ><")
                         } else {
-                            print("토큰 새로 받아오기 실패ㅠㅠ")
                             completion(.failure(.token))
                         }
                     }

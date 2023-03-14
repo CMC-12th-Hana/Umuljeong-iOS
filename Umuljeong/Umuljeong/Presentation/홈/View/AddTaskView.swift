@@ -13,17 +13,6 @@ struct AddTaskView: View {
     @State var selected: [UIImage] = []
     
     let selecteDate:Date
-
-    let options: [DropdownOption] = [
-        DropdownOption(key: UUID().uuidString, value: "단순문의"),
-        DropdownOption(key: UUID().uuidString, value: "고객민원"),
-        DropdownOption(key: UUID().uuidString, value: "A/S"),
-        DropdownOption(key: UUID().uuidString, value: "기술컨설팅"),
-        DropdownOption(key: UUID().uuidString, value: "사전점검"),
-        DropdownOption(key: UUID().uuidString, value: "사전점검"),
-        DropdownOption(key: UUID().uuidString, value: "사전점검"),
-        DropdownOption(key: UUID().uuidString, value: "사전점검")
-    ]
     
     var body: some View {
         ScrollView{
@@ -35,8 +24,11 @@ struct AddTaskView: View {
                         .zIndex(3)
                     searchBusiness
                         .zIndex(2)
+                    taskTitleFieldView
+                    
                     selecteTask
                         .zIndex(1)
+                    
                 }
                 
                 VStack(spacing: 0){
@@ -58,18 +50,61 @@ struct AddTaskView: View {
         }
         .defaultAppStyleHorizentalPadding()
         .navigationDesignDefault(title: "업무 추가하기")
+        .onAppear{
+            viewModel.requestClientList()
+            viewModel.requestCategoryList()
+            viewModel.setDate(date: selecteDate)
+        }
     }
     
     var searchCustomer: some View {
-        DropdownBar(placeholder: "고객사명", options: options)
+        (DropdownBar(paddingL: 16, placeholder: "고객사명", options: viewModel.clientOptions, onOptionSelected: { option in
+            print("선택된 고객사 옵션이 뭔지 \(option))")
+            viewModel.requestBusinessList(clientId: option.key)
+            viewModel.setClient(Id: option.key)
+        }))
+            
     }
     
     var searchBusiness: some View {
-        DropdownBar(placeholder: "사업명", options: options)
+        (DropdownBar(paddingL: 30, placeholder: "사업명", options: viewModel.businessOptions, onOptionSelected: { option in
+            print("선택된 사업 옵션이 뭔지 \(option))")
+            viewModel.setBusiness(Id: option.key)
+        }))
     }
     
     var selecteTask: some View {
-        DropdownBar(placeholder: "업무분류", options: options)
+        (DropdownBar(paddingL: 16, placeholder: "업무분류", options: viewModel.categoryOptions, onOptionSelected: { option in
+            print("선택된 카테고리 옵션이 뭔지 \(option))")
+            viewModel.setCategory(Id: option.key)
+            print("확인용 \(viewModel.idList)")
+        }))
+    }
+    
+    var taskTitleFieldView: some View {
+            HStack {
+                Text("제목")
+                    .font(.body2)
+                    .foregroundColor(Color("font1"))
+                
+                TextField("", text: $viewModel.titleText)
+                    .font(.body2)
+                    .padding(.leading, 44)
+                    .foregroundColor(Color("font1"))
+                    .frame(maxWidth: .infinity)
+                
+            }
+        .padding(.horizontal, 15)
+        .cornerRadius(6)
+        .frame(height: 46)
+        .overlay(
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(Color("line2"), lineWidth: 1)
+        )
+        .background(
+            RoundedRectangle(cornerRadius: 5)
+                .fill(Color.white)
+        )
     }
 
 
@@ -81,7 +116,7 @@ struct AddTaskView: View {
                 .fill(Color("bg1"))
                 .frame(height: 260)
             
-            MultilineTextField(text: $inputReportText, placeholder: "업무내용을 작성해주세요")
+            MultilineTextField(text: $viewModel.descriptionText, placeholder: "업무내용을 작성해주세요")
                 .autocorrectionDisabled(true)
                 .font(.body2)
                 .padding(.horizontal, 13)
@@ -148,7 +183,14 @@ struct AddTaskView: View {
     
     var saveTaskButton:some View {
         Button {
-            
+            viewModel.requestAddTask { result in
+                switch result {
+                case true:
+                    print("업무 추가 성공")
+                case false:
+                    print("업무 추가 실패")
+                }
+            }
         } label: {
             BasicButtonLabel(text: "완료")
         }
